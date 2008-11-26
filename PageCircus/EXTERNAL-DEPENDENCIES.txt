@@ -1,0 +1,5 @@
+Before you can build PageCircus, place the following libraries under 
+the directory ExternalLibraries/ :
+
+* PDF.jar: From iText
+* ObjectiveFlickr.framework: From ObjectiveFlickr

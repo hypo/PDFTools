@@ -1,0 +1,3045 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 42;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		6A1233430B24DC0B007AA74D /* PageCircus */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 6A12335D0B24DC55007AA74D /* Build configuration list for PBXAggregateTarget "PageCircus" */;
+			buildPhases = (
+			);
+			dependencies = (
+				6A1233450B24DC0E007AA74D /* PBXTargetDependency */,
+				6A1233470B24DC12007AA74D /* PBXTargetDependency */,
+				6A1233490B24DC14007AA74D /* PBXTargetDependency */,
+				6A12334B0B24DC17007AA74D /* PBXTargetDependency */,
+				6A1233500B24DC24007AA74D /* PBXTargetDependency */,
+				6A1233520B24DC27007AA74D /* PBXTargetDependency */,
+				6A0A36CC0B24EBB700E3888F /* PBXTargetDependency */,
+				6A1233560B24DC2F007AA74D /* PBXTargetDependency */,
+				6A12335A0B24DC36007AA74D /* PBXTargetDependency */,
+				6A0084980B9110FA00ED7235 /* PBXTargetDependency */,
+				6A00849A0B9110FA00ED7235 /* PBXTargetDependency */,
+			);
+			name = PageCircus;
+			productName = PageCircus;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		6A0084BE0B91112300ED7235 /* NSExtensions.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6A0C07E30B1F417300F0A66E /* NSExtensions.framework */; };
+		6A0084BF0B91112300ED7235 /* PageElements.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6A0C0BFB0B1F64FE00F0A66E /* PageElements.framework */; };
+		6A0084C00B91112300ED7235 /* DrawingTools.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6A0C0D9D0B1F683C00F0A66E /* DrawingTools.framework */; };
+		6A0084C10B91112300ED7235 /* BookMaker.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6A080F370B24DA4A0078A159 /* BookMaker.framework */; };
+		6A0085710B91114200ED7235 /* NSExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A0C07E30B1F417300F0A66E /* NSExtensions.framework */; };
+		6A0085720B91114200ED7235 /* PageElements.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A0C0BFB0B1F64FE00F0A66E /* PageElements.framework */; };
+		6A0085730B91114200ED7235 /* DrawingTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A0C0D9D0B1F683C00F0A66E /* DrawingTools.framework */; };
+		6A0085740B91114200ED7235 /* BookMaker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A080F370B24DA4A0078A159 /* BookMaker.framework */; };
+		6A0085750B91114200ED7235 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A0C09FE0B1F548E00F0A66E /* AppKit.framework */; };
+		6A0085760B91114200ED7235 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A0C09FF0B1F548E00F0A66E /* Cocoa.framework */; };
+		6A0085770B91114900ED7235 /* NSDictionary+BSJSONAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A0B48FC0B214BC000BFC667 /* NSDictionary+BSJSONAdditions.m */; };
+		6A0085780B91114900ED7235 /* NSScanner+BSJSONAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A0B48FE0B214BC000BFC667 /* NSScanner+BSJSONAdditions.m */; };
+		6A0085790B91114F00ED7235 /* PagePreviewer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AB038570B36E0670050A519 /* PagePreviewer.m */; };
+		6A00857B0B91115C00ED7235 /* PagePreviewerMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A00857A0B91115C00ED7235 /* PagePreviewerMain.m */; };
+		6A0085960B9111B100ED7235 /* PageFixer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A0085950B9111B100ED7235 /* PageFixer.m */; };
+		6A03517F0B22C3550029C96E /* BookMakerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A03517E0B22C3550029C96E /* BookMakerTests.m */; };
+		6A0351890B22C3D10029C96E /* BMHypoPhotoBook12cmx12cm.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A0351880B22C3D10029C96E /* BMHypoPhotoBook12cmx12cm.m */; };
+		6A0351B00B22C4FD0029C96E /* NSExtensions.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6A0C07E30B1F417300F0A66E /* NSExtensions.framework */; };
+		6A0351B10B22C5010029C96E /* NSExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A0C07E30B1F417300F0A66E /* NSExtensions.framework */; };
+		6A0352560B22C50D0029C96E /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A0C09FE0B1F548E00F0A66E /* AppKit.framework */; };
+		6A0352570B22C50D0029C96E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A0C09FF0B1F548E00F0A66E /* Cocoa.framework */; };
+		6A0352A40B22D58D0029C96E /* PageElements.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A0C0BFB0B1F64FE00F0A66E /* PageElements.framework */; };
+		6A0352A90B22D5910029C96E /* DrawingTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A0C0D9D0B1F683C00F0A66E /* DrawingTools.framework */; };
+		6A0352AA0B22D5970029C96E /* DrawingTools.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6A0C0D9D0B1F683C00F0A66E /* DrawingTools.framework */; };
+		6A0352AB0B22D59A0029C96E /* PageElements.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6A0C0BFB0B1F64FE00F0A66E /* PageElements.framework */; };
+		6A0352FD0B22D9ED0029C96E /* NSDictionary+BSJSONAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A0B48FC0B214BC000BFC667 /* NSDictionary+BSJSONAdditions.m */; };
+		6A0352FE0B22D9ED0029C96E /* NSScanner+BSJSONAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A0B48FE0B214BC000BFC667 /* NSScanner+BSJSONAdditions.m */; };
+		6A03530B0B22DA700029C96E /* BookMakerTests-TestCase01.js in Resources */ = {isa = PBXBuildFile; fileRef = 6A0353090B22DA610029C96E /* BookMakerTests-TestCase01.js */; };
+		6A07789F0D84558100306420 /* NSExtensions.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6A0C07E30B1F417300F0A66E /* NSExtensions.framework */; };
+		6A0778A00D84558100306420 /* PageElements.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6A0C0BFB0B1F64FE00F0A66E /* PageElements.framework */; };
+		6A0778A10D84558100306420 /* DrawingTools.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6A0C0D9D0B1F683C00F0A66E /* DrawingTools.framework */; };
+		6A0778BD0D84559B00306420 /* NSExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A0C07E30B1F417300F0A66E /* NSExtensions.framework */; };
+		6A0778BE0D84559B00306420 /* PageElements.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A0C0BFB0B1F64FE00F0A66E /* PageElements.framework */; settings = {ATTRIBUTES = (strong, ); }; };
+		6A0778BF0D84559B00306420 /* DrawingTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A0C0D9D0B1F683C00F0A66E /* DrawingTools.framework */; };
+		6A0778C50D8455BD00306420 /* OverprinterMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A0778C40D8455BD00306420 /* OverprinterMain.m */; };
+		6A077A0C0D8469DB00306420 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A0C09FE0B1F548E00F0A66E /* AppKit.framework */; };
+		6A077A0D0D8469DB00306420 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A0C09FF0B1F548E00F0A66E /* Cocoa.framework */; };
+		6A080D050B24C2750078A159 /* PERectangle.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A080D040B24C2750078A159 /* PERectangle.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6A080D0B0B24C3240078A159 /* PERectangle.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A080D0A0B24C3240078A159 /* PERectangle.m */; };
+		6A080F120B24DA100078A159 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A0C09FE0B1F548E00F0A66E /* AppKit.framework */; };
+		6A080F130B24DA100078A159 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A0C09FF0B1F548E00F0A66E /* Cocoa.framework */; };
+		6A080F260B24DA1A0078A159 /* NSExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A0C07E30B1F417300F0A66E /* NSExtensions.framework */; };
+		6A080F270B24DA1A0078A159 /* PageElements.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A0C0BFB0B1F64FE00F0A66E /* PageElements.framework */; };
+		6A080F280B24DA1A0078A159 /* DrawingTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A0C0D9D0B1F683C00F0A66E /* DrawingTools.framework */; };
+		6A080F2F0B24DA320078A159 /* NSExtensions.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6A0C07E30B1F417300F0A66E /* NSExtensions.framework */; };
+		6A080F300B24DA320078A159 /* PageElements.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6A0C0BFB0B1F64FE00F0A66E /* PageElements.framework */; };
+		6A080F310B24DA320078A159 /* DrawingTools.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6A0C0D9D0B1F683C00F0A66E /* DrawingTools.framework */; };
+		6A080F4B0B24DAA90078A159 /* NSExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A0C07E30B1F417300F0A66E /* NSExtensions.framework */; };
+		6A080F4C0B24DAA90078A159 /* PageElements.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A0C0BFB0B1F64FE00F0A66E /* PageElements.framework */; };
+		6A080F4D0B24DAA90078A159 /* DrawingTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A0C0D9D0B1F683C00F0A66E /* DrawingTools.framework */; };
+		6A080F500B24DAB30078A159 /* BMHypoPhotoBook12cmx12cm.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A3B66CF0B2252580010794E /* BMHypoPhotoBook12cmx12cm.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6A080F510B24DAB30078A159 /* BMHypoPhotoBook12cmx12cm.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A0351880B22C3D10029C96E /* BMHypoPhotoBook12cmx12cm.m */; };
+		6A080F530B24DAD30078A159 /* BookMaker.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A0351830B22C38D0029C96E /* BookMaker.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6A0A35A70B24EA4600E3888F /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A0A35A60B24EA4600E3888F /* SenTestingKit.framework */; };
+		6A0A35A80B24EA4600E3888F /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A0A35A60B24EA4600E3888F /* SenTestingKit.framework */; };
+		6A0A36080B24EB8900E3888F /* NSExtensions.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6A0C07E30B1F417300F0A66E /* NSExtensions.framework */; };
+		6A0A36090B24EB9600E3888F /* NSExtensionsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AA627EA0B1EFBBA00204170 /* NSExtensionsTests.m */; };
+		6A0A36C00B24EB9D00E3888F /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A0A35A60B24EA4600E3888F /* SenTestingKit.framework */; };
+		6A0A36C10B24EB9D00E3888F /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A0C09FE0B1F548E00F0A66E /* AppKit.framework */; };
+		6A0A36C20B24EB9D00E3888F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A0C09FF0B1F548E00F0A66E /* Cocoa.framework */; };
+		6A0A36C30B24EBA000E3888F /* NSExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A0C07E30B1F417300F0A66E /* NSExtensions.framework */; };
+		6A0B491C0B214C6D00BFC667 /* PhotoBookHelperMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A0B491B0B214C6D00BFC667 /* PhotoBookHelperMain.m */; };
+		6A0B49230B214C9200BFC667 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6A0B49220B214C9200BFC667 /* InfoPlist.strings */; };
+		6A0C05F40B1F277500F0A66E /* PageElementsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A0C05D70B1F263E00F0A66E /* PageElementsTests.m */; };
+		6A0C07E80B1F41AD00F0A66E /* NSExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 6AA628630B1F00FD00204170 /* NSExtensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6A0C07E90B1F41AD00F0A66E /* NSArrayExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = 6AA6287A0B1F014F00204170 /* NSArrayExtension.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6A0C07EA0B1F41AD00F0A66E /* NSDictionaryExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = 6AA627E10B1EFB8000204170 /* NSDictionaryExtension.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6A0C07EB0B1F41BF00F0A66E /* NSArrayExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AA6287B0B1F015600204170 /* NSArrayExtension.m */; };
+		6A0C07EC0B1F41BF00F0A66E /* NSDictionaryExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AA627E20B1EFB8000204170 /* NSDictionaryExtension.m */; };
+		6A0C07EF0B1F41DA00F0A66E /* NSExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A0C07E30B1F417300F0A66E /* NSExtensions.framework */; };
+		6A0C0A000B1F548E00F0A66E /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A0C09FE0B1F548E00F0A66E /* AppKit.framework */; };
+		6A0C0A010B1F548E00F0A66E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A0C09FF0B1F548E00F0A66E /* Cocoa.framework */; };
+		6A0C0A040B1F548E00F0A66E /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A0C09FE0B1F548E00F0A66E /* AppKit.framework */; };
+		6A0C0A050B1F548E00F0A66E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A0C09FF0B1F548E00F0A66E /* Cocoa.framework */; };
+		6A0C0BFD0B1F651100F0A66E /* PageElements.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A0C05AA0B1F1F0500F0A66E /* PageElements.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6A0C0BFE0B1F651100F0A66E /* PEObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A0C05B20B1F1F7B00F0A66E /* PEObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6A0C0BFF0B1F651100F0A66E /* PEFont.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A0C05BD0B1F1FD200F0A66E /* PEFont.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6A0C0C000B1F651100F0A66E /* PENSDictionaryRectExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A0C08590B1F446700F0A66E /* PENSDictionaryRectExtension.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6A0C0C010B1F651100F0A66E /* PEDrawableElement.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A0C08C60B1F47A400F0A66E /* PEDrawableElement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6A0C0C020B1F651100F0A66E /* PETextBlock.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A0C09350B1F4C4600F0A66E /* PETextBlock.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6A0C0CB10B1F653100F0A66E /* PEObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A0C05B50B1F1F9200F0A66E /* PEObject.m */; };
+		6A0C0CB20B1F653100F0A66E /* PEFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A0C06AF0B1F379100F0A66E /* PEFont.m */; };
+		6A0C0CB30B1F653100F0A66E /* PENSDictionaryRectExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A0C08600B1F44D600F0A66E /* PENSDictionaryRectExtension.m */; };
+		6A0C0CB40B1F653100F0A66E /* PEDrawableElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A0C08EF0B1F493000F0A66E /* PEDrawableElement.m */; };
+		6A0C0CBA0B1F654900F0A66E /* NSExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A0C07E30B1F417300F0A66E /* NSExtensions.framework */; };
+		6A0C0CC70B1F656300F0A66E /* PageElements.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A0C0BFB0B1F64FE00F0A66E /* PageElements.framework */; };
+		6A0C0CCA0B1F657100F0A66E /* NSExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A0C07E30B1F417300F0A66E /* NSExtensions.framework */; };
+		6A0C0CCB0B1F657600F0A66E /* PageElements.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6A0C0BFB0B1F64FE00F0A66E /* PageElements.framework */; };
+		6A0C0D040B1F660500F0A66E /* MainMenu.nib in Resources */ = {isa = PBXBuildFile; fileRef = 6A0C0D030B1F660500F0A66E /* MainMenu.nib */; };
+		6A0C0D180B1F663A00F0A66E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6A0C0D170B1F663A00F0A66E /* InfoPlist.strings */; };
+		6A0C0D1F0B1F667100F0A66E /* DrawingTestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A0C0D1D0B1F667100F0A66E /* DrawingTestController.m */; };
+		6A0C0D560B1F674400F0A66E /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A0C09FE0B1F548E00F0A66E /* AppKit.framework */; };
+		6A0C0D570B1F674400F0A66E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A0C09FF0B1F548E00F0A66E /* Cocoa.framework */; };
+		6A0C0D580B1F675700F0A66E /* NSExtensions.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6A0C07E30B1F417300F0A66E /* NSExtensions.framework */; };
+		6A0C0D5B0B1F676B00F0A66E /* DrawingTestsMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A0C0B880B1F622B00F0A66E /* DrawingTestsMain.m */; };
+		6A0C0DA60B1F685600F0A66E /* DTDrawingView.h in Headers */ = {isa = PBXBuildFile; fileRef = 6AA628F90B1F047A00204170 /* DTDrawingView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6A0C0DA70B1F685600F0A66E /* DTUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 6AA629040B1F047A00204170 /* DTUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6A0C0DA80B1F685600F0A66E /* DrawingTools.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A0C0B8A0B1F625800F0A66E /* DrawingTools.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6A0C0DAA0B1F686000F0A66E /* DTDrawingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AA628FA0B1F047A00204170 /* DTDrawingView.m */; };
+		6A0C0DAB0B1F686000F0A66E /* DTUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AA629050B1F047A00204170 /* DTUtilities.m */; };
+		6A0C0DB00B1F687100F0A66E /* DrawingTools.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6A0C0D9D0B1F683C00F0A66E /* DrawingTools.framework */; };
+		6A0C0DDA0B1F68CD00F0A66E /* DrawingTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A0C0D9D0B1F683C00F0A66E /* DrawingTools.framework */; };
+		6A1233610B24DC66007AA74D /* BMOutputTestMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A1233600B24DC66007AA74D /* BMOutputTestMain.m */; };
+		6A1233690B24DD91007AA74D /* OutputTestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A1233670B24DD91007AA74D /* OutputTestController.m */; };
+		6A12337C0B24DE2F007AA74D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6A12337B0B24DE2F007AA74D /* InfoPlist.strings */; };
+		6A12337E0B24DE43007AA74D /* MainMenu.nib in Resources */ = {isa = PBXBuildFile; fileRef = 6A12337D0B24DE43007AA74D /* MainMenu.nib */; };
+		6A1233850B24DFC5007AA74D /* OutputTestController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6A1233840B24DFC5007AA74D /* OutputTestController.h */; };
+		6A1233920B24E026007AA74D /* BookMakerTests-TestCase01.js in Resources */ = {isa = PBXBuildFile; fileRef = 6A0353090B22DA610029C96E /* BookMakerTests-TestCase01.js */; };
+		6A1233B00B24E1A9007AA74D /* NSDictionary+BSJSONAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A0B48FC0B214BC000BFC667 /* NSDictionary+BSJSONAdditions.m */; };
+		6A1233B10B24E1A9007AA74D /* NSScanner+BSJSONAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A0B48FE0B214BC000BFC667 /* NSScanner+BSJSONAdditions.m */; };
+		6A1233B80B24E1EA007AA74D /* BookMaker.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6A080F370B24DA4A0078A159 /* BookMaker.framework */; };
+		6A1233B90B24E1F0007AA74D /* BookMaker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A080F370B24DA4A0078A159 /* BookMaker.framework */; };
+		6A1B1B280B36F717001EAB43 /* NSExtensions.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6A0C07E30B1F417300F0A66E /* NSExtensions.framework */; };
+		6A1B1B290B36F717001EAB43 /* PageElements.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6A0C0BFB0B1F64FE00F0A66E /* PageElements.framework */; };
+		6A1B1B2A0B36F717001EAB43 /* DrawingTools.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6A0C0D9D0B1F683C00F0A66E /* DrawingTools.framework */; };
+		6A1B1B2B0B36F717001EAB43 /* BookMaker.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6A080F370B24DA4A0078A159 /* BookMaker.framework */; };
+		6A1B1B2F0B36F723001EAB43 /* NSExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A0C07E30B1F417300F0A66E /* NSExtensions.framework */; };
+		6A1B1B300B36F723001EAB43 /* PageElements.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A0C0BFB0B1F64FE00F0A66E /* PageElements.framework */; };
+		6A1B1B310B36F723001EAB43 /* DrawingTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A0C0D9D0B1F683C00F0A66E /* DrawingTools.framework */; };
+		6A1B1B320B36F723001EAB43 /* BookMaker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A080F370B24DA4A0078A159 /* BookMaker.framework */; };
+		6A1B1B4B0B36FA95001EAB43 /* NSDictionary+BSJSONAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A0B48FC0B214BC000BFC667 /* NSDictionary+BSJSONAdditions.m */; };
+		6A1B1B4C0B36FA95001EAB43 /* NSScanner+BSJSONAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A0B48FE0B214BC000BFC667 /* NSScanner+BSJSONAdditions.m */; };
+		6A1BB01F0B659406002A260D /* PETransform.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A1BB01E0B659406002A260D /* PETransform.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6A1BB0320B6594B4002A260D /* PETransform.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A1BB0310B6594B4002A260D /* PETransform.m */; };
+		6A3D392E0B2788B300DB2BE7 /* EXTERNAL-DEPENDENCIES.txt in Resources */ = {isa = PBXBuildFile; fileRef = 6A3D392D0B2788B300DB2BE7 /* EXTERNAL-DEPENDENCIES.txt */; };
+		6A3D394C0B2789DE00DB2BE7 /* NSRunLoopStudy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A3D394B0B2789DE00DB2BE7 /* NSRunLoopStudy.m */; };
+		6A3D39F20B278A0E00DB2BE7 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A0C09FE0B1F548E00F0A66E /* AppKit.framework */; };
+		6A3D39F30B278A0E00DB2BE7 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A0C09FF0B1F548E00F0A66E /* Cocoa.framework */; };
+		6A3D3B160B27A01E00DB2BE7 /* NKDBarcode.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A3D3B0E0B27A01E00DB2BE7 /* NKDBarcode.h */; };
+		6A3D3B170B27A01E00DB2BE7 /* NKDBarcode.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A3D3B0F0B27A01E00DB2BE7 /* NKDBarcode.m */; };
+		6A3D3B180B27A01E00DB2BE7 /* NKDBarcodeOffscreenView.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A3D3B100B27A01E00DB2BE7 /* NKDBarcodeOffscreenView.h */; };
+		6A3D3B190B27A01E00DB2BE7 /* NKDBarcodeOffscreenView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A3D3B110B27A01E00DB2BE7 /* NKDBarcodeOffscreenView.m */; };
+		6A3D3B1A0B27A01E00DB2BE7 /* NKDCode39Barcode.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A3D3B120B27A01E00DB2BE7 /* NKDCode39Barcode.h */; };
+		6A3D3B1B0B27A01E00DB2BE7 /* NKDCode39Barcode.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A3D3B130B27A01E00DB2BE7 /* NKDCode39Barcode.m */; };
+		6A3D3B1F0B27A05300DB2BE7 /* PEBarcodeCode39.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A3D3B1E0B27A05300DB2BE7 /* PEBarcodeCode39.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6A3D3B210B27A05900DB2BE7 /* PEBarcodeCode39.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A3D3B200B27A05900DB2BE7 /* PEBarcodeCode39.m */; };
+		6A879D430B1FF73600C45ED7 /* PageElements.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6A0C0BFB0B1F64FE00F0A66E /* PageElements.framework */; };
+		6A879D450B1FF74300C45ED7 /* NSExtensions.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6A0C07E30B1F417300F0A66E /* NSExtensions.framework */; };
+		6A9A137F0B24822600242046 /* PENSColorExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A9A137E0B24822600242046 /* PENSColorExtension.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6A9A13830B24823A00242046 /* PENSColorExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A9A13820B24823A00242046 /* PENSColorExtension.m */; };
+		6AABF0070B1FE57600A3688B /* PageElements.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A0C0BFB0B1F64FE00F0A66E /* PageElements.framework */; };
+		6AABF02C0B1FEACB00A3688B /* PEImageBox.h in Headers */ = {isa = PBXBuildFile; fileRef = 6AABF02B0B1FEACB00A3688B /* PEImageBox.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6AABF0950B1FEC5A00A3688B /* PEImageBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AABF0940B1FEC5A00A3688B /* PEImageBox.m */; };
+		6AB038550B36E0480050A519 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A0C09FE0B1F548E00F0A66E /* AppKit.framework */; };
+		6AB038560B36E0480050A519 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A0C09FF0B1F548E00F0A66E /* Cocoa.framework */; };
+		6AB038580B36E0670050A519 /* PagePreviewer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AB038570B36E0670050A519 /* PagePreviewer.m */; };
+		6AC8F7260C8DA74400592DF7 /* extract-exif-rotation.pl in Resources */ = {isa = PBXBuildFile; fileRef = 6AC8F7250C8DA74400592DF7 /* extract-exif-rotation.pl */; };
+		6ADAB4940B5EA90C004BE8FD /* PEVerticalTextBlock.h in Headers */ = {isa = PBXBuildFile; fileRef = 6ADAB4930B5EA90C004BE8FD /* PEVerticalTextBlock.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6ADAB4A50B5EACCF004BE8FD /* PETextBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ADAB4A40B5EACCF004BE8FD /* PETextBlock.m */; };
+		6ADAB4E50B5EB071004BE8FD /* PEVerticalTextBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ADAB4E40B5EB071004BE8FD /* PEVerticalTextBlock.m */; };
+		854D42200ED84AA800AF08B1 /* ocrb10n.ttf in CopyFiles */ = {isa = PBXBuildFile; fileRef = 854D421F0ED84AA800AF08B1 /* ocrb10n.ttf */; };
+		854D42820ED8575100AF08B1 /* ocrb10n.ttf in CopyFiles */ = {isa = PBXBuildFile; fileRef = 854D421F0ED84AA800AF08B1 /* ocrb10n.ttf */; };
+		85D0EB390ED90C140066E288 /* LFHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 85D0EB380ED90C140066E288 /* LFHTTPRequest.m */; };
+		85D0EB3A0ED90C140066E288 /* LFHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 85D0EB380ED90C140066E288 /* LFHTTPRequest.m */; };
+		85D0EB3B0ED90C140066E288 /* LFHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 85D0EB380ED90C140066E288 /* LFHTTPRequest.m */; };
+		85D0EB3C0ED90C140066E288 /* LFHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 85D0EB380ED90C140066E288 /* LFHTTPRequest.m */; };
+		85D0EB4B0ED90DE90066E288 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85D0EB4A0ED90DE90066E288 /* SystemConfiguration.framework */; };
+		85D0EB4C0ED90DE90066E288 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85D0EB4A0ED90DE90066E288 /* SystemConfiguration.framework */; };
+		85D0EB4D0ED90DE90066E288 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85D0EB4A0ED90DE90066E288 /* SystemConfiguration.framework */; };
+		85D0EB4E0ED90DE90066E288 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85D0EB4A0ED90DE90066E288 /* SystemConfiguration.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6A0084970B9110FA00ED7235 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6AA627C60B1EFA6800204170 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6AB0378B0B36E0200050A519;
+			remoteInfo = PagePreviewer;
+		};
+		6A0084990B9110FA00ED7235 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6AA627C60B1EFA6800204170 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6A00848E0B9110EE00ED7235;
+			remoteInfo = PageFixer;
+		};
+		6A0084C40B91113500ED7235 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6AA627C60B1EFA6800204170 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6A080F360B24DA4A0078A159;
+			remoteInfo = BookMaker;
+		};
+		6A0084C60B91113500ED7235 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6AA627C60B1EFA6800204170 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6A0C0D9C0B1F683C00F0A66E;
+			remoteInfo = DrawingTools;
+		};
+		6A0084C80B91113500ED7235 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6AA627C60B1EFA6800204170 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6A0C07E20B1F417300F0A66E;
+			remoteInfo = NSExtensions;
+		};
+		6A0084CA0B91113500ED7235 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6AA627C60B1EFA6800204170 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6A0C0BFA0B1F64FE00F0A66E;
+			remoteInfo = PageElements;
+		};
+		6A07787D0D84556800306420 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6AA627C60B1EFA6800204170 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6A0C0BFA0B1F64FE00F0A66E;
+			remoteInfo = PageElements;
+		};
+		6A07787F0D84556800306420 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6AA627C60B1EFA6800204170 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6A0C07E20B1F417300F0A66E;
+			remoteInfo = NSExtensions;
+		};
+		6A0778810D84556800306420 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6AA627C60B1EFA6800204170 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6A0C0D9C0B1F683C00F0A66E;
+			remoteInfo = DrawingTools;
+		};
+		6A080F770B24DB0D0078A159 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6AA627C60B1EFA6800204170 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6A0C0D9C0B1F683C00F0A66E;
+			remoteInfo = DrawingTools;
+		};
+		6A080F790B24DB0F0078A159 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6AA627C60B1EFA6800204170 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6A0C07E20B1F417300F0A66E;
+			remoteInfo = NSExtensions;
+		};
+		6A080F7B0B24DB130078A159 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6AA627C60B1EFA6800204170 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6A0C0BFA0B1F64FE00F0A66E;
+			remoteInfo = PageElements;
+		};
+		6A0A36CB0B24EBB700E3888F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6AA627C60B1EFA6800204170 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6A0A35F20B24EB5400E3888F;
+			remoteInfo = NSExtensionsTests;
+		};
+		6A0C08100B1F424400F0A66E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6AA627C60B1EFA6800204170 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6A0C07E20B1F417300F0A66E;
+			remoteInfo = NSExtensions;
+		};
+		6A0C0CB80B1F653E00F0A66E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6AA627C60B1EFA6800204170 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6A0C07E20B1F417300F0A66E;
+			remoteInfo = NSExtensions;
+		};
+		6A0C0D3C0B1F672000F0A66E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6AA627C60B1EFA6800204170 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6A0C07E20B1F417300F0A66E;
+			remoteInfo = NSExtensions;
+		};
+		6A0C0D3E0B1F672300F0A66E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6AA627C60B1EFA6800204170 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6A0C0BFA0B1F64FE00F0A66E;
+			remoteInfo = PageElements;
+		};
+		6A0C0DAE0B1F686700F0A66E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6AA627C60B1EFA6800204170 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6A0C0D9C0B1F683C00F0A66E;
+			remoteInfo = DrawingTools;
+		};
+		6A1233440B24DC0E007AA74D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6AA627C60B1EFA6800204170 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6A080F360B24DA4A0078A159;
+			remoteInfo = BookMaker;
+		};
+		6A1233460B24DC12007AA74D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6AA627C60B1EFA6800204170 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6A0C0D9C0B1F683C00F0A66E;
+			remoteInfo = DrawingTools;
+		};
+		6A1233480B24DC14007AA74D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6AA627C60B1EFA6800204170 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6A0C07E20B1F417300F0A66E;
+			remoteInfo = NSExtensions;
+		};
+		6A12334A0B24DC17007AA74D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6AA627C60B1EFA6800204170 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6A0C0BFA0B1F64FE00F0A66E;
+			remoteInfo = PageElements;
+		};
+		6A12334F0B24DC24007AA74D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6AA627C60B1EFA6800204170 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6A0351710B22C3240029C96E;
+			remoteInfo = BookMakerTests;
+		};
+		6A1233510B24DC27007AA74D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6AA627C60B1EFA6800204170 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6A0C05ED0B1F270700F0A66E;
+			remoteInfo = PageElementsTests;
+		};
+		6A1233550B24DC2F007AA74D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6AA627C60B1EFA6800204170 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6A080E460B24D98B0078A159;
+			remoteInfo = BookMakerOutputTest;
+		};
+		6A1233590B24DC36007AA74D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6AA627C60B1EFA6800204170 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6A0C0BD70B1F649F00F0A66E;
+			remoteInfo = PageElementsDrawingTests;
+		};
+		6A1234450B24E54D007AA74D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6AA627C60B1EFA6800204170 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6A080F360B24DA4A0078A159;
+			remoteInfo = BookMaker;
+		};
+		6A1234470B24E54D007AA74D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6AA627C60B1EFA6800204170 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6A0C0D9C0B1F683C00F0A66E;
+			remoteInfo = DrawingTools;
+		};
+		6A1234490B24E54D007AA74D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6AA627C60B1EFA6800204170 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6A0C07E20B1F417300F0A66E;
+			remoteInfo = NSExtensions;
+		};
+		6A12344B0B24E54D007AA74D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6AA627C60B1EFA6800204170 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6A0C0BFA0B1F64FE00F0A66E;
+			remoteInfo = PageElements;
+		};
+		6A9A13080B241E7900242046 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6AA627C60B1EFA6800204170 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6A0C0D9C0B1F683C00F0A66E;
+			remoteInfo = DrawingTools;
+		};
+		6A9A130A0B241E7D00242046 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6AA627C60B1EFA6800204170 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6A0C07E20B1F417300F0A66E;
+			remoteInfo = NSExtensions;
+		};
+		6A9A130C0B241E8000242046 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6AA627C60B1EFA6800204170 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6A0C0BFA0B1F64FE00F0A66E;
+			remoteInfo = PageElements;
+		};
+		6AABF1AD0B1FF2FE00A3688B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6AA627C60B1EFA6800204170 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6A0C0BFA0B1F64FE00F0A66E;
+			remoteInfo = PageElements;
+		};
+		6ABC8D450B37988B00C0D8C7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6AA627C60B1EFA6800204170 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6A080F360B24DA4A0078A159;
+			remoteInfo = BookMaker;
+		};
+		6ABC8D470B37988B00C0D8C7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6AA627C60B1EFA6800204170 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6A0C0D9C0B1F683C00F0A66E;
+			remoteInfo = DrawingTools;
+		};
+		6ABC8D490B37988B00C0D8C7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6AA627C60B1EFA6800204170 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6A0C07E20B1F417300F0A66E;
+			remoteInfo = NSExtensions;
+		};
+		6ABC8D4B0B37988B00C0D8C7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6AA627C60B1EFA6800204170 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6A0C0BFA0B1F64FE00F0A66E;
+			remoteInfo = PageElements;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		6A00849B0B91110600ED7235 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				6A0084BE0B91112300ED7235 /* NSExtensions.framework in CopyFiles */,
+				6A0084BF0B91112300ED7235 /* PageElements.framework in CopyFiles */,
+				6A0084C00B91112300ED7235 /* DrawingTools.framework in CopyFiles */,
+				6A0084C10B91112300ED7235 /* BookMaker.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A0351A40B22C4F30029C96E /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				6A0352AB0B22D59A0029C96E /* PageElements.framework in CopyFiles */,
+				6A0352AA0B22D5970029C96E /* DrawingTools.framework in CopyFiles */,
+				6A0351B00B22C4FD0029C96E /* NSExtensions.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A0778C10D8455A100306420 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				6A07789F0D84558100306420 /* NSExtensions.framework in CopyFiles */,
+				6A0778A00D84558100306420 /* PageElements.framework in CopyFiles */,
+				6A0778A10D84558100306420 /* DrawingTools.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A080F290B24DA260078A159 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				6A1233B80B24E1EA007AA74D /* BookMaker.framework in CopyFiles */,
+				6A080F2F0B24DA320078A159 /* NSExtensions.framework in CopyFiles */,
+				6A080F300B24DA320078A159 /* PageElements.framework in CopyFiles */,
+				6A080F310B24DA320078A159 /* DrawingTools.framework in CopyFiles */,
+				6A1233850B24DFC5007AA74D /* OutputTestController.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A0A36000B24EB7F00E3888F /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				6A0A36080B24EB8900E3888F /* NSExtensions.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A0C0BD10B1F642600F0A66E /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				6A879D450B1FF74300C45ED7 /* NSExtensions.framework in CopyFiles */,
+				6A879D430B1FF73600C45ED7 /* PageElements.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A0C0BDE0B1F64B100F0A66E /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				6A0C0DB00B1F687100F0A66E /* DrawingTools.framework in CopyFiles */,
+				6A0C0D580B1F675700F0A66E /* NSExtensions.framework in CopyFiles */,
+				6A0C0CCB0B1F657600F0A66E /* PageElements.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A1B1B030B36F6FF001EAB43 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				6A1B1B280B36F717001EAB43 /* NSExtensions.framework in CopyFiles */,
+				6A1B1B290B36F717001EAB43 /* PageElements.framework in CopyFiles */,
+				6A1B1B2A0B36F717001EAB43 /* DrawingTools.framework in CopyFiles */,
+				6A1B1B2B0B36F717001EAB43 /* BookMaker.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A3D3A090B278B7D00DB2BE7 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		854D42420ED84B1200AF08B1 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Fonts;
+			dstSubfolderSpec = 7;
+			files = (
+				854D42200ED84AA800AF08B1 /* ocrb10n.ttf in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		854D42990ED8575B00AF08B1 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Fonts;
+			dstSubfolderSpec = 7;
+			files = (
+				854D42820ED8575100AF08B1 /* ocrb10n.ttf in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		6A0084800B91109500ED7235 /* PagePreviewer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PagePreviewer.h; path = BookMakerTools/PagePreviewer.h; sourceTree = "<group>"; };
+		6A00848F0B9110EE00ED7235 /* PageFixer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PageFixer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A0084910B9110EE00ED7235 /* PageFixer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "PageFixer-Info.plist"; path = "BookMakerTools/PageFixer-Info.plist"; sourceTree = "<group>"; };
+		6A00857A0B91115C00ED7235 /* PagePreviewerMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PagePreviewerMain.m; path = BookMakerTools/PagePreviewerMain.m; sourceTree = "<group>"; };
+		6A0085950B9111B100ED7235 /* PageFixer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PageFixer.m; path = BookMakerTools/PageFixer.m; sourceTree = "<group>"; };
+		6A0351720B22C3240029C96E /* BookMakerTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BookMakerTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A0351730B22C3240029C96E /* BookMakerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "BookMakerTests-Info.plist"; path = "BookMaker/BookMakerTests-Info.plist"; sourceTree = "<group>"; };
+		6A03517C0B22C3490029C96E /* BookMakerTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BookMakerTests.h; path = BookMaker/BookMakerTests.h; sourceTree = "<group>"; };
+		6A03517E0B22C3550029C96E /* BookMakerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BookMakerTests.m; path = BookMaker/BookMakerTests.m; sourceTree = "<group>"; };
+		6A0351830B22C38D0029C96E /* BookMaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BookMaker.h; path = BookMaker/BookMaker.h; sourceTree = "<group>"; };
+		6A0351880B22C3D10029C96E /* BMHypoPhotoBook12cmx12cm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BMHypoPhotoBook12cmx12cm.m; path = BookMaker/BMHypoPhotoBook12cmx12cm.m; sourceTree = "<group>"; };
+		6A0353090B22DA610029C96E /* BookMakerTests-TestCase01.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = "BookMakerTests-TestCase01.js"; path = "BookMaker/BookMakerTests-TestCase01.js"; sourceTree = "<group>"; };
+		6A0778730D84551800306420 /* BarcodeOverprinter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BarcodeOverprinter.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A0778750D84551800306420 /* BarcodeOverprinter-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "BarcodeOverprinter-Info.plist"; path = "BarcodeOverprinter/BarcodeOverprinter-Info.plist"; sourceTree = "<group>"; };
+		6A0778C40D8455BD00306420 /* OverprinterMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OverprinterMain.m; path = BarcodeOverprinter/OverprinterMain.m; sourceTree = "<group>"; };
+		6A080D040B24C2750078A159 /* PERectangle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PERectangle.h; path = PageElements/PERectangle.h; sourceTree = "<group>"; };
+		6A080D0A0B24C3240078A159 /* PERectangle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PERectangle.m; path = PageElements/PERectangle.m; sourceTree = "<group>"; };
+		6A080E470B24D98B0078A159 /* BookMakerOutputTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookMakerOutputTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A080E490B24D98B0078A159 /* BookMakerOutputTest-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "BookMakerOutputTest-Info.plist"; path = "BookMaker/BookMakerOutputTest-Info.plist"; sourceTree = "<group>"; };
+		6A080F370B24DA4A0078A159 /* BookMaker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BookMaker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A080F380B24DA4A0078A159 /* BookMaker-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "BookMaker-Info.plist"; path = "BookMaker/BookMaker-Info.plist"; sourceTree = "<group>"; };
+		6A0A35A60B24EA4600E3888F /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = /System/Library/Frameworks/SenTestingKit.framework; sourceTree = "<absolute>"; };
+		6A0A35F30B24EB5400E3888F /* NSExtensionsTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NSExtensionsTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A0A35F40B24EB5400E3888F /* NSExtensionsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "NSExtensionsTests-Info.plist"; path = "NSExtensions/NSExtensionsTests-Info.plist"; sourceTree = "<group>"; };
+		6A0B48FB0B214BC000BFC667 /* NSDictionary+BSJSONAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+BSJSONAdditions.h"; path = "BSJSONAdditions/NSDictionary+BSJSONAdditions.h"; sourceTree = "<group>"; };
+		6A0B48FC0B214BC000BFC667 /* NSDictionary+BSJSONAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+BSJSONAdditions.m"; path = "BSJSONAdditions/NSDictionary+BSJSONAdditions.m"; sourceTree = "<group>"; };
+		6A0B48FD0B214BC000BFC667 /* NSScanner+BSJSONAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSScanner+BSJSONAdditions.h"; path = "BSJSONAdditions/NSScanner+BSJSONAdditions.h"; sourceTree = "<group>"; };
+		6A0B48FE0B214BC000BFC667 /* NSScanner+BSJSONAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSScanner+BSJSONAdditions.m"; path = "BSJSONAdditions/NSScanner+BSJSONAdditions.m"; sourceTree = "<group>"; };
+		6A0B49070B214C0B00BFC667 /* PhotoBookHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoBookHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A0B49090B214C0B00BFC667 /* PhotoBookHelper-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "PhotoBookHelper-Info.plist"; path = "PhotoBookHelper/PhotoBookHelper-Info.plist"; sourceTree = "<group>"; };
+		6A0B491B0B214C6D00BFC667 /* PhotoBookHelperMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhotoBookHelperMain.m; path = PhotoBookHelper/PhotoBookHelperMain.m; sourceTree = "<group>"; };
+		6A0B49220B214C9200BFC667 /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = PhotoBookHelper/InfoPlist.strings; sourceTree = "<group>"; };
+		6A0C05AA0B1F1F0500F0A66E /* PageElements.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PageElements.h; path = PageElements/PageElements.h; sourceTree = "<group>"; };
+		6A0C05B20B1F1F7B00F0A66E /* PEObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PEObject.h; path = PageElements/PEObject.h; sourceTree = "<group>"; };
+		6A0C05B50B1F1F9200F0A66E /* PEObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PEObject.m; path = PageElements/PEObject.m; sourceTree = "<group>"; };
+		6A0C05BD0B1F1FD200F0A66E /* PEFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PEFont.h; path = PageElements/PEFont.h; sourceTree = "<group>"; };
+		6A0C05D10B1F261700F0A66E /* PageElementsTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PageElementsTests.h; path = PageElements/PageElementsTests.h; sourceTree = "<group>"; };
+		6A0C05D70B1F263E00F0A66E /* PageElementsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PageElementsTests.m; path = PageElements/PageElementsTests.m; sourceTree = "<group>"; };
+		6A0C05EE0B1F270700F0A66E /* PageElementsTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PageElementsTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A0C05EF0B1F270700F0A66E /* PageElementsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "PageElementsTests-Info.plist"; path = "PageElements/PageElementsTests-Info.plist"; sourceTree = "<group>"; };
+		6A0C06AF0B1F379100F0A66E /* PEFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PEFont.m; path = PageElements/PEFont.m; sourceTree = "<group>"; };
+		6A0C07E30B1F417300F0A66E /* NSExtensions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NSExtensions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A0C07E40B1F417300F0A66E /* NSExtensions-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "NSExtensions-Info.plist"; path = "NSExtensions/NSExtensions-Info.plist"; sourceTree = "<group>"; };
+		6A0C08590B1F446700F0A66E /* PENSDictionaryRectExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PENSDictionaryRectExtension.h; path = PageElements/PENSDictionaryRectExtension.h; sourceTree = "<group>"; };
+		6A0C08600B1F44D600F0A66E /* PENSDictionaryRectExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PENSDictionaryRectExtension.m; path = PageElements/PENSDictionaryRectExtension.m; sourceTree = "<group>"; };
+		6A0C08C60B1F47A400F0A66E /* PEDrawableElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PEDrawableElement.h; path = PageElements/PEDrawableElement.h; sourceTree = "<group>"; };
+		6A0C08EF0B1F493000F0A66E /* PEDrawableElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PEDrawableElement.m; path = PageElements/PEDrawableElement.m; sourceTree = "<group>"; };
+		6A0C09350B1F4C4600F0A66E /* PETextBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PETextBlock.h; path = PageElements/PETextBlock.h; sourceTree = "<group>"; };
+		6A0C09FE0B1F548E00F0A66E /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		6A0C09FF0B1F548E00F0A66E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		6A0C0B880B1F622B00F0A66E /* DrawingTestsMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DrawingTestsMain.m; path = PageElements/DrawingTestsMain.m; sourceTree = "<group>"; };
+		6A0C0B8A0B1F625800F0A66E /* DrawingTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DrawingTools.h; path = DrawingTools/DrawingTools.h; sourceTree = "<group>"; };
+		6A0C0BD80B1F649F00F0A66E /* PageElementsDrawingTests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PageElementsDrawingTests.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A0C0BDA0B1F649F00F0A66E /* PageElementsDrawingTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "PageElementsDrawingTests-Info.plist"; path = "PageElements/PageElementsDrawingTests-Info.plist"; sourceTree = "<group>"; };
+		6A0C0BEE0B1F64DC00F0A66E /* PageElements-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "PageElements-Info.plist"; path = "PageElements/PageElements-Info.plist"; sourceTree = "<group>"; };
+		6A0C0BFB0B1F64FE00F0A66E /* PageElements.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PageElements.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A0C0D030B1F660500F0A66E /* MainMenu.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = MainMenu.nib; path = PageElements/MainMenu.nib; sourceTree = "<group>"; };
+		6A0C0D170B1F663A00F0A66E /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = PageElements/InfoPlist.strings; sourceTree = "<group>"; };
+		6A0C0D1C0B1F667100F0A66E /* DrawingTestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DrawingTestController.h; path = PageElements/DrawingTestController.h; sourceTree = "<group>"; };
+		6A0C0D1D0B1F667100F0A66E /* DrawingTestController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DrawingTestController.m; path = PageElements/DrawingTestController.m; sourceTree = "<group>"; };
+		6A0C0D9D0B1F683C00F0A66E /* DrawingTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DrawingTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A1233600B24DC66007AA74D /* BMOutputTestMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BMOutputTestMain.m; path = BookMaker/BMOutputTestMain.m; sourceTree = "<group>"; };
+		6A1233670B24DD91007AA74D /* OutputTestController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OutputTestController.m; path = BookMaker/OutputTestController.m; sourceTree = "<group>"; };
+		6A12337B0B24DE2F007AA74D /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = BookMaker/InfoPlist.strings; sourceTree = "<group>"; };
+		6A12337D0B24DE43007AA74D /* MainMenu.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = MainMenu.nib; path = BookMaker/MainMenu.nib; sourceTree = "<group>"; };
+		6A1233840B24DFC5007AA74D /* OutputTestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OutputTestController.h; path = BookMaker/OutputTestController.h; sourceTree = "<group>"; };
+		6A1BB01E0B659406002A260D /* PETransform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PETransform.h; path = PageElements/PETransform.h; sourceTree = "<group>"; };
+		6A1BB0310B6594B4002A260D /* PETransform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PETransform.m; path = PageElements/PETransform.m; sourceTree = "<group>"; };
+		6A3B66CF0B2252580010794E /* BMHypoPhotoBook12cmx12cm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BMHypoPhotoBook12cmx12cm.h; path = BookMaker/BMHypoPhotoBook12cmx12cm.h; sourceTree = "<group>"; };
+		6A3D391A0B27880C00DB2BE7 /* NSRunLoopStudy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NSRunLoopStudy.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A3D391C0B27880C00DB2BE7 /* NSRunLoopStudy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "NSRunLoopStudy-Info.plist"; path = "Studies/NSRunLoopStudy-Info.plist"; sourceTree = "<group>"; };
+		6A3D392D0B2788B300DB2BE7 /* EXTERNAL-DEPENDENCIES.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "EXTERNAL-DEPENDENCIES.txt"; sourceTree = "<group>"; };
+		6A3D393E0B27891D00DB2BE7 /* PDF.jar */ = {isa = PBXFileReference; lastKnownFileType = archive.jar; name = PDF.jar; path = ExternalLibraries/PDF.jar; sourceTree = "<group>"; };
+		6A3D394B0B2789DE00DB2BE7 /* NSRunLoopStudy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSRunLoopStudy.m; path = Studies/NSRunLoopStudy.m; sourceTree = "<group>"; };
+		6A3D3B0E0B27A01E00DB2BE7 /* NKDBarcode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NKDBarcode.h; path = PageElements/BarcodeGenerator/NKDBarcode.h; sourceTree = "<group>"; };
+		6A3D3B0F0B27A01E00DB2BE7 /* NKDBarcode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NKDBarcode.m; path = PageElements/BarcodeGenerator/NKDBarcode.m; sourceTree = "<group>"; };
+		6A3D3B100B27A01E00DB2BE7 /* NKDBarcodeOffscreenView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NKDBarcodeOffscreenView.h; path = PageElements/BarcodeGenerator/NKDBarcodeOffscreenView.h; sourceTree = "<group>"; };
+		6A3D3B110B27A01E00DB2BE7 /* NKDBarcodeOffscreenView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NKDBarcodeOffscreenView.m; path = PageElements/BarcodeGenerator/NKDBarcodeOffscreenView.m; sourceTree = "<group>"; };
+		6A3D3B120B27A01E00DB2BE7 /* NKDCode39Barcode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NKDCode39Barcode.h; path = PageElements/BarcodeGenerator/NKDCode39Barcode.h; sourceTree = "<group>"; };
+		6A3D3B130B27A01E00DB2BE7 /* NKDCode39Barcode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NKDCode39Barcode.m; path = PageElements/BarcodeGenerator/NKDCode39Barcode.m; sourceTree = "<group>"; };
+		6A3D3B1E0B27A05300DB2BE7 /* PEBarcodeCode39.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PEBarcodeCode39.h; path = PageElements/PEBarcodeCode39.h; sourceTree = "<group>"; };
+		6A3D3B200B27A05900DB2BE7 /* PEBarcodeCode39.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PEBarcodeCode39.m; path = PageElements/PEBarcodeCode39.m; sourceTree = "<group>"; };
+		6A9A137E0B24822600242046 /* PENSColorExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PENSColorExtension.h; path = PageElements/PENSColorExtension.h; sourceTree = "<group>"; };
+		6A9A13820B24823A00242046 /* PENSColorExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PENSColorExtension.m; path = PageElements/PENSColorExtension.m; sourceTree = "<group>"; };
+		6AA627E10B1EFB8000204170 /* NSDictionaryExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSDictionaryExtension.h; path = NSExtensions/NSDictionaryExtension.h; sourceTree = "<group>"; };
+		6AA627E20B1EFB8000204170 /* NSDictionaryExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSDictionaryExtension.m; path = NSExtensions/NSDictionaryExtension.m; sourceTree = "<group>"; };
+		6AA627EA0B1EFBBA00204170 /* NSExtensionsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSExtensionsTests.m; path = NSExtensions/NSExtensionsTests.m; sourceTree = "<group>"; };
+		6AA627EC0B1EFBF600204170 /* NSExtensionsTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSExtensionsTests.h; path = NSExtensions/NSExtensionsTests.h; sourceTree = "<group>"; };
+		6AA628630B1F00FD00204170 /* NSExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSExtensions.h; path = NSExtensions/NSExtensions.h; sourceTree = "<group>"; };
+		6AA6287A0B1F014F00204170 /* NSArrayExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSArrayExtension.h; path = NSExtensions/NSArrayExtension.h; sourceTree = "<group>"; };
+		6AA6287B0B1F015600204170 /* NSArrayExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSArrayExtension.m; path = NSExtensions/NSArrayExtension.m; sourceTree = "<group>"; };
+		6AA628F90B1F047A00204170 /* DTDrawingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTDrawingView.h; path = DrawingTools/DTDrawingView.h; sourceTree = "<group>"; };
+		6AA628FA0B1F047A00204170 /* DTDrawingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTDrawingView.m; path = DrawingTools/DTDrawingView.m; sourceTree = "<group>"; };
+		6AA628FB0B1F047A00204170 /* DTElementInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTElementInterface.h; path = DrawingTools/DTElementInterface.h; sourceTree = "<group>"; };
+		6AA628FC0B1F047A00204170 /* DTImageBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTImageBox.h; path = DrawingTools/DTImageBox.h; sourceTree = "<group>"; };
+		6AA628FD0B1F047A00204170 /* DTImageBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTImageBox.m; path = DrawingTools/DTImageBox.m; sourceTree = "<group>"; };
+		6AA628FE0B1F047A00204170 /* DTImageProviderInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTImageProviderInterface.h; path = DrawingTools/DTImageProviderInterface.h; sourceTree = "<group>"; };
+		6AA628FF0B1F047A00204170 /* DTSimpleImageProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTSimpleImageProvider.h; path = DrawingTools/DTSimpleImageProvider.h; sourceTree = "<group>"; };
+		6AA629000B1F047A00204170 /* DTSimpleImageProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTSimpleImageProvider.m; path = DrawingTools/DTSimpleImageProvider.m; sourceTree = "<group>"; };
+		6AA629010B1F047A00204170 /* DTStatusReporterInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTStatusReporterInterface.h; path = DrawingTools/DTStatusReporterInterface.h; sourceTree = "<group>"; };
+		6AA629020B1F047A00204170 /* DTTextBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTTextBox.h; path = DrawingTools/DTTextBox.h; sourceTree = "<group>"; };
+		6AA629030B1F047A00204170 /* DTTextBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTTextBox.m; path = DrawingTools/DTTextBox.m; sourceTree = "<group>"; };
+		6AA629040B1F047A00204170 /* DTUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTUtilities.h; path = DrawingTools/DTUtilities.h; sourceTree = "<group>"; };
+		6AA629050B1F047A00204170 /* DTUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTUtilities.m; path = DrawingTools/DTUtilities.m; sourceTree = "<group>"; };
+		6AABF02B0B1FEACB00A3688B /* PEImageBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PEImageBox.h; path = PageElements/PEImageBox.h; sourceTree = "<group>"; };
+		6AABF0940B1FEC5A00A3688B /* PEImageBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PEImageBox.m; path = PageElements/PEImageBox.m; sourceTree = "<group>"; };
+		6AB0378C0B36E0200050A519 /* PagePreviewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PagePreviewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6AB0378E0B36E0200050A519 /* PagePreviewer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "PagePreviewer-Info.plist"; path = "BookMakerTools/PagePreviewer-Info.plist"; sourceTree = "<group>"; };
+		6AB038570B36E0670050A519 /* PagePreviewer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PagePreviewer.m; path = BookMakerTools/PagePreviewer.m; sourceTree = "<group>"; };
+		6AB1DDCB0B2001160068CAA5 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		6AC8F7250C8DA74400592DF7 /* extract-exif-rotation.pl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.perl; name = "extract-exif-rotation.pl"; path = "BookMakerTools/extract-exif-rotation.pl"; sourceTree = "<group>"; };
+		6ADAB4930B5EA90C004BE8FD /* PEVerticalTextBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PEVerticalTextBlock.h; path = PageElements/PEVerticalTextBlock.h; sourceTree = "<group>"; };
+		6ADAB4A40B5EACCF004BE8FD /* PETextBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PETextBlock.m; path = PageElements/PETextBlock.m; sourceTree = "<group>"; };
+		6ADAB4E40B5EB071004BE8FD /* PEVerticalTextBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PEVerticalTextBlock.m; path = PageElements/PEVerticalTextBlock.m; sourceTree = "<group>"; };
+		854D421F0ED84AA800AF08B1 /* ocrb10n.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ocrb10n.ttf; sourceTree = "<group>"; };
+		85D0EB370ED90C140066E288 /* LFHTTPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFHTTPRequest.h; sourceTree = "<group>"; };
+		85D0EB380ED90C140066E288 /* LFHTTPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFHTTPRequest.m; sourceTree = "<group>"; };
+		85D0EB4A0ED90DE90066E288 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = /System/Library/Frameworks/SystemConfiguration.framework; sourceTree = "<absolute>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6A00848D0B9110EE00ED7235 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A0085710B91114200ED7235 /* NSExtensions.framework in Frameworks */,
+				6A0085720B91114200ED7235 /* PageElements.framework in Frameworks */,
+				6A0085730B91114200ED7235 /* DrawingTools.framework in Frameworks */,
+				6A0085740B91114200ED7235 /* BookMaker.framework in Frameworks */,
+				6A0085750B91114200ED7235 /* AppKit.framework in Frameworks */,
+				6A0085760B91114200ED7235 /* Cocoa.framework in Frameworks */,
+				85D0EB4E0ED90DE90066E288 /* SystemConfiguration.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A03516F0B22C3240029C96E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A0352A90B22D5910029C96E /* DrawingTools.framework in Frameworks */,
+				6A0352A40B22D58D0029C96E /* PageElements.framework in Frameworks */,
+				6A0352560B22C50D0029C96E /* AppKit.framework in Frameworks */,
+				6A0352570B22C50D0029C96E /* Cocoa.framework in Frameworks */,
+				6A0351B10B22C5010029C96E /* NSExtensions.framework in Frameworks */,
+				6A0A35A70B24EA4600E3888F /* SenTestingKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A0778710D84551800306420 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A077A0C0D8469DB00306420 /* AppKit.framework in Frameworks */,
+				6A077A0D0D8469DB00306420 /* Cocoa.framework in Frameworks */,
+				6A0778BF0D84559B00306420 /* DrawingTools.framework in Frameworks */,
+				6A0778BD0D84559B00306420 /* NSExtensions.framework in Frameworks */,
+				6A0778BE0D84559B00306420 /* PageElements.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A080E450B24D98B0078A159 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A1233B90B24E1F0007AA74D /* BookMaker.framework in Frameworks */,
+				6A080F260B24DA1A0078A159 /* NSExtensions.framework in Frameworks */,
+				6A080F270B24DA1A0078A159 /* PageElements.framework in Frameworks */,
+				6A080F280B24DA1A0078A159 /* DrawingTools.framework in Frameworks */,
+				6A080F120B24DA100078A159 /* AppKit.framework in Frameworks */,
+				6A080F130B24DA100078A159 /* Cocoa.framework in Frameworks */,
+				85D0EB4B0ED90DE90066E288 /* SystemConfiguration.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A080F350B24DA4A0078A159 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A080F4B0B24DAA90078A159 /* NSExtensions.framework in Frameworks */,
+				6A080F4C0B24DAA90078A159 /* PageElements.framework in Frameworks */,
+				6A080F4D0B24DAA90078A159 /* DrawingTools.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A0A35F00B24EB5400E3888F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A0A36C30B24EBA000E3888F /* NSExtensions.framework in Frameworks */,
+				6A0A36C00B24EB9D00E3888F /* SenTestingKit.framework in Frameworks */,
+				6A0A36C10B24EB9D00E3888F /* AppKit.framework in Frameworks */,
+				6A0A36C20B24EB9D00E3888F /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A0B49050B214C0B00BFC667 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A0C05EB0B1F270700F0A66E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6AABF0070B1FE57600A3688B /* PageElements.framework in Frameworks */,
+				6A0C07EF0B1F41DA00F0A66E /* NSExtensions.framework in Frameworks */,
+				6A0C0A000B1F548E00F0A66E /* AppKit.framework in Frameworks */,
+				6A0C0A010B1F548E00F0A66E /* Cocoa.framework in Frameworks */,
+				6A0A35A80B24EA4600E3888F /* SenTestingKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A0C07E10B1F417300F0A66E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A0C0A040B1F548E00F0A66E /* AppKit.framework in Frameworks */,
+				6A0C0A050B1F548E00F0A66E /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A0C0BD60B1F649F00F0A66E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A0C0DDA0B1F68CD00F0A66E /* DrawingTools.framework in Frameworks */,
+				6A0C0CCA0B1F657100F0A66E /* NSExtensions.framework in Frameworks */,
+				6A0C0D560B1F674400F0A66E /* AppKit.framework in Frameworks */,
+				6A0C0D570B1F674400F0A66E /* Cocoa.framework in Frameworks */,
+				6A0C0CC70B1F656300F0A66E /* PageElements.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A0C0BF90B1F64FE00F0A66E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A0C0CBA0B1F654900F0A66E /* NSExtensions.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A0C0D9B0B1F683C00F0A66E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A3D39180B27880C00DB2BE7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A3D39F20B278A0E00DB2BE7 /* AppKit.framework in Frameworks */,
+				6A3D39F30B278A0E00DB2BE7 /* Cocoa.framework in Frameworks */,
+				85D0EB4C0ED90DE90066E288 /* SystemConfiguration.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6AB0378A0B36E0200050A519 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A1B1B2F0B36F723001EAB43 /* NSExtensions.framework in Frameworks */,
+				6A1B1B300B36F723001EAB43 /* PageElements.framework in Frameworks */,
+				6A1B1B310B36F723001EAB43 /* DrawingTools.framework in Frameworks */,
+				6A1B1B320B36F723001EAB43 /* BookMaker.framework in Frameworks */,
+				6AB038550B36E0480050A519 /* AppKit.framework in Frameworks */,
+				6AB038560B36E0480050A519 /* Cocoa.framework in Frameworks */,
+				85D0EB4D0ED90DE90066E288 /* SystemConfiguration.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6A03516C0B22C30E0029C96E /* Unit Tests */ = {
+			isa = PBXGroup;
+			children = (
+				6A03517C0B22C3490029C96E /* BookMakerTests.h */,
+				6A03517E0B22C3550029C96E /* BookMakerTests.m */,
+				6A0353090B22DA610029C96E /* BookMakerTests-TestCase01.js */,
+			);
+			name = "Unit Tests";
+			sourceTree = "<group>";
+		};
+		6A0778C00D8455A000306420 /* BarcodeOverprinter */ = {
+			isa = PBXGroup;
+			children = (
+				854D421F0ED84AA800AF08B1 /* ocrb10n.ttf */,
+				6A0778750D84551800306420 /* BarcodeOverprinter-Info.plist */,
+				6A0778C40D8455BD00306420 /* OverprinterMain.m */,
+			);
+			name = BarcodeOverprinter;
+			sourceTree = "<group>";
+		};
+		6A080E220B24D4BE0078A159 /* BookMakerOutputTest */ = {
+			isa = PBXGroup;
+			children = (
+				6A080E420B24D9630078A159 /* Resources */,
+				6A1233840B24DFC5007AA74D /* OutputTestController.h */,
+				6A1233670B24DD91007AA74D /* OutputTestController.m */,
+				6A1233600B24DC66007AA74D /* BMOutputTestMain.m */,
+			);
+			name = BookMakerOutputTest;
+			sourceTree = "<group>";
+		};
+		6A080E420B24D9630078A159 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				6A12337D0B24DE43007AA74D /* MainMenu.nib */,
+				6A12337B0B24DE2F007AA74D /* InfoPlist.strings */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		6A080E4D0B24D9A20078A159 /* InfoPlists */ = {
+			isa = PBXGroup;
+			children = (
+				6A080F380B24DA4A0078A159 /* BookMaker-Info.plist */,
+				6A0C05EF0B1F270700F0A66E /* PageElementsTests-Info.plist */,
+				6A0C07E40B1F417300F0A66E /* NSExtensions-Info.plist */,
+				6A0C0BDA0B1F649F00F0A66E /* PageElementsDrawingTests-Info.plist */,
+				6A0C0BEE0B1F64DC00F0A66E /* PageElements-Info.plist */,
+				6A0B49090B214C0B00BFC667 /* PhotoBookHelper-Info.plist */,
+				6A0351730B22C3240029C96E /* BookMakerTests-Info.plist */,
+				6A080E490B24D98B0078A159 /* BookMakerOutputTest-Info.plist */,
+				6A0A35F40B24EB5400E3888F /* NSExtensionsTests-Info.plist */,
+				6A3D391C0B27880C00DB2BE7 /* NSRunLoopStudy-Info.plist */,
+			);
+			name = InfoPlists;
+			sourceTree = "<group>";
+		};
+		6A0B48F50B214B7C00BFC667 /* PhotoBookHelper (app) */ = {
+			isa = PBXGroup;
+			children = (
+				6A0B491A0B214C5600BFC667 /* Resources */,
+				6A0B491B0B214C6D00BFC667 /* PhotoBookHelperMain.m */,
+			);
+			name = "PhotoBookHelper (app)";
+			sourceTree = "<group>";
+		};
+		6A0B48F60B214B8700BFC667 /* BSJSONAdditions (source) */ = {
+			isa = PBXGroup;
+			children = (
+				6A0B48FB0B214BC000BFC667 /* NSDictionary+BSJSONAdditions.h */,
+				6A0B48FC0B214BC000BFC667 /* NSDictionary+BSJSONAdditions.m */,
+				6A0B48FD0B214BC000BFC667 /* NSScanner+BSJSONAdditions.h */,
+				6A0B48FE0B214BC000BFC667 /* NSScanner+BSJSONAdditions.m */,
+			);
+			name = "BSJSONAdditions (source)";
+			sourceTree = "<group>";
+		};
+		6A0B491A0B214C5600BFC667 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				6A0B49220B214C9200BFC667 /* InfoPlist.strings */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		6A0C05D00B1F25FA00F0A66E /* Unit Tests */ = {
+			isa = PBXGroup;
+			children = (
+				6A0C05D10B1F261700F0A66E /* PageElementsTests.h */,
+				6A0C05D70B1F263E00F0A66E /* PageElementsTests.m */,
+			);
+			name = "Unit Tests";
+			sourceTree = "<group>";
+		};
+		6A0C09FD0B1F547400F0A66E /* System Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6A0A35A60B24EA4600E3888F /* SenTestingKit.framework */,
+				6A0C09FE0B1F548E00F0A66E /* AppKit.framework */,
+				6A0C09FF0B1F548E00F0A66E /* Cocoa.framework */,
+			);
+			name = "System Frameworks";
+			sourceTree = "<group>";
+		};
+		6A0C0A3B0B1F56E500F0A66E /* Drawing Tests */ = {
+			isa = PBXGroup;
+			children = (
+				6A0C0D090B1F661400F0A66E /* Resources */,
+				6A0C0B880B1F622B00F0A66E /* DrawingTestsMain.m */,
+				6A0C0D1C0B1F667100F0A66E /* DrawingTestController.h */,
+				6A0C0D1D0B1F667100F0A66E /* DrawingTestController.m */,
+			);
+			name = "Drawing Tests";
+			sourceTree = "<group>";
+		};
+		6A0C0B870B1F620200F0A66E /* DrawingTools (framework) */ = {
+			isa = PBXGroup;
+			children = (
+				6AA628F90B1F047A00204170 /* DTDrawingView.h */,
+				6AA628FA0B1F047A00204170 /* DTDrawingView.m */,
+				6AA629040B1F047A00204170 /* DTUtilities.h */,
+				6AA629050B1F047A00204170 /* DTUtilities.m */,
+				6A0C0B8A0B1F625800F0A66E /* DrawingTools.h */,
+			);
+			name = "DrawingTools (framework)";
+			sourceTree = "<group>";
+		};
+		6A0C0D090B1F661400F0A66E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				6A0C0D030B1F660500F0A66E /* MainMenu.nib */,
+				6A0C0D170B1F663A00F0A66E /* InfoPlist.strings */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		6A3B66BA0B2250F50010794E /* BookMaker (framework) */ = {
+			isa = PBXGroup;
+			children = (
+				6A080E220B24D4BE0078A159 /* BookMakerOutputTest */,
+				6A03516C0B22C30E0029C96E /* Unit Tests */,
+				6A0351830B22C38D0029C96E /* BookMaker.h */,
+				6A3B66CF0B2252580010794E /* BMHypoPhotoBook12cmx12cm.h */,
+				6A0351880B22C3D10029C96E /* BMHypoPhotoBook12cmx12cm.m */,
+			);
+			name = "BookMaker (framework)";
+			sourceTree = "<group>";
+		};
+		6A3D390A0B2787A800DB2BE7 /* Studies (Experiments and Drills) */ = {
+			isa = PBXGroup;
+			children = (
+				6A3D394B0B2789DE00DB2BE7 /* NSRunLoopStudy.m */,
+			);
+			name = "Studies (Experiments and Drills)";
+			sourceTree = "<group>";
+		};
+		6A3D393C0B27890000DB2BE7 /* External Libs and Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				85D0EB4A0ED90DE90066E288 /* SystemConfiguration.framework */,
+				85D0EB370ED90C140066E288 /* LFHTTPRequest.h */,
+				85D0EB380ED90C140066E288 /* LFHTTPRequest.m */,
+				6A3D393E0B27891D00DB2BE7 /* PDF.jar */,
+			);
+			name = "External Libs and Frameworks";
+			sourceTree = "<group>";
+		};
+		6A3D3AD20B279D1F00DB2BE7 /* Test Pictures */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Test Pictures";
+			sourceTree = "<group>";
+		};
+		6A3D3B0D0B27A00600DB2BE7 /* BarcodeGenerator */ = {
+			isa = PBXGroup;
+			children = (
+				6A3D3B0E0B27A01E00DB2BE7 /* NKDBarcode.h */,
+				6A3D3B0F0B27A01E00DB2BE7 /* NKDBarcode.m */,
+				6A3D3B100B27A01E00DB2BE7 /* NKDBarcodeOffscreenView.h */,
+				6A3D3B110B27A01E00DB2BE7 /* NKDBarcodeOffscreenView.m */,
+				6A3D3B120B27A01E00DB2BE7 /* NKDCode39Barcode.h */,
+				6A3D3B130B27A01E00DB2BE7 /* NKDCode39Barcode.m */,
+			);
+			name = BarcodeGenerator;
+			sourceTree = "<group>";
+		};
+		6AA627C40B1EFA6800204170 = {
+			isa = PBXGroup;
+			children = (
+				6A0778C00D8455A000306420 /* BarcodeOverprinter */,
+				6AB037870B36DEB30050A519 /* BookMaker Tools */,
+				6AB1DDCB0B2001160068CAA5 /* README.txt */,
+				6A3D392D0B2788B300DB2BE7 /* EXTERNAL-DEPENDENCIES.txt */,
+				6A3B66BA0B2250F50010794E /* BookMaker (framework) */,
+				6A0B48F60B214B8700BFC667 /* BSJSONAdditions (source) */,
+				6A0B48F50B214B7C00BFC667 /* PhotoBookHelper (app) */,
+				6A0C0B870B1F620200F0A66E /* DrawingTools (framework) */,
+				6AA629440B1F09A700204170 /* PageElements (framework) */,
+				6AA627E00B1EFB5400204170 /* NSExtensions (framework) */,
+				6AA627DE0B1EFADA00204170 /* DrawingTools (obsolete) */,
+				6A3D390A0B2787A800DB2BE7 /* Studies (Experiments and Drills) */,
+				6A080E4D0B24D9A20078A159 /* InfoPlists */,
+				6A3D3AD20B279D1F00DB2BE7 /* Test Pictures */,
+				6A3D393C0B27890000DB2BE7 /* External Libs and Frameworks */,
+				6A0C09FD0B1F547400F0A66E /* System Frameworks */,
+				6AA627FA0B1EFC8100204170 /* Products */,
+				6AB0378E0B36E0200050A519 /* PagePreviewer-Info.plist */,
+				6A0084910B9110EE00ED7235 /* PageFixer-Info.plist */,
+			);
+			sourceTree = "<group>";
+		};
+		6AA627DE0B1EFADA00204170 /* DrawingTools (obsolete) */ = {
+			isa = PBXGroup;
+			children = (
+				6AA628FB0B1F047A00204170 /* DTElementInterface.h */,
+				6AA628FC0B1F047A00204170 /* DTImageBox.h */,
+				6AA628FD0B1F047A00204170 /* DTImageBox.m */,
+				6AA628FE0B1F047A00204170 /* DTImageProviderInterface.h */,
+				6AA628FF0B1F047A00204170 /* DTSimpleImageProvider.h */,
+				6AA629000B1F047A00204170 /* DTSimpleImageProvider.m */,
+				6AA629010B1F047A00204170 /* DTStatusReporterInterface.h */,
+				6AA629020B1F047A00204170 /* DTTextBox.h */,
+				6AA629030B1F047A00204170 /* DTTextBox.m */,
+			);
+			name = "DrawingTools (obsolete)";
+			sourceTree = "<group>";
+		};
+		6AA627E00B1EFB5400204170 /* NSExtensions (framework) */ = {
+			isa = PBXGroup;
+			children = (
+				6AA628630B1F00FD00204170 /* NSExtensions.h */,
+				6AA6287A0B1F014F00204170 /* NSArrayExtension.h */,
+				6AA6287B0B1F015600204170 /* NSArrayExtension.m */,
+				6AA627E10B1EFB8000204170 /* NSDictionaryExtension.h */,
+				6AA627E20B1EFB8000204170 /* NSDictionaryExtension.m */,
+				6AA627E90B1EFBA500204170 /* Unit Tests */,
+			);
+			name = "NSExtensions (framework)";
+			sourceTree = "<group>";
+		};
+		6AA627E90B1EFBA500204170 /* Unit Tests */ = {
+			isa = PBXGroup;
+			children = (
+				6AA627EC0B1EFBF600204170 /* NSExtensionsTests.h */,
+				6AA627EA0B1EFBBA00204170 /* NSExtensionsTests.m */,
+			);
+			name = "Unit Tests";
+			sourceTree = "<group>";
+		};
+		6AA627FA0B1EFC8100204170 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6A0C05EE0B1F270700F0A66E /* PageElementsTests.octest */,
+				6A0C07E30B1F417300F0A66E /* NSExtensions.framework */,
+				6A0C0BD80B1F649F00F0A66E /* PageElementsDrawingTests.app */,
+				6A0C0BFB0B1F64FE00F0A66E /* PageElements.framework */,
+				6A0C0D9D0B1F683C00F0A66E /* DrawingTools.framework */,
+				6A0B49070B214C0B00BFC667 /* PhotoBookHelper.app */,
+				6A0351720B22C3240029C96E /* BookMakerTests.octest */,
+				6A080E470B24D98B0078A159 /* BookMakerOutputTest.app */,
+				6A080F370B24DA4A0078A159 /* BookMaker.framework */,
+				6A0A35F30B24EB5400E3888F /* NSExtensionsTests.octest */,
+				6A3D391A0B27880C00DB2BE7 /* NSRunLoopStudy.app */,
+				6AB0378C0B36E0200050A519 /* PagePreviewer.app */,
+				6A00848F0B9110EE00ED7235 /* PageFixer.app */,
+				6A0778730D84551800306420 /* BarcodeOverprinter.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6AA629440B1F09A700204170 /* PageElements (framework) */ = {
+			isa = PBXGroup;
+			children = (
+				6A3D3B0D0B27A00600DB2BE7 /* BarcodeGenerator */,
+				6A0C0A3B0B1F56E500F0A66E /* Drawing Tests */,
+				6A0C05D00B1F25FA00F0A66E /* Unit Tests */,
+				6A0C05AA0B1F1F0500F0A66E /* PageElements.h */,
+				6A0C05B20B1F1F7B00F0A66E /* PEObject.h */,
+				6A0C05B50B1F1F9200F0A66E /* PEObject.m */,
+				6A0C05BD0B1F1FD200F0A66E /* PEFont.h */,
+				6A0C06AF0B1F379100F0A66E /* PEFont.m */,
+				6A0C08590B1F446700F0A66E /* PENSDictionaryRectExtension.h */,
+				6A0C08600B1F44D600F0A66E /* PENSDictionaryRectExtension.m */,
+				6A0C08C60B1F47A400F0A66E /* PEDrawableElement.h */,
+				6A0C08EF0B1F493000F0A66E /* PEDrawableElement.m */,
+				6A0C09350B1F4C4600F0A66E /* PETextBlock.h */,
+				6ADAB4A40B5EACCF004BE8FD /* PETextBlock.m */,
+				6ADAB4930B5EA90C004BE8FD /* PEVerticalTextBlock.h */,
+				6ADAB4E40B5EB071004BE8FD /* PEVerticalTextBlock.m */,
+				6AABF02B0B1FEACB00A3688B /* PEImageBox.h */,
+				6AABF0940B1FEC5A00A3688B /* PEImageBox.m */,
+				6A9A137E0B24822600242046 /* PENSColorExtension.h */,
+				6A9A13820B24823A00242046 /* PENSColorExtension.m */,
+				6A080D040B24C2750078A159 /* PERectangle.h */,
+				6A080D0A0B24C3240078A159 /* PERectangle.m */,
+				6A1BB01E0B659406002A260D /* PETransform.h */,
+				6A1BB0310B6594B4002A260D /* PETransform.m */,
+				6A3D3B1E0B27A05300DB2BE7 /* PEBarcodeCode39.h */,
+				6A3D3B200B27A05900DB2BE7 /* PEBarcodeCode39.m */,
+			);
+			name = "PageElements (framework)";
+			sourceTree = "<group>";
+		};
+		6AB037870B36DEB30050A519 /* BookMaker Tools */ = {
+			isa = PBXGroup;
+			children = (
+				6AB038570B36E0670050A519 /* PagePreviewer.m */,
+				6A0084800B91109500ED7235 /* PagePreviewer.h */,
+				6A00857A0B91115C00ED7235 /* PagePreviewerMain.m */,
+				6A0085950B9111B100ED7235 /* PageFixer.m */,
+				6AC8F7250C8DA74400592DF7 /* extract-exif-rotation.pl */,
+			);
+			name = "BookMaker Tools";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		6A080F320B24DA4A0078A159 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A080F530B24DAD30078A159 /* BookMaker.h in Headers */,
+				6A080F500B24DAB30078A159 /* BMHypoPhotoBook12cmx12cm.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A0C07DE0B1F417300F0A66E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A0C07E80B1F41AD00F0A66E /* NSExtensions.h in Headers */,
+				6A0C07E90B1F41AD00F0A66E /* NSArrayExtension.h in Headers */,
+				6A0C07EA0B1F41AD00F0A66E /* NSDictionaryExtension.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A0C0BF60B1F64FE00F0A66E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A0C0BFD0B1F651100F0A66E /* PageElements.h in Headers */,
+				6A0C0BFE0B1F651100F0A66E /* PEObject.h in Headers */,
+				6A0C0BFF0B1F651100F0A66E /* PEFont.h in Headers */,
+				6A0C0C000B1F651100F0A66E /* PENSDictionaryRectExtension.h in Headers */,
+				6A0C0C010B1F651100F0A66E /* PEDrawableElement.h in Headers */,
+				6A0C0C020B1F651100F0A66E /* PETextBlock.h in Headers */,
+				6AABF02C0B1FEACB00A3688B /* PEImageBox.h in Headers */,
+				6A9A137F0B24822600242046 /* PENSColorExtension.h in Headers */,
+				6A080D050B24C2750078A159 /* PERectangle.h in Headers */,
+				6A3D3B160B27A01E00DB2BE7 /* NKDBarcode.h in Headers */,
+				6A3D3B180B27A01E00DB2BE7 /* NKDBarcodeOffscreenView.h in Headers */,
+				6A3D3B1A0B27A01E00DB2BE7 /* NKDCode39Barcode.h in Headers */,
+				6A3D3B1F0B27A05300DB2BE7 /* PEBarcodeCode39.h in Headers */,
+				6ADAB4940B5EA90C004BE8FD /* PEVerticalTextBlock.h in Headers */,
+				6A1BB01F0B659406002A260D /* PETransform.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A0C0D980B1F683C00F0A66E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A0C0DA60B1F685600F0A66E /* DTDrawingView.h in Headers */,
+				6A0C0DA70B1F685600F0A66E /* DTUtilities.h in Headers */,
+				6A0C0DA80B1F685600F0A66E /* DrawingTools.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		6A00848E0B9110EE00ED7235 /* PageFixer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6A0084920B9110EF00ED7235 /* Build configuration list for PBXNativeTarget "PageFixer" */;
+			buildPhases = (
+				6A00849B0B91110600ED7235 /* CopyFiles */,
+				6A00848B0B9110EE00ED7235 /* Resources */,
+				6A00848C0B9110EE00ED7235 /* Sources */,
+				6A00848D0B9110EE00ED7235 /* Frameworks */,
+				854D42990ED8575B00AF08B1 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6A0084C50B91113500ED7235 /* PBXTargetDependency */,
+				6A0084C70B91113500ED7235 /* PBXTargetDependency */,
+				6A0084C90B91113500ED7235 /* PBXTargetDependency */,
+				6A0084CB0B91113500ED7235 /* PBXTargetDependency */,
+			);
+			name = PageFixer;
+			productName = PageFixer;
+			productReference = 6A00848F0B9110EE00ED7235 /* PageFixer.app */;
+			productType = "com.apple.product-type.application";
+		};
+		6A0351710B22C3240029C96E /* BookMakerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6A0351740B22C3250029C96E /* Build configuration list for PBXNativeTarget "BookMakerTests" */;
+			buildPhases = (
+				6A03516D0B22C3240029C96E /* Resources */,
+				6A03516E0B22C3240029C96E /* Sources */,
+				6A03516F0B22C3240029C96E /* Frameworks */,
+				6A0351700B22C3240029C96E /* ShellScript */,
+				6A0351A40B22C4F30029C96E /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6A9A13090B241E7900242046 /* PBXTargetDependency */,
+				6A9A130B0B241E7D00242046 /* PBXTargetDependency */,
+				6A9A130D0B241E8000242046 /* PBXTargetDependency */,
+			);
+			name = BookMakerTests;
+			productName = BookMakerTests;
+			productReference = 6A0351720B22C3240029C96E /* BookMakerTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+		6A0778720D84551800306420 /* BarcodeOverprinter */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6A0778780D84551B00306420 /* Build configuration list for PBXNativeTarget "BarcodeOverprinter" */;
+			buildPhases = (
+				6A07786F0D84551800306420 /* Resources */,
+				6A0778C10D8455A100306420 /* CopyFiles */,
+				6A0778700D84551800306420 /* Sources */,
+				6A0778710D84551800306420 /* Frameworks */,
+				854D42420ED84B1200AF08B1 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6A0778820D84556800306420 /* PBXTargetDependency */,
+				6A0778800D84556800306420 /* PBXTargetDependency */,
+				6A07787E0D84556800306420 /* PBXTargetDependency */,
+			);
+			name = BarcodeOverprinter;
+			productName = BarcodeOverprinter;
+			productReference = 6A0778730D84551800306420 /* BarcodeOverprinter.app */;
+			productType = "com.apple.product-type.application";
+		};
+		6A080E460B24D98B0078A159 /* BookMakerOutputTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6A080E4A0B24D98C0078A159 /* Build configuration list for PBXNativeTarget "BookMakerOutputTest" */;
+			buildPhases = (
+				6A080F290B24DA260078A159 /* CopyFiles */,
+				6A080E430B24D98B0078A159 /* Resources */,
+				6A080E440B24D98B0078A159 /* Sources */,
+				6A080E450B24D98B0078A159 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6A1234460B24E54D007AA74D /* PBXTargetDependency */,
+				6A1234480B24E54D007AA74D /* PBXTargetDependency */,
+				6A12344A0B24E54D007AA74D /* PBXTargetDependency */,
+				6A12344C0B24E54D007AA74D /* PBXTargetDependency */,
+			);
+			name = BookMakerOutputTest;
+			productName = BookMakerOutputTest;
+			productReference = 6A080E470B24D98B0078A159 /* BookMakerOutputTest.app */;
+			productType = "com.apple.product-type.application";
+		};
+		6A080F360B24DA4A0078A159 /* BookMaker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6A080F390B24DA4A0078A159 /* Build configuration list for PBXNativeTarget "BookMaker" */;
+			buildPhases = (
+				6A080F320B24DA4A0078A159 /* Headers */,
+				6A080F330B24DA4A0078A159 /* Resources */,
+				6A080F340B24DA4A0078A159 /* Sources */,
+				6A080F350B24DA4A0078A159 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6A080F780B24DB0D0078A159 /* PBXTargetDependency */,
+				6A080F7A0B24DB0F0078A159 /* PBXTargetDependency */,
+				6A080F7C0B24DB130078A159 /* PBXTargetDependency */,
+			);
+			name = BookMaker;
+			productName = BookMaker;
+			productReference = 6A080F370B24DA4A0078A159 /* BookMaker.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		6A0A35F20B24EB5400E3888F /* NSExtensionsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6A0A35F50B24EB5400E3888F /* Build configuration list for PBXNativeTarget "NSExtensionsTests" */;
+			buildPhases = (
+				6A0A36000B24EB7F00E3888F /* CopyFiles */,
+				6A0A35EE0B24EB5400E3888F /* Resources */,
+				6A0A35EF0B24EB5400E3888F /* Sources */,
+				6A0A35F00B24EB5400E3888F /* Frameworks */,
+				6A0A35F10B24EB5400E3888F /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NSExtensionsTests;
+			productName = NSExtensionsTests;
+			productReference = 6A0A35F30B24EB5400E3888F /* NSExtensionsTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+		6A0B49060B214C0B00BFC667 /* PhotoBookHelper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6A0B490A0B214C0C00BFC667 /* Build configuration list for PBXNativeTarget "PhotoBookHelper" */;
+			buildPhases = (
+				6A0B49030B214C0B00BFC667 /* Resources */,
+				6A0B49040B214C0B00BFC667 /* Sources */,
+				6A0B49050B214C0B00BFC667 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PhotoBookHelper;
+			productName = PhotoBookHelper;
+			productReference = 6A0B49070B214C0B00BFC667 /* PhotoBookHelper.app */;
+			productType = "com.apple.product-type.application";
+		};
+		6A0C05ED0B1F270700F0A66E /* PageElementsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6A0C05F00B1F270700F0A66E /* Build configuration list for PBXNativeTarget "PageElementsTests" */;
+			buildPhases = (
+				6A0C0BD10B1F642600F0A66E /* CopyFiles */,
+				6A0C05E90B1F270700F0A66E /* Resources */,
+				6A0C05EA0B1F270700F0A66E /* Sources */,
+				6A0C05EB0B1F270700F0A66E /* Frameworks */,
+				6A0C05EC0B1F270700F0A66E /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6A0C08110B1F424400F0A66E /* PBXTargetDependency */,
+				6AABF1AE0B1FF2FE00A3688B /* PBXTargetDependency */,
+			);
+			name = PageElementsTests;
+			productName = PageElementsTests;
+			productReference = 6A0C05EE0B1F270700F0A66E /* PageElementsTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+		6A0C07E20B1F417300F0A66E /* NSExtensions */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6A0C07E50B1F417300F0A66E /* Build configuration list for PBXNativeTarget "NSExtensions" */;
+			buildPhases = (
+				6A0C07DE0B1F417300F0A66E /* Headers */,
+				6A0C07DF0B1F417300F0A66E /* Resources */,
+				6A0C07E00B1F417300F0A66E /* Sources */,
+				6A0C07E10B1F417300F0A66E /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NSExtensions;
+			productName = NSExtensions;
+			productReference = 6A0C07E30B1F417300F0A66E /* NSExtensions.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		6A0C0BD70B1F649F00F0A66E /* PageElementsDrawingTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6A0C0BDB0B1F64A000F0A66E /* Build configuration list for PBXNativeTarget "PageElementsDrawingTests" */;
+			buildPhases = (
+				6A0C0BDE0B1F64B100F0A66E /* CopyFiles */,
+				6A0C0BD40B1F649F00F0A66E /* Resources */,
+				6A0C0BD50B1F649F00F0A66E /* Sources */,
+				6A0C0BD60B1F649F00F0A66E /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6A0C0D3D0B1F672000F0A66E /* PBXTargetDependency */,
+				6A0C0D3F0B1F672300F0A66E /* PBXTargetDependency */,
+				6A0C0DAF0B1F686700F0A66E /* PBXTargetDependency */,
+			);
+			name = PageElementsDrawingTests;
+			productName = PageElementsDrawingTests;
+			productReference = 6A0C0BD80B1F649F00F0A66E /* PageElementsDrawingTests.app */;
+			productType = "com.apple.product-type.application";
+		};
+		6A0C0BFA0B1F64FE00F0A66E /* PageElements */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6A0C0CE70B1F658000F0A66E /* Build configuration list for PBXNativeTarget "PageElements" */;
+			buildPhases = (
+				6A0C0BF60B1F64FE00F0A66E /* Headers */,
+				6A0C0BF70B1F64FE00F0A66E /* Resources */,
+				6A0C0BF80B1F64FE00F0A66E /* Sources */,
+				6A0C0BF90B1F64FE00F0A66E /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6A0C0CB90B1F653E00F0A66E /* PBXTargetDependency */,
+			);
+			name = PageElements;
+			productName = PageElements;
+			productReference = 6A0C0BFB0B1F64FE00F0A66E /* PageElements.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		6A0C0D9C0B1F683C00F0A66E /* DrawingTools */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6A0C0D9F0B1F683D00F0A66E /* Build configuration list for PBXNativeTarget "DrawingTools" */;
+			buildPhases = (
+				6A0C0D980B1F683C00F0A66E /* Headers */,
+				6A0C0D990B1F683C00F0A66E /* Resources */,
+				6A0C0D9A0B1F683C00F0A66E /* Sources */,
+				6A0C0D9B0B1F683C00F0A66E /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DrawingTools;
+			productName = DrawingTools;
+			productReference = 6A0C0D9D0B1F683C00F0A66E /* DrawingTools.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		6A3D39190B27880C00DB2BE7 /* NSRunLoopStudy */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6A3D391D0B27880D00DB2BE7 /* Build configuration list for PBXNativeTarget "NSRunLoopStudy" */;
+			buildPhases = (
+				6A3D3A090B278B7D00DB2BE7 /* CopyFiles */,
+				6A3D39160B27880C00DB2BE7 /* Resources */,
+				6A3D39170B27880C00DB2BE7 /* Sources */,
+				6A3D39180B27880C00DB2BE7 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NSRunLoopStudy;
+			productName = NSRunLoopStudy;
+			productReference = 6A3D391A0B27880C00DB2BE7 /* NSRunLoopStudy.app */;
+			productType = "com.apple.product-type.application";
+		};
+		6AB0378B0B36E0200050A519 /* PagePreviewer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6AB0378F0B36E0200050A519 /* Build configuration list for PBXNativeTarget "PagePreviewer" */;
+			buildPhases = (
+				6A1B1B030B36F6FF001EAB43 /* CopyFiles */,
+				6AB037880B36E0200050A519 /* Resources */,
+				6AB037890B36E0200050A519 /* Sources */,
+				6AB0378A0B36E0200050A519 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6ABC8D460B37988B00C0D8C7 /* PBXTargetDependency */,
+				6ABC8D480B37988B00C0D8C7 /* PBXTargetDependency */,
+				6ABC8D4A0B37988B00C0D8C7 /* PBXTargetDependency */,
+				6ABC8D4C0B37988B00C0D8C7 /* PBXTargetDependency */,
+			);
+			name = PagePreviewer;
+			productName = PagePreviewer;
+			productReference = 6AB0378C0B36E0200050A519 /* PagePreviewer.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6AA627C60B1EFA6800204170 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 6AA627C70B1EFA6800204170 /* Build configuration list for PBXProject "PageCircus" */;
+			compatibilityVersion = "Xcode 2.4";
+			hasScannedForEncodings = 0;
+			mainGroup = 6AA627C40B1EFA6800204170;
+			productRefGroup = 6AA627FA0B1EFC8100204170 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6A1233430B24DC0B007AA74D /* PageCircus */,
+				6A080F360B24DA4A0078A159 /* BookMaker */,
+				6A0C0D9C0B1F683C00F0A66E /* DrawingTools */,
+				6A0C07E20B1F417300F0A66E /* NSExtensions */,
+				6A0C0BFA0B1F64FE00F0A66E /* PageElements */,
+				6A0C0BD70B1F649F00F0A66E /* PageElementsDrawingTests */,
+				6A0B49060B214C0B00BFC667 /* PhotoBookHelper */,
+				6A080E460B24D98B0078A159 /* BookMakerOutputTest */,
+				6A0351710B22C3240029C96E /* BookMakerTests */,
+				6A0C05ED0B1F270700F0A66E /* PageElementsTests */,
+				6A0A35F20B24EB5400E3888F /* NSExtensionsTests */,
+				6A3D39190B27880C00DB2BE7 /* NSRunLoopStudy */,
+				6AB0378B0B36E0200050A519 /* PagePreviewer */,
+				6A00848E0B9110EE00ED7235 /* PageFixer */,
+				6A0778720D84551800306420 /* BarcodeOverprinter */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6A00848B0B9110EE00ED7235 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6AC8F7260C8DA74400592DF7 /* extract-exif-rotation.pl in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A03516D0B22C3240029C96E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A03530B0B22DA700029C96E /* BookMakerTests-TestCase01.js in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A07786F0D84551800306420 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A080E430B24D98B0078A159 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A1233920B24E026007AA74D /* BookMakerTests-TestCase01.js in Resources */,
+				6A12337C0B24DE2F007AA74D /* InfoPlist.strings in Resources */,
+				6A12337E0B24DE43007AA74D /* MainMenu.nib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A080F330B24DA4A0078A159 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A0A35EE0B24EB5400E3888F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A0B49030B214C0B00BFC667 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A0B49230B214C9200BFC667 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A0C05E90B1F270700F0A66E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A3D392E0B2788B300DB2BE7 /* EXTERNAL-DEPENDENCIES.txt in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A0C07DF0B1F417300F0A66E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A0C0BD40B1F649F00F0A66E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A0C0D040B1F660500F0A66E /* MainMenu.nib in Resources */,
+				6A0C0D180B1F663A00F0A66E /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A0C0BF70B1F64FE00F0A66E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A0C0D990B1F683C00F0A66E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A3D39160B27880C00DB2BE7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6AB037880B36E0200050A519 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6A0351700B22C3240029C96E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+		6A0A35F10B24EB5400E3888F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+		6A0C05EC0B1F270700F0A66E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6A00848C0B9110EE00ED7235 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A0085790B91114F00ED7235 /* PagePreviewer.m in Sources */,
+				6A0085770B91114900ED7235 /* NSDictionary+BSJSONAdditions.m in Sources */,
+				6A0085780B91114900ED7235 /* NSScanner+BSJSONAdditions.m in Sources */,
+				6A0085960B9111B100ED7235 /* PageFixer.m in Sources */,
+				85D0EB3C0ED90C140066E288 /* LFHTTPRequest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A03516E0B22C3240029C96E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A0352FD0B22D9ED0029C96E /* NSDictionary+BSJSONAdditions.m in Sources */,
+				6A0352FE0B22D9ED0029C96E /* NSScanner+BSJSONAdditions.m in Sources */,
+				6A03517F0B22C3550029C96E /* BookMakerTests.m in Sources */,
+				6A0351890B22C3D10029C96E /* BMHypoPhotoBook12cmx12cm.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A0778700D84551800306420 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A0778C50D8455BD00306420 /* OverprinterMain.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A080E440B24D98B0078A159 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A1233B00B24E1A9007AA74D /* NSDictionary+BSJSONAdditions.m in Sources */,
+				6A1233B10B24E1A9007AA74D /* NSScanner+BSJSONAdditions.m in Sources */,
+				6A1233610B24DC66007AA74D /* BMOutputTestMain.m in Sources */,
+				6A1233690B24DD91007AA74D /* OutputTestController.m in Sources */,
+				85D0EB390ED90C140066E288 /* LFHTTPRequest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A080F340B24DA4A0078A159 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A080F510B24DAB30078A159 /* BMHypoPhotoBook12cmx12cm.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A0A35EF0B24EB5400E3888F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A0A36090B24EB9600E3888F /* NSExtensionsTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A0B49040B214C0B00BFC667 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A0B491C0B214C6D00BFC667 /* PhotoBookHelperMain.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A0C05EA0B1F270700F0A66E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A0C05F40B1F277500F0A66E /* PageElementsTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A0C07E00B1F417300F0A66E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A0C07EB0B1F41BF00F0A66E /* NSArrayExtension.m in Sources */,
+				6A0C07EC0B1F41BF00F0A66E /* NSDictionaryExtension.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A0C0BD50B1F649F00F0A66E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A0C0D5B0B1F676B00F0A66E /* DrawingTestsMain.m in Sources */,
+				6A0C0D1F0B1F667100F0A66E /* DrawingTestController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A0C0BF80B1F64FE00F0A66E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A0C0CB10B1F653100F0A66E /* PEObject.m in Sources */,
+				6A0C0CB20B1F653100F0A66E /* PEFont.m in Sources */,
+				6A0C0CB30B1F653100F0A66E /* PENSDictionaryRectExtension.m in Sources */,
+				6A0C0CB40B1F653100F0A66E /* PEDrawableElement.m in Sources */,
+				6AABF0950B1FEC5A00A3688B /* PEImageBox.m in Sources */,
+				6A9A13830B24823A00242046 /* PENSColorExtension.m in Sources */,
+				6A080D0B0B24C3240078A159 /* PERectangle.m in Sources */,
+				6A3D3B170B27A01E00DB2BE7 /* NKDBarcode.m in Sources */,
+				6A3D3B190B27A01E00DB2BE7 /* NKDBarcodeOffscreenView.m in Sources */,
+				6A3D3B1B0B27A01E00DB2BE7 /* NKDCode39Barcode.m in Sources */,
+				6A3D3B210B27A05900DB2BE7 /* PEBarcodeCode39.m in Sources */,
+				6ADAB4A50B5EACCF004BE8FD /* PETextBlock.m in Sources */,
+				6ADAB4E50B5EB071004BE8FD /* PEVerticalTextBlock.m in Sources */,
+				6A1BB0320B6594B4002A260D /* PETransform.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A0C0D9A0B1F683C00F0A66E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A0C0DAA0B1F686000F0A66E /* DTDrawingView.m in Sources */,
+				6A0C0DAB0B1F686000F0A66E /* DTUtilities.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A3D39170B27880C00DB2BE7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A3D394C0B2789DE00DB2BE7 /* NSRunLoopStudy.m in Sources */,
+				85D0EB3A0ED90C140066E288 /* LFHTTPRequest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6AB037890B36E0200050A519 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A1B1B4B0B36FA95001EAB43 /* NSDictionary+BSJSONAdditions.m in Sources */,
+				6A1B1B4C0B36FA95001EAB43 /* NSScanner+BSJSONAdditions.m in Sources */,
+				6AB038580B36E0670050A519 /* PagePreviewer.m in Sources */,
+				6A00857B0B91115C00ED7235 /* PagePreviewerMain.m in Sources */,
+				85D0EB3B0ED90C140066E288 /* LFHTTPRequest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6A0084980B9110FA00ED7235 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6AB0378B0B36E0200050A519 /* PagePreviewer */;
+			targetProxy = 6A0084970B9110FA00ED7235 /* PBXContainerItemProxy */;
+		};
+		6A00849A0B9110FA00ED7235 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6A00848E0B9110EE00ED7235 /* PageFixer */;
+			targetProxy = 6A0084990B9110FA00ED7235 /* PBXContainerItemProxy */;
+		};
+		6A0084C50B91113500ED7235 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6A080F360B24DA4A0078A159 /* BookMaker */;
+			targetProxy = 6A0084C40B91113500ED7235 /* PBXContainerItemProxy */;
+		};
+		6A0084C70B91113500ED7235 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6A0C0D9C0B1F683C00F0A66E /* DrawingTools */;
+			targetProxy = 6A0084C60B91113500ED7235 /* PBXContainerItemProxy */;
+		};
+		6A0084C90B91113500ED7235 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6A0C07E20B1F417300F0A66E /* NSExtensions */;
+			targetProxy = 6A0084C80B91113500ED7235 /* PBXContainerItemProxy */;
+		};
+		6A0084CB0B91113500ED7235 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6A0C0BFA0B1F64FE00F0A66E /* PageElements */;
+			targetProxy = 6A0084CA0B91113500ED7235 /* PBXContainerItemProxy */;
+		};
+		6A07787E0D84556800306420 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6A0C0BFA0B1F64FE00F0A66E /* PageElements */;
+			targetProxy = 6A07787D0D84556800306420 /* PBXContainerItemProxy */;
+		};
+		6A0778800D84556800306420 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6A0C07E20B1F417300F0A66E /* NSExtensions */;
+			targetProxy = 6A07787F0D84556800306420 /* PBXContainerItemProxy */;
+		};
+		6A0778820D84556800306420 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6A0C0D9C0B1F683C00F0A66E /* DrawingTools */;
+			targetProxy = 6A0778810D84556800306420 /* PBXContainerItemProxy */;
+		};
+		6A080F780B24DB0D0078A159 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6A0C0D9C0B1F683C00F0A66E /* DrawingTools */;
+			targetProxy = 6A080F770B24DB0D0078A159 /* PBXContainerItemProxy */;
+		};
+		6A080F7A0B24DB0F0078A159 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6A0C07E20B1F417300F0A66E /* NSExtensions */;
+			targetProxy = 6A080F790B24DB0F0078A159 /* PBXContainerItemProxy */;
+		};
+		6A080F7C0B24DB130078A159 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6A0C0BFA0B1F64FE00F0A66E /* PageElements */;
+			targetProxy = 6A080F7B0B24DB130078A159 /* PBXContainerItemProxy */;
+		};
+		6A0A36CC0B24EBB700E3888F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6A0A35F20B24EB5400E3888F /* NSExtensionsTests */;
+			targetProxy = 6A0A36CB0B24EBB700E3888F /* PBXContainerItemProxy */;
+		};
+		6A0C08110B1F424400F0A66E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6A0C07E20B1F417300F0A66E /* NSExtensions */;
+			targetProxy = 6A0C08100B1F424400F0A66E /* PBXContainerItemProxy */;
+		};
+		6A0C0CB90B1F653E00F0A66E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6A0C07E20B1F417300F0A66E /* NSExtensions */;
+			targetProxy = 6A0C0CB80B1F653E00F0A66E /* PBXContainerItemProxy */;
+		};
+		6A0C0D3D0B1F672000F0A66E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6A0C07E20B1F417300F0A66E /* NSExtensions */;
+			targetProxy = 6A0C0D3C0B1F672000F0A66E /* PBXContainerItemProxy */;
+		};
+		6A0C0D3F0B1F672300F0A66E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6A0C0BFA0B1F64FE00F0A66E /* PageElements */;
+			targetProxy = 6A0C0D3E0B1F672300F0A66E /* PBXContainerItemProxy */;
+		};
+		6A0C0DAF0B1F686700F0A66E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6A0C0D9C0B1F683C00F0A66E /* DrawingTools */;
+			targetProxy = 6A0C0DAE0B1F686700F0A66E /* PBXContainerItemProxy */;
+		};
+		6A1233450B24DC0E007AA74D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6A080F360B24DA4A0078A159 /* BookMaker */;
+			targetProxy = 6A1233440B24DC0E007AA74D /* PBXContainerItemProxy */;
+		};
+		6A1233470B24DC12007AA74D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6A0C0D9C0B1F683C00F0A66E /* DrawingTools */;
+			targetProxy = 6A1233460B24DC12007AA74D /* PBXContainerItemProxy */;
+		};
+		6A1233490B24DC14007AA74D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6A0C07E20B1F417300F0A66E /* NSExtensions */;
+			targetProxy = 6A1233480B24DC14007AA74D /* PBXContainerItemProxy */;
+		};
+		6A12334B0B24DC17007AA74D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6A0C0BFA0B1F64FE00F0A66E /* PageElements */;
+			targetProxy = 6A12334A0B24DC17007AA74D /* PBXContainerItemProxy */;
+		};
+		6A1233500B24DC24007AA74D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6A0351710B22C3240029C96E /* BookMakerTests */;
+			targetProxy = 6A12334F0B24DC24007AA74D /* PBXContainerItemProxy */;
+		};
+		6A1233520B24DC27007AA74D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6A0C05ED0B1F270700F0A66E /* PageElementsTests */;
+			targetProxy = 6A1233510B24DC27007AA74D /* PBXContainerItemProxy */;
+		};
+		6A1233560B24DC2F007AA74D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6A080E460B24D98B0078A159 /* BookMakerOutputTest */;
+			targetProxy = 6A1233550B24DC2F007AA74D /* PBXContainerItemProxy */;
+		};
+		6A12335A0B24DC36007AA74D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6A0C0BD70B1F649F00F0A66E /* PageElementsDrawingTests */;
+			targetProxy = 6A1233590B24DC36007AA74D /* PBXContainerItemProxy */;
+		};
+		6A1234460B24E54D007AA74D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6A080F360B24DA4A0078A159 /* BookMaker */;
+			targetProxy = 6A1234450B24E54D007AA74D /* PBXContainerItemProxy */;
+		};
+		6A1234480B24E54D007AA74D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6A0C0D9C0B1F683C00F0A66E /* DrawingTools */;
+			targetProxy = 6A1234470B24E54D007AA74D /* PBXContainerItemProxy */;
+		};
+		6A12344A0B24E54D007AA74D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6A0C07E20B1F417300F0A66E /* NSExtensions */;
+			targetProxy = 6A1234490B24E54D007AA74D /* PBXContainerItemProxy */;
+		};
+		6A12344C0B24E54D007AA74D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6A0C0BFA0B1F64FE00F0A66E /* PageElements */;
+			targetProxy = 6A12344B0B24E54D007AA74D /* PBXContainerItemProxy */;
+		};
+		6A9A13090B241E7900242046 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6A0C0D9C0B1F683C00F0A66E /* DrawingTools */;
+			targetProxy = 6A9A13080B241E7900242046 /* PBXContainerItemProxy */;
+		};
+		6A9A130B0B241E7D00242046 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6A0C07E20B1F417300F0A66E /* NSExtensions */;
+			targetProxy = 6A9A130A0B241E7D00242046 /* PBXContainerItemProxy */;
+		};
+		6A9A130D0B241E8000242046 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6A0C0BFA0B1F64FE00F0A66E /* PageElements */;
+			targetProxy = 6A9A130C0B241E8000242046 /* PBXContainerItemProxy */;
+		};
+		6AABF1AE0B1FF2FE00A3688B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6A0C0BFA0B1F64FE00F0A66E /* PageElements */;
+			targetProxy = 6AABF1AD0B1FF2FE00A3688B /* PBXContainerItemProxy */;
+		};
+		6ABC8D460B37988B00C0D8C7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6A080F360B24DA4A0078A159 /* BookMaker */;
+			targetProxy = 6ABC8D450B37988B00C0D8C7 /* PBXContainerItemProxy */;
+		};
+		6ABC8D480B37988B00C0D8C7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6A0C0D9C0B1F683C00F0A66E /* DrawingTools */;
+			targetProxy = 6ABC8D470B37988B00C0D8C7 /* PBXContainerItemProxy */;
+		};
+		6ABC8D4A0B37988B00C0D8C7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6A0C07E20B1F417300F0A66E /* NSExtensions */;
+			targetProxy = 6ABC8D490B37988B00C0D8C7 /* PBXContainerItemProxy */;
+		};
+		6ABC8D4C0B37988B00C0D8C7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6A0C0BFA0B1F64FE00F0A66E /* PageElements */;
+			targetProxy = 6ABC8D4B0B37988B00C0D8C7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		6A0084930B9110EF00ED7235 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(NATIVE_ARCH)";
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)",
+				);
+				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)/ExternalLibraries\"";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				HEADER_SEARCH_PATHS = "";
+				INFOPLIST_FILE = "BookMakerTools/PageFixer-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = PageFixer;
+				WRAPPER_EXTENSION = app;
+				ZERO_LINK = YES;
+			};
+			name = Debug;
+		};
+		6A0084940B9110EF00ED7235 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					i386,
+					ppc,
+				);
+				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)",
+				);
+				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)/ExternalLibraries\"";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				HEADER_SEARCH_PATHS = "";
+				INFOPLIST_FILE = "BookMakerTools/PageFixer-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = PageFixer;
+				WRAPPER_EXTENSION = app;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		6A0351750B22C3250029C96E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(value)",
+					"$(DEVELOPER_FRAMEWORKS_DIR_QUOTED)",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Cocoa.framework/Headers/Cocoa.h";
+				INFOPLIST_FILE = "BookMaker/BookMakerTests-Info.plist";
+				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Cocoa,
+					"-framework",
+					SenTestingKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = BookMakerTests;
+				WRAPPER_EXTENSION = octest;
+				ZERO_LINK = NO;
+			};
+			name = Debug;
+		};
+		6A0351760B22C3250029C96E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(value)",
+					"$(DEVELOPER_FRAMEWORKS_DIR_QUOTED)",
+				);
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Cocoa.framework/Headers/Cocoa.h";
+				INFOPLIST_FILE = "BookMaker/BookMakerTests-Info.plist";
+				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Cocoa,
+					"-framework",
+					SenTestingKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = BookMakerTests;
+				WRAPPER_EXTENSION = octest;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		6A0778760D84551A00306420 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(NATIVE_ARCH)";
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INFOPLIST_FILE = "BarcodeOverprinter/BarcodeOverprinter-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = BarcodeOverprinter;
+			};
+			name = Debug;
+		};
+		6A0778770D84551A00306420 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1)";
+				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INFOPLIST_FILE = "BarcodeOverprinter/BarcodeOverprinter-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = BarcodeOverprinter;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		6A080E4B0B24D98C0078A159 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)",
+				);
+				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)/ExternalLibraries\"";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INFOPLIST_FILE = "BookMaker/BookMakerOutputTest-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = BookMakerOutputTest;
+				WRAPPER_EXTENSION = app;
+				ZERO_LINK = YES;
+			};
+			name = Debug;
+		};
+		6A080E4C0B24D98C0078A159 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)",
+				);
+				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)/ExternalLibraries\"";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INFOPLIST_FILE = "BookMaker/BookMakerOutputTest-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = BookMakerOutputTest;
+				WRAPPER_EXTENSION = app;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		6A080F3A0B24DA4A0078A159 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INFOPLIST_FILE = "BookMaker/BookMaker-Info.plist";
+				INSTALL_PATH = "@executable_path/../Frameworks";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = BookMaker;
+				ZERO_LINK = YES;
+			};
+			name = Debug;
+		};
+		6A080F3B0B24DA4A0078A159 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INFOPLIST_FILE = "BookMaker/BookMaker-Info.plist";
+				INSTALL_PATH = "@executable_path/../Frameworks";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = BookMaker;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		6A0A35F60B24EB5400E3888F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(value)",
+					"$(DEVELOPER_FRAMEWORKS_DIR_QUOTED)",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Cocoa.framework/Headers/Cocoa.h";
+				INFOPLIST_FILE = "NSExtensions/NSExtensionsTests-Info.plist";
+				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Cocoa,
+					"-framework",
+					SenTestingKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = NSExtensionsTests;
+				WRAPPER_EXTENSION = octest;
+				ZERO_LINK = NO;
+			};
+			name = Debug;
+		};
+		6A0A35F70B24EB5400E3888F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(value)",
+					"$(DEVELOPER_FRAMEWORKS_DIR_QUOTED)",
+				);
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Cocoa.framework/Headers/Cocoa.h";
+				INFOPLIST_FILE = "NSExtensions/NSExtensionsTests-Info.plist";
+				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Cocoa,
+					"-framework",
+					SenTestingKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = NSExtensionsTests;
+				WRAPPER_EXTENSION = octest;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		6A0B490B0B214C0C00BFC667 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INFOPLIST_FILE = "PhotoBookHelper/PhotoBookHelper-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = PhotoBookHelper;
+				WRAPPER_EXTENSION = app;
+				ZERO_LINK = YES;
+			};
+			name = Debug;
+		};
+		6A0B490C0B214C0C00BFC667 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INFOPLIST_FILE = "PhotoBookHelper/PhotoBookHelper-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = PhotoBookHelper;
+				WRAPPER_EXTENSION = app;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		6A0C05F10B1F270700F0A66E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(value)",
+					"$(DEVELOPER_FRAMEWORKS_DIR_QUOTED)",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Cocoa.framework/Headers/Cocoa.h";
+				INFOPLIST_FILE = "PageElements/PageElementsTests-Info.plist";
+				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Cocoa,
+					"-framework",
+					SenTestingKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = PageElementsTests;
+				WRAPPER_EXTENSION = octest;
+				ZERO_LINK = NO;
+			};
+			name = Debug;
+		};
+		6A0C05F20B1F270700F0A66E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(value)",
+					"$(DEVELOPER_FRAMEWORKS_DIR_QUOTED)",
+				);
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Cocoa.framework/Headers/Cocoa.h";
+				INFOPLIST_FILE = "PageElements/PageElementsTests-Info.plist";
+				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Cocoa,
+					"-framework",
+					SenTestingKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = PageElementsTests;
+				WRAPPER_EXTENSION = octest;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		6A0C07E60B1F417300F0A66E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INFOPLIST_FILE = "NSExtensions/NSExtensions-Info.plist";
+				INSTALL_PATH = "@executable_path/../Frameworks";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = NSExtensions;
+				ZERO_LINK = YES;
+			};
+			name = Debug;
+		};
+		6A0C07E70B1F417300F0A66E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INFOPLIST_FILE = "NSExtensions/NSExtensions-Info.plist";
+				INSTALL_PATH = "@executable_path/../Frameworks";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = NSExtensions;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		6A0C0BDC0B1F64A000F0A66E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INFOPLIST_FILE = "PageElements/PageElementsDrawingTests-Info.plist";
+				INFOPLIST_PREPROCESS = NO;
+				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = PageElementsDrawingTests;
+				WRAPPER_EXTENSION = app;
+				ZERO_LINK = YES;
+			};
+			name = Debug;
+		};
+		6A0C0BDD0B1F64A000F0A66E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INFOPLIST_FILE = "PageElements/PageElementsDrawingTests-Info.plist";
+				INFOPLIST_PREPROCESS = NO;
+				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = PageElementsDrawingTests;
+				WRAPPER_EXTENSION = app;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		6A0C0CE80B1F658000F0A66E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INFOPLIST_FILE = "PageElements/PageElements-Info.plist";
+				INSTALL_PATH = "@executable_path/../Frameworks";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = PageElements;
+				ZERO_LINK = YES;
+			};
+			name = Debug;
+		};
+		6A0C0CE90B1F658000F0A66E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INFOPLIST_FILE = "PageElements/PageElements-Info.plist";
+				INSTALL_PATH = "@executable_path/../Frameworks";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = PageElements;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		6A0C0DA00B1F683D00F0A66E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INFOPLIST_FILE = "DrawingTools/DrawingTools-Info.plist";
+				INSTALL_PATH = "@executable_path/../Frameworks";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = DrawingTools;
+				ZERO_LINK = YES;
+			};
+			name = Debug;
+		};
+		6A0C0DA10B1F683D00F0A66E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INFOPLIST_FILE = "DrawingTools/DrawingTools-Info.plist";
+				INSTALL_PATH = "@executable_path/../Frameworks";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = DrawingTools;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		6A12335E0B24DC55007AA74D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = PageCircus;
+			};
+			name = Debug;
+		};
+		6A12335F0B24DC55007AA74D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				PRODUCT_NAME = PageCircus;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		6A3D391E0B27880D00DB2BE7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)",
+				);
+				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)/ExternalLibraries\"";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INFOPLIST_FILE = "Studies/NSRunLoopStudy-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = NSRunLoopStudy;
+				WRAPPER_EXTENSION = app;
+				ZERO_LINK = YES;
+			};
+			name = Debug;
+		};
+		6A3D391F0B27880D00DB2BE7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)",
+				);
+				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)/ExternalLibraries\"";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INFOPLIST_FILE = "Studies/NSRunLoopStudy-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = NSRunLoopStudy;
+				WRAPPER_EXTENSION = app;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		6AA627C80B1EFA6800204170 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+			};
+			name = Debug;
+		};
+		6AA627C90B1EFA6800204170 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					ppc,
+					i386,
+				);
+				COPY_PHASE_STRIP = YES;
+				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+			};
+			name = Release;
+		};
+		6AB037900B36E0200050A519 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)",
+				);
+				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)/ExternalLibraries\"";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INFOPLIST_FILE = "BookMakerTools/PagePreviewer-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = PagePreviewer;
+				WRAPPER_EXTENSION = app;
+				ZERO_LINK = YES;
+			};
+			name = Debug;
+		};
+		6AB037910B36E0200050A519 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)",
+				);
+				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)/ExternalLibraries\"";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INFOPLIST_FILE = "BookMakerTools/PagePreviewer-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = PagePreviewer;
+				WRAPPER_EXTENSION = app;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6A0084920B9110EF00ED7235 /* Build configuration list for PBXNativeTarget "PageFixer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6A0084930B9110EF00ED7235 /* Debug */,
+				6A0084940B9110EF00ED7235 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6A0351740B22C3250029C96E /* Build configuration list for PBXNativeTarget "BookMakerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6A0351750B22C3250029C96E /* Debug */,
+				6A0351760B22C3250029C96E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6A0778780D84551B00306420 /* Build configuration list for PBXNativeTarget "BarcodeOverprinter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6A0778760D84551A00306420 /* Debug */,
+				6A0778770D84551A00306420 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6A080E4A0B24D98C0078A159 /* Build configuration list for PBXNativeTarget "BookMakerOutputTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6A080E4B0B24D98C0078A159 /* Debug */,
+				6A080E4C0B24D98C0078A159 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6A080F390B24DA4A0078A159 /* Build configuration list for PBXNativeTarget "BookMaker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6A080F3A0B24DA4A0078A159 /* Debug */,
+				6A080F3B0B24DA4A0078A159 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6A0A35F50B24EB5400E3888F /* Build configuration list for PBXNativeTarget "NSExtensionsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6A0A35F60B24EB5400E3888F /* Debug */,
+				6A0A35F70B24EB5400E3888F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6A0B490A0B214C0C00BFC667 /* Build configuration list for PBXNativeTarget "PhotoBookHelper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6A0B490B0B214C0C00BFC667 /* Debug */,
+				6A0B490C0B214C0C00BFC667 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6A0C05F00B1F270700F0A66E /* Build configuration list for PBXNativeTarget "PageElementsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6A0C05F10B1F270700F0A66E /* Debug */,
+				6A0C05F20B1F270700F0A66E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6A0C07E50B1F417300F0A66E /* Build configuration list for PBXNativeTarget "NSExtensions" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6A0C07E60B1F417300F0A66E /* Debug */,
+				6A0C07E70B1F417300F0A66E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6A0C0BDB0B1F64A000F0A66E /* Build configuration list for PBXNativeTarget "PageElementsDrawingTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6A0C0BDC0B1F64A000F0A66E /* Debug */,
+				6A0C0BDD0B1F64A000F0A66E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6A0C0CE70B1F658000F0A66E /* Build configuration list for PBXNativeTarget "PageElements" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6A0C0CE80B1F658000F0A66E /* Debug */,
+				6A0C0CE90B1F658000F0A66E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6A0C0D9F0B1F683D00F0A66E /* Build configuration list for PBXNativeTarget "DrawingTools" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6A0C0DA00B1F683D00F0A66E /* Debug */,
+				6A0C0DA10B1F683D00F0A66E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6A12335D0B24DC55007AA74D /* Build configuration list for PBXAggregateTarget "PageCircus" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6A12335E0B24DC55007AA74D /* Debug */,
+				6A12335F0B24DC55007AA74D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6A3D391D0B27880D00DB2BE7 /* Build configuration list for PBXNativeTarget "NSRunLoopStudy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6A3D391E0B27880D00DB2BE7 /* Debug */,
+				6A3D391F0B27880D00DB2BE7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6AA627C70B1EFA6800204170 /* Build configuration list for PBXProject "PageCircus" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6AA627C80B1EFA6800204170 /* Debug */,
+				6AA627C90B1EFA6800204170 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6AB0378F0B36E0200050A519 /* Build configuration list for PBXNativeTarget "PagePreviewer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6AB037900B36E0200050A519 /* Debug */,
+				6AB037910B36E0200050A519 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6AA627C60B1EFA6800204170 /* Project object */;
+}

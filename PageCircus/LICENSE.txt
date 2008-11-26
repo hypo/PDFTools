@@ -1,0 +1,12 @@
+
+Please also refer to README.txt. 
+
+BookMaker, BookMakerTools, BarcodeOverprinter are hypo-specific code 
+and are custom-built for hypo.
+
+ObjectiveFlickr, NSExtensions, DrawingTools and PageElements are works 
+of Lukhnos D. Liu. Copyright (c) 2006-2008 Lukhnos D. Liu.
+
+Some identifier names in the source reflect history in the making 
+of this system--e.g. com.handlino.
+
