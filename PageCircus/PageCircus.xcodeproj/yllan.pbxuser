@@ -490,6 +490,9 @@
 			85CA7D720EDD992200B2FC22 /* PBXTextBookmark */ = 85CA7D720EDD992200B2FC22 /* PBXTextBookmark */;
 			85CA7D730EDD994E00B2FC22 /* PBXTextBookmark */ = 85CA7D730EDD994E00B2FC22 /* PBXTextBookmark */;
 			85CA7D760EDD99C300B2FC22 /* PBXTextBookmark */ = 85CA7D760EDD99C300B2FC22 /* PBXTextBookmark */;
+			85CA7D780EDD9AF800B2FC22 /* PBXTextBookmark */ = 85CA7D780EDD9AF800B2FC22 /* PBXTextBookmark */;
+			85CA7D7A0EDD9B0300B2FC22 /* PBXTextBookmark */ = 85CA7D7A0EDD9B0300B2FC22 /* PBXTextBookmark */;
+			85CA7D7D0EDD9B9600B2FC22 /* PBXTextBookmark */ = 85CA7D7D0EDD9B9600B2FC22 /* PBXTextBookmark */;
 			85D0EA4A0ED879DA0066E288 = 85D0EA4A0ED879DA0066E288 /* PBXTextBookmark */;
 			85D0EA4C0ED879DA0066E288 = 85D0EA4C0ED879DA0066E288 /* PBXTextBookmark */;
 			85D0EA640ED87C1E0066E288 = 85D0EA640ED87C1E0066E288 /* PBXTextBookmark */;
@@ -641,9 +644,9 @@
 	};
 	6AABF0940B1FEC5A00A3688B /* PEImageBox.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1025, 5880}}";
-			sepNavSelRange = "{13694, 0}";
-			sepNavVisRange = "{11747, 2621}";
+			sepNavIntBoundsRect = "{{0, 0}, {1025, 5796}}";
+			sepNavSelRange = "{12979, 0}";
+			sepNavVisRange = "{11695, 2445}";
 		};
 	};
 	6AB0378B0B36E0200050A519 /* PagePreviewer */ = {
@@ -1663,7 +1666,7 @@
 		fRef = 6AABF0940B1FEC5A00A3688B /* PEImageBox.m */;
 		name = "PEImageBox.m: 374";
 		rLen = 0;
-		rLoc = 14497;
+		rLoc = 14269;
 		rType = 0;
 		vrLen = 1716;
 		vrLoc = 4884;
@@ -1743,7 +1746,7 @@
 		fRef = 6AABF0940B1FEC5A00A3688B /* PEImageBox.m */;
 		name = "PEImageBox.m: 374";
 		rLen = 0;
-		rLoc = 14497;
+		rLoc = 14269;
 		rType = 0;
 		vrLen = 1716;
 		vrLoc = 4884;
@@ -1763,7 +1766,7 @@
 		fRef = 6AABF0940B1FEC5A00A3688B /* PEImageBox.m */;
 		name = "PEImageBox.m: 374";
 		rLen = 0;
-		rLoc = 14497;
+		rLoc = 14269;
 		rType = 0;
 		vrLen = 1648;
 		vrLoc = 4990;
@@ -1773,7 +1776,7 @@
 		fRef = 6AABF0940B1FEC5A00A3688B /* PEImageBox.m */;
 		name = "PEImageBox.m: 384";
 		rLen = 0;
-		rLoc = 15250;
+		rLoc = 15022;
 		rType = 0;
 		vrLen = 1654;
 		vrLoc = 3895;
@@ -1783,7 +1786,7 @@
 		fRef = 6AABF0940B1FEC5A00A3688B /* PEImageBox.m */;
 		name = "PEImageBox.m: 384";
 		rLen = 0;
-		rLoc = 15250;
+		rLoc = 15022;
 		rType = 0;
 		vrLen = 1653;
 		vrLoc = 3895;
@@ -1813,7 +1816,7 @@
 		fRef = 6AABF0940B1FEC5A00A3688B /* PEImageBox.m */;
 		name = "PEImageBox.m: 374";
 		rLen = 0;
-		rLoc = 14368;
+		rLoc = 14140;
 		rType = 0;
 		vrLen = 1934;
 		vrLoc = 8340;
@@ -1843,7 +1846,7 @@
 		fRef = 6AABF0940B1FEC5A00A3688B /* PEImageBox.m */;
 		name = "PEImageBox.m: 370";
 		rLen = 0;
-		rLoc = 14217;
+		rLoc = 13989;
 		rType = 0;
 		vrLen = 1806;
 		vrLoc = 10645;
@@ -1853,7 +1856,7 @@
 		fRef = 6AABF0940B1FEC5A00A3688B /* PEImageBox.m */;
 		name = "PEImageBox.m: 370";
 		rLen = 0;
-		rLoc = 14217;
+		rLoc = 13989;
 		rType = 0;
 		vrLen = 1806;
 		vrLoc = 10645;
@@ -1873,7 +1876,7 @@
 		fRef = 6AABF0940B1FEC5A00A3688B /* PEImageBox.m */;
 		name = "PEImageBox.m: 378";
 		rLen = 0;
-		rLoc = 12826;
+		rLoc = 12780;
 		rType = 0;
 		vrLen = 2256;
 		vrLoc = 10922;
@@ -1893,7 +1896,7 @@
 		fRef = 6AABF0940B1FEC5A00A3688B /* PEImageBox.m */;
 		name = "PEImageBox.m: 392";
 		rLen = 0;
-		rLoc = 14332;
+		rLoc = 14104;
 		rType = 0;
 		vrLen = 2223;
 		vrLoc = 11203;
@@ -1903,7 +1906,7 @@
 		fRef = 6AABF0940B1FEC5A00A3688B /* PEImageBox.m */;
 		name = "PEImageBox.m: 391";
 		rLen = 0;
-		rLoc = 13693;
+		rLoc = 13470;
 		rType = 0;
 		vrLen = 2515;
 		vrLoc = 11431;
@@ -1913,7 +1916,7 @@
 		fRef = 6AABF0940B1FEC5A00A3688B /* PEImageBox.m */;
 		name = "PEImageBox.m: 391";
 		rLen = 0;
-		rLoc = 13693;
+		rLoc = 13470;
 		rType = 0;
 		vrLen = 2515;
 		vrLoc = 11431;
@@ -1923,7 +1926,7 @@
 		fRef = 6AABF0940B1FEC5A00A3688B /* PEImageBox.m */;
 		name = "PEImageBox.m: 387";
 		rLen = 0;
-		rLoc = 13272;
+		rLoc = 13164;
 		rType = 0;
 		vrLen = 2518;
 		vrLoc = 11467;
@@ -1933,7 +1936,7 @@
 		fRef = 6AABF0940B1FEC5A00A3688B /* PEImageBox.m */;
 		name = "PEImageBox.m: 388";
 		rLen = 0;
-		rLoc = 13362;
+		rLoc = 13165;
 		rType = 0;
 		vrLen = 2549;
 		vrLoc = 11467;
@@ -1943,7 +1946,7 @@
 		fRef = 6AABF0940B1FEC5A00A3688B /* PEImageBox.m */;
 		name = "PEImageBox.m: 386";
 		rLen = 0;
-		rLoc = 13272;
+		rLoc = 13164;
 		rType = 0;
 		vrLen = 2510;
 		vrLoc = 11467;
@@ -1953,7 +1956,7 @@
 		fRef = 6AABF0940B1FEC5A00A3688B /* PEImageBox.m */;
 		name = "PEImageBox.m: 391";
 		rLen = 0;
-		rLoc = 13693;
+		rLoc = 13470;
 		rType = 0;
 		vrLen = 2516;
 		vrLoc = 11467;
@@ -1963,7 +1966,7 @@
 		fRef = 6AABF0940B1FEC5A00A3688B /* PEImageBox.m */;
 		name = "PEImageBox.m: 397";
 		rLen = 0;
-		rLoc = 13774;
+		rLoc = 13551;
 		rType = 0;
 		vrLen = 2552;
 		vrLoc = 11593;
@@ -1973,7 +1976,7 @@
 		fRef = 6AABF0940B1FEC5A00A3688B /* PEImageBox.m */;
 		name = "PEImageBox.m: 400";
 		rLen = 0;
-		rLoc = 14217;
+		rLoc = 13989;
 		rType = 0;
 		vrLen = 2548;
 		vrLoc = 11593;
@@ -1983,7 +1986,7 @@
 		fRef = 6AABF0940B1FEC5A00A3688B /* PEImageBox.m */;
 		name = "PEImageBox.m: 398";
 		rLen = 0;
-		rLoc = 13874;
+		rLoc = 13655;
 		rType = 0;
 		vrLen = 2565;
 		vrLoc = 11593;
@@ -1993,7 +1996,7 @@
 		fRef = 6AABF0940B1FEC5A00A3688B /* PEImageBox.m */;
 		name = "PEImageBox.m: 398";
 		rLen = 0;
-		rLoc = 13881;
+		rLoc = 13662;
 		rType = 0;
 		vrLen = 2575;
 		vrLoc = 11593;
@@ -2003,7 +2006,7 @@
 		fRef = 6AABF0940B1FEC5A00A3688B /* PEImageBox.m */;
 		name = "PEImageBox.m: 399";
 		rLen = 0;
-		rLoc = 14134;
+		rLoc = 13906;
 		rType = 0;
 		vrLen = 2647;
 		vrLoc = 11593;
@@ -2013,10 +2016,40 @@
 		fRef = 6AABF0940B1FEC5A00A3688B /* PEImageBox.m */;
 		name = "PEImageBox.m: 394";
 		rLen = 0;
-		rLoc = 13694;
+		rLoc = 13471;
 		rType = 0;
 		vrLen = 2621;
 		vrLoc = 11747;
+	};
+	85CA7D780EDD9AF800B2FC22 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 6AABF0940B1FEC5A00A3688B /* PEImageBox.m */;
+		name = "PEImageBox.m: 395";
+		rLen = 0;
+		rLoc = 13630;
+		rType = 0;
+		vrLen = 2529;
+		vrLoc = 11710;
+	};
+	85CA7D7A0EDD9B0300B2FC22 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 6AABF0940B1FEC5A00A3688B /* PEImageBox.m */;
+		name = "PEImageBox.m: 390";
+		rLen = 0;
+		rLoc = 13243;
+		rType = 0;
+		vrLen = 2530;
+		vrLoc = 11710;
+	};
+	85CA7D7D0EDD9B9600B2FC22 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 6AABF0940B1FEC5A00A3688B /* PEImageBox.m */;
+		name = "PEImageBox.m: 384";
+		rLen = 0;
+		rLoc = 12979;
+		rType = 0;
+		vrLen = 2445;
+		vrLoc = 11695;
 	};
 	85D0EA4A0ED879DA0066E288 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;

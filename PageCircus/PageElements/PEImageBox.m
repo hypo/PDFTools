@@ -372,12 +372,10 @@ void PEDrawImageInRect(NSImage *image, NSRect frame, BOOL bleed, BOOL useCropRec
     // yllan's addition code to crop the image
     NSImage *croppedImage = nil;
     if (useCropRect) {
-        unsigned int width, height;
-        width = [[[image representations] objectAtIndex: 0] pixelsWide];
-        height = [[[image representations] objectAtIndex: 0] pixelsHigh];
-        float scaleX, scaleY;
-        scaleX = (float)width / [image size].width;
-        scaleY = (float)height / [image size].height;
+        int width = [[[image representations] objectAtIndex: 0] pixelsWide];
+        int height = [[[image representations] objectAtIndex: 0] pixelsHigh];
+        float scaleX = (float)width / [image size].width;
+        float scaleY = (float)height / [image size].height;
         NSSize croppedSize = NSMakeSize(imageRect.size.width * scaleX, imageRect.size.height * scaleY);
         NSRect croppedImageRect;
         croppedImageRect.origin = NSZeroPoint;
@@ -386,19 +384,16 @@ void PEDrawImageInRect(NSImage *image, NSRect frame, BOOL bleed, BOOL useCropRec
         [croppedImage lockFocus];
         [image drawInRect: croppedImageRect fromRect: imageRect operation: NSCompositeCopy fraction: 1.0];        
         [croppedImage unlockFocus];
-        NSData *imageData = [croppedImage TIFFRepresentation];
-//        [imageData writeToFile: [@"~/Desktop/output.tiff" stringByExpandingTildeInPath] atomically: YES];
-        NSBitmapImageRep *imageRep = [NSBitmapImageRep imageRepWithData: imageData];
-        NSDictionary *imageProps = [NSDictionary dictionaryWithObject:[NSNumber numberWithFloat:0.9] forKey:NSImageCompressionFactor];
-        imageData = [imageRep representationUsingType:NSJPEGFileType properties:imageProps];
+
+        NSBitmapImageRep *imageRep = [NSBitmapImageRep imageRepWithData: [croppedImage TIFFRepresentation]];
+        NSData *jpegImageData = [imageRep representationUsingType: NSJPEGFileType properties: [NSDictionary dictionaryWithObject:[NSNumber numberWithFloat: 0.9] forKey: NSImageCompressionFactor]];
         
         CGContextRef cgContext = [context graphicsPort];
-        CGDataProviderRef provider = CGDataProviderCreateWithCFData((CFDataRef) imageData);
+        CGDataProviderRef provider = CGDataProviderCreateWithCFData((CFDataRef) jpegImageData);
         CGImageRef cgImage = CGImageCreateWithJPEGDataProvider(provider, NULL, true, kCGRenderingIntentDefault);
         
         CGContextSaveGState(cgContext);
         CGContextDrawImage(cgContext, *(CGRect*)&drawRect, cgImage);
-        
         CGContextRestoreGState(cgContext);
         
         CGImageRelease(cgImage);
