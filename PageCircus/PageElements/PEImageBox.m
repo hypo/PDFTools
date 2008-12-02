@@ -3,7 +3,7 @@
 #import "PEImageBox.h"
 #import "NSExtensions.h"
 
-void PEDrawImageInRect(NSImage *image, NSRect frame, BOOL bleed, BOOL useCropRect, NSRect cropRect);
+void PEDrawImageInRect(NSImage *image, NSRect frame, BOOL bleed, BOOL useCropRect, NSRect cropRect, BOOL wantJPEGCompression);
 
 @implementation PEImageBox : PEDrawableElement
 + (id)imageBoxWithDictionary:(NSDictionary*)dict boundingRect:(NSRect)boundingRect
@@ -152,7 +152,14 @@ void PEDrawImageInRect(NSImage *image, NSRect frame, BOOL bleed, BOOL useCropRec
 	NSLog(@"actual drawing, size=%.2f x %.2f", size.width, size.height);
 	
     NSRect cropRect = NSMakeRect(size.width * _cropX, size.height * (1 - (_cropY + _cropH)), size.width * _cropW, size.height * _cropH);
-    PEDrawImageInRect(image, _boundingRect, _bleed, YES, cropRect);
+
+    NSString *extension = [[source pathExtension] lowercaseString];
+
+    if ([extension isEqualToString: @"jpeg"] || [extension isEqualToString: @"jpg"]) {
+        PEDrawImageInRect(image, _boundingRect, _bleed, YES, cropRect, YES);
+    } else {
+        PEDrawImageInRect(image, _boundingRect, _bleed, YES, cropRect, NO);
+    }
 }
 - (BOOL)prepareWithOutputControl:(NSDictionary*)controlData
 {
@@ -320,7 +327,7 @@ void PEDrawImageInRect(NSImage *image, NSRect frame, BOOL bleed, BOOL useCropRec
 }
 @end
 
-void PEDrawImageInRect(NSImage *image, NSRect frame, BOOL bleed, BOOL useCropRect, NSRect cropRect)
+void PEDrawImageInRect(NSImage *image, NSRect frame, BOOL bleed, BOOL useCropRect, NSRect cropRect, BOOL wantJPEGCompression)
 {
 	NSRect imageRect, drawRect = frame;
 	if (useCropRect) {
@@ -369,9 +376,9 @@ void PEDrawImageInRect(NSImage *image, NSRect frame, BOOL bleed, BOOL useCropRec
     NSGraphicsContext *context = [NSGraphicsContext currentContext];
     [context saveGraphicsState];	
 
-    // yllan's addition code to crop the image
-    NSImage *croppedImage = nil;
-    if (useCropRect) {
+    // yllan's addition code to crop the image and compress to jpeg
+    if (wantJPEGCompression) {
+        NSImage *croppedImage;
         int width = [[[image representations] objectAtIndex: 0] pixelsWide];
         int height = [[[image representations] objectAtIndex: 0] pixelsHigh];
         float scaleX = (float)width / [image size].width;
