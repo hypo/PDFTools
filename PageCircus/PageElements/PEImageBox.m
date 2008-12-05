@@ -374,11 +374,10 @@ void PEDrawImageInRect(NSImage *image, NSRect frame, BOOL bleed, BOOL useCropRec
 	}
 
     NSGraphicsContext *context = [NSGraphicsContext currentContext];
-    [context saveGraphicsState];	
 
     // yllan's addition code to crop the image and compress to jpeg
     if (wantJPEGCompression) {
-        NSImage *croppedImage;
+        [context saveGraphicsState];
         int width = [[[image representations] objectAtIndex: 0] pixelsWide];
         int height = [[[image representations] objectAtIndex: 0] pixelsHigh];
         float scaleX = (float)width / [image size].width;
@@ -387,26 +386,28 @@ void PEDrawImageInRect(NSImage *image, NSRect frame, BOOL bleed, BOOL useCropRec
         NSRect croppedImageRect;
         croppedImageRect.origin = NSZeroPoint;
         croppedImageRect.size = croppedSize;
-        croppedImage = [[[NSImage alloc] initWithSize: croppedSize] autorelease];
-        [croppedImage lockFocus];
-        [image drawInRect: croppedImageRect fromRect: imageRect operation: NSCompositeCopy fraction: 1.0];        
-        [croppedImage unlockFocus];
 
-        NSBitmapImageRep *imageRep = [NSBitmapImageRep imageRepWithData: [croppedImage TIFFRepresentation]];
-        NSData *jpegImageData = [imageRep representationUsingType: NSJPEGFileType properties: [NSDictionary dictionaryWithObject:[NSNumber numberWithFloat: 0.9] forKey: NSImageCompressionFactor]];
+        // Don't use lockFocus/unlockFocus on NSImage. It screws up things...
+        // Anyway, using NSBitmapImageRep is also faster and save memory from creating intermediate NSImage object.
+        NSBitmapImageRep *canvasRep = [[NSBitmapImageRep alloc] initWithBitmapDataPlanes: NULL pixelsWide: croppedSize.width pixelsHigh: croppedSize.height bitsPerSample: 8 samplesPerPixel: 4 hasAlpha: YES isPlanar: NO colorSpaceName: NSCalibratedRGBColorSpace bytesPerRow: 0 bitsPerPixel: 0];
         
-        CGContextRef cgContext = [context graphicsPort];
+        [NSGraphicsContext saveGraphicsState]; 
+        [NSGraphicsContext setCurrentContext: [NSGraphicsContext graphicsContextWithBitmapImageRep: canvasRep]];
+        [image drawInRect: croppedImageRect fromRect: imageRect operation: NSCompositeCopy fraction: 1.0];
+        [NSGraphicsContext restoreGraphicsState];
+
+        NSData *jpegImageData = [canvasRep representationUsingType: NSJPEGFileType properties: [NSDictionary dictionaryWithObject:[NSNumber numberWithFloat: 0.9] forKey: NSImageCompressionFactor]];
+        [canvasRep release];
+
         CGDataProviderRef provider = CGDataProviderCreateWithCFData((CFDataRef) jpegImageData);
         CGImageRef cgImage = CGImageCreateWithJPEGDataProvider(provider, NULL, true, kCGRenderingIntentDefault);
-        
-        CGContextSaveGState(cgContext);
-        CGContextDrawImage(cgContext, *(CGRect*)&drawRect, cgImage);
-        CGContextRestoreGState(cgContext);
-        
+        CGContextDrawImage([context graphicsPort], *(CGRect*)&drawRect, cgImage);
         CGImageRelease(cgImage);
         CGDataProviderRelease(provider);
+        [context restoreGraphicsState];
     } else {
+        [context saveGraphicsState];
         [image drawInRect:drawRect fromRect:imageRect operation:NSCompositeCopy fraction:1.0];
+        [context restoreGraphicsState];	
     }
-	[context restoreGraphicsState];	
 }
