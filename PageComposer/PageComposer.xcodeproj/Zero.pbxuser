@@ -1,0 +1,334 @@
+// !$*UTF8*$!
+{
+	6A4966670DE4788E001E75AA /* Project object */ = {
+		activeBuildConfigurationName = Release;
+		activeExecutable = DA1160A70E235DAD007C72FC /* PageComposer */;
+		activeTarget = 6A49667B0DE478A8001E75AA /* PageComposer */;
+		addToTargets = (
+			6A49667B0DE478A8001E75AA /* PageComposer */,
+		);
+		breakpoints = (
+			DA2A2C070E2C4A0800F6DE33 /* Main.mm:149 */,
+		);
+		codeSenseManager = DA1160B90E235DB1007C72FC /* Code sense */;
+		executables = (
+			DA1160A70E235DAD007C72FC /* PageComposer */,
+		);
+		perUserDictionary = {
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					993,
+					20,
+					48,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 250105412;
+			PBXWorkspaceStateSaveDate = 250105412;
+		};
+		perUserProjectItems = {
+			DA2234870EE84E4700A46AF8 /* PBXTextBookmark */ = DA2234870EE84E4700A46AF8 /* PBXTextBookmark */;
+			DA77181A0EB0E6E300A203BC /* PBXTextBookmark */ = DA77181A0EB0E6E300A203BC /* PBXTextBookmark */;
+			DA77181B0EB0E6E300A203BC /* PBXTextBookmark */ = DA77181B0EB0E6E300A203BC /* PBXTextBookmark */;
+			DA77181C0EB0E6E300A203BC /* PBXTextBookmark */ = DA77181C0EB0E6E300A203BC /* PBXTextBookmark */;
+			DA77181D0EB0E6E300A203BC /* PlistBookmark */ = DA77181D0EB0E6E300A203BC /* PlistBookmark */;
+			DA77181F0EB0E6E300A203BC /* PBXTextBookmark */ = DA77181F0EB0E6E300A203BC /* PBXTextBookmark */;
+			DA7718220EB0E6E300A203BC /* PlistBookmark */ = DA7718220EB0E6E300A203BC /* PlistBookmark */;
+			DA83491E0E6B779700EFF314 /* PBXTextBookmark */ = DA83491E0E6B779700EFF314 /* PBXTextBookmark */;
+			DA8349220E6B779700EFF314 /* PBXTextBookmark */ = DA8349220E6B779700EFF314 /* PBXTextBookmark */;
+			DA9341730EE7063800724962 /* PBXTextBookmark */ = DA9341730EE7063800724962 /* PBXTextBookmark */;
+			DADC1D420E275FB300877404 /* PBXTextBookmark */ = DADC1D420E275FB300877404 /* PBXTextBookmark */;
+			DADC1D470E275FB300877404 /* PBXTextBookmark */ = DADC1D470E275FB300877404 /* PBXTextBookmark */;
+			DADC1D480E275FB300877404 /* PBXTextBookmark */ = DADC1D480E275FB300877404 /* PBXTextBookmark */;
+			DADC1D4A0E275FB300877404 /* PBXTextBookmark */ = DADC1D4A0E275FB300877404 /* PBXTextBookmark */;
+			DADC1D4B0E275FB300877404 /* PBXTextBookmark */ = DADC1D4B0E275FB300877404 /* PBXTextBookmark */;
+		};
+		sourceControlManager = DA1160B80E235DB1007C72FC /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	6A49667B0DE478A8001E75AA /* PageComposer */ = {
+		activeExec = 0;
+		executables = (
+			DA1160A70E235DAD007C72FC /* PageComposer */,
+		);
+	};
+	6A4966850DE47906001E75AA /* Main.mm */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1221.8, 5050}}";
+			sepNavSelRange = "{4946, 0}";
+			sepNavVisRange = "{4022, 925}";
+		};
+	};
+	6A4966860DE47906001E75AA /* OVStringHelper.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1171, 3250}}";
+			sepNavSelRange = "{87, 0}";
+			sepNavVisRange = "{0, 495}";
+		};
+	};
+	6A4966870DE47906001E75AA /* OVWildcard.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1707.88, 5600}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 517}";
+		};
+	};
+	DA1160A70E235DAD007C72FC /* PageComposer */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 1;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		dylibVariantSuffix = "";
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = PageComposer;
+		savedGlobals = {
+		};
+		sourceDirectories = (
+		);
+		variableFormatDictionary = {
+		};
+	};
+	DA1160B80E235DB1007C72FC /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+		};
+	};
+	DA1160B90E235DB1007C72FC /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	DA2234870EE84E4700A46AF8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 6A4966850DE47906001E75AA /* Main.mm */;
+		name = "Main.mm: 168";
+		rLen = 0;
+		rLoc = 4946;
+		rType = 0;
+		vrLen = 925;
+		vrLoc = 4022;
+	};
+	DA2A2C070E2C4A0800F6DE33 /* Main.mm:149 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 6A4966850DE47906001E75AA /* Main.mm */;
+		functionName = "RunFile(istream& ist)";
+		hitCount = 1;
+		ignoreCount = 0;
+		lineNumber = 149;
+		location = PageComposer;
+		modificationTime = 237783570.830694;
+		state = 1;
+	};
+	DA2D53250E9507F1008A40DE /* SinglePagePDF.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = SinglePagePDF.h;
+		path = /Users/Zero/Sites/Hypo/pagecomposer/ExternalDependencies/LFSimpleGraphics.framework/Headers/SinglePagePDF.h;
+		sourceTree = "<absolute>";
+	};
+	DA77181A0EB0E6E300A203BC /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DA2D53250E9507F1008A40DE /* SinglePagePDF.h */;
+		name = "SinglePagePDF.h: 22";
+		rLen = 0;
+		rLoc = 495;
+		rType = 0;
+		vrLen = 435;
+		vrLoc = 135;
+	};
+	DA77181B0EB0E6E300A203BC /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 6A4966860DE47906001E75AA /* OVStringHelper.h */;
+		name = "OVStringHelper.h: 7";
+		rLen = 0;
+		rLoc = 87;
+		rType = 0;
+		vrLen = 495;
+		vrLoc = 0;
+	};
+	DA77181C0EB0E6E300A203BC /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 6A4966870DE47906001E75AA /* OVWildcard.h */;
+		name = "OVWildcard.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 517;
+		vrLoc = 0;
+	};
+	DA77181D0EB0E6E300A203BC /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 6A49667F0DE478A8001E75AA /* PageComposer-Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+		);
+		name = "/Users/Zero/Sites/Hypo/pagecomposer/PageComposer-Info.plist";
+		rLen = 0;
+		rLoc = 2147483647;
+	};
+	DA77181F0EB0E6E300A203BC /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DA2D53250E9507F1008A40DE /* SinglePagePDF.h */;
+		name = "SinglePagePDF.h: 22";
+		rLen = 0;
+		rLoc = 495;
+		rType = 0;
+		vrLen = 435;
+		vrLoc = 135;
+	};
+	DA7718220EB0E6E300A203BC /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 6A49667F0DE478A8001E75AA /* PageComposer-Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+		);
+		name = "/Users/Zero/Sites/Hypo/pagecomposer/PageComposer-Info.plist";
+		rLen = 0;
+		rLoc = 2147483647;
+	};
+	DA83491E0E6B779700EFF314 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DA83491F0E6B779700EFF314 /* LFSimpleGraphics.h */;
+		name = "LFSimpleGraphics.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 312;
+		vrLoc = 0;
+	};
+	DA83491F0E6B779700EFF314 /* LFSimpleGraphics.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = LFSimpleGraphics.h;
+		path = /Users/Zero/Sites/Hypo/pagecomposer/ExternalDependencies/LFSimpleGraphics.framework/Headers/LFSimpleGraphics.h;
+		sourceTree = "<absolute>";
+	};
+	DA8349220E6B779700EFF314 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DA8349230E6B779700EFF314 /* LFSimpleGraphics.h */;
+		name = "LFSimpleGraphics.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 312;
+		vrLoc = 0;
+	};
+	DA8349230E6B779700EFF314 /* LFSimpleGraphics.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = LFSimpleGraphics.h;
+		path = /Users/Zero/Sites/Hypo/pagecomposer/ExternalDependencies/LFSimpleGraphics.framework/Headers/LFSimpleGraphics.h;
+		sourceTree = "<absolute>";
+	};
+	DA9341730EE7063800724962 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 6A4966850DE47906001E75AA /* Main.mm */;
+		name = "Main.mm: 168";
+		rLen = 0;
+		rLoc = 4946;
+		rType = 0;
+		vrLen = 926;
+		vrLoc = 4022;
+	};
+	DADC1D420E275FB300877404 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DADC1D430E275FB300877404 /* ImageHelper.h */;
+		name = "ImageHelper.h: 19";
+		rLen = 0;
+		rLoc = 403;
+		rType = 0;
+		vrLen = 502;
+		vrLoc = 0;
+	};
+	DADC1D430E275FB300877404 /* ImageHelper.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = ImageHelper.h;
+		path = /Users/Zero/Sites/Hypo/pagecomposer/ExternalDependencies/LFSimpleGraphics.framework/Versions/A/Headers/ImageHelper.h;
+		sourceTree = "<absolute>";
+	};
+	DADC1D470E275FB300877404 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 6A4966850DE47906001E75AA /* Main.mm */;
+		name = "Main.mm: 127";
+		rLen = 11;
+		rLoc = 3308;
+		rType = 0;
+		vrLen = 965;
+		vrLoc = 2797;
+	};
+	DADC1D480E275FB300877404 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DADC1D490E275FB300877404 /* ImageHelper.h */;
+		name = "ImageHelper.h: 19";
+		rLen = 0;
+		rLoc = 403;
+		rType = 0;
+		vrLen = 502;
+		vrLoc = 0;
+	};
+	DADC1D490E275FB300877404 /* ImageHelper.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = ImageHelper.h;
+		path = /Users/Zero/Sites/Hypo/pagecomposer/ExternalDependencies/LFSimpleGraphics.framework/Versions/A/Headers/ImageHelper.h;
+		sourceTree = "<absolute>";
+	};
+	DADC1D4A0E275FB300877404 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 6A4966870DE47906001E75AA /* OVWildcard.h */;
+		name = "OVWildcard.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 786;
+		vrLoc = 0;
+	};
+	DADC1D4B0E275FB300877404 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 6A4966860DE47906001E75AA /* OVStringHelper.h */;
+		name = "OVStringHelper.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 603;
+		vrLoc = 0;
+	};
+}

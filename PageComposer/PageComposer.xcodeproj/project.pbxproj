@@ -1,0 +1,274 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 42;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6A4966880DE47906001E75AA /* Main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6A4966850DE47906001E75AA /* Main.mm */; };
+		6A49668D0DE4791B001E75AA /* LFSimpleGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A49668A0DE4791B001E75AA /* LFSimpleGraphics.framework */; };
+		6A49668E0DE4791B001E75AA /* NSExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A49668B0DE4791B001E75AA /* NSExtensions.framework */; };
+		6A4966980DE4793C001E75AA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A4966970DE4793C001E75AA /* Cocoa.framework */; };
+		6A4966B60DE47955001E75AA /* LFSimpleGraphics.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6A49668A0DE4791B001E75AA /* LFSimpleGraphics.framework */; };
+		6A4966B70DE47955001E75AA /* NSExtensions.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6A49668B0DE4791B001E75AA /* NSExtensions.framework */; };
+		DAB0C8F20E2AF6260087F1F6 /* PageElements.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAB0C8F10E2AF6260087F1F6 /* PageElements.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		6A4966BF0DE4796B001E75AA /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				6A4966B60DE47955001E75AA /* LFSimpleGraphics.framework in CopyFiles */,
+				6A4966B70DE47955001E75AA /* NSExtensions.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		6A49667C0DE478A8001E75AA /* PageComposer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PageComposer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A49667F0DE478A8001E75AA /* PageComposer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PageComposer-Info.plist"; sourceTree = "<group>"; };
+		6A4966850DE47906001E75AA /* Main.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Main.mm; sourceTree = "<group>"; };
+		6A4966860DE47906001E75AA /* OVStringHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OVStringHelper.h; sourceTree = "<group>"; };
+		6A4966870DE47906001E75AA /* OVWildcard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OVWildcard.h; sourceTree = "<group>"; };
+		6A49668A0DE4791B001E75AA /* LFSimpleGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LFSimpleGraphics.framework; path = ExternalDependencies/LFSimpleGraphics.framework; sourceTree = "<group>"; };
+		6A49668B0DE4791B001E75AA /* NSExtensions.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NSExtensions.framework; path = ExternalDependencies/NSExtensions.framework; sourceTree = "<group>"; };
+		6A4966970DE4793C001E75AA /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		DAB0C8F10E2AF6260087F1F6 /* PageElements.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PageElements.framework; path = ExternalDependencies/PageElements.framework; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6A49667A0DE478A8001E75AA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A49668D0DE4791B001E75AA /* LFSimpleGraphics.framework in Frameworks */,
+				6A49668E0DE4791B001E75AA /* NSExtensions.framework in Frameworks */,
+				6A4966980DE4793C001E75AA /* Cocoa.framework in Frameworks */,
+				DAB0C8F20E2AF6260087F1F6 /* PageElements.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6A4966650DE4788E001E75AA = {
+			isa = PBXGroup;
+			children = (
+				6A49669D0DE47941001E75AA /* Source */,
+				6A4966890DE47909001E75AA /* Dependencies */,
+				6A4966960DE4791F001E75AA /* Apple Frameworks */,
+				6A49667D0DE478A8001E75AA /* Products */,
+				6A49667F0DE478A8001E75AA /* PageComposer-Info.plist */,
+			);
+			sourceTree = "<group>";
+		};
+		6A49667D0DE478A8001E75AA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6A49667C0DE478A8001E75AA /* PageComposer.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6A4966890DE47909001E75AA /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				DAB0C8F10E2AF6260087F1F6 /* PageElements.framework */,
+				6A49668A0DE4791B001E75AA /* LFSimpleGraphics.framework */,
+				6A49668B0DE4791B001E75AA /* NSExtensions.framework */,
+			);
+			name = Dependencies;
+			sourceTree = "<group>";
+		};
+		6A4966960DE4791F001E75AA /* Apple Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6A4966970DE4793C001E75AA /* Cocoa.framework */,
+			);
+			name = "Apple Frameworks";
+			sourceTree = "<group>";
+		};
+		6A49669D0DE47941001E75AA /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				6A4966850DE47906001E75AA /* Main.mm */,
+				6A4966860DE47906001E75AA /* OVStringHelper.h */,
+				6A4966870DE47906001E75AA /* OVWildcard.h */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6A49667B0DE478A8001E75AA /* PageComposer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6A4966820DE478A9001E75AA /* Build configuration list for PBXNativeTarget "PageComposer" */;
+			buildPhases = (
+				6A4966780DE478A8001E75AA /* Resources */,
+				6A4966790DE478A8001E75AA /* Sources */,
+				6A49667A0DE478A8001E75AA /* Frameworks */,
+				6A4966BF0DE4796B001E75AA /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PageComposer;
+			productName = PageComposer;
+			productReference = 6A49667C0DE478A8001E75AA /* PageComposer.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6A4966670DE4788E001E75AA /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 6A49666A0DE4788E001E75AA /* Build configuration list for PBXProject "PageComposer" */;
+			compatibilityVersion = "Xcode 2.4";
+			hasScannedForEncodings = 0;
+			mainGroup = 6A4966650DE4788E001E75AA;
+			productRefGroup = 6A49667D0DE478A8001E75AA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6A49667B0DE478A8001E75AA /* PageComposer */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6A4966780DE478A8001E75AA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6A4966790DE478A8001E75AA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A4966880DE47906001E75AA /* Main.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		6A4966680DE4788E001E75AA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = Debug;
+		};
+		6A4966690DE4788E001E75AA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1)";
+				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
+				COPY_PHASE_STRIP = YES;
+			};
+			name = Release;
+		};
+		6A4966800DE478A8001E75AA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1)";
+				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_2)",
+				);
+				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/ExternalDependencies\"";
+				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"$(SRCROOT)/ExternalDependencies\"";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INFOPLIST_FILE = "PageComposer-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = PageComposer;
+			};
+			name = Debug;
+		};
+		6A4966810DE478A8001E75AA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1)";
+				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_2)",
+				);
+				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/ExternalDependencies\"";
+				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"$(SRCROOT)/ExternalDependencies\"";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INFOPLIST_FILE = "PageComposer-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = PageComposer;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6A49666A0DE4788E001E75AA /* Build configuration list for PBXProject "PageComposer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6A4966680DE4788E001E75AA /* Debug */,
+				6A4966690DE4788E001E75AA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6A4966820DE478A9001E75AA /* Build configuration list for PBXNativeTarget "PageComposer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6A4966800DE478A8001E75AA /* Debug */,
+				6A4966810DE478A8001E75AA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6A4966670DE4788E001E75AA /* Project object */;
+}
