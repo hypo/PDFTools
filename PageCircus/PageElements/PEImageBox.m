@@ -396,7 +396,7 @@ void PEDrawImageInRect(NSImage *image, NSRect frame, BOOL bleed, BOOL useCropRec
         [image drawInRect: croppedImageRect fromRect: imageRect operation: NSCompositeCopy fraction: 1.0];
         [NSGraphicsContext restoreGraphicsState];
 
-        NSData *jpegImageData = [canvasRep representationUsingType: NSJPEGFileType properties: [NSDictionary dictionaryWithObject:[NSNumber numberWithFloat: 1.0] forKey: NSImageCompressionFactor]];
+        NSData *jpegImageData = [canvasRep representationUsingType: NSJPEGFileType properties: [NSDictionary dictionaryWithObject:[NSNumber numberWithFloat: 0.99] forKey: NSImageCompressionFactor]];
         [canvasRep release];
 
         CGDataProviderRef provider = CGDataProviderCreateWithCFData((CFDataRef) jpegImageData);
