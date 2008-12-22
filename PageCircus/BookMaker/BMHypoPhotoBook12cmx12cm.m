@@ -150,13 +150,13 @@
 
 	NSString *textColor = @"black";
 	
-	if ([color isEqualToString:@"white"] || [color isEqualToString:@"cheese"] || [color isEqualToString:@"grass"])
+	if ([color isEqualToString:@"white"] || [color isEqualToString:@"cheese"] || [color isEqualToString:@"grass"] || [color isEqualToString:@"chestnut"])
 		textColor = @"black";
 	else
 		textColor = @"white";
 
 	NSString *coverSubtitleColor = textColor;
-	if ([color isEqualToString:@"cheese"] || [color isEqualToString:@"grass"])
+	if ([color isEqualToString:@"cheese"] || [color isEqualToString:@"grass"] || [color isEqualToString:@"chestnut"] || [color isEqualToString:@"olive"] || [color isEqualToString:@"darkgreen"])
 		coverSubtitleColor = @"white";
 
     NSDictionary *textFont6pt = [NSDictionary dictionaryWithObjectsAndKeys:[self prepareFont6pt], @"font", textColor, @"color", nil];
@@ -198,7 +198,7 @@
         promotionPartnerLogo = [promotionPartnerLogo dictionaryByMergingDictionary:tiffPassThru];
     
     NSDictionary *innerBackLogo1 = [[instruction objectForKey:@"inner-back-logo1" defaultValue:emptyDict] dictionaryByMergingDictionary:tiffPassThru];
-    NSDictionary *innerBackLogo2 = [[instruction objectForKey:@"inner-back-logo2" defaultValue:emptyDict] dictionaryByMergingDictionary:tiffPassThru];;
+    NSDictionary *innerBackLogo2 = [[instruction objectForKey:@"inner-back-logo2" defaultValue:emptyDict] dictionaryByMergingDictionary:tiffPassThru];
 	NSDictionary *bookclothLogo = [[instruction objectForKey:@"bookcloth-logo" defaultValue:emptyDict] dictionaryByMergingDictionary:tiffPassThru];
     
     NSDictionary *cuttingLine;
