@@ -81,7 +81,9 @@ BOOL PEIsCJKCharacter(UniChar c)
 
     NSGraphicsContext *context = [NSGraphicsContext currentContext];
     [context saveGraphicsState];
-    
+    containsCJK = NO;
+	containsENG = NO;
+	
     // fill the background
 	if (!PEIsTransparentColor(_backgroundColor)) {
 		[[NSColor colorByName:_backgroundColor] setFill];
@@ -91,6 +93,7 @@ BOOL PEIsCJKCharacter(UniChar c)
     NSMutableAttributedString *_attrStr = [[NSMutableAttributedString alloc] initWithString:_string];
     
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+	
     if ([_align isEqualToString:@"center"]) {
         [paragraphStyle setAlignment:NSCenterTextAlignment];
     }
@@ -138,6 +141,11 @@ BOOL PEIsCJKCharacter(UniChar c)
             p = i;
             cjkmode = YES;
         }
+		
+		if (PEIsCJKCharacter(uc))
+			containsCJK = YES;
+		else if (PEIsCJKCharacter(uc) && isprint(uc) && uc != ' ')
+			containsENG = YES;
     }
     
     // if the whole line is CJK text, but the loop is already ended
@@ -189,6 +197,21 @@ BOOL PEIsCJKCharacter(UniChar c)
 		}
 	}
     
+	// Padding the descender height to the rect, this patch allow us to use illustrator's
+	// location parameters directly.
+	float descenderHeight = [[_font fontLatin] descender];
+	float descenderHeightCJK = [[_font fontCJK] descender];
+	NSLog(@"drawRect Origin.y=%f", drawRect.origin.y);
+	NSLog(@"descenderHeight for %@ is %f", [[_font fontLatin] fontName], descenderHeight);
+	NSLog(@"descenderHeight for %@ is %f", [[_font fontCJK] fontName], descenderHeightCJK);
+	if (containsCJK)
+	{
+		descenderHeight = -descenderHeightCJK;
+	}
+		
+	drawRect.origin.y -= descenderHeight;
+	NSLog(@"[AFTER] drawRect Origin.y=%f", drawRect.origin.y);
+	
 	[_attrStr drawWithRect:drawRect options:NSStringDrawingUsesLineFragmentOrigin];
 
     [paragraphStyle release];

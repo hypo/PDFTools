@@ -39,6 +39,7 @@ BOOL PEIsTransparentColor(NSString *c)
 		[NSColor colorWithDeviceCyan:0 magenta:0.90 yellow:0.86 black:0 alpha:1.0], @"christmasred",
 	    [NSColor colorWithDeviceCyan:0.1 magenta:0.1 yellow:0.1 black:1.0 alpha:1.0], @"hypo-black",
 	    [NSColor colorWithDeviceCyan:0.1 magenta:0.1 yellow:0.1 black:0.6 alpha:1.0], @"hypo-lightgray",
+		[NSColor colorWithDeviceCyan:0.05 magenta:0.05 yellow:0.05 black:0.3 alpha:1.0], @"hypo-ticketgray",
 		nil];
 
     return [colorDict objectForKey:name defaultValue:[NSColor colorWithDeviceCyan:0.0 magenta:0.0 yellow:0.0 black:1.0 alpha:1.0]];
