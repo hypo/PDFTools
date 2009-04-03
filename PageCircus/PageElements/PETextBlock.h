@@ -41,11 +41,10 @@ BOOL PEIsCJKCharacter(UniChar c);
 	float _kerning;
 	float _kerningCJK;
 	float _lineSpacing;
-	BOOL containsCJK;
-	BOOL containsENG;
 }
 + (id)textBlockWithDictionary:(NSDictionary*)dict boundingRect:(NSRect)boundingRect;
 - (id)initWithDictionary:(NSDictionary*)dict boundingRect:(NSRect)boundingRect;
 - (void)dealloc;
+- (NSAttributedString *) attributedString;
 - (void)drawWithOutputControl:(NSDictionary*)controlData;
 @end

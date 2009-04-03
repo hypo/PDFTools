@@ -75,14 +75,77 @@ BOOL PEIsCJKCharacter(UniChar c)
 {
     [super drawWithOutputControl:controlData];
 }
+- (NSAttributedString *)attributedString;
+{
+    NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] initWithString:_string];
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle new] autorelease];
+	if ([_align isEqualToString:@"center"]) {
+        [paragraphStyle setAlignment:NSCenterTextAlignment];
+    } else if ([_align isEqualToString:@"right"]) {
+        [paragraphStyle setAlignment:NSRightTextAlignment];
+    } else {
+        [paragraphStyle setAlignment:NSLeftTextAlignment];
+    }
+	
+	if (_forceLineHeight > 0.0) {
+		[paragraphStyle setMinimumLineHeight:_forceLineHeight];
+		[paragraphStyle setMaximumLineHeight:_forceLineHeight];
+	}
+	
+	if (_lineSpacing > 0.0)
+		[paragraphStyle setLineSpacing:_lineSpacing];
+	
+    unsigned int i=0, len=[_string length], p=0, q=0;
+    BOOL cjkmode = NO;
+    
+    NSMutableDictionary *psd = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+								[_font fontLatin], NSFontAttributeName,
+								[NSColor colorByName:_color], NSForegroundColorAttributeName,
+								paragraphStyle, NSParagraphStyleAttributeName,
+								[NSNumber numberWithFloat:_kerning], NSKernAttributeName,
+								nil];
+	
+    // set Latin font and paragraph style
+    [attrStr setAttributes:psd range:NSMakeRange(0, len)];
+	
+    [psd setObject:[_font fontCJK] forKey:NSFontAttributeName];
+	[psd setObject:[NSNumber numberWithFloat:_kerningCJK] forKey:NSKernAttributeName];
+	
+    // set CJK characters with CJK font
+    for (i = 0; i < len; i++) {
+        UniChar uc = [_string characterAtIndex:i];
+        if (cjkmode && !PEIsCJKCharacter(uc)) {
+            q = i;
+            cjkmode = NO;
+            [attrStr setAttributes:psd range:NSMakeRange(p, q-p)];
+        }
+        else if (!cjkmode && PEIsCJKCharacter(uc)) {
+            p = i;
+            cjkmode = YES;
+        }
+    }
+    
+    // if the whole line is CJK text, but the loop is already ended
+    if (cjkmode) {
+        q = i;
+        cjkmode = NO;
+        [attrStr setAttributes:psd range:NSMakeRange(p, q-p)];
+    }
+	
+	// cancel the kerning for the last character
+	if ([_string length] > 0) {
+		NSMutableDictionary *fixAttr = [[attrStr attributesAtIndex:([_string length] - 1) effectiveRange:NULL] mutableCopy];
+		[fixAttr setObject:[NSNumber numberWithFloat:0] forKey:NSKernAttributeName];
+		[attrStr setAttributes:fixAttr range:NSMakeRange([_string length] - 1, 1)];
+	}
+	return [attrStr autorelease];
+}
 - (void)drawWithOutputControl:(NSDictionary*)controlData
 {
     [super drawWithOutputControl:controlData];
 
     NSGraphicsContext *context = [NSGraphicsContext currentContext];
     [context saveGraphicsState];
-    containsCJK = NO;
-	containsENG = NO;
 	
     // fill the background
 	if (!PEIsTransparentColor(_backgroundColor)) {
@@ -90,80 +153,9 @@ BOOL PEIsCJKCharacter(UniChar c)
 		[NSBezierPath fillRect:_boundingRect];
 	}
 
-    NSMutableAttributedString *_attrStr = [[NSMutableAttributedString alloc] initWithString:_string];
-    
-    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
-	
-    if ([_align isEqualToString:@"center"]) {
-        [paragraphStyle setAlignment:NSCenterTextAlignment];
-    }
-    else if ([_align isEqualToString:@"right"]) {
-        [paragraphStyle setAlignment:NSRightTextAlignment];
-    }
-    else
-    {
-        [paragraphStyle setAlignment:NSLeftTextAlignment];
-    }
+    NSMutableAttributedString *attrStr = [[[NSMutableAttributedString alloc] initWithAttributedString: [self attributedString]] autorelease];
 
-	if (_forceLineHeight > 0.0) {
-		[paragraphStyle setMinimumLineHeight:_forceLineHeight];
-		[paragraphStyle setMaximumLineHeight:_forceLineHeight];
-	}	
-
-	if (_lineSpacing > 0.0)
-		[paragraphStyle setLineSpacing:_lineSpacing];
-	
-    unsigned int i=0, len=[_string length], p=0, q=0;
-    BOOL cjkmode = NO;    
-    
-    NSMutableDictionary *psd = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                [_font fontLatin], NSFontAttributeName,
-                [NSColor colorByName:_color], NSForegroundColorAttributeName,
-                paragraphStyle, NSParagraphStyleAttributeName,
-				[NSNumber numberWithFloat:_kerning], NSKernAttributeName,
-				nil];
-
-    // set Latin font and paragraph style
-    [_attrStr setAttributes:psd range:NSMakeRange(0, len)];
-
-    [psd setObject:[_font fontCJK] forKey:NSFontAttributeName];
-	[psd setObject:[NSNumber numberWithFloat:_kerningCJK] forKey:NSKernAttributeName];
-			
-    // set CJK characters with CJK font
-    for (i = 0; i < len; i++) {
-        UniChar uc = [_string characterAtIndex:i];
-        if (cjkmode && !PEIsCJKCharacter(uc)) {
-            q = i;
-            cjkmode = NO;
-            [_attrStr setAttributes:psd range:NSMakeRange(p, q-p)];
-        }
-        else if (!cjkmode && PEIsCJKCharacter(uc)) {
-            p = i;
-            cjkmode = YES;
-        }
-		
-		if (PEIsCJKCharacter(uc))
-			containsCJK = YES;
-		else if (PEIsCJKCharacter(uc) && isprint(uc) && uc != ' ')
-			containsENG = YES;
-    }
-    
-    // if the whole line is CJK text, but the loop is already ended
-    if (cjkmode) {
-        q = i;
-        cjkmode = NO;
-        [_attrStr setAttributes:psd range:NSMakeRange(p, q-p)];
-    }
-
-	// cancel the kerning for the last character
-	if ([_string length] > 0) {
-		NSMutableDictionary *fixAttr = [[_attrStr attributesAtIndex:([_string length] - 1) effectiveRange:NULL] mutableCopy];
-		[fixAttr setObject:[NSNumber numberWithFloat:0] forKey:NSKernAttributeName];
-		[_attrStr setAttributes:fixAttr range:NSMakeRange([_string length] - 1, 1)];
-	}
-
-
-	NSRect textBound = [_attrStr boundingRectWithSize:_boundingRect.size options:NSStringDrawingUsesLineFragmentOrigin];
+	NSRect textBound = [attrStr boundingRectWithSize:_boundingRect.size options:NSStringDrawingUsesLineFragmentOrigin];
 	
 	// fix the "no center/right alignment" problem
 	textBound.size.width = _boundingRect.size.width;
@@ -196,26 +188,9 @@ BOOL PEIsCJKCharacter(UniChar c)
 			}
 		}
 	}
-    
-	// Padding the descender height to the rect, this patch allow us to use illustrator's
-	// location parameters directly.
-	float descenderHeight = [[_font fontLatin] descender];
-	float descenderHeightCJK = [[_font fontCJK] descender];
-	NSLog(@"drawRect Origin.y=%f", drawRect.origin.y);
-	NSLog(@"descenderHeight for %@ is %f", [[_font fontLatin] fontName], descenderHeight);
-	NSLog(@"descenderHeight for %@ is %f", [[_font fontCJK] fontName], descenderHeightCJK);
-	if (containsCJK)
-	{
-		descenderHeight = -descenderHeightCJK;
-	}
-		
-	drawRect.origin.y -= descenderHeight;
-	NSLog(@"[AFTER] drawRect Origin.y=%f", drawRect.origin.y);
 	
-	[_attrStr drawWithRect:drawRect options:NSStringDrawingUsesLineFragmentOrigin];
+	[attrStr drawWithRect:drawRect options:NSStringDrawingUsesLineFragmentOrigin];
 
-    [paragraphStyle release];
-    [_attrStr release];
     [context restoreGraphicsState];
 }
 - (BOOL)prepareWithOutputControl:(NSDictionary*)controlData
