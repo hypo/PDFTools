@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 42;
+	objectVersion = 44;
 	objects = {
 
 /* Begin PBXAggregateTarget section */
@@ -24,6 +24,7 @@
 				6A12335A0B24DC36007AA74D /* PBXTargetDependency */,
 				6A0084980B9110FA00ED7235 /* PBXTargetDependency */,
 				6A00849A0B9110FA00ED7235 /* PBXTargetDependency */,
+				8523D5AC0F83E33100A09199 /* PBXTargetDependency */,
 			);
 			name = PageCircus;
 			productName = PageCircus;
@@ -181,6 +182,17 @@
 		6ADAB4940B5EA90C004BE8FD /* PEVerticalTextBlock.h in Headers */ = {isa = PBXBuildFile; fileRef = 6ADAB4930B5EA90C004BE8FD /* PEVerticalTextBlock.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6ADAB4A50B5EACCF004BE8FD /* PETextBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ADAB4A40B5EACCF004BE8FD /* PETextBlock.m */; };
 		6ADAB4E50B5EB071004BE8FD /* PEVerticalTextBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ADAB4E40B5EB071004BE8FD /* PEVerticalTextBlock.m */; };
+		8523D59E0F83E25D00A09199 /* TextPlayground.m in Sources */ = {isa = PBXBuildFile; fileRef = 8523D47C0F83E0D500A09199 /* TextPlayground.m */; };
+		8523D5A70F83E2E600A09199 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A0C09FF0B1F548E00F0A66E /* Cocoa.framework */; };
+		8523D5A80F83E2EA00A09199 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A0C09FE0B1F548E00F0A66E /* AppKit.framework */; };
+		8523D5BC0F83E35C00A09199 /* PageElements.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A0C0BFB0B1F64FE00F0A66E /* PageElements.framework */; };
+		8523D5CD0F83E36400A09199 /* NSExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A0C07E30B1F417300F0A66E /* NSExtensions.framework */; };
+		8523D5D50F83E39A00A09199 /* TextPlaygroundMainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8523D5D40F83E39A00A09199 /* TextPlaygroundMainMenu.xib */; };
+		8523D6270F83E7B400A09199 /* TextPreviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8523D6260F83E7B400A09199 /* TextPreviewView.m */; };
+		8523D6450F83E7F700A09199 /* NSExtensions.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6A0C07E30B1F417300F0A66E /* NSExtensions.framework */; };
+		8523D64C0F83E7FB00A09199 /* PageElements.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6A0C0BFB0B1F64FE00F0A66E /* PageElements.framework */; };
+		8523D6630F83E8A900A09199 /* TextSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = 8523D6620F83E8A900A09199 /* TextSetting.m */; };
+		8523D6AA0F83EBF800A09199 /* PlaygroundController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8523D6A90F83EBF800A09199 /* PlaygroundController.m */; };
 		854D42200ED84AA800AF08B1 /* ocrb10n.ttf in CopyFiles */ = {isa = PBXBuildFile; fileRef = 854D421F0ED84AA800AF08B1 /* ocrb10n.ttf */; };
 		854D42820ED8575100AF08B1 /* ocrb10n.ttf in CopyFiles */ = {isa = PBXBuildFile; fileRef = 854D421F0ED84AA800AF08B1 /* ocrb10n.ttf */; };
 		85D0EB390ED90C140066E288 /* LFHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 85D0EB380ED90C140066E288 /* LFHTTPRequest.m */; };
@@ -460,6 +472,27 @@
 			remoteGlobalIDString = 6A0C0BFA0B1F64FE00F0A66E;
 			remoteInfo = PageElements;
 		};
+		8523D5AB0F83E33100A09199 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6AA627C60B1EFA6800204170 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8523D58F0F83E23000A09199 /* TextPlayground */;
+			remoteInfo = TextPlayground;
+		};
+		8523D5AE0F83E35000A09199 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6AA627C60B1EFA6800204170 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6A0C07E20B1F417300F0A66E /* NSExtensions */;
+			remoteInfo = NSExtensions;
+		};
+		8523D5B00F83E35300A09199 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6AA627C60B1EFA6800204170 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6A0C0BFA0B1F64FE00F0A66E /* PageElements */;
+			remoteInfo = PageElements;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -569,6 +602,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8523D65D0F83E81900A09199 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				8523D64C0F83E7FB00A09199 /* PageElements.framework in CopyFiles */,
+				8523D6450F83E7F700A09199 /* NSExtensions.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		854D42420ED84B1200AF08B1 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -613,7 +657,7 @@
 		6A080E490B24D98B0078A159 /* BookMakerOutputTest-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "BookMakerOutputTest-Info.plist"; path = "BookMaker/BookMakerOutputTest-Info.plist"; sourceTree = "<group>"; };
 		6A080F370B24DA4A0078A159 /* BookMaker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BookMaker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A080F380B24DA4A0078A159 /* BookMaker-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "BookMaker-Info.plist"; path = "BookMaker/BookMaker-Info.plist"; sourceTree = "<group>"; };
-		6A0A35A60B24EA4600E3888F /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = /System/Library/Frameworks/SenTestingKit.framework; sourceTree = "<absolute>"; };
+		6A0A35A60B24EA4600E3888F /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		6A0A35F30B24EB5400E3888F /* NSExtensionsTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NSExtensionsTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A0A35F40B24EB5400E3888F /* NSExtensionsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "NSExtensionsTests-Info.plist"; path = "NSExtensions/NSExtensionsTests-Info.plist"; sourceTree = "<group>"; };
 		6A0B48FB0B214BC000BFC667 /* NSDictionary+BSJSONAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+BSJSONAdditions.h"; path = "BSJSONAdditions/NSDictionary+BSJSONAdditions.h"; sourceTree = "<group>"; };
@@ -706,6 +750,16 @@
 		6ADAB4930B5EA90C004BE8FD /* PEVerticalTextBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PEVerticalTextBlock.h; path = PageElements/PEVerticalTextBlock.h; sourceTree = "<group>"; };
 		6ADAB4A40B5EACCF004BE8FD /* PETextBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PETextBlock.m; path = PageElements/PETextBlock.m; sourceTree = "<group>"; };
 		6ADAB4E40B5EB071004BE8FD /* PEVerticalTextBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PEVerticalTextBlock.m; path = PageElements/PEVerticalTextBlock.m; sourceTree = "<group>"; };
+		8523D47C0F83E0D500A09199 /* TextPlayground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextPlayground.m; sourceTree = "<group>"; };
+		8523D48F0F83E13D00A09199 /* TextPlayground-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TextPlayground-Info.plist"; sourceTree = "<group>"; };
+		8523D5900F83E23000A09199 /* TextPlayground.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = TextPlayground.app; path = build/Release/TextPlayground.app; sourceTree = "<group>"; };
+		8523D5D40F83E39A00A09199 /* TextPlaygroundMainMenu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextPlaygroundMainMenu.xib; sourceTree = "<group>"; };
+		8523D6250F83E7B400A09199 /* TextPreviewView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextPreviewView.h; sourceTree = "<group>"; };
+		8523D6260F83E7B400A09199 /* TextPreviewView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextPreviewView.m; sourceTree = "<group>"; };
+		8523D6610F83E8A900A09199 /* TextSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextSetting.h; sourceTree = "<group>"; };
+		8523D6620F83E8A900A09199 /* TextSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextSetting.m; sourceTree = "<group>"; };
+		8523D6A80F83EBF800A09199 /* PlaygroundController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaygroundController.h; sourceTree = "<group>"; };
+		8523D6A90F83EBF800A09199 /* PlaygroundController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaygroundController.m; sourceTree = "<group>"; };
 		854D421F0ED84AA800AF08B1 /* ocrb10n.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ocrb10n.ttf; sourceTree = "<group>"; };
 		85D0EB370ED90C140066E288 /* LFHTTPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFHTTPRequest.h; sourceTree = "<group>"; };
 		85D0EB380ED90C140066E288 /* LFHTTPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFHTTPRequest.m; sourceTree = "<group>"; };
@@ -866,6 +920,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8523D58E0F83E23000A09199 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8523D5CD0F83E36400A09199 /* NSExtensions.framework in Frameworks */,
+				8523D5BC0F83E35C00A09199 /* PageElements.framework in Frameworks */,
+				8523D5A80F83E2EA00A09199 /* AppKit.framework in Frameworks */,
+				8523D5A70F83E2E600A09199 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -922,6 +987,9 @@
 				6A080E490B24D98B0078A159 /* BookMakerOutputTest-Info.plist */,
 				6A0A35F40B24EB5400E3888F /* NSExtensionsTests-Info.plist */,
 				6A3D391C0B27880C00DB2BE7 /* NSRunLoopStudy-Info.plist */,
+				6AB0378E0B36E0200050A519 /* PagePreviewer-Info.plist */,
+				6A0084910B9110EE00ED7235 /* PageFixer-Info.plist */,
+				8523D48F0F83E13D00A09199 /* TextPlayground-Info.plist */,
 			);
 			name = InfoPlists;
 			sourceTree = "<group>";
@@ -1059,6 +1127,7 @@
 		6AA627C40B1EFA6800204170 = {
 			isa = PBXGroup;
 			children = (
+				8523D47A0F83E0BD00A09199 /* TextPlayground */,
 				6A0778C00D8455A000306420 /* BarcodeOverprinter */,
 				6AB037870B36DEB30050A519 /* BookMaker Tools */,
 				6AB1DDCB0B2001160068CAA5 /* README.txt */,
@@ -1076,8 +1145,6 @@
 				6A3D393C0B27890000DB2BE7 /* External Libs and Frameworks */,
 				6A0C09FD0B1F547400F0A66E /* System Frameworks */,
 				6AA627FA0B1EFC8100204170 /* Products */,
-				6AB0378E0B36E0200050A519 /* PagePreviewer-Info.plist */,
-				6A0084910B9110EE00ED7235 /* PageFixer-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1136,6 +1203,7 @@
 				6AB0378C0B36E0200050A519 /* PagePreviewer.app */,
 				6A00848F0B9110EE00ED7235 /* PageFixer.app */,
 				6A0778730D84551800306420 /* BarcodeOverprinter.app */,
+				8523D5900F83E23000A09199 /* TextPlayground.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1183,6 +1251,29 @@
 				6AC8F7250C8DA74400592DF7 /* extract-exif-rotation.pl */,
 			);
 			name = "BookMaker Tools";
+			sourceTree = "<group>";
+		};
+		8523D47A0F83E0BD00A09199 /* TextPlayground */ = {
+			isa = PBXGroup;
+			children = (
+				8523D57E0F83E1F400A09199 /* Resource */,
+				8523D47C0F83E0D500A09199 /* TextPlayground.m */,
+				8523D6250F83E7B400A09199 /* TextPreviewView.h */,
+				8523D6260F83E7B400A09199 /* TextPreviewView.m */,
+				8523D6610F83E8A900A09199 /* TextSetting.h */,
+				8523D6620F83E8A900A09199 /* TextSetting.m */,
+				8523D6A80F83EBF800A09199 /* PlaygroundController.h */,
+				8523D6A90F83EBF800A09199 /* PlaygroundController.m */,
+			);
+			name = TextPlayground;
+			sourceTree = "<group>";
+		};
+		8523D57E0F83E1F400A09199 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				8523D5D40F83E39A00A09199 /* TextPlaygroundMainMenu.xib */,
+			);
+			name = Resource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1525,13 +1616,33 @@
 			productReference = 6AB0378C0B36E0200050A519 /* PagePreviewer.app */;
 			productType = "com.apple.product-type.application";
 		};
+		8523D58F0F83E23000A09199 /* TextPlayground */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8523D59D0F83E24F00A09199 /* Build configuration list for PBXNativeTarget "TextPlayground" */;
+			buildPhases = (
+				8523D65D0F83E81900A09199 /* CopyFiles */,
+				8523D58C0F83E23000A09199 /* Resources */,
+				8523D58D0F83E23000A09199 /* Sources */,
+				8523D58E0F83E23000A09199 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8523D5AF0F83E35000A09199 /* PBXTargetDependency */,
+				8523D5B10F83E35300A09199 /* PBXTargetDependency */,
+			);
+			name = TextPlayground;
+			productName = TextPlayground;
+			productReference = 8523D5900F83E23000A09199 /* TextPlayground.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		6AA627C60B1EFA6800204170 /* Project object */ = {
 			isa = PBXProject;
 			buildConfigurationList = 6AA627C70B1EFA6800204170 /* Build configuration list for PBXProject "PageCircus" */;
-			compatibilityVersion = "Xcode 2.4";
+			compatibilityVersion = "Xcode 3.0";
 			hasScannedForEncodings = 0;
 			mainGroup = 6AA627C40B1EFA6800204170;
 			productRefGroup = 6AA627FA0B1EFC8100204170 /* Products */;
@@ -1553,6 +1664,7 @@
 				6AB0378B0B36E0200050A519 /* PagePreviewer */,
 				6A00848E0B9110EE00ED7235 /* PageFixer */,
 				6A0778720D84551800306420 /* BarcodeOverprinter */,
+				8523D58F0F83E23000A09199 /* TextPlayground */,
 			);
 		};
 /* End PBXProject section */
@@ -1662,6 +1774,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8523D58C0F83E23000A09199 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8523D5D50F83E39A00A09199 /* TextPlaygroundMainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1851,6 +1971,17 @@
 				6AB038580B36E0670050A519 /* PagePreviewer.m in Sources */,
 				6A00857B0B91115C00ED7235 /* PagePreviewerMain.m in Sources */,
 				85D0EB3B0ED90C140066E288 /* LFHTTPRequest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8523D58D0F83E23000A09199 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8523D59E0F83E25D00A09199 /* TextPlayground.m in Sources */,
+				8523D6270F83E7B400A09199 /* TextPreviewView.m in Sources */,
+				8523D6630F83E8A900A09199 /* TextSetting.m in Sources */,
+				8523D6AA0F83EBF800A09199 /* PlaygroundController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2046,6 +2177,21 @@
 			isa = PBXTargetDependency;
 			target = 6A0C0BFA0B1F64FE00F0A66E /* PageElements */;
 			targetProxy = 6ABC8D4B0B37988B00C0D8C7 /* PBXContainerItemProxy */;
+		};
+		8523D5AC0F83E33100A09199 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8523D58F0F83E23000A09199 /* TextPlayground */;
+			targetProxy = 8523D5AB0F83E33100A09199 /* PBXContainerItemProxy */;
+		};
+		8523D5AF0F83E35000A09199 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6A0C07E20B1F417300F0A66E /* NSExtensions */;
+			targetProxy = 8523D5AE0F83E35000A09199 /* PBXContainerItemProxy */;
+		};
+		8523D5B10F83E35300A09199 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6A0C0BFA0B1F64FE00F0A66E /* PageElements */;
+			targetProxy = 8523D5B00F83E35300A09199 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -2814,7 +2960,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
-				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.4u.sdk";
 			};
 			name = Debug;
 		};
@@ -2826,7 +2972,7 @@
 					i386,
 				);
 				COPY_PHASE_STRIP = YES;
-				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.4u.sdk";
 			};
 			name = Release;
 		};
@@ -2888,6 +3034,54 @@
 				PREBINDING = NO;
 				PRODUCT_NAME = PagePreviewer;
 				WRAPPER_EXTENSION = app;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		8523D59A0F83E23100A09199 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INFOPLIST_FILE = "TextPlayground-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = TextPlayground;
+			};
+			name = Debug;
+		};
+		8523D59B0F83E23100A09199 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INFOPLIST_FILE = "TextPlayground-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = TextPlayground;
 				ZERO_LINK = NO;
 			};
 			name = Release;
@@ -3035,6 +3229,15 @@
 			buildConfigurations = (
 				6AB037900B36E0200050A519 /* Debug */,
 				6AB037910B36E0200050A519 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8523D59D0F83E24F00A09199 /* Build configuration list for PBXNativeTarget "TextPlayground" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8523D59A0F83E23100A09199 /* Debug */,
+				8523D59B0F83E23100A09199 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

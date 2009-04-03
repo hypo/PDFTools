@@ -13,6 +13,7 @@
 		6A4966980DE4793C001E75AA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A4966970DE4793C001E75AA /* Cocoa.framework */; };
 		6A4966B60DE47955001E75AA /* LFSimpleGraphics.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6A49668A0DE4791B001E75AA /* LFSimpleGraphics.framework */; };
 		6A4966B70DE47955001E75AA /* NSExtensions.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6A49668B0DE4791B001E75AA /* NSExtensions.framework */; };
+		852C0F480F83B2870094832B /* PageElements.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DAB0C8F10E2AF6260087F1F6 /* PageElements.framework */; };
 		DAB0C8F20E2AF6260087F1F6 /* PageElements.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAB0C8F10E2AF6260087F1F6 /* PageElements.framework */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +24,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				852C0F480F83B2870094832B /* PageElements.framework in CopyFiles */,
 				6A4966B60DE47955001E75AA /* LFSimpleGraphics.framework in CopyFiles */,
 				6A4966B70DE47955001E75AA /* NSExtensions.framework in CopyFiles */,
 			);
