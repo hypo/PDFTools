@@ -9,9 +9,29 @@ BOOL PEIsTransparentColor(NSString *c)
 	return NO;
 }
 
+static int HexValue(char c) {
+	if ('0' <= c && c <= '9')
+		return c - '0';
+	if ('a' <= c && c <= 'f')
+		return 10 + c - 'a';
+	if ('A' <= c && c <= 'F')
+		return 10 + c - 'A';
+	return 0;
+}
+
 @implementation NSColor(PEColorByName)
 + (NSColor*)colorByName:(NSString*)name
 {
+	// 0xRRGGBB in hex.
+	if ([name hasPrefix: @"0x"] && [name length] == 8) {
+		const char *cString = [name UTF8String];
+		CGFloat r = 16 * HexValue(cString[2]) + HexValue(cString[3]);
+		CGFloat g = 16 * HexValue(cString[4]) + HexValue(cString[5]);
+		CGFloat b = 16 * HexValue(cString[6]) + HexValue(cString[7]);
+
+		return [NSColor colorWithDeviceRed: r / 255.0 green: g / 255.0 blue: b / 255.0 alpha: 1.0];
+	}
+	
     NSDictionary *colorDict = [NSDictionary dictionaryWithObjectsAndKeys:
         [NSColor clearColor], @"clear",
         [NSColor clearColor], @"transparent",
@@ -41,7 +61,6 @@ BOOL PEIsTransparentColor(NSString *c)
 	    [NSColor colorWithDeviceCyan:0.1 magenta:0.1 yellow:0.1 black:0.6 alpha:1.0], @"hypo-lightgray",
 		[NSColor colorWithDeviceCyan:0.05 magenta:0.05 yellow:0.05 black:0.3 alpha:1.0], @"hypo-ticketgray",
 		nil];
-
     return [colorDict objectForKey:name defaultValue:[NSColor colorWithDeviceCyan:0.0 magenta:0.0 yellow:0.0 black:1.0 alpha:1.0]];
 }
 @end
