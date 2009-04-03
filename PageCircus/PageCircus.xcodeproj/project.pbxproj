@@ -476,21 +476,21 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 6AA627C60B1EFA6800204170 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 8523D58F0F83E23000A09199 /* TextPlayground */;
+			remoteGlobalIDString = 8523D58F0F83E23000A09199;
 			remoteInfo = TextPlayground;
 		};
 		8523D5AE0F83E35000A09199 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6AA627C60B1EFA6800204170 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 6A0C07E20B1F417300F0A66E /* NSExtensions */;
+			remoteGlobalIDString = 6A0C07E20B1F417300F0A66E;
 			remoteInfo = NSExtensions;
 		};
 		8523D5B00F83E35300A09199 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6AA627C60B1EFA6800204170 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 6A0C0BFA0B1F64FE00F0A66E /* PageElements */;
+			remoteGlobalIDString = 6A0C0BFA0B1F64FE00F0A66E;
 			remoteInfo = PageElements;
 		};
 /* End PBXContainerItemProxy section */
@@ -752,7 +752,7 @@
 		6ADAB4E40B5EB071004BE8FD /* PEVerticalTextBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PEVerticalTextBlock.m; path = PageElements/PEVerticalTextBlock.m; sourceTree = "<group>"; };
 		8523D47C0F83E0D500A09199 /* TextPlayground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextPlayground.m; sourceTree = "<group>"; };
 		8523D48F0F83E13D00A09199 /* TextPlayground-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TextPlayground-Info.plist"; sourceTree = "<group>"; };
-		8523D5900F83E23000A09199 /* TextPlayground.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = TextPlayground.app; path = build/Release/TextPlayground.app; sourceTree = "<group>"; };
+		8523D5900F83E23000A09199 /* TextPlayground.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TextPlayground.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8523D5D40F83E39A00A09199 /* TextPlaygroundMainMenu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextPlaygroundMainMenu.xib; sourceTree = "<group>"; };
 		8523D6250F83E7B400A09199 /* TextPreviewView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextPreviewView.h; sourceTree = "<group>"; };
 		8523D6260F83E7B400A09199 /* TextPreviewView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextPreviewView.m; sourceTree = "<group>"; };
