@@ -140,6 +140,16 @@ BOOL PEIsCJKCharacter(UniChar c)
 	}
 	return [attrStr autorelease];
 }
+- (BOOL) fitInsideWithAutowrap: (BOOL)autowrap
+{
+	NSRect resultRect = NSZeroRect;
+	if (autowrap) 
+		resultRect = [[self attributedString] boundingRectWithSize: NSMakeSize(_boundingRect.size.width, 0) options: NSStringDrawingUsesLineFragmentOrigin];
+	else
+		resultRect = [[self attributedString] boundingRectWithSize: NSMakeSize(0, 0) options: NSStringDrawingUsesLineFragmentOrigin];
+	
+	return (resultRect.size.width <= _boundingRect.size.width) && (resultRect.size.height <= _boundingRect.size.height);
+}
 - (void)drawWithOutputControl:(NSDictionary*)controlData
 {
     [super drawWithOutputControl:controlData];
@@ -190,7 +200,6 @@ BOOL PEIsCJKCharacter(UniChar c)
 	}
 	
 	[attrStr drawWithRect:drawRect options:NSStringDrawingUsesLineFragmentOrigin];
-
     [context restoreGraphicsState];
 }
 - (BOOL)prepareWithOutputControl:(NSDictionary*)controlData
