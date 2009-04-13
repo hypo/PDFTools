@@ -14,6 +14,12 @@
 		6A4966B60DE47955001E75AA /* LFSimpleGraphics.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6A49668A0DE4791B001E75AA /* LFSimpleGraphics.framework */; };
 		6A4966B70DE47955001E75AA /* NSExtensions.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6A49668B0DE4791B001E75AA /* NSExtensions.framework */; };
 		852C0F480F83B2870094832B /* PageElements.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DAB0C8F10E2AF6260087F1F6 /* PageElements.framework */; };
+		856AD7AC0F93AD1A00E10EC7 /* Century Gothic Bold Italic.ttf in CopyFiles */ = {isa = PBXBuildFile; fileRef = 856AD7A00F93AD1500E10EC7 /* Century Gothic Bold Italic.ttf */; };
+		856AD7AD0F93AD1A00E10EC7 /* Century Gothic Bold.ttf in CopyFiles */ = {isa = PBXBuildFile; fileRef = 856AD7A10F93AD1500E10EC7 /* Century Gothic Bold.ttf */; };
+		856AD7AE0F93AD1A00E10EC7 /* Century Gothic Italic.ttf in CopyFiles */ = {isa = PBXBuildFile; fileRef = 856AD7A20F93AD1500E10EC7 /* Century Gothic Italic.ttf */; };
+		856AD7AF0F93AD1A00E10EC7 /* Century Gothic.ttf in CopyFiles */ = {isa = PBXBuildFile; fileRef = 856AD7A30F93AD1500E10EC7 /* Century Gothic.ttf */; };
+		856AD7B00F93AD1A00E10EC7 /* ocrb10n.ttf in CopyFiles */ = {isa = PBXBuildFile; fileRef = 856AD7A40F93AD1500E10EC7 /* ocrb10n.ttf */; };
+		856AD7B10F93AD1A00E10EC7 /* DFHei.ttf in CopyFiles */ = {isa = PBXBuildFile; fileRef = 856AD7A50F93AD1500E10EC7 /* DFHei.ttf */; };
 		DAB0C8F20E2AF6260087F1F6 /* PageElements.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAB0C8F10E2AF6260087F1F6 /* PageElements.framework */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +36,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		856AD7970F93AC8300E10EC7 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Fonts;
+			dstSubfolderSpec = 7;
+			files = (
+				856AD7AC0F93AD1A00E10EC7 /* Century Gothic Bold Italic.ttf in CopyFiles */,
+				856AD7AD0F93AD1A00E10EC7 /* Century Gothic Bold.ttf in CopyFiles */,
+				856AD7AE0F93AD1A00E10EC7 /* Century Gothic Italic.ttf in CopyFiles */,
+				856AD7AF0F93AD1A00E10EC7 /* Century Gothic.ttf in CopyFiles */,
+				856AD7B00F93AD1A00E10EC7 /* ocrb10n.ttf in CopyFiles */,
+				856AD7B10F93AD1A00E10EC7 /* DFHei.ttf in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +62,12 @@
 		6A49668A0DE4791B001E75AA /* LFSimpleGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LFSimpleGraphics.framework; path = ExternalDependencies/LFSimpleGraphics.framework; sourceTree = "<group>"; };
 		6A49668B0DE4791B001E75AA /* NSExtensions.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NSExtensions.framework; path = ExternalDependencies/NSExtensions.framework; sourceTree = "<group>"; };
 		6A4966970DE4793C001E75AA /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		856AD7A00F93AD1500E10EC7 /* Century Gothic Bold Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Century Gothic Bold Italic.ttf"; sourceTree = "<group>"; };
+		856AD7A10F93AD1500E10EC7 /* Century Gothic Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Century Gothic Bold.ttf"; sourceTree = "<group>"; };
+		856AD7A20F93AD1500E10EC7 /* Century Gothic Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Century Gothic Italic.ttf"; sourceTree = "<group>"; };
+		856AD7A30F93AD1500E10EC7 /* Century Gothic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Century Gothic.ttf"; sourceTree = "<group>"; };
+		856AD7A40F93AD1500E10EC7 /* ocrb10n.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ocrb10n.ttf; sourceTree = "<group>"; };
+		856AD7A50F93AD1500E10EC7 /* DFHei.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = DFHei.ttf; sourceTree = "<group>"; };
 		DAB0C8F10E2AF6260087F1F6 /* PageElements.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PageElements.framework; path = ExternalDependencies/PageElements.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -65,6 +92,7 @@
 				6A49669D0DE47941001E75AA /* Source */,
 				6A4966890DE47909001E75AA /* Dependencies */,
 				6A4966960DE4791F001E75AA /* Apple Frameworks */,
+				856AD79E0F93ACF100E10EC7 /* Embeded Fonts */,
 				6A49667D0DE478A8001E75AA /* Products */,
 				6A49667F0DE478A8001E75AA /* PageComposer-Info.plist */,
 			);
@@ -106,6 +134,20 @@
 			name = Source;
 			sourceTree = "<group>";
 		};
+		856AD79E0F93ACF100E10EC7 /* Embeded Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				856AD7A00F93AD1500E10EC7 /* Century Gothic Bold Italic.ttf */,
+				856AD7A10F93AD1500E10EC7 /* Century Gothic Bold.ttf */,
+				856AD7A20F93AD1500E10EC7 /* Century Gothic Italic.ttf */,
+				856AD7A30F93AD1500E10EC7 /* Century Gothic.ttf */,
+				856AD7A40F93AD1500E10EC7 /* ocrb10n.ttf */,
+				856AD7A50F93AD1500E10EC7 /* DFHei.ttf */,
+			);
+			name = "Embeded Fonts";
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -117,6 +159,7 @@
 				6A4966790DE478A8001E75AA /* Sources */,
 				6A49667A0DE478A8001E75AA /* Frameworks */,
 				6A4966BF0DE4796B001E75AA /* CopyFiles */,
+				856AD7970F93AC8300E10EC7 /* CopyFiles */,
 			);
 			buildRules = (
 			);
