@@ -16,6 +16,30 @@ using namespace OpenVanilla;
 using namespace LFSimpleGraphics;
 using namespace std;
 
+CGImageRef CreateImageFromJPEGDataWithCompression(CFDataRef data, CGFloat ratio) {
+    NSBitmapImageRep *originImage = [NSBitmapImageRep imageRepWithData: (NSData *)data];
+    if (!originImage)
+        return NULL;
+    
+    NSBitmapImageRep *canvasRep = [[NSBitmapImageRep alloc] initWithBitmapDataPlanes: NULL pixelsWide: [originImage pixelsWide] pixelsHigh: [originImage pixelsHigh] bitsPerSample: 8 samplesPerPixel: 4 hasAlpha: YES isPlanar: NO colorSpaceName: NSCalibratedRGBColorSpace bytesPerRow: 0 bitsPerPixel: 0];
+
+    NSGraphicsContext *context = [NSGraphicsContext currentContext];    
+    [NSGraphicsContext saveGraphicsState]; 
+    [NSGraphicsContext setCurrentContext: [NSGraphicsContext graphicsContextWithBitmapImageRep: canvasRep]];
+    [originImage drawInRect: NSMakeRect(0, 0, [originImage pixelsWide], [originImage pixelsHigh])];
+    [NSGraphicsContext restoreGraphicsState];
+    [originImage release];
+    
+    NSData *jpegImageData = [canvasRep representationUsingType: NSJPEGFileType properties: [NSDictionary dictionaryWithObject:[NSNumber numberWithFloat: ratio] forKey: NSImageCompressionFactor]];
+    [canvasRep release];
+    
+    CGDataProviderRef provider = CGDataProviderCreateWithCFData((CFDataRef) jpegImageData);
+    CGImageRef cgImage = CGImageCreateWithJPEGDataProvider(provider, NULL, true, kCGRenderingIntentDefault);
+    CGDataProviderRelease(provider);
+
+    return cgImage;
+}
+
 bool CheckArgs(const string& cmd, const vector<string>& args, size_t count, size_t line)
 {
 	if (!args.size())
@@ -138,7 +162,24 @@ void RunFile(istream& ist)
 			else {
 				NSLog(@"line %d: incorrect image URL: %s", line, args[1].c_str());
 			}
-		}
+		} 
+        else if (CheckArgsAndContext("simpleimage_compress", args, 6, line, context)) {
+            NSLog(@"begin to fetch: %s", args[1].c_str());
+			NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:NSU8(args[1])]];
+
+            if (!data) {
+                NSLog(@"line %d: incorrect image URL: %s", line, args[1].c_str());
+                continue;
+            }
+			CGImageRef image = NULL;
+            if ((image = CreateImageFromJPEGDataWithCompression((CFDataRef)data, stof(args[2]))) == NULL) {
+                NSLog(@"line %d: no image created from URL %s", line, args[1].c_str());
+                continue;
+            }
+            ContextGraphics cg(context);
+            cg.drawImage(image, CGRectMake(stof(args[3]), stof(args[4]), stof(args[5]), stof(args[6])));
+            CFRelease(image);
+        }
 		else if (CheckArgsAndContext("set", args, 2, line, context)) {
 			[settings setObject:NSU8(args[2]) forKey:NSU8(args[1])];
 		}
