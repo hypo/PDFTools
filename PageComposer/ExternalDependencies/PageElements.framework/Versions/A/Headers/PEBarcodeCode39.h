@@ -16,6 +16,7 @@
     NSString *_align;
     id _barcode;
     NSImage *_barcodeImage;
+    BOOL _roundedCorner;
 }
 + (id)barcodeWithDictionary:(NSDictionary*)dict boundingRect:(NSRect)boundingRect;
 - (id)initWithDictionary:(NSDictionary*)dict boundingRect:(NSRect)boundingRect;

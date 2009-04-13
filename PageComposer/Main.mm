@@ -28,7 +28,6 @@ CGImageRef CreateImageFromJPEGDataWithCompression(CFDataRef data, CGFloat ratio)
     [NSGraphicsContext setCurrentContext: [NSGraphicsContext graphicsContextWithBitmapImageRep: canvasRep]];
     [originImage drawInRect: NSMakeRect(0, 0, [originImage pixelsWide], [originImage pixelsHigh])];
     [NSGraphicsContext restoreGraphicsState];
-    [originImage release];
     
     NSData *jpegImageData = [canvasRep representationUsingType: NSJPEGFileType properties: [NSDictionary dictionaryWithObject:[NSNumber numberWithFloat: ratio] forKey: NSImageCompressionFactor]];
     [canvasRep release];
@@ -179,6 +178,7 @@ void RunFile(istream& ist)
             ContextGraphics cg(context);
             cg.drawImage(image, CGRectMake(stof(args[3]), stof(args[4]), stof(args[5]), stof(args[6])));
             CFRelease(image);
+
         }
 		else if (CheckArgsAndContext("set", args, 2, line, context)) {
 			[settings setObject:NSU8(args[2]) forKey:NSU8(args[1])];

@@ -45,5 +45,7 @@ BOOL PEIsCJKCharacter(UniChar c);
 + (id)textBlockWithDictionary:(NSDictionary*)dict boundingRect:(NSRect)boundingRect;
 - (id)initWithDictionary:(NSDictionary*)dict boundingRect:(NSRect)boundingRect;
 - (void)dealloc;
+- (BOOL) fitInsideWithAutowrap: (BOOL)autowrap;
+- (NSAttributedString *) attributedString;
 - (void)drawWithOutputControl:(NSDictionary*)controlData;
 @end
