@@ -16,6 +16,58 @@ using namespace OpenVanilla;
 using namespace LFSimpleGraphics;
 using namespace std;
 
+@interface NSMutableDictionary (PageComposerSettings)
+- (void) setDefaultSettings;
+- (NSDictionary *) textDictionaryWithText: (NSString *)text;
+- (NSDictionary *) textDictionaryWithText: (NSString *)text fontDictionary: (NSDictionary *)fontDictionary;
+@end
+
+@implementation  NSMutableDictionary (PageComposerSettings)
+- (void) setDefaultSettings
+{
+	[self setObject:@"16.0" forKey:@"FontSize"];
+	[self setObject:@"16.0" forKey:@"FontSizeCJK"];
+	[self setObject:@"GillSans" forKey:@"Typeface"];
+	[self setObject:@"STHeiti" forKey:@"TypefaceCJK"];
+	[self setObject:@"left" forKey:@"TextAlign"];
+	[self setObject:@"top" forKey:@"TextVerticalAlign"];
+	[self setObject:@"0.0" forKey:@"Rotation"];
+	[self setObject:@"0.0" forKey:@"Kerning"];
+	[self setObject:@"0.0" forKey:@"KerningCJK"];
+    [self setObject:@"black" forKey:@"Color"];
+    [self removeObjectForKey: @"LineHeight"];
+}
+
+- (NSDictionary *) textDictionaryWithText: (NSString *)text
+{
+    NSDictionary *fontDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
+                                    [self objectForKey:@"FontSize"], @"size",
+                                    [self objectForKey:@"FontSizeCJK"], @"cjk-size",
+                                    [self objectForKey:@"Typeface"], @"family",
+                                    [self objectForKey:@"TypefaceCJK"], @"family-cjk",
+                                    nil];
+    return [self textDictionaryWithText: text fontDictionary: fontDictionary];
+}
+
+- (NSDictionary *) textDictionaryWithText: (NSString *)text fontDictionary: (NSDictionary *)fontDictionary
+{
+    return [NSDictionary dictionaryWithObjectsAndKeys:
+            text, @"text",
+            fontDictionary, @"font",
+            [self objectForKey:@"TextAlign"], @"align",
+            [self objectForKey:@"TextVerticalAlign"], @"vertical-align",
+            [self objectForKey:@"Rotation"], @"rotate",
+            [self objectForKey:@"Kerning"], @"kerning",
+            [self objectForKey:@"KerningCJK"], @"kerning-cjk",
+            [self objectForKey:@"LineSpacing"], @"line-spacing",
+            [self objectForKey:@"Color"], @"color",
+            [self objectForKey:@"LineHeight"], @"force-lineheight",
+            nil];
+}
+@end
+
+
+
 CGImageRef CreateImageFromJPEGDataWithCompression(CFDataRef data, CGFloat ratio) {
     NSBitmapImageRep *originImage = [NSBitmapImageRep imageRepWithData: (NSData *)data];
     if (!originImage)
@@ -81,16 +133,7 @@ void RunFile(istream& ist)
 
 	NSMutableDictionary *settings = [NSMutableDictionary dictionary];
 	
-	[settings setObject:@"16.0" forKey:@"FontSize"];
-	[settings setObject:@"16.0" forKey:@"FontSizeCJK"];
-	[settings setObject:@"GillSans" forKey:@"Typeface"];
-	[settings setObject:@"STHeiti" forKey:@"TypefaceCJK"];
-	[settings setObject:@"left" forKey:@"TextAlign"];
-	[settings setObject:@"top" forKey:@"TextVerticalAlign"];
-	[settings setObject:@"0.0" forKey:@"Rotation"];
-	[settings setObject:@"0.0" forKey:@"Kerning"];
-	[settings setObject:@"0.0" forKey:@"KerningCJK"];
-	
+    [settings setDefaultSettings];	
 	
 	size_t line = 0;
 	while (!ist.eof()) {
@@ -127,7 +170,7 @@ void RunFile(istream& ist)
 		}
 	    else if (CheckArgs("endpdf", args, 1, line)) {
 			if (!context || !pdf) {
-				NSLog(@"lind %d: no pdf context", line);						
+				NSLog(@"line %d: no pdf context", line);						
 			}
 			else {
 				pdf->close();
@@ -138,7 +181,33 @@ void RunFile(istream& ist)
 				delete pdf;
 				pdf = 0;						
 			}
-		}
+		} else if (CheckArgs("endpng", args, 3, line)) {
+            // endpng dpi scale url
+         	if (!context || !pdf) {
+				NSLog(@"line %d: no pdf context", line);
+                continue;
+			}
+            CGFloat dpi = stof(args[1]);
+            CGFloat scale = stof(args[2]);
+            NSURL *url = [NSURL URLWithString: NSU8(args[3])];
+            pdf->close();
+            NSData *data = (NSData *)pdf->data();
+            NSImage *image = [[NSImage alloc] initWithData: data];
+            NSSize targetSize = NSMakeSize([image size].width * (dpi / 72.0) * scale, [image size].height * (dpi / 72.0) * scale);
+            NSBitmapImageRep *canvasRep = [[NSBitmapImageRep alloc] initWithBitmapDataPlanes: NULL pixelsWide: targetSize.width pixelsHigh: targetSize.height bitsPerSample: 8 samplesPerPixel: 4 hasAlpha: YES isPlanar: NO colorSpaceName: NSCalibratedRGBColorSpace bytesPerRow: 0 bitsPerPixel: 0];
+
+            [NSGraphicsContext saveGraphicsState];
+            [NSGraphicsContext setCurrentContext: [NSGraphicsContext graphicsContextWithBitmapImageRep: canvasRep]];
+            [image drawInRect: NSMakeRect(0, 0, targetSize.width, targetSize.height) fromRect: NSMakeRect(0, 0, [image size].width, [image size].height) operation: NSCompositeCopy fraction: 1.0];
+            [NSGraphicsContext restoreGraphicsState];
+            
+            [[canvasRep representationUsingType: NSPNGFileType properties: nil] writeToURL: url atomically: YES];
+            [canvasRep release];
+            [image release];
+            context = NULL;
+            delete pdf;
+            pdf = NULL;
+        }
 		else if (CheckArgsAndContext("simpleimage", args, 5, line, context)) {
 			NSLog(@"begin to fetch: %s", args[1].c_str());
 			NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:NSU8(args[1])]];
@@ -163,6 +232,7 @@ void RunFile(istream& ist)
 			}
 		} 
         else if (CheckArgsAndContext("simpleimage_compress", args, 6, line, context)) {
+            // url ratio x y w h
             NSLog(@"begin to fetch: %s", args[1].c_str());
 			NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:NSU8(args[1])]];
 
@@ -183,53 +253,40 @@ void RunFile(istream& ist)
 		else if (CheckArgsAndContext("set", args, 2, line, context)) {
 			[settings setObject:NSU8(args[2]) forKey:NSU8(args[1])];
 		}
-		else if (CheckArgsAndContext("text", args, 5, line, context)) {
+		else if (CheckArgsAndContext("text", args, 5, line, context) || CheckArgsAndContext("text_checksize", args, 5, line, context)) {
 			// args: text origX origY width height string
 			
-			// assemble the PEFont object first
-			NSDictionary *fontDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
-				[settings objectForKey:@"FontSize"], @"size",
-			    [settings objectForKey:@"FontSizeCJK"], @"cjk-size",
-			    [settings objectForKey:@"Typeface"], @"family",
-			    [settings objectForKey:@"TypefaceCJK"], @"family-cjk",
-			    nil];
+			NSDictionary *textDictionary = [settings textDictionaryWithText: NSU8(args[5])];
 			
-			NSDictionary *textDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
-				NSU8(args[5]), @"text",
-				fontDictionary, @"font",
-				[settings objectForKey:@"TextAlign"], @"align",
-				[settings objectForKey:@"TextVerticalAlign"], @"vertical-align",
-				[settings objectForKey:@"Rotation"], @"rotate",
-				[settings objectForKey:@"Kerning"], @"kerning",
-				[settings objectForKey:@"KerningCJK"], @"kerning-cjk",
-				[settings objectForKey:@"LineSpacing"], @"line-spacing",
-				[settings objectForKey:@"Color"], @"color",				
-				nil];
-			
-			NSLog(@"Color:%@", [settings objectForKey:@"Color"]);
-
 			PETextBlock *textBlock = [PETextBlock textBlockWithDictionary:textDictionary boundingRect:
 				NSMakeRect(stof(args[1]), stof(args[2]), stof(args[3]), stof(args[4]))];
+
+            BOOL needsOversizeBorder = NO;
+            NSRect actualBox = NSZeroRect;
+            if (CheckArgsAndContext("text_checksize", args, 5, line, context)) {
+                NSAttributedString *attrString = [textBlock attributedString];
+                actualBox = [attrString boundingRectWithSize: NSMakeSize(stof(args[3]), stof(args[4])) options: NSStringDrawingUsesLineFragmentOrigin];
+
+                if (actualBox.size.width > stof(args[3]) || actualBox.size.height > stof(args[4]))
+                    needsOversizeBorder = YES;
+            }
 			
 			NSGraphicsContext *cocoagc = [NSGraphicsContext graphicsContextWithGraphicsPort:context flipped:NO];
 			[NSGraphicsContext saveGraphicsState];
 			[NSGraphicsContext setCurrentContext:cocoagc];        
 			[textBlock drawWithOutputControl:nil];
-			[NSGraphicsContext restoreGraphicsState];	
+            if (needsOversizeBorder) {
+                [[NSColor redColor] set];
+                [NSBezierPath setDefaultLineWidth: 2];
+                [NSBezierPath strokeRect: NSMakeRect((int)stof(args[1]), (int)stof(args[2]), (int)stof(args[3]), (int)stof(args[4]))];
+            }
+            
+			[NSGraphicsContext restoreGraphicsState];
 			
 			// Reset settings
-			[settings setObject:@"16.0" forKey:@"FontSize"];
-			[settings setObject:@"16.0" forKey:@"FontSizeCJK"];
-			[settings setObject:@"GillSans" forKey:@"Typeface"];
-			[settings setObject:@"STHeiti" forKey:@"TypefaceCJK"];
-			[settings setObject:@"left" forKey:@"TextAlign"];
-			[settings setObject:@"top" forKey:@"TextVerticalAlign"];
-			[settings setObject:@"0.0" forKey:@"Rotation"];
-			[settings setObject:@"0.0" forKey:@"Kerning"];
-			[settings setObject:@"0.0" forKey:@"KerningCJK"];
-			[settings setObject:@"black" forKey:@"Color"];
+            [settings setDefaultSettings];
 		}
-		else if (CheckArgsAndContext("simpletext", args, 3, line, context)) {
+        else if (CheckArgsAndContext("simpletext", args, 3, line, context)) {
 			NSGraphicsContext *cocoagc = [NSGraphicsContext graphicsContextWithGraphicsPort:context flipped:NO];
 			[NSGraphicsContext saveGraphicsState];
 			[NSGraphicsContext setCurrentContext:cocoagc];        
@@ -252,6 +309,7 @@ void RunFile(istream& ist)
 int main(int argc, char* argv[])
 {
 	id pool = [NSAutoreleasePool new];
+    NSApplicationLoad();
 	if (argc < 2) {
 		//ifstream fin("/tmp/test.pcd");
 		//RunFile(fin);
