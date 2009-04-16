@@ -202,7 +202,7 @@ void RunFile(istream& ist)
             CGContextRef canvas = CGBitmapContextCreate(NULL, pixelsWide, pixelsHigh, 8, 4 * pixelsWide, rgb, kCGImageAlphaPremultipliedFirst);
             CGColorSpaceRelease(rgb);
             
-//            CGContextDrawPDFPage(canvas, page);
+            // Deprecated method. Use transform with CGContextDrawPDFPage(canvas, page);
             CGContextDrawPDFDocument(canvas, CGRectMake(0, 0, pixelsWide, pixelsHigh), pdfDocument, 1);            
 
             CGImageRef image = CGBitmapContextCreateImage(canvas);            
