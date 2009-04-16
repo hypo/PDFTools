@@ -198,8 +198,7 @@ void RunFile(istream& ist)
             CGPDFDocumentRef pdfDocument = CGPDFDocumentCreateWithProvider(dataProvider);
             CGPDFPageRef page = CGPDFDocumentGetPage(pdfDocument, 1);
             CGRect rect = CGPDFPageGetBoxRect(page, kCGPDFMediaBox);
-            NSUInteger pixelsWide = rect.size.width * (dpi / 72.0), pixelsHigh = rect.size.height * (dpi / 72.0);
-            
+            NSUInteger pixelsWide = rect.size.width * (dpi / 72.0) * scale, pixelsHigh = rect.size.height * (dpi / 72.0) * scale;
             CGColorSpaceRef rgb = CGColorSpaceCreateWithName(kCGColorSpaceGenericRGB);
             CGContextRef canvas = CGBitmapContextCreate(NULL, pixelsWide, pixelsHigh, 8, 4 * pixelsWide, rgb, kCGImageAlphaPremultipliedFirst);
             CGColorSpaceRelease(rgb);
