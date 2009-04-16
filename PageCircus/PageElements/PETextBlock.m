@@ -104,7 +104,6 @@ BOOL PEIsCJKCharacter(UniChar c)
 								paragraphStyle, NSParagraphStyleAttributeName,
 								[NSNumber numberWithFloat:_kerning], NSKernAttributeName,
 								nil];
-	
     // set Latin font and paragraph style
     [attrStr setAttributes:psd range:NSMakeRange(0, len)];
 	

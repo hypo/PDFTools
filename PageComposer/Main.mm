@@ -191,19 +191,31 @@ void RunFile(istream& ist)
             CGFloat scale = stof(args[2]);
             NSURL *url = [NSURL URLWithString: NSU8(args[3])];
             pdf->close();
-            NSData *data = (NSData *)pdf->data();
-            NSImage *image = [[NSImage alloc] initWithData: data];
-            NSSize targetSize = NSMakeSize([image size].width * (dpi / 72.0) * scale, [image size].height * (dpi / 72.0) * scale);
-            NSBitmapImageRep *canvasRep = [[NSBitmapImageRep alloc] initWithBitmapDataPlanes: NULL pixelsWide: targetSize.width pixelsHigh: targetSize.height bitsPerSample: 8 samplesPerPixel: 4 hasAlpha: YES isPlanar: NO colorSpaceName: NSCalibratedRGBColorSpace bytesPerRow: 0 bitsPerPixel: 0];
-
-            [NSGraphicsContext saveGraphicsState];
-            [NSGraphicsContext setCurrentContext: [NSGraphicsContext graphicsContextWithBitmapImageRep: canvasRep]];
-            [image drawInRect: NSMakeRect(0, 0, targetSize.width, targetSize.height) fromRect: NSMakeRect(0, 0, [image size].width, [image size].height) operation: NSCompositeCopy fraction: 1.0];
-            [NSGraphicsContext restoreGraphicsState];
             
-            [[canvasRep representationUsingType: NSPNGFileType properties: nil] writeToURL: url atomically: YES];
-            [canvasRep release];
-            [image release];
+            CGDataProviderRef dataProvider = CGDataProviderCreateWithCFData(pdf->data());
+            CGPDFDocumentRef pdfDocument = CGPDFDocumentCreateWithProvider(dataProvider);
+            CGPDFPageRef page = CGPDFDocumentGetPage(pdfDocument, 1);
+            CGRect rect = CGPDFPageGetBoxRect(page, kCGPDFMediaBox);
+            NSUInteger pixelsWide = rect.size.width * (dpi / 72.0), pixelsHigh = rect.size.height * (dpi / 72.0);
+            
+            CGColorSpaceRef rgb = CGColorSpaceCreateWithName(kCGColorSpaceGenericRGB);
+            CGContextRef canvas = CGBitmapContextCreate(NULL, pixelsWide, pixelsHigh, 8, 4 * pixelsWide, rgb, kCGImageAlphaPremultipliedFirst);
+            CGColorSpaceRelease(rgb);
+            
+//            CGContextDrawPDFPage(canvas, page);
+            CGContextDrawPDFDocument(canvas, CGRectMake(0, 0, pixelsWide, pixelsHigh), pdfDocument, 1);            
+
+            CGImageRef image = CGBitmapContextCreateImage(canvas);            
+            CGImageDestinationRef dest = CGImageDestinationCreateWithURL((CFURLRef)url, kUTTypePNG, 1, NULL);
+            CGImageDestinationAddImage(dest, image, (CFDictionaryRef)[NSDictionary dictionary]);
+            CGImageDestinationFinalize(dest);
+            
+            CFRelease(dest);
+            CGImageRelease(image);
+            CGContextRelease(canvas);
+            CGPDFDocumentRelease(pdfDocument);
+            CGDataProviderRelease(dataProvider);
+            
             context = NULL;
             delete pdf;
             pdf = NULL;
@@ -309,7 +321,7 @@ void RunFile(istream& ist)
 int main(int argc, char* argv[])
 {
 	id pool = [NSAutoreleasePool new];
-    NSApplicationLoad();
+//    NSApplicationLoad();
 	if (argc < 2) {
 		//ifstream fin("/tmp/test.pcd");
 		//RunFile(fin);
