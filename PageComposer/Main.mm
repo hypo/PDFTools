@@ -130,6 +130,7 @@ void RunFile(istream& ist)
 {
 	SinglePagePDF *pdf = 0;
 	CGContextRef context = 0;
+    BOOL needRedBorder = NO;
 
 	NSMutableDictionary *settings = [NSMutableDictionary dictionary];
 	
@@ -162,10 +163,11 @@ void RunFile(istream& ist)
 			}
 			else {
 				pdf = new SinglePagePDF;
-				CGRect bound = CGRectMake(0., 0., stof(args[1]), stof(args[2]));				
+				CGRect bound = CGRectMake(0., 0., stof(args[1]), stof(args[2]));
 				pdf->open(&bound);
 				context = pdf->context();
 				NSLog(@"line %d: pdf context begin with size %f x %f", line, stof(args[1]), stof(args[2]));
+                needRedBorder = NO;
 			}
 		}
 	    else if (CheckArgs("endpdf", args, 1, line)) {
@@ -205,6 +207,13 @@ void RunFile(istream& ist)
             // Deprecated method. Use transform with CGContextDrawPDFPage(canvas, page);
             CGContextDrawPDFDocument(canvas, CGRectMake(0, 0, pixelsWide, pixelsHigh), pdfDocument, 1);            
 
+            if (needRedBorder) {
+                CGColorRef redColor = CGColorCreateGenericRGB(1.0, 0, 0, 1);
+                CGContextSetStrokeColorWithColor(canvas, redColor);
+                CGContextStrokeRectWithWidth(canvas, CGRectMake(0, 0, pixelsWide, pixelsHigh), 2);
+                CGColorRelease(redColor);
+            }
+            
             CGImageRef image = CGBitmapContextCreateImage(canvas);            
             CGImageDestinationRef dest = CGImageDestinationCreateWithURL((CFURLRef)url, kUTTypePNG, 1, NULL);
             CGImageDestinationAddImage(dest, image, (CFDictionaryRef)[NSDictionary dictionary]);
@@ -273,26 +282,19 @@ void RunFile(istream& ist)
 			PETextBlock *textBlock = [PETextBlock textBlockWithDictionary:textDictionary boundingRect:
 				NSMakeRect(stof(args[1]), stof(args[2]), stof(args[3]), stof(args[4]))];
 
-            BOOL needsOversizeBorder = NO;
             NSRect actualBox = NSZeroRect;
             if (CheckArgsAndContext("text_checksize", args, 5, line, context)) {
                 NSAttributedString *attrString = [textBlock attributedString];
                 actualBox = [attrString boundingRectWithSize: NSMakeSize(stof(args[3]), stof(args[4])) options: NSStringDrawingUsesLineFragmentOrigin];
 
                 if (actualBox.size.width > stof(args[3]) || actualBox.size.height > stof(args[4]))
-                    needsOversizeBorder = YES;
+                    needRedBorder = YES;
             }
 			
 			NSGraphicsContext *cocoagc = [NSGraphicsContext graphicsContextWithGraphicsPort:context flipped:NO];
 			[NSGraphicsContext saveGraphicsState];
 			[NSGraphicsContext setCurrentContext:cocoagc];        
 			[textBlock drawWithOutputControl:nil];
-            if (needsOversizeBorder) {
-                [[NSColor redColor] set];
-                [NSBezierPath setDefaultLineWidth: 2];
-                [NSBezierPath strokeRect: NSMakeRect((int)stof(args[1]), (int)stof(args[2]), (int)stof(args[3]), (int)stof(args[4]))];
-            }
-            
 			[NSGraphicsContext restoreGraphicsState];
 			
 			// Reset settings
