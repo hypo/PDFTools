@@ -242,7 +242,14 @@ void RunFile(istream& ist)
 					ContextGraphics cg(context);
 					cg.drawImage(image, CGRectMake(stof(args[2]), stof(args[3]), stof(args[4]), stof(args[5])));
 					CFRelease(image);
-				}
+				} else if (OVWildcard::Match(args[1], "*.pdf*")) {
+                    CGDataProviderRef dataProvider = CGDataProviderCreateWithCFData((CFDataRef)data);
+                    CGPDFDocumentRef pdfDocument = CGPDFDocumentCreateWithProvider(dataProvider);
+
+                    CGContextDrawPDFDocument(context, CGRectMake(stof(args[2]), stof(args[3]), stof(args[4]), stof(args[5])), pdfDocument, 1);
+                    CGPDFDocumentRelease(pdfDocument);
+                    CGDataProviderRelease(dataProvider);
+                }
 				else {
 					NSLog(@"line %d: no image created from URL %s", line, args[1].c_str());
 				}
