@@ -203,8 +203,11 @@ void RunFile(istream& ist)
             CGContextRef canvas = CGBitmapContextCreate(NULL, pixelsWide, pixelsHigh, 8, 4 * pixelsWide, rgb, kCGImageAlphaPremultipliedFirst);
             CGColorSpaceRelease(rgb);
             
-            // Deprecated method. Use transform with CGContextDrawPDFPage(canvas, page);
-            CGContextDrawPDFDocument(canvas, CGRectMake(0, 0, pixelsWide, pixelsHigh), pdfDocument, 1);            
+            CGContextSaveGState(canvas);
+            CGContextTranslateCTM(canvas, 0, 0);
+            CGContextScaleCTM(canvas, dpi / 72.0 * scale, dpi / 72.0 * scale);
+            CGContextDrawPDFPage(canvas, page);
+            CGContextRestoreGState(canvas);
 
             if (needRedBorder) {
                 CGColorRef redColor = CGColorCreateGenericRGB(1.0, 0, 0, 1);
@@ -230,6 +233,7 @@ void RunFile(istream& ist)
         }
 		else if (CheckArgsAndContext("simpleimage", args, 5, line, context)) {
 			NSLog(@"begin to fetch: %s", args[1].c_str());
+            
 			NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:NSU8(args[1])]];
 			CGImageRef image = 0;
 			if (data) {
@@ -245,8 +249,18 @@ void RunFile(istream& ist)
 				} else if (OVWildcard::Match(args[1], "*.pdf*")) {
                     CGDataProviderRef dataProvider = CGDataProviderCreateWithCFData((CFDataRef)data);
                     CGPDFDocumentRef pdfDocument = CGPDFDocumentCreateWithProvider(dataProvider);
+                    CGPDFPageRef page = CGPDFDocumentGetPage(pdfDocument, 1);
+                    CGRect pdfSize = CGPDFPageGetBoxRect(page, kCGPDFMediaBox);
 
-                    CGContextDrawPDFDocument(context, CGRectMake(stof(args[2]), stof(args[3]), stof(args[4]), stof(args[5])), pdfDocument, 1);
+                    CGContextSaveGState(context);
+                    
+                    CGFloat x = stof(args[2]), y = stof(args[3]), w = stof(args[4]), h = stof(args[5]);
+                    CGContextTranslateCTM(context, x, y);                    
+                    CGContextScaleCTM(context, w / pdfSize.size.width, h / pdfSize.size.height);
+                    
+                    CGContextDrawPDFPage(context, page);
+                    
+                    CGContextRestoreGState(context);
                     CGPDFDocumentRelease(pdfDocument);
                     CGDataProviderRelease(dataProvider);
                 }
