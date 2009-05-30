@@ -35,6 +35,7 @@ using namespace std;
 	[self setObject:@"0.0" forKey:@"Kerning"];
 	[self setObject:@"0.0" forKey:@"KerningCJK"];
     [self setObject:@"black" forKey:@"Color"];
+    [self setObject:@"0.0" forKey:@"LineSpacing"];
     [self removeObjectForKey: @"LineHeight"];
 }
 
