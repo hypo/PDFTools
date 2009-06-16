@@ -290,7 +290,6 @@ void RunFile(istream& ist)
             ContextGraphics cg(context);
             cg.drawImage(image, CGRectMake(stof(args[3]), stof(args[4]), stof(args[5]), stof(args[6])));
             CFRelease(image);
-
         }
 		else if (CheckArgsAndContext("set", args, 2, line, context)) {
 			[settings setObject:NSU8(args[2]) forKey:NSU8(args[1])];
@@ -330,6 +329,23 @@ void RunFile(istream& ist)
 			[text drawAtPoint:NSMakePoint(stof(args[1]), stof(args[2])) withAttributes:nil];
 			
 			[NSGraphicsContext restoreGraphicsState];		
+		}
+		else if (CheckArgsAndContext("simplecolor", args, 5, line, context)) {
+			//args: color-name x y w h
+			NSGraphicsContext *cocoagc = [NSGraphicsContext graphicsContextWithGraphicsPort:context flipped:NO];
+			[NSGraphicsContext saveGraphicsState];
+			[NSGraphicsContext setCurrentContext:cocoagc];        
+
+			NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+			[dict setObject:NSU8(args[1]) forKey:@"fill-color"];
+			[dict setObject:@"0.0" forKey:@"line-width"];
+			
+			PERectangle *rect = [[PERectangle alloc] initWithDictionary:dict boundingRect: NSMakeRect(stof(args[2]), stof(args[3]), stof(args[4]), stof(args[5]))];
+			[rect drawWithOutputControl: nil];
+			
+			[dict release];
+			[rect release];
+			[NSGraphicsContext restoreGraphicsState];					
 		}
 		else {
 			NSLog(@"line %d: unknown command '%s'", line, args[0].c_str());
