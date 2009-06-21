@@ -294,8 +294,25 @@ void RunFile(istream& ist)
 		else if (CheckArgsAndContext("set", args, 2, line, context)) {
 			[settings setObject:NSU8(args[2]) forKey:NSU8(args[1])];
 		}
+		else if (CheckArgsAndContext("barcode", args, 5, line, context)) {
+			// args: barcode x y w h string
+			
+			NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+			[dict setObject:NSU8(args[5]) forKey:@"text"];
+			NSRect rect = NSMakeRect(stof(args[1]), stof(args[2]), stof(args[3]), stof(args[4]));
+			NSLog(@"rect(x=%f, y=%f, w=%f, h=%f)", rect.origin.x, rect.origin.y, rect.size.width, rect.size.height);
+			PEBarcodeCode39 *barcode = [PEBarcodeCode39 barcodeWithDictionary:dict boundingRect:rect];
+
+			NSGraphicsContext *cocoagc = [NSGraphicsContext graphicsContextWithGraphicsPort:context flipped:NO];
+			[NSGraphicsContext saveGraphicsState];
+			[NSGraphicsContext setCurrentContext:cocoagc];        
+			[barcode drawWithOutputControl:nil];
+			[NSGraphicsContext restoreGraphicsState];
+			
+			[dict release];
+		}
 		else if (CheckArgsAndContext("text", args, 5, line, context) || CheckArgsAndContext("text_checksize", args, 5, line, context)) {
-			// args: text origX origY width height string
+			// args: text origX origY width height stringR
 			
 			NSDictionary *textDictionary = [settings textDictionaryWithText: NSU8(args[5])];
 			
