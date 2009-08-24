@@ -21,6 +21,7 @@
 //	   "kerning" : "0.0",
 //	   "kering-cjk" : "0.0",
 //     "line-spacing" : "0.0",
+//     "ligature": "0" /* or 1 */
 // }
 
 #import "PEDrawableElement.h"
@@ -41,6 +42,7 @@ BOOL PEIsCJKCharacter(UniChar c);
 	float _kerning;
 	float _kerningCJK;
 	float _lineSpacing;
+	int _ligature;
 }
 + (id)textBlockWithDictionary:(NSDictionary*)dict boundingRect:(NSRect)boundingRect;
 - (id)initWithDictionary:(NSDictionary*)dict boundingRect:(NSRect)boundingRect;

@@ -37,6 +37,7 @@ BOOL PEIsCJKCharacter(UniChar c)
 		_kerning = [[d objectForKey:@"kerning" defaultValue:[NSNumber numberWithFloat:0.0]] floatValue];
 		_kerningCJK = [[d objectForKey:@"kerning-cjk" defaultValue:[NSNumber numberWithFloat:0.0]] floatValue];		
 		_lineSpacing = [[d objectForKey:@"line-spacing" defaultValue:[NSNumber numberWithFloat:0.0]] floatValue];
+		_ligature = [[d objectForKey:@"ligature" defaultValue:[NSNumber numberWithInt:1]] intValue];
 	}
 	return self;    
 }
@@ -63,6 +64,7 @@ BOOL PEIsCJKCharacter(UniChar c)
         [NSNumber numberWithFloat:_rotationAngle], @"rotate",
 		[NSNumber numberWithFloat:_forceLineHeight], @"force-lineheight",
 		[NSNumber numberWithFloat:_lineSpacing], @"line-spacing",
+		[NSNumber numberWithInt:_ligature], @"ligature",
         nil];
     
     return [[super internalDictionaryRepresentation] dictionaryByMergingDictionary:result];
@@ -78,6 +80,7 @@ BOOL PEIsCJKCharacter(UniChar c)
 - (NSAttributedString *)attributedString;
 {
     NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] initWithString:_string];
+	
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle new] autorelease];
 	if ([_align isEqualToString:@"center"]) {
         [paragraphStyle setAlignment:NSCenterTextAlignment];
@@ -105,9 +108,9 @@ BOOL PEIsCJKCharacter(UniChar c)
 								[NSNumber numberWithFloat:_kerning], NSKernAttributeName,
 								nil];
     
-    // FIXME: Unconditional disable the ligature.
-    [psd setObject: [NSNumber numberWithInt: 0] forKey: NSLigatureAttributeName];
-
+	// set ligature
+	[psd setObject:[NSNumber numberWithInt:_ligature] forKey: NSLigatureAttributeName];
+	
     // set Latin font and paragraph style
     [attrStr setAttributes:psd range:NSMakeRange(0, len)];
 	

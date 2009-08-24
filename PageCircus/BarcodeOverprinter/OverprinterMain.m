@@ -72,7 +72,7 @@ int main(int argc, char *argv[])
         alignDictionary = topLeftAlignDictionary;
     }
         
-    PEBarcodeCode39 *barcode = [PEBarcodeCode39 barcodeWithDictionary:[barcodeDictionary dictionaryByMergingDictionary:alignDictionary] boundingRect:barcodeRect];    
+    PEBarcodeCode39 *barcode = [PEBarcodeCode39 barcodeWithDictionary:[barcodeDictionary dictionaryByMergingDictionary:alignDictionary] boundingRect:barcodeRect];   
     ElementDrawer *barcodeDrawer = [[[ElementDrawer alloc] initWithElement:barcode] autorelease];
     
     NSLog(@"reading: %@", sourceFilename);
