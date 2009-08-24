@@ -312,7 +312,7 @@ void RunFile(istream& ist)
 			[dict release];
 		}
 		else if (CheckArgsAndContext("text", args, 5, line, context) || CheckArgsAndContext("text_checksize", args, 5, line, context)) {
-			// args: text origX origY width height stringR
+			// args: text origX origY width height string
 			
 			NSDictionary *textDictionary = [settings textDictionaryWithText: NSU8(args[5])];
 			

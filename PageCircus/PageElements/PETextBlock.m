@@ -105,10 +105,9 @@ BOOL PEIsCJKCharacter(UniChar c)
 								[NSNumber numberWithFloat:_kerning], NSKernAttributeName,
 								nil];
     
-    // FIXME: magic number. When kerning is larger than this threshold, turn off ligature.
-    if (_kerning > 0.2)
-        [psd setObject: [NSNumber numberWithInt: 0] forKey: NSLigatureAttributeName];
-    
+    // FIXME: Unconditional disable the ligature.
+    [psd setObject: [NSNumber numberWithInt: 0] forKey: NSLigatureAttributeName];
+
     // set Latin font and paragraph style
     [attrStr setAttributes:psd range:NSMakeRange(0, len)];
 	
