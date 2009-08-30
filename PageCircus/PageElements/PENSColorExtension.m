@@ -32,6 +32,20 @@ static int HexValue(char c) {
 		return [NSColor colorWithDeviceRed: r / 255.0 green: g / 255.0 blue: b / 255.0 alpha: 1.0];
 	}
 	
+	if ([name hasPrefix: @"CMYK:"])
+	{
+		NSString* strColor = [name substringFromIndex: 5];
+		NSMutableArray* comps = [[[strColor componentsSeparatedByString:@","] mutableCopy] autorelease];
+		for(NSString *s in comps)
+			s = [s stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceAndNewlineCharacterSet]];
+		
+		if ([comps count] == 4)
+			[comps addObject:@"1.0"];
+		
+		if ([comps count] == 5)		
+			return [NSColor colorWithDeviceCyan:[[comps objectAtIndex:0] floatValue] magenta:[[comps objectAtIndex:1] floatValue] yellow:[[comps objectAtIndex:2] floatValue] black:[[comps objectAtIndex:3] floatValue] alpha:[[comps objectAtIndex:4] floatValue]];
+	}
+	
     NSDictionary *colorDict = [NSDictionary dictionaryWithObjectsAndKeys:
         [NSColor clearColor], @"clear",
         [NSColor clearColor], @"transparent",
