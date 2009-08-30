@@ -19,7 +19,8 @@
 //     },
 //	   "rotation": 0.0,	/* image must be rotated before it can be really used */
 //	   "dpi": 0.0,      /* the desirable DPI against the longest side of the draw rect */
-//     "bleed": true    /* false */
+//     "bleed": true,   /* false */
+//     "raidus": 0.0    /* border radius of the image */
 // }
 //
 // output-control directive:
@@ -42,6 +43,7 @@
 	float _cropX, _cropY, _cropW, _cropH;
 	float _rotation;
 	float _dpi;
+	float _radius;
 	
 	BOOL _tiffPassThru;
 }
