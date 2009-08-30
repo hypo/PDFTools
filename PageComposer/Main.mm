@@ -3,6 +3,7 @@
 #import <Cocoa/Cocoa.h>
 #import <LFSimpleGraphics/LFSimpleGraphics.h>
 #import <PageElements/PageElements.h>
+#import "ZRCGUtilities.h"
 
 #include <vector>
 #include <string>
@@ -66,8 +67,6 @@ using namespace std;
             nil];
 }
 @end
-
-
 
 CGImageRef CreateImageFromJPEGDataWithCompression(CFDataRef data, CGFloat ratio) {
     NSBitmapImageRep *originImage = [NSBitmapImageRep imageRepWithData: (NSData *)data];
@@ -234,7 +233,15 @@ void RunFile(istream& ist)
         }
         else if (CheckArgsAndContext("simpleimage", args, 5, line, context)) {
             NSLog(@"begin to fetch: %s", args[1].c_str());
-            
+			
+			float radius = 0;
+			if ([settings objectForKey:@"radius"] != nil)
+			{
+				radius = [[settings objectForKey:@"radius"] floatValue];
+				NSLog(@"use radius settings: %f", radius);
+			}
+			[settings removeObjectForKey:@"radius"];
+			
             NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:NSU8(args[1])]];
             CGImageRef image = 0;
             if (data) {
@@ -245,7 +252,14 @@ void RunFile(istream& ist)
                 
                 if (image) {
                     ContextGraphics cg(context);
-                    cg.drawImage(image, CGRectMake(stof(args[2]), stof(args[3]), stof(args[4]), stof(args[5])));
+					CGRect drawRect = CGRectMake(stof(args[2]), stof(args[3]), stof(args[4]), stof(args[5]));
+					
+					CGContextSaveGState(context);
+					if (radius > 0)
+						AddBorderRadiusPath(context, drawRect, radius);
+					
+                    cg.drawImage(image, drawRect);
+					CGContextRestoreGState(context);
                     CFRelease(image);
                 } else if (OVWildcard::Match(args[1], "*.pdf*")) {
                     CGDataProviderRef dataProvider = CGDataProviderCreateWithCFData((CFDataRef)data);
@@ -276,6 +290,13 @@ void RunFile(istream& ist)
         else if (CheckArgsAndContext("simpleimage_compress", args, 6, line, context)) {
             // url ratio x y w h
             NSLog(@"begin to fetch: %s", args[1].c_str());
+			
+			float radius;
+			radius = 0;
+			if ([settings objectForKey:@"radius"] != nil)
+				radius = [[settings objectForKey:@"radius"] floatValue];
+			[settings removeObjectForKey:@"radius"];
+			
             NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:NSU8(args[1])]];
 
             if (!data) {
@@ -287,8 +308,20 @@ void RunFile(istream& ist)
                 NSLog(@"line %d: no image created from URL %s", line, args[1].c_str());
                 continue;
             }
+			CGRect drawRect = CGRectMake(stof(args[3]), stof(args[4]), stof(args[5]), stof(args[6]));
             ContextGraphics cg(context);
-            cg.drawImage(image, CGRectMake(stof(args[3]), stof(args[4]), stof(args[5]), stof(args[6])));
+			CGContextSaveGState(context);
+			if (radius > 0)
+				AddBorderRadiusPath(context, drawRect, radius);
+			
+			cg.drawImage(image, drawRect);
+			CGContextRestoreGState(context);
+			CGContextSaveGState(context);
+			if (radius > 0)
+				AddBorderRadiusPath(context, drawRect, radius);
+			
+			cg.drawImage(image, drawRect);
+			CGContextRestoreGState(context);
             CFRelease(image);
         }
         else if (CheckArgsAndContext("set", args, 2, line, context)) {
