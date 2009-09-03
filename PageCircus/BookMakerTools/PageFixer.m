@@ -38,9 +38,19 @@
 	if ([source hasSuffix:@".tif"] || [source hasSuffix:@".tiff"]) {
 		us = [NSString stringWithFormat:@"%@?%d", source, random()];
 		NSLog(@"applying tiff fix, now URL string = %@", us);
+		[super useImage:us];
+	}
+	else if (getenv("FIXER_USER_ID") != NULL)
+	{
+		NSLog(@"Found user id: %s, try fetcher.", getenv("FIXER_USER_ID"));
+		[super useImage:[NSString stringWithFormat:@"http://fetcher.hypo.cc/fetch?user_id=%s&url=%@", getenv("FIXER_USER_ID"), source]];
+		if (_image == nil)
+		{
+			NSLog(@"Fetcher down? Try direct mode.");
+			[super useImage:us];
+		}
 	}
 	
-	[super useImage:us];
 	return _image;
 }
 
@@ -87,6 +97,8 @@ int main(int argc, char *argv[]) {
 	id arp = [NSAutoreleasePool new];
     
     fprintf (stderr, "running: %s %s %s %s\n", argv[1], argv[2], argv[3], argc > 4 ? argv[4] : "");
+	if (getenv("FIXER_USER_ID") != NULL)
+		fprintf(stderr, "detected user_id: %s\n", getenv("FIXER_USER_ID"));
 
 	id ppreview = [[PageFixer alloc] initWithSourceFile:[NSString stringWithUTF8String:argv[1]]
 		pageLabel:[NSString stringWithUTF8String:argv[2]]
