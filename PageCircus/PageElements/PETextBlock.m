@@ -37,7 +37,7 @@ BOOL PEIsCJKCharacter(UniChar c)
 		_kerning = [[d objectForKey:@"kerning" defaultValue:[NSNumber numberWithFloat:0.0]] floatValue];
 		_kerningCJK = [[d objectForKey:@"kerning-cjk" defaultValue:[NSNumber numberWithFloat:0.0]] floatValue];		
 		_lineSpacing = [[d objectForKey:@"line-spacing" defaultValue:[NSNumber numberWithFloat:0.0]] floatValue];
-		_ligature = [[d objectForKey:@"ligature" defaultValue:[NSNumber numberWithInt:1]] intValue];
+		_ligature = [[d objectForKey:@"ligature" defaultValue:[NSNumber numberWithInt:0]] intValue];
 	}
 	return self;    
 }

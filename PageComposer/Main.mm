@@ -37,6 +37,7 @@ using namespace std;
     [self setObject:@"black" forKey:@"Color"];
     [self setObject:@"0.0" forKey:@"LineSpacing"];
     [self removeObjectForKey: @"LineHeight"];
+    [self removeObjectForKey: @"Ligature"];
 }
 
 - (NSDictionary *) textDictionaryWithText: (NSString *)text
@@ -63,11 +64,10 @@ using namespace std;
             [self objectForKey:@"LineSpacing"], @"line-spacing",
             [self objectForKey:@"Color"], @"color",
             [self objectForKey:@"LineHeight"], @"force-lineheight",
+			[self objectForKey:@"Ligature"], @"ligature",
             nil];
 }
 @end
-
-
 
 CGImageRef CreateImageFromJPEGDataWithCompression(CFDataRef data, CGFloat ratio) {
     NSBitmapImageRep *originImage = [NSBitmapImageRep imageRepWithData: (NSData *)data];
