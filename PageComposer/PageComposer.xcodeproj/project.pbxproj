@@ -21,6 +21,7 @@
 		856AD7B00F93AD1A00E10EC7 /* ocrb10n.ttf in CopyFiles */ = {isa = PBXBuildFile; fileRef = 856AD7A40F93AD1500E10EC7 /* ocrb10n.ttf */; };
 		856AD7B10F93AD1A00E10EC7 /* DFHei.ttf in CopyFiles */ = {isa = PBXBuildFile; fileRef = 856AD7A50F93AD1500E10EC7 /* DFHei.ttf */; };
 		DAB0C8F20E2AF6260087F1F6 /* PageElements.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAB0C8F10E2AF6260087F1F6 /* PageElements.framework */; };
+		DAC117F1104A36980064004E /* ZRCGUtilities.mm in Sources */ = {isa = PBXBuildFile; fileRef = DAC117F0104A36980064004E /* ZRCGUtilities.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -68,7 +69,9 @@
 		856AD7A30F93AD1500E10EC7 /* Century Gothic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Century Gothic.ttf"; sourceTree = "<group>"; };
 		856AD7A40F93AD1500E10EC7 /* ocrb10n.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ocrb10n.ttf; sourceTree = "<group>"; };
 		856AD7A50F93AD1500E10EC7 /* DFHei.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = DFHei.ttf; sourceTree = "<group>"; };
-		DAB0C8F10E2AF6260087F1F6 /* PageElements.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PageElements.framework; path = ExternalDependencies/PageElements.framework; sourceTree = "<group>"; };
+		DAB0C8F10E2AF6260087F1F6 /* PageElements.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PageElements.framework; path = ../PageCircus/build/Debug/PageElements.framework; sourceTree = SOURCE_ROOT; };
+		DAC117EF104A36980064004E /* ZRCGUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZRCGUtilities.h; sourceTree = "<group>"; };
+		DAC117F0104A36980064004E /* ZRCGUtilities.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ZRCGUtilities.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +133,8 @@
 				6A4966850DE47906001E75AA /* Main.mm */,
 				6A4966860DE47906001E75AA /* OVStringHelper.h */,
 				6A4966870DE47906001E75AA /* OVWildcard.h */,
+				DAC117EF104A36980064004E /* ZRCGUtilities.h */,
+				DAC117F0104A36980064004E /* ZRCGUtilities.mm */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -204,6 +209,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6A4966880DE47906001E75AA /* Main.mm in Sources */,
+				DAC117F1104A36980064004E /* ZRCGUtilities.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -3,7 +3,7 @@
 #import "PEImageBox.h"
 #import "NSExtensions.h"
 
-void PEDrawImageInRect(NSImage *image, NSRect frame, BOOL bleed, BOOL useCropRect, NSRect cropRect, BOOL wantJPEGCompression);
+void PEDrawImageInRect(NSImage *image, NSRect frame, BOOL bleed, BOOL useCropRect, NSRect cropRect, BOOL wantJPEGCompression, float radius);
 
 @implementation PEImageBox : PEDrawableElement
 + (id)imageBoxWithDictionary:(NSDictionary*)dict boundingRect:(NSRect)boundingRect
@@ -28,6 +28,7 @@ void PEDrawImageInRect(NSImage *image, NSRect frame, BOOL bleed, BOOL useCropRec
 
 		_rotation = [[dict objectForKey:@"original-rotation" defaultValue:[NSNumber numberWithFloat:0.0]] floatValue];
 		_dpi = [[dict objectForKey:@"dpi" defaultValue:[NSNumber numberWithFloat:0.0]] floatValue];
+		_radius = [[dict objectForKey:@"radius" defaultValue:[NSNumber numberWithFloat:0.0]] floatValue];
 		
 		_preparedImage = nil;
     }
@@ -46,6 +47,7 @@ void PEDrawImageInRect(NSImage *image, NSRect frame, BOOL bleed, BOOL useCropRec
         _source, @"source",
         [NSNumber numberWithBool:_bleed], @"bleed",
 		[NSNumber numberWithFloat:_dpi], @"dpi",
+		[NSNumber numberWithFloat:_radius], @"radius",
 		[NSNumber numberWithFloat:_rotation], @"rotation",
         [NSDictionary dictionaryWithObjectsAndKeys:
             [NSNumber numberWithFloat:_cropX], @"x",
@@ -156,9 +158,9 @@ void PEDrawImageInRect(NSImage *image, NSRect frame, BOOL bleed, BOOL useCropRec
     NSString *extension = [[source pathExtension] lowercaseString];
 
     if ([extension isEqualToString: @"jpeg"] || [extension isEqualToString: @"jpg"]) {
-        PEDrawImageInRect(image, _boundingRect, _bleed, YES, cropRect, YES);
+        PEDrawImageInRect(image, _boundingRect, _bleed, YES, cropRect, YES, _radius);
     } else {
-        PEDrawImageInRect(image, _boundingRect, _bleed, YES, cropRect, NO);
+        PEDrawImageInRect(image, _boundingRect, _bleed, YES, cropRect, NO, _radius);
     }
 }
 - (BOOL)prepareWithOutputControl:(NSDictionary*)controlData
@@ -327,7 +329,7 @@ void PEDrawImageInRect(NSImage *image, NSRect frame, BOOL bleed, BOOL useCropRec
 }
 @end
 
-void PEDrawImageInRect(NSImage *image, NSRect frame, BOOL bleed, BOOL useCropRect, NSRect cropRect, BOOL wantJPEGCompression)
+void PEDrawImageInRect(NSImage *image, NSRect frame, BOOL bleed, BOOL useCropRect, NSRect cropRect, BOOL wantJPEGCompression, float radius)
 {
 	NSRect imageRect, drawRect = frame;
 	if (useCropRect) {
@@ -374,7 +376,27 @@ void PEDrawImageInRect(NSImage *image, NSRect frame, BOOL bleed, BOOL useCropRec
 	}
 
     NSGraphicsContext *context = [NSGraphicsContext currentContext];
-
+	CGContextRef cContext = [context graphicsPort];
+	
+	if (radius > 0)
+	{
+		CGContextBeginPath(cContext);
+		CGContextSaveGState(cContext);
+		CGContextTranslateCTM(cContext, drawRect.origin.x, drawRect.origin.y);
+		CGContextMoveToPoint(cContext, 0, radius);
+		CGContextAddLineToPoint(cContext, 0, drawRect.size.height - radius);
+		CGContextAddArc(cContext, radius, drawRect.size.height - radius, radius, M_PI / 4, M_PI / 2, 1);
+		CGContextAddLineToPoint(cContext, drawRect.size.width - radius, drawRect.size.height);
+		CGContextAddArc(cContext, drawRect.size.width - radius, drawRect.size.height - radius, radius, M_PI / 2, 0.0f, 1);
+		CGContextAddLineToPoint(cContext, drawRect.size.width, radius);
+		CGContextAddArc(cContext, drawRect.size.width - radius, radius, radius, 0.0f, -M_PI / 2, 1);
+		CGContextAddLineToPoint(cContext, radius, 0);
+		CGContextAddArc(cContext, radius, radius, radius, -M_PI / 2, M_PI, 1);
+		CGContextClosePath(cContext);
+		CGContextRestoreGState(cContext);
+		CGContextClip(cContext);
+	}
+	
     // yllan's addition code to crop the image and compress to jpeg
     if (wantJPEGCompression) {
         [context saveGraphicsState];

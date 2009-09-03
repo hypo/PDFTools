@@ -3,6 +3,7 @@
 #import <Cocoa/Cocoa.h>
 #import <LFSimpleGraphics/LFSimpleGraphics.h>
 #import <PageElements/PageElements.h>
+#import "ZRCGUtilities.h"
 
 #include <vector>
 #include <string>
@@ -25,15 +26,15 @@ using namespace std;
 @implementation  NSMutableDictionary (PageComposerSettings)
 - (void) setDefaultSettings
 {
-	[self setObject:@"16.0" forKey:@"FontSize"];
-	[self setObject:@"16.0" forKey:@"FontSizeCJK"];
-	[self setObject:@"GillSans" forKey:@"Typeface"];
-	[self setObject:@"STHeiti" forKey:@"TypefaceCJK"];
-	[self setObject:@"left" forKey:@"TextAlign"];
-	[self setObject:@"top" forKey:@"TextVerticalAlign"];
-	[self setObject:@"0.0" forKey:@"Rotation"];
-	[self setObject:@"0.0" forKey:@"Kerning"];
-	[self setObject:@"0.0" forKey:@"KerningCJK"];
+    [self setObject:@"16.0" forKey:@"FontSize"];
+    [self setObject:@"16.0" forKey:@"FontSizeCJK"];
+    [self setObject:@"GillSans" forKey:@"Typeface"];
+    [self setObject:@"STHeiti" forKey:@"TypefaceCJK"];
+    [self setObject:@"left" forKey:@"TextAlign"];
+    [self setObject:@"top" forKey:@"TextVerticalAlign"];
+    [self setObject:@"0.0" forKey:@"Rotation"];
+    [self setObject:@"0.0" forKey:@"Kerning"];
+    [self setObject:@"0.0" forKey:@"KerningCJK"];
     [self setObject:@"black" forKey:@"Color"];
     [self setObject:@"0.0" forKey:@"LineSpacing"];
     [self removeObjectForKey: @"LineHeight"];
@@ -94,102 +95,102 @@ CGImageRef CreateImageFromJPEGDataWithCompression(CFDataRef data, CGFloat ratio)
 
 bool CheckArgs(const string& cmd, const vector<string>& args, size_t count, size_t line)
 {
-	if (!args.size())
-		return false;
-	
-	if (args[0] != cmd)
-		return false;
+    if (!args.size())
+        return false;
+    
+    if (args[0] != cmd)
+        return false;
 
-	if (args.size() < count + 1) {
-		NSLog(@"line %d: command '%s' expects %d arguments", line, cmd.c_str(), count);
-		return false;
-	}
+    if (args.size() < count + 1) {
+        NSLog(@"line %d: command '%s' expects %d arguments", line, cmd.c_str(), count);
+        return false;
+    }
 
-	return true;
+    return true;
 }
 
 bool CheckArgsAndContext(const string& cmd, const vector<string>& args, size_t count, size_t line, CGContextRef context)
 {
-	if (!context) {
-		NSLog(@"line %d: command '%s' requires graphics context", line, cmd.c_str());
-	}
-	
-	return CheckArgs(cmd, args, count, line);
+    if (!context) {
+        NSLog(@"line %d: command '%s' requires graphics context", line, cmd.c_str());
+    }
+    
+    return CheckArgs(cmd, args, count, line);
 }
 
 float stof(const string& str)
 {
-	return atof(str.c_str());
+    return atof(str.c_str());
 }
 
 NSString* NSU8(const string& str)
 {
-	return [NSString stringWithUTF8String:str.c_str()];
+    return [NSString stringWithUTF8String:str.c_str()];
 }
 
 void RunFile(istream& ist)
 {
-	SinglePagePDF *pdf = 0;
-	CGContextRef context = 0;
+    SinglePagePDF *pdf = 0;
+    CGContextRef context = 0;
     BOOL needRedBorder = NO;
 
-	NSMutableDictionary *settings = [NSMutableDictionary dictionary];
-	
-    [settings setDefaultSettings];	
-	
-	size_t line = 0;
-	while (!ist.eof()) {
-		string lineStr;
-		getline(ist, lineStr);
-		line++;
+    NSMutableDictionary *settings = [NSMutableDictionary dictionary];
+    
+    [settings setDefaultSettings];    
+    
+    size_t line = 0;
+    while (!ist.eof()) {
+        string lineStr;
+        getline(ist, lineStr);
+        line++;
 
-		if (!lineStr.length()) {
-			continue;
-		}
-		
-		vector<string> args = OVStringHelper::SplitBySpacesOrTabsWithDoubleQuoteSupport(lineStr);
-		
-		if (!args.size())
-			continue;
-			
-		// ignore comments
-		if (OVWildcard::Match(args[0], "#*"))
-			continue;
-		
-		if (0) {
-		}
-		else if (CheckArgs("beginpdf", args, 2, line)) {
-			if (context || pdf) {
-				NSLog(@"line %d: pdf context already begun", line);
-			}
-			else {
-				pdf = new SinglePagePDF;
-				CGRect bound = CGRectMake(0., 0., stof(args[1]), stof(args[2]));
-				pdf->open(&bound);
-				context = pdf->context();
-				NSLog(@"line %d: pdf context begin with size %f x %f", line, stof(args[1]), stof(args[2]));
+        if (!lineStr.length()) {
+            continue;
+        }
+        
+        vector<string> args = OVStringHelper::SplitBySpacesOrTabsWithDoubleQuoteSupport(lineStr);
+        
+        if (!args.size())
+            continue;
+            
+        // ignore comments
+        if (OVWildcard::Match(args[0], "#*"))
+            continue;
+        
+        if (0) {
+        }
+        else if (CheckArgs("beginpdf", args, 2, line)) {
+            if (context || pdf) {
+                NSLog(@"line %d: pdf context already begun", line);
+            }
+            else {
+                pdf = new SinglePagePDF;
+                CGRect bound = CGRectMake(0., 0., stof(args[1]), stof(args[2]));
+                pdf->open(&bound);
+                context = pdf->context();
+                NSLog(@"line %d: pdf context begin with size %f x %f", line, stof(args[1]), stof(args[2]));
                 needRedBorder = NO;
-			}
-		}
-	    else if (CheckArgs("endpdf", args, 1, line)) {
-			if (!context || !pdf) {
-				NSLog(@"line %d: no pdf context", line);						
-			}
-			else {
-				pdf->close();
-				NSURL *url = [NSURL URLWithString:NSU8(args[1])];
-				NSData *data = (NSData*)pdf->data();
-				[data writeToURL:url atomically:YES];
-				context = 0;
-				delete pdf;
-				pdf = 0;						
-			}
-		} else if (CheckArgs("endpng", args, 3, line)) {
+            }
+        }
+        else if (CheckArgs("endpdf", args, 1, line)) {
+            if (!context || !pdf) {
+                NSLog(@"line %d: no pdf context", line);                        
+            }
+            else {
+                pdf->close();
+                NSURL *url = [NSURL URLWithString:NSU8(args[1])];
+                NSData *data = (NSData*)pdf->data();
+                [data writeToURL:url atomically:YES];
+                context = 0;
+                delete pdf;
+                pdf = 0;                        
+            }
+        } else if (CheckArgs("endpng", args, 3, line)) {
             // endpng dpi scale url
-         	if (!context || !pdf) {
-				NSLog(@"line %d: no pdf context", line);
+             if (!context || !pdf) {
+                NSLog(@"line %d: no pdf context", line);
                 continue;
-			}
+            }
             CGFloat dpi = stof(args[1]);
             CGFloat scale = stof(args[2]);
             NSURL *url = [NSURL URLWithString: NSU8(args[3])];
@@ -232,22 +233,37 @@ void RunFile(istream& ist)
             delete pdf;
             pdf = NULL;
         }
-		else if (CheckArgsAndContext("simpleimage", args, 5, line, context)) {
-			NSLog(@"begin to fetch: %s", args[1].c_str());
-            
-			NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:NSU8(args[1])]];
-			CGImageRef image = 0;
-			if (data) {
-				if (OVWildcard::Match(args[1], "*.png*"))
-					image = ImageHelper::CreateImageFromPNGData((CFDataRef)data);
-				else if (OVWildcard::Match(args[1], "*.jpg*") || OVWildcard::Match(args[1], "*.jpeg*"))
-					image = ImageHelper::CreateImageFromJPEGData((CFDataRef)data);
-				
-				if (image) {
-					ContextGraphics cg(context);
-					cg.drawImage(image, CGRectMake(stof(args[2]), stof(args[3]), stof(args[4]), stof(args[5])));
-					CFRelease(image);
-				} else if (OVWildcard::Match(args[1], "*.pdf*")) {
+        else if (CheckArgsAndContext("simpleimage", args, 5, line, context)) {
+            NSLog(@"begin to fetch: %s", args[1].c_str());
+			
+			float radius = 0;
+			if ([settings objectForKey:@"radius"] != nil)
+			{
+				radius = [[settings objectForKey:@"radius"] floatValue];
+				NSLog(@"use radius settings: %f", radius);
+			}
+			[settings removeObjectForKey:@"radius"];
+			
+            NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:NSU8(args[1])]];
+            CGImageRef image = 0;
+            if (data) {
+                if (OVWildcard::Match(args[1], "*.png*"))
+                    image = ImageHelper::CreateImageFromPNGData((CFDataRef)data);
+                else if (OVWildcard::Match(args[1], "*.jpg*") || OVWildcard::Match(args[1], "*.jpeg*"))
+                    image = ImageHelper::CreateImageFromJPEGData((CFDataRef)data);
+                
+                if (image) {
+                    ContextGraphics cg(context);
+					CGRect drawRect = CGRectMake(stof(args[2]), stof(args[3]), stof(args[4]), stof(args[5]));
+					
+					CGContextSaveGState(context);
+					if (radius > 0)
+						AddBorderRadiusPath(context, drawRect, radius);
+					
+                    cg.drawImage(image, drawRect);
+					CGContextRestoreGState(context);
+                    CFRelease(image);
+                } else if (OVWildcard::Match(args[1], "*.pdf*")) {
                     CGDataProviderRef dataProvider = CGDataProviderCreateWithCFData((CFDataRef)data);
                     CGPDFDocumentRef pdfDocument = CGPDFDocumentCreateWithProvider(dataProvider);
                     CGPDFPageRef page = CGPDFDocumentGetPage(pdfDocument, 1);
@@ -265,59 +281,78 @@ void RunFile(istream& ist)
                     CGPDFDocumentRelease(pdfDocument);
                     CGDataProviderRelease(dataProvider);
                 }
-				else {
-					NSLog(@"line %d: no image created from URL %s", line, args[1].c_str());
-				}
-			}
-			else {
-				NSLog(@"line %d: incorrect image URL: %s", line, args[1].c_str());
-			}
-		} 
+                else {
+                    NSLog(@"line %d: no image created from URL %s", line, args[1].c_str());
+                }
+            }
+            else {
+                NSLog(@"line %d: incorrect image URL: %s", line, args[1].c_str());
+            }
+        } 
         else if (CheckArgsAndContext("simpleimage_compress", args, 6, line, context)) {
             // url ratio x y w h
             NSLog(@"begin to fetch: %s", args[1].c_str());
-			NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:NSU8(args[1])]];
+			
+			float radius;
+			radius = 0;
+			if ([settings objectForKey:@"radius"] != nil)
+				radius = [[settings objectForKey:@"radius"] floatValue];
+			[settings removeObjectForKey:@"radius"];
+			
+            NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:NSU8(args[1])]];
 
             if (!data) {
                 NSLog(@"line %d: incorrect image URL: %s", line, args[1].c_str());
                 continue;
             }
-			CGImageRef image = NULL;
+            CGImageRef image = NULL;
             if ((image = CreateImageFromJPEGDataWithCompression((CFDataRef)data, stof(args[2]))) == NULL) {
                 NSLog(@"line %d: no image created from URL %s", line, args[1].c_str());
                 continue;
             }
+			CGRect drawRect = CGRectMake(stof(args[3]), stof(args[4]), stof(args[5]), stof(args[6]));
             ContextGraphics cg(context);
-            cg.drawImage(image, CGRectMake(stof(args[3]), stof(args[4]), stof(args[5]), stof(args[6])));
+			CGContextSaveGState(context);
+			if (radius > 0)
+				AddBorderRadiusPath(context, drawRect, radius);
+			
+			cg.drawImage(image, drawRect);
+			CGContextRestoreGState(context);
+			CGContextSaveGState(context);
+			if (radius > 0)
+				AddBorderRadiusPath(context, drawRect, radius);
+			
+			cg.drawImage(image, drawRect);
+			CGContextRestoreGState(context);
             CFRelease(image);
         }
-		else if (CheckArgsAndContext("set", args, 2, line, context)) {
-			[settings setObject:NSU8(args[2]) forKey:NSU8(args[1])];
-		}
-		else if (CheckArgsAndContext("barcode", args, 5, line, context)) {
-			// args: barcode x y w h string
-			
-			NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
-			[dict setObject:NSU8(args[5]) forKey:@"text"];
-			NSRect rect = NSMakeRect(stof(args[1]), stof(args[2]), stof(args[3]), stof(args[4]));
-			NSLog(@"rect(x=%f, y=%f, w=%f, h=%f)", rect.origin.x, rect.origin.y, rect.size.width, rect.size.height);
-			PEBarcodeCode39 *barcode = [PEBarcodeCode39 barcodeWithDictionary:dict boundingRect:rect];
+        else if (CheckArgsAndContext("set", args, 2, line, context)) {
+            [settings setObject:NSU8(args[2]) forKey:NSU8(args[1])];
+        }
+        else if (CheckArgsAndContext("barcode", args, 5, line, context)) {
+            // args: barcode x y w h string
+            
+            NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+            [dict setObject:NSU8(args[5]) forKey:@"text"];
+            NSRect rect = NSMakeRect(stof(args[1]), stof(args[2]), stof(args[3]), stof(args[4]));
+            NSLog(@"rect(x=%f, y=%f, w=%f, h=%f)", rect.origin.x, rect.origin.y, rect.size.width, rect.size.height);
+            PEBarcodeCode39 *barcode = [PEBarcodeCode39 barcodeWithDictionary:dict boundingRect:rect];
 
-			NSGraphicsContext *cocoagc = [NSGraphicsContext graphicsContextWithGraphicsPort:context flipped:NO];
-			[NSGraphicsContext saveGraphicsState];
-			[NSGraphicsContext setCurrentContext:cocoagc];        
-			[barcode drawWithOutputControl:nil];
-			[NSGraphicsContext restoreGraphicsState];
-			
-			[dict release];
-		}
-		else if (CheckArgsAndContext("text", args, 5, line, context) || CheckArgsAndContext("text_checksize", args, 5, line, context)) {
-			// args: text origX origY width height string
-			
-			NSDictionary *textDictionary = [settings textDictionaryWithText: NSU8(args[5])];
-			
-			PETextBlock *textBlock = [PETextBlock textBlockWithDictionary:textDictionary boundingRect:
-				NSMakeRect(stof(args[1]), stof(args[2]), stof(args[3]), stof(args[4]))];
+            NSGraphicsContext *cocoagc = [NSGraphicsContext graphicsContextWithGraphicsPort:context flipped:NO];
+            [NSGraphicsContext saveGraphicsState];
+            [NSGraphicsContext setCurrentContext:cocoagc];        
+            [barcode drawWithOutputControl:nil];
+            [NSGraphicsContext restoreGraphicsState];
+            
+            [dict release];
+        }
+        else if (CheckArgsAndContext("text", args, 5, line, context) || CheckArgsAndContext("text_checksize", args, 5, line, context)) {
+            // args: text origX origY width height string
+            
+            NSDictionary *textDictionary = [settings textDictionaryWithText: NSU8(args[5])];
+            
+            PETextBlock *textBlock = [PETextBlock textBlockWithDictionary:textDictionary boundingRect:
+                NSMakeRect(stof(args[1]), stof(args[2]), stof(args[3]), stof(args[4]))];
 
             NSRect actualBox = NSZeroRect;
             if (CheckArgsAndContext("text_checksize", args, 5, line, context)) {
@@ -327,68 +362,67 @@ void RunFile(istream& ist)
                 if (actualBox.size.width > stof(args[3]) || actualBox.size.height > stof(args[4]))
                     needRedBorder = YES;
             }
-			
-			NSGraphicsContext *cocoagc = [NSGraphicsContext graphicsContextWithGraphicsPort:context flipped:NO];
-			[NSGraphicsContext saveGraphicsState];
-			[NSGraphicsContext setCurrentContext:cocoagc];        
-			[textBlock drawWithOutputControl:nil];
-			[NSGraphicsContext restoreGraphicsState];
-			
-			// Reset settings
+            
+            NSGraphicsContext *cocoagc = [NSGraphicsContext graphicsContextWithGraphicsPort:context flipped:NO];
+            [NSGraphicsContext saveGraphicsState];
+            [NSGraphicsContext setCurrentContext:cocoagc];        
+            [textBlock drawWithOutputControl:nil];
+            [NSGraphicsContext restoreGraphicsState];
+            
+            // Reset settings
             [settings setDefaultSettings];
-		}
+        }
         else if (CheckArgsAndContext("simpletext", args, 3, line, context)) {
-			NSGraphicsContext *cocoagc = [NSGraphicsContext graphicsContextWithGraphicsPort:context flipped:NO];
-			[NSGraphicsContext saveGraphicsState];
-			[NSGraphicsContext setCurrentContext:cocoagc];        
-			
-			NSString *text = NSU8(args[3]);
-			[text drawAtPoint:NSMakePoint(stof(args[1]), stof(args[2])) withAttributes:nil];
-			
-			[NSGraphicsContext restoreGraphicsState];		
-		}
-		else if (CheckArgsAndContext("simplecolor", args, 5, line, context)) {
-			//args: color-name x y w h
-			NSGraphicsContext *cocoagc = [NSGraphicsContext graphicsContextWithGraphicsPort:context flipped:NO];
-			[NSGraphicsContext saveGraphicsState];
-			[NSGraphicsContext setCurrentContext:cocoagc];        
+            NSGraphicsContext *cocoagc = [NSGraphicsContext graphicsContextWithGraphicsPort:context flipped:NO];
+            [NSGraphicsContext saveGraphicsState];
+            [NSGraphicsContext setCurrentContext:cocoagc];        
+            
+            NSString *text = NSU8(args[3]);
+            [text drawAtPoint:NSMakePoint(stof(args[1]), stof(args[2])) withAttributes:nil];
+            
+            [NSGraphicsContext restoreGraphicsState];        
+        }
+        else if (CheckArgsAndContext("simplecolor", args, 5, line, context)) {
+            //args: color-name x y w h
+            NSGraphicsContext *cocoagc = [NSGraphicsContext graphicsContextWithGraphicsPort:context flipped:NO];
+            [NSGraphicsContext saveGraphicsState];
+            [NSGraphicsContext setCurrentContext:cocoagc];        
 
-			NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
-			[dict setObject:NSU8(args[1]) forKey:@"fill-color"];
-			[dict setObject:@"0.0" forKey:@"line-width"];
-			
-			PERectangle *rect = [[PERectangle alloc] initWithDictionary:dict boundingRect: NSMakeRect(stof(args[2]), stof(args[3]), stof(args[4]), stof(args[5]))];
-			[rect drawWithOutputControl: nil];
-			
-			[dict release];
-			[rect release];
-			[NSGraphicsContext restoreGraphicsState];					
-		}
-		else {
-			NSLog(@"line %d: unknown command '%s'", line, args[0].c_str());
-		}
-	}
-				
-	if (pdf) {
-		delete pdf;
-	}
+            NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+            [dict setObject:NSU8(args[1]) forKey:@"fill-color"];
+            [dict setObject:@"0.0" forKey:@"line-width"];
+            
+            PERectangle *rect = [[PERectangle alloc] initWithDictionary:dict boundingRect: NSMakeRect(stof(args[2]), stof(args[3]), stof(args[4]), stof(args[5]))];
+            [rect drawWithOutputControl: nil];
+            
+            [dict release];
+            [rect release];
+            [NSGraphicsContext restoreGraphicsState];                    
+        }
+        else {
+            NSLog(@"line %d: unknown command '%s'", line, args[0].c_str());
+        }
+    }
+                
+    if (pdf) {
+        delete pdf;
+    }
 }
 
 int main(int argc, char* argv[])
 {
-	id pool = [NSAutoreleasePool new];
-//    NSApplicationLoad();
-	if (argc < 2) {
-		//ifstream fin("/tmp/test.pcd");
-		//RunFile(fin);
-		NSLog(@"using stdin");
-		RunFile(cin);
-	}
-	else {		
-		ifstream ifs;
-		ifs.open(argv[1]);
-		RunFile(ifs);
-	}
-	
-	[pool drain];
+    id pool = [NSAutoreleasePool new];
+    if (argc < 2) {
+        //ifstream fin("/tmp/test.pcd");
+        //RunFile(fin);
+        NSLog(@"using stdin");
+        RunFile(cin);
+    }
+    else {        
+        ifstream ifs;
+        ifs.open(argv[1]);
+        RunFile(ifs);
+    }
+    
+    [pool drain];
 }
