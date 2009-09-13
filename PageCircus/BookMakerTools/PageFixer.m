@@ -43,7 +43,7 @@
 	else if (getenv("FIXER_USER_ID") != NULL)
 	{
 		NSLog(@"Found user id: %s, try fetcher.", getenv("FIXER_USER_ID"));
-		[super useImage:[NSString stringWithFormat:@"http://fetcher.hypo.cc/fetch?user_id=%s&url=%@", getenv("FIXER_USER_ID"), source]];
+		[super useImage:[NSString stringWithFormat:@"http://fetcher.hypo.cc/fetch?userid=%s&url=%@", getenv("FIXER_USER_ID"), source]];
 		if (_image == nil)
 		{
 			NSLog(@"Fetcher down? Try direct mode.");
