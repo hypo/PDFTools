@@ -128,7 +128,7 @@ NSString* NSU8(const string& str)
     return [NSString stringWithUTF8String:str.c_str()];
 }
 
-void RunFile(istream& ist)
+BOOL RunFile(istream& ist)
 {
     SinglePagePDF *pdf = 0;
     CGContextRef context = 0;
@@ -407,22 +407,25 @@ void RunFile(istream& ist)
     if (pdf) {
         delete pdf;
     }
+	return needRedBorder;
 }
 
 int main(int argc, char* argv[])
 {
     id pool = [NSAutoreleasePool new];
+	BOOL textOversized = NO;
     if (argc < 2) {
         //ifstream fin("/tmp/test.pcd");
         //RunFile(fin);
         NSLog(@"using stdin");
-        RunFile(cin);
+        textOversized = RunFile(cin);
     }
     else {        
         ifstream ifs;
         ifs.open(argv[1]);
-        RunFile(ifs);
+        textOversized = RunFile(ifs);
     }
     
     [pool drain];
+	return textOversized ? 1 : 0;
 }

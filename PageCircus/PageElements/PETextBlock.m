@@ -34,7 +34,7 @@ BOOL PEIsCJKCharacter(UniChar c)
         _backgroundColor = [[NSString alloc] initWithString:[d objectForKey:@"background-color" defaultValue:@"none"]];
 		_rotationAngle = [[d objectForKey:@"rotate" defaultValue:[NSNumber numberWithFloat:0.0]] floatValue];
 		_forceLineHeight = [[d objectForKey:@"force-lineheight" defaultValue:[NSNumber numberWithFloat:-1.0]] floatValue];
-		_kerning = [[d objectForKey:@"kerning" defaultValue:[NSNumber numberWithFloat:0.0]] floatValue];
+		_kerning = [[d objectForKey:@"kerning" defaultValue:[NSNumber numberWithFloat:0.5]] floatValue];
 		_kerningCJK = [[d objectForKey:@"kerning-cjk" defaultValue:[NSNumber numberWithFloat:0.0]] floatValue];		
 		_lineSpacing = [[d objectForKey:@"line-spacing" defaultValue:[NSNumber numberWithFloat:0.0]] floatValue];
 		_ligature = [[d objectForKey:@"ligature" defaultValue:[NSNumber numberWithInt:0]] intValue];

@@ -4,6 +4,7 @@
 #import "NSExtensions.h"
 #import "PENSColorExtension.h"
 
+double ENG_VSHIFT = 0.5;
 UniChar _PENonVerticalCJKChars[] = {0xff5e};
 BOOL PEIsNonVerticalCJKCharacter(UniChar c)
 {
@@ -109,6 +110,7 @@ BOOL PEIsNonVerticalCJKCharacter(UniChar c)
 				isCJK = YES;
 				size = [self drawRange:NSMakeRange(start, i-start) ofString:_attrStr startAt:orig];
 				orig.x += size.width;
+				orig.y += ENG_VSHIFT;
 			}
  			
 			[_attrStr setAttributes:psd range:NSMakeRange(i, 1)];
@@ -155,7 +157,8 @@ BOOL PEIsNonVerticalCJKCharacter(UniChar c)
 			if (isCJK) {
 				// after the CJK block, Latin block again, but we need to offset
 				// the x axis a bit to make it prettier
-
+				
+				NSLog(@"font size = %@", [_font size]);
 				if ([_font size] <= 12.0) {
 					orig.x += [_font size]/2.0;
 				}
@@ -165,6 +168,8 @@ BOOL PEIsNonVerticalCJKCharacter(UniChar c)
 				else {
 					orig.x += [_font size]/6.0;
 				}
+				
+				orig.y -= ENG_VSHIFT;
 				
 				isCJK = NO;
 				start = i;

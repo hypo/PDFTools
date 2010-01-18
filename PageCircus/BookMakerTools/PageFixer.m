@@ -75,11 +75,8 @@
     NSData *d = [v dataWithPDFInsideRect:boundingRect];
     NSLog(@"writing pdf size = %d", [d length]);
     [d writeToFile:_outputFile atomically:YES];
-//	NSLog(@"Starting to release memory");
     [arp release];
-//	NSLog(@"autorelease pool released");
 	_isRunning = NO;
-//	NSLog(@"no longer running");
 }
 @end
 
@@ -118,7 +115,6 @@ int main(int argc, char *argv[]) {
 	do {
 		NSDate* next = [NSDate dateWithTimeIntervalSinceNow:resolution]; 
 		isRunning = [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:next];
-//		NSLog(@"event loop running");
 	} while (isRunning && [ppreview isRunning]);
 	
 	rsp = [ppreview errorCode];

@@ -15,10 +15,9 @@
 
         // by default, PEFont uses Helvetica for Latin characters and
         // STHeiti for CJK characters
-		NSString *fontFamily = [d objectForKey:@"family" defaultValue:@"GillSans"];
+		NSString *fontFamily = [d objectForKey:@"family" defaultValue:@"Helvetica"];
 		NSString *fontFamilyLatin = [d objectForKey:@"family-latin" defaultValue:fontFamily];        
-		NSString *fontFamilyCJK = [d objectForKey:@"family-cjk" defaultValue:@"STHeiti"];
-//		NSString *fontFamilyCJK = [d objectForKey:@"family-cjk" defaultValue:@"LiHeiPro"];
+		NSString *fontFamilyCJK = [d objectForKey:@"family-cjk" defaultValue:@"HiraginoSansGB-W3"];
 
 		_size = [[d objectForKey:@"size" defaultValue:[NSNumber numberWithFloat:10.0]] floatValue];
 		_CJKSize = [[d objectForKey:@"cjk-size" defaultValue:[NSNumber numberWithFloat:_size]] floatValue];
