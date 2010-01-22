@@ -31,119 +31,119 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = DAC9C1A6110A19FF00C3EDA5 /* PageCircus.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 6A080F370B24DA4A0078A159 /* BookMaker.framework */;
+			remoteGlobalIDString = 6A080F370B24DA4A0078A159;
 			remoteInfo = BookMaker;
 		};
 		DAC9C1BE110A1A0000C3EDA5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DAC9C1A6110A19FF00C3EDA5 /* PageCircus.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 6A0C0D9D0B1F683C00F0A66E /* DrawingTools.framework */;
+			remoteGlobalIDString = 6A0C0D9D0B1F683C00F0A66E;
 			remoteInfo = DrawingTools;
 		};
 		DAC9C1C0110A1A0000C3EDA5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DAC9C1A6110A19FF00C3EDA5 /* PageCircus.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 6A0C07E30B1F417300F0A66E /* NSExtensions.framework */;
+			remoteGlobalIDString = 6A0C07E30B1F417300F0A66E;
 			remoteInfo = NSExtensions;
 		};
 		DAC9C1C2110A1A0000C3EDA5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DAC9C1A6110A19FF00C3EDA5 /* PageCircus.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 6A0C0BFB0B1F64FE00F0A66E /* PageElements.framework */;
+			remoteGlobalIDString = 6A0C0BFB0B1F64FE00F0A66E;
 			remoteInfo = PageElements;
 		};
 		DAC9C1C4110A1A0000C3EDA5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DAC9C1A6110A19FF00C3EDA5 /* PageCircus.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 6A0C0BD80B1F649F00F0A66E /* PageElementsDrawingTests.app */;
+			remoteGlobalIDString = 6A0C0BD80B1F649F00F0A66E;
 			remoteInfo = PageElementsDrawingTests;
 		};
 		DAC9C1C6110A1A0000C3EDA5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DAC9C1A6110A19FF00C3EDA5 /* PageCircus.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 6A0B49070B214C0B00BFC667 /* PhotoBookHelper.app */;
+			remoteGlobalIDString = 6A0B49070B214C0B00BFC667;
 			remoteInfo = PhotoBookHelper;
 		};
 		DAC9C1C8110A1A0000C3EDA5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DAC9C1A6110A19FF00C3EDA5 /* PageCircus.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 6A080E470B24D98B0078A159 /* BookMakerOutputTest.app */;
+			remoteGlobalIDString = 6A080E470B24D98B0078A159;
 			remoteInfo = BookMakerOutputTest;
 		};
 		DAC9C1CA110A1A0000C3EDA5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DAC9C1A6110A19FF00C3EDA5 /* PageCircus.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 6A0351720B22C3240029C96E /* BookMakerTests.octest */;
+			remoteGlobalIDString = 6A0351720B22C3240029C96E;
 			remoteInfo = BookMakerTests;
 		};
 		DAC9C1CC110A1A0000C3EDA5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DAC9C1A6110A19FF00C3EDA5 /* PageCircus.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 6A0C05EE0B1F270700F0A66E /* PageElementsTests.octest */;
+			remoteGlobalIDString = 6A0C05EE0B1F270700F0A66E;
 			remoteInfo = PageElementsTests;
 		};
 		DAC9C1CE110A1A0000C3EDA5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DAC9C1A6110A19FF00C3EDA5 /* PageCircus.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 6A0A35F30B24EB5400E3888F /* NSExtensionsTests.octest */;
+			remoteGlobalIDString = 6A0A35F30B24EB5400E3888F;
 			remoteInfo = NSExtensionsTests;
 		};
 		DAC9C1D0110A1A0000C3EDA5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DAC9C1A6110A19FF00C3EDA5 /* PageCircus.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 6A3D391A0B27880C00DB2BE7 /* NSRunLoopStudy.app */;
+			remoteGlobalIDString = 6A3D391A0B27880C00DB2BE7;
 			remoteInfo = NSRunLoopStudy;
 		};
 		DAC9C1D2110A1A0000C3EDA5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DAC9C1A6110A19FF00C3EDA5 /* PageCircus.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 6AB0378C0B36E0200050A519 /* PagePreviewer.app */;
+			remoteGlobalIDString = 6AB0378C0B36E0200050A519;
 			remoteInfo = PagePreviewer;
 		};
 		DAC9C1D4110A1A0000C3EDA5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DAC9C1A6110A19FF00C3EDA5 /* PageCircus.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 6A00848F0B9110EE00ED7235 /* PageFixer.app */;
+			remoteGlobalIDString = 6A00848F0B9110EE00ED7235;
 			remoteInfo = PageFixer;
 		};
 		DAC9C1D6110A1A0000C3EDA5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DAC9C1A6110A19FF00C3EDA5 /* PageCircus.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 6A0778730D84551800306420 /* BarcodeOverprinter.app */;
+			remoteGlobalIDString = 6A0778730D84551800306420;
 			remoteInfo = BarcodeOverprinter;
 		};
 		DAC9C1D8110A1A0000C3EDA5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DAC9C1A6110A19FF00C3EDA5 /* PageCircus.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 8523D5900F83E23000A09199 /* TextPlayground.app */;
+			remoteGlobalIDString = 8523D5900F83E23000A09199;
 			remoteInfo = TextPlayground;
 		};
 		DAC9C1F3110A1A9E00C3EDA5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DAC9C1A6110A19FF00C3EDA5 /* PageCircus.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = 6A0C0BFA0B1F64FE00F0A66E /* PageElements */;
+			remoteGlobalIDString = 6A0C0BFA0B1F64FE00F0A66E;
 			remoteInfo = PageElements;
 		};
 		DAC9C1F5110A1AA100C3EDA5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DAC9C1A6110A19FF00C3EDA5 /* PageCircus.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = 6A0C07E20B1F417300F0A66E /* NSExtensions */;
+			remoteGlobalIDString = 6A0C07E20B1F417300F0A66E;
 			remoteInfo = NSExtensions;
 		};
 /* End PBXContainerItemProxy section */
@@ -552,7 +552,7 @@
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "";
 				HEADER_SEARCH_PATHS = "../PageCircus/**";
 				INFOPLIST_FILE = "PageComposer-Info.plist";
@@ -583,8 +583,8 @@
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"$(SRCROOT)/ExternalDependencies\"";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_MODEL_TUNING = G5;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = "PageComposer-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				OTHER_LDFLAGS = (
