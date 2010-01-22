@@ -7,4 +7,6 @@
  *
  */
 
+#import <AppKit/Appkit.h>
+
 void AddBorderRadiusPath(CGContextRef context, CGRect drawRect, float radius);

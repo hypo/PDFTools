@@ -1,7 +1,7 @@
 // [AUTO_HEADER]
 
 #import <Cocoa/Cocoa.h>
-#import <LFSimpleGraphics/LFSimpleGraphics.h>
+#import "LFSimpleGraphics.h"
 #import <PageElements/PageElements.h>
 #import "ZRCGUtilities.h"
 

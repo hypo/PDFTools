@@ -8,21 +8,145 @@
 
 /* Begin PBXBuildFile section */
 		6A4966880DE47906001E75AA /* Main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6A4966850DE47906001E75AA /* Main.mm */; };
-		6A49668D0DE4791B001E75AA /* LFSimpleGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A49668A0DE4791B001E75AA /* LFSimpleGraphics.framework */; };
-		6A49668E0DE4791B001E75AA /* NSExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A49668B0DE4791B001E75AA /* NSExtensions.framework */; };
 		6A4966980DE4793C001E75AA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A4966970DE4793C001E75AA /* Cocoa.framework */; };
-		6A4966B60DE47955001E75AA /* LFSimpleGraphics.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6A49668A0DE4791B001E75AA /* LFSimpleGraphics.framework */; };
-		6A4966B70DE47955001E75AA /* NSExtensions.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6A49668B0DE4791B001E75AA /* NSExtensions.framework */; };
-		852C0F480F83B2870094832B /* PageElements.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DAB0C8F10E2AF6260087F1F6 /* PageElements.framework */; };
 		856AD7AC0F93AD1A00E10EC7 /* Century Gothic Bold Italic.ttf in CopyFiles */ = {isa = PBXBuildFile; fileRef = 856AD7A00F93AD1500E10EC7 /* Century Gothic Bold Italic.ttf */; };
 		856AD7AD0F93AD1A00E10EC7 /* Century Gothic Bold.ttf in CopyFiles */ = {isa = PBXBuildFile; fileRef = 856AD7A10F93AD1500E10EC7 /* Century Gothic Bold.ttf */; };
 		856AD7AE0F93AD1A00E10EC7 /* Century Gothic Italic.ttf in CopyFiles */ = {isa = PBXBuildFile; fileRef = 856AD7A20F93AD1500E10EC7 /* Century Gothic Italic.ttf */; };
 		856AD7AF0F93AD1A00E10EC7 /* Century Gothic.ttf in CopyFiles */ = {isa = PBXBuildFile; fileRef = 856AD7A30F93AD1500E10EC7 /* Century Gothic.ttf */; };
 		856AD7B00F93AD1A00E10EC7 /* ocrb10n.ttf in CopyFiles */ = {isa = PBXBuildFile; fileRef = 856AD7A40F93AD1500E10EC7 /* ocrb10n.ttf */; };
 		856AD7B10F93AD1A00E10EC7 /* DFHei.ttf in CopyFiles */ = {isa = PBXBuildFile; fileRef = 856AD7A50F93AD1500E10EC7 /* DFHei.ttf */; };
-		DAB0C8F20E2AF6260087F1F6 /* PageElements.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAB0C8F10E2AF6260087F1F6 /* PageElements.framework */; };
 		DAC117F1104A36980064004E /* ZRCGUtilities.mm in Sources */ = {isa = PBXBuildFile; fileRef = DAC117F0104A36980064004E /* ZRCGUtilities.mm */; };
+		DAC9C1E7110A1A0B00C3EDA5 /* PageElements.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAC9C1C3110A1A0000C3EDA5 /* PageElements.framework */; };
+		DAC9C1E8110A1A1A00C3EDA5 /* PageElements.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DAC9C1C3110A1A0000C3EDA5 /* PageElements.framework */; };
+		DAC9C1ED110A1A7500C3EDA5 /* NSExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAC9C1C1110A1A0000C3EDA5 /* NSExtensions.framework */; };
+		DAC9C1F2110A1A8300C3EDA5 /* NSExtensions.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DAC9C1C1110A1A0000C3EDA5 /* NSExtensions.framework */; };
+		DAC9C211110A1D6C00C3EDA5 /* ColorBitmapContext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DAC9C20D110A1D6C00C3EDA5 /* ColorBitmapContext.cpp */; };
+		DAC9C212110A1D6C00C3EDA5 /* ContextGraphics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DAC9C20E110A1D6C00C3EDA5 /* ContextGraphics.cpp */; };
+		DAC9C213110A1D6C00C3EDA5 /* ImageHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DAC9C20F110A1D6C00C3EDA5 /* ImageHelper.cpp */; };
+		DAC9C214110A1D6C00C3EDA5 /* SinglePagePDF.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DAC9C210110A1D6C00C3EDA5 /* SinglePagePDF.cpp */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DAC9C1BC110A1A0000C3EDA5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DAC9C1A6110A19FF00C3EDA5 /* PageCircus.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6A080F370B24DA4A0078A159 /* BookMaker.framework */;
+			remoteInfo = BookMaker;
+		};
+		DAC9C1BE110A1A0000C3EDA5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DAC9C1A6110A19FF00C3EDA5 /* PageCircus.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6A0C0D9D0B1F683C00F0A66E /* DrawingTools.framework */;
+			remoteInfo = DrawingTools;
+		};
+		DAC9C1C0110A1A0000C3EDA5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DAC9C1A6110A19FF00C3EDA5 /* PageCircus.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6A0C07E30B1F417300F0A66E /* NSExtensions.framework */;
+			remoteInfo = NSExtensions;
+		};
+		DAC9C1C2110A1A0000C3EDA5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DAC9C1A6110A19FF00C3EDA5 /* PageCircus.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6A0C0BFB0B1F64FE00F0A66E /* PageElements.framework */;
+			remoteInfo = PageElements;
+		};
+		DAC9C1C4110A1A0000C3EDA5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DAC9C1A6110A19FF00C3EDA5 /* PageCircus.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6A0C0BD80B1F649F00F0A66E /* PageElementsDrawingTests.app */;
+			remoteInfo = PageElementsDrawingTests;
+		};
+		DAC9C1C6110A1A0000C3EDA5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DAC9C1A6110A19FF00C3EDA5 /* PageCircus.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6A0B49070B214C0B00BFC667 /* PhotoBookHelper.app */;
+			remoteInfo = PhotoBookHelper;
+		};
+		DAC9C1C8110A1A0000C3EDA5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DAC9C1A6110A19FF00C3EDA5 /* PageCircus.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6A080E470B24D98B0078A159 /* BookMakerOutputTest.app */;
+			remoteInfo = BookMakerOutputTest;
+		};
+		DAC9C1CA110A1A0000C3EDA5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DAC9C1A6110A19FF00C3EDA5 /* PageCircus.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6A0351720B22C3240029C96E /* BookMakerTests.octest */;
+			remoteInfo = BookMakerTests;
+		};
+		DAC9C1CC110A1A0000C3EDA5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DAC9C1A6110A19FF00C3EDA5 /* PageCircus.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6A0C05EE0B1F270700F0A66E /* PageElementsTests.octest */;
+			remoteInfo = PageElementsTests;
+		};
+		DAC9C1CE110A1A0000C3EDA5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DAC9C1A6110A19FF00C3EDA5 /* PageCircus.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6A0A35F30B24EB5400E3888F /* NSExtensionsTests.octest */;
+			remoteInfo = NSExtensionsTests;
+		};
+		DAC9C1D0110A1A0000C3EDA5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DAC9C1A6110A19FF00C3EDA5 /* PageCircus.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6A3D391A0B27880C00DB2BE7 /* NSRunLoopStudy.app */;
+			remoteInfo = NSRunLoopStudy;
+		};
+		DAC9C1D2110A1A0000C3EDA5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DAC9C1A6110A19FF00C3EDA5 /* PageCircus.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6AB0378C0B36E0200050A519 /* PagePreviewer.app */;
+			remoteInfo = PagePreviewer;
+		};
+		DAC9C1D4110A1A0000C3EDA5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DAC9C1A6110A19FF00C3EDA5 /* PageCircus.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6A00848F0B9110EE00ED7235 /* PageFixer.app */;
+			remoteInfo = PageFixer;
+		};
+		DAC9C1D6110A1A0000C3EDA5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DAC9C1A6110A19FF00C3EDA5 /* PageCircus.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6A0778730D84551800306420 /* BarcodeOverprinter.app */;
+			remoteInfo = BarcodeOverprinter;
+		};
+		DAC9C1D8110A1A0000C3EDA5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DAC9C1A6110A19FF00C3EDA5 /* PageCircus.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8523D5900F83E23000A09199 /* TextPlayground.app */;
+			remoteInfo = TextPlayground;
+		};
+		DAC9C1F3110A1A9E00C3EDA5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DAC9C1A6110A19FF00C3EDA5 /* PageCircus.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 6A0C0BFA0B1F64FE00F0A66E /* PageElements */;
+			remoteInfo = PageElements;
+		};
+		DAC9C1F5110A1AA100C3EDA5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DAC9C1A6110A19FF00C3EDA5 /* PageCircus.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 6A0C07E20B1F417300F0A66E /* NSExtensions */;
+			remoteInfo = NSExtensions;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		6A4966BF0DE4796B001E75AA /* CopyFiles */ = {
@@ -31,9 +155,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				852C0F480F83B2870094832B /* PageElements.framework in CopyFiles */,
-				6A4966B60DE47955001E75AA /* LFSimpleGraphics.framework in CopyFiles */,
-				6A4966B70DE47955001E75AA /* NSExtensions.framework in CopyFiles */,
+				DAC9C1F2110A1A8300C3EDA5 /* NSExtensions.framework in CopyFiles */,
+				DAC9C1E8110A1A1A00C3EDA5 /* PageElements.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,8 +183,6 @@
 		6A4966850DE47906001E75AA /* Main.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Main.mm; sourceTree = "<group>"; };
 		6A4966860DE47906001E75AA /* OVStringHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OVStringHelper.h; sourceTree = "<group>"; };
 		6A4966870DE47906001E75AA /* OVWildcard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OVWildcard.h; sourceTree = "<group>"; };
-		6A49668A0DE4791B001E75AA /* LFSimpleGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LFSimpleGraphics.framework; path = ExternalDependencies/LFSimpleGraphics.framework; sourceTree = "<group>"; };
-		6A49668B0DE4791B001E75AA /* NSExtensions.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NSExtensions.framework; path = ExternalDependencies/NSExtensions.framework; sourceTree = "<group>"; };
 		6A4966970DE4793C001E75AA /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		856AD7A00F93AD1500E10EC7 /* Century Gothic Bold Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Century Gothic Bold Italic.ttf"; sourceTree = "<group>"; };
 		856AD7A10F93AD1500E10EC7 /* Century Gothic Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Century Gothic Bold.ttf"; sourceTree = "<group>"; };
@@ -69,9 +190,18 @@
 		856AD7A30F93AD1500E10EC7 /* Century Gothic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Century Gothic.ttf"; sourceTree = "<group>"; };
 		856AD7A40F93AD1500E10EC7 /* ocrb10n.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ocrb10n.ttf; sourceTree = "<group>"; };
 		856AD7A50F93AD1500E10EC7 /* DFHei.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = DFHei.ttf; sourceTree = "<group>"; };
-		DAB0C8F10E2AF6260087F1F6 /* PageElements.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PageElements.framework; path = ../PageCircus/build/Debug/PageElements.framework; sourceTree = SOURCE_ROOT; };
 		DAC117EF104A36980064004E /* ZRCGUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZRCGUtilities.h; sourceTree = "<group>"; };
 		DAC117F0104A36980064004E /* ZRCGUtilities.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ZRCGUtilities.mm; sourceTree = "<group>"; };
+		DAC9C1A6110A19FF00C3EDA5 /* PageCircus.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PageCircus.xcodeproj; path = ../PageCircus/PageCircus.xcodeproj; sourceTree = SOURCE_ROOT; };
+		DAC9C20D110A1D6C00C3EDA5 /* ColorBitmapContext.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ColorBitmapContext.cpp; sourceTree = "<group>"; };
+		DAC9C20E110A1D6C00C3EDA5 /* ContextGraphics.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ContextGraphics.cpp; sourceTree = "<group>"; };
+		DAC9C20F110A1D6C00C3EDA5 /* ImageHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ImageHelper.cpp; sourceTree = "<group>"; };
+		DAC9C210110A1D6C00C3EDA5 /* SinglePagePDF.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SinglePagePDF.cpp; sourceTree = "<group>"; };
+		DAC9C241110A1E7000C3EDA5 /* ColorBitmapContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorBitmapContext.h; sourceTree = SOURCE_ROOT; };
+		DAC9C242110A1E7000C3EDA5 /* ContextGraphics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContextGraphics.h; sourceTree = SOURCE_ROOT; };
+		DAC9C243110A1E7000C3EDA5 /* ImageHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageHelper.h; sourceTree = SOURCE_ROOT; };
+		DAC9C244110A1E7000C3EDA5 /* LFSimpleGraphics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFSimpleGraphics.h; sourceTree = SOURCE_ROOT; };
+		DAC9C245110A1E7000C3EDA5 /* SinglePagePDF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SinglePagePDF.h; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,10 +209,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6A49668D0DE4791B001E75AA /* LFSimpleGraphics.framework in Frameworks */,
-				6A49668E0DE4791B001E75AA /* NSExtensions.framework in Frameworks */,
 				6A4966980DE4793C001E75AA /* Cocoa.framework in Frameworks */,
-				DAB0C8F20E2AF6260087F1F6 /* PageElements.framework in Frameworks */,
+				DAC9C1E7110A1A0B00C3EDA5 /* PageElements.framework in Frameworks */,
+				DAC9C1ED110A1A7500C3EDA5 /* NSExtensions.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,7 +224,7 @@
 				6A49669D0DE47941001E75AA /* Source */,
 				6A4966890DE47909001E75AA /* Dependencies */,
 				6A4966960DE4791F001E75AA /* Apple Frameworks */,
-				856AD79E0F93ACF100E10EC7 /* Embeded Fonts */,
+				856AD79E0F93ACF100E10EC7 /* Embedded Fonts */,
 				6A49667D0DE478A8001E75AA /* Products */,
 				6A49667F0DE478A8001E75AA /* PageComposer-Info.plist */,
 			);
@@ -112,9 +241,7 @@
 		6A4966890DE47909001E75AA /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
-				DAB0C8F10E2AF6260087F1F6 /* PageElements.framework */,
-				6A49668A0DE4791B001E75AA /* LFSimpleGraphics.framework */,
-				6A49668B0DE4791B001E75AA /* NSExtensions.framework */,
+				DAC9C1A6110A19FF00C3EDA5 /* PageCircus.xcodeproj */,
 			);
 			name = Dependencies;
 			sourceTree = "<group>";
@@ -130,6 +257,7 @@
 		6A49669D0DE47941001E75AA /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				DAC9C207110A1D6100C3EDA5 /* LFSimpleGraphics */,
 				6A4966850DE47906001E75AA /* Main.mm */,
 				6A4966860DE47906001E75AA /* OVStringHelper.h */,
 				6A4966870DE47906001E75AA /* OVWildcard.h */,
@@ -139,7 +267,7 @@
 			name = Source;
 			sourceTree = "<group>";
 		};
-		856AD79E0F93ACF100E10EC7 /* Embeded Fonts */ = {
+		856AD79E0F93ACF100E10EC7 /* Embedded Fonts */ = {
 			isa = PBXGroup;
 			children = (
 				856AD7A00F93AD1500E10EC7 /* Century Gothic Bold Italic.ttf */,
@@ -149,8 +277,46 @@
 				856AD7A40F93AD1500E10EC7 /* ocrb10n.ttf */,
 				856AD7A50F93AD1500E10EC7 /* DFHei.ttf */,
 			);
-			name = "Embeded Fonts";
+			name = "Embedded Fonts";
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		DAC9C1A7110A19FF00C3EDA5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DAC9C1BD110A1A0000C3EDA5 /* BookMaker.framework */,
+				DAC9C1BF110A1A0000C3EDA5 /* DrawingTools.framework */,
+				DAC9C1C1110A1A0000C3EDA5 /* NSExtensions.framework */,
+				DAC9C1C3110A1A0000C3EDA5 /* PageElements.framework */,
+				DAC9C1C5110A1A0000C3EDA5 /* PageElementsDrawingTests.app */,
+				DAC9C1C7110A1A0000C3EDA5 /* PhotoBookHelper.app */,
+				DAC9C1C9110A1A0000C3EDA5 /* BookMakerOutputTest.app */,
+				DAC9C1CB110A1A0000C3EDA5 /* BookMakerTests.octest */,
+				DAC9C1CD110A1A0000C3EDA5 /* PageElementsTests.octest */,
+				DAC9C1CF110A1A0000C3EDA5 /* NSExtensionsTests.octest */,
+				DAC9C1D1110A1A0000C3EDA5 /* NSRunLoopStudy.app */,
+				DAC9C1D3110A1A0000C3EDA5 /* PagePreviewer.app */,
+				DAC9C1D5110A1A0000C3EDA5 /* PageFixer.app */,
+				DAC9C1D7110A1A0000C3EDA5 /* BarcodeOverprinter.app */,
+				DAC9C1D9110A1A0000C3EDA5 /* TextPlayground.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DAC9C207110A1D6100C3EDA5 /* LFSimpleGraphics */ = {
+			isa = PBXGroup;
+			children = (
+				DAC9C241110A1E7000C3EDA5 /* ColorBitmapContext.h */,
+				DAC9C242110A1E7000C3EDA5 /* ContextGraphics.h */,
+				DAC9C243110A1E7000C3EDA5 /* ImageHelper.h */,
+				DAC9C244110A1E7000C3EDA5 /* LFSimpleGraphics.h */,
+				DAC9C245110A1E7000C3EDA5 /* SinglePagePDF.h */,
+				DAC9C20D110A1D6C00C3EDA5 /* ColorBitmapContext.cpp */,
+				DAC9C20E110A1D6C00C3EDA5 /* ContextGraphics.cpp */,
+				DAC9C20F110A1D6C00C3EDA5 /* ImageHelper.cpp */,
+				DAC9C210110A1D6C00C3EDA5 /* SinglePagePDF.cpp */,
+			);
+			name = LFSimpleGraphics;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -169,6 +335,8 @@
 			buildRules = (
 			);
 			dependencies = (
+				DAC9C1F4110A1A9E00C3EDA5 /* PBXTargetDependency */,
+				DAC9C1F6110A1AA100C3EDA5 /* PBXTargetDependency */,
 			);
 			name = PageComposer;
 			productName = PageComposer;
@@ -186,12 +354,126 @@
 			mainGroup = 6A4966650DE4788E001E75AA;
 			productRefGroup = 6A49667D0DE478A8001E75AA /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = DAC9C1A7110A19FF00C3EDA5 /* Products */;
+					ProjectRef = DAC9C1A6110A19FF00C3EDA5 /* PageCircus.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				6A49667B0DE478A8001E75AA /* PageComposer */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		DAC9C1BD110A1A0000C3EDA5 /* BookMaker.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = BookMaker.framework;
+			remoteRef = DAC9C1BC110A1A0000C3EDA5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DAC9C1BF110A1A0000C3EDA5 /* DrawingTools.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = DrawingTools.framework;
+			remoteRef = DAC9C1BE110A1A0000C3EDA5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DAC9C1C1110A1A0000C3EDA5 /* NSExtensions.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = NSExtensions.framework;
+			remoteRef = DAC9C1C0110A1A0000C3EDA5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DAC9C1C3110A1A0000C3EDA5 /* PageElements.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = PageElements.framework;
+			remoteRef = DAC9C1C2110A1A0000C3EDA5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DAC9C1C5110A1A0000C3EDA5 /* PageElementsDrawingTests.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = PageElementsDrawingTests.app;
+			remoteRef = DAC9C1C4110A1A0000C3EDA5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DAC9C1C7110A1A0000C3EDA5 /* PhotoBookHelper.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = PhotoBookHelper.app;
+			remoteRef = DAC9C1C6110A1A0000C3EDA5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DAC9C1C9110A1A0000C3EDA5 /* BookMakerOutputTest.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = BookMakerOutputTest.app;
+			remoteRef = DAC9C1C8110A1A0000C3EDA5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DAC9C1CB110A1A0000C3EDA5 /* BookMakerTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = BookMakerTests.octest;
+			remoteRef = DAC9C1CA110A1A0000C3EDA5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DAC9C1CD110A1A0000C3EDA5 /* PageElementsTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = PageElementsTests.octest;
+			remoteRef = DAC9C1CC110A1A0000C3EDA5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DAC9C1CF110A1A0000C3EDA5 /* NSExtensionsTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = NSExtensionsTests.octest;
+			remoteRef = DAC9C1CE110A1A0000C3EDA5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DAC9C1D1110A1A0000C3EDA5 /* NSRunLoopStudy.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = NSRunLoopStudy.app;
+			remoteRef = DAC9C1D0110A1A0000C3EDA5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DAC9C1D3110A1A0000C3EDA5 /* PagePreviewer.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = PagePreviewer.app;
+			remoteRef = DAC9C1D2110A1A0000C3EDA5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DAC9C1D5110A1A0000C3EDA5 /* PageFixer.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = PageFixer.app;
+			remoteRef = DAC9C1D4110A1A0000C3EDA5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DAC9C1D7110A1A0000C3EDA5 /* BarcodeOverprinter.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = BarcodeOverprinter.app;
+			remoteRef = DAC9C1D6110A1A0000C3EDA5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DAC9C1D9110A1A0000C3EDA5 /* TextPlayground.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = TextPlayground.app;
+			remoteRef = DAC9C1D8110A1A0000C3EDA5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		6A4966780DE478A8001E75AA /* Resources */ = {
@@ -210,25 +492,46 @@
 			files = (
 				6A4966880DE47906001E75AA /* Main.mm in Sources */,
 				DAC117F1104A36980064004E /* ZRCGUtilities.mm in Sources */,
+				DAC9C211110A1D6C00C3EDA5 /* ColorBitmapContext.cpp in Sources */,
+				DAC9C212110A1D6C00C3EDA5 /* ContextGraphics.cpp in Sources */,
+				DAC9C213110A1D6C00C3EDA5 /* ImageHelper.cpp in Sources */,
+				DAC9C214110A1D6C00C3EDA5 /* SinglePagePDF.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		DAC9C1F4110A1A9E00C3EDA5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = PageElements;
+			targetProxy = DAC9C1F3110A1A9E00C3EDA5 /* PBXContainerItemProxy */;
+		};
+		DAC9C1F6110A1AA100C3EDA5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = NSExtensions;
+			targetProxy = DAC9C1F5110A1AA100C3EDA5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
 		6A4966680DE4788E001E75AA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1)";
+				ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1 = "x86_64 i386 ppc";
 				COPY_PHASE_STRIP = NO;
+				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = YES;
 			};
 			name = Debug;
 		};
 		6A4966690DE4788E001E75AA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1)";
-				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1)";
+				ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1 = "x86_64 i386 ppc";
 				COPY_PHASE_STRIP = YES;
+				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = YES;
 			};
 			name = Release;
 		};
@@ -236,29 +539,27 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1)";
-				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1)";
+				ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1 = "x86_64 i386 ppc";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
+					"$(SRCROOT)/ExternalDependencies",
 					"$(inherited)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_2)",
 				);
-				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/ExternalDependencies\"";
-				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"$(SRCROOT)/ExternalDependencies\"";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				GCC_PREFIX_HEADER = "";
+				HEADER_SEARCH_PATHS = "../PageCircus/**";
 				INFOPLIST_FILE = "PageComposer-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				OTHER_LDFLAGS = (
 					"-framework",
 					Foundation,
-					"-framework",
-					AppKit,
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = PageComposer;
