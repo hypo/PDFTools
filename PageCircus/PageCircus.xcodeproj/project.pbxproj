@@ -203,6 +203,7 @@
 		85D0EB4C0ED90DE90066E288 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85D0EB4A0ED90DE90066E288 /* SystemConfiguration.framework */; };
 		85D0EB4D0ED90DE90066E288 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85D0EB4A0ED90DE90066E288 /* SystemConfiguration.framework */; };
 		85D0EB4E0ED90DE90066E288 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85D0EB4A0ED90DE90066E288 /* SystemConfiguration.framework */; };
+		DA084BE8110D5BDA00CA4152 /* PagePreviewer.app in Resources */ = {isa = PBXBuildFile; fileRef = 6AB0378C0B36E0200050A519 /* PagePreviewer.app */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1675,6 +1676,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6AC8F7260C8DA74400592DF7 /* extract-exif-rotation.pl in Resources */,
+				DA084BE8110D5BDA00CA4152 /* PagePreviewer.app in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
