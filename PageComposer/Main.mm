@@ -28,8 +28,8 @@ using namespace std;
 {
     [self setObject:@"16.0" forKey:@"FontSize"];
     [self setObject:@"16.0" forKey:@"FontSizeCJK"];
-    [self setObject:@"GillSans" forKey:@"Typeface"];
-    [self setObject:@"STHeiti" forKey:@"TypefaceCJK"];
+    [self setObject:@"Helvetica" forKey:@"Typeface"];
+    [self setObject:@"HiraginoSansGB-W3" forKey:@"TypefaceCJK"];
     [self setObject:@"left" forKey:@"TextAlign"];
     [self setObject:@"top" forKey:@"TextVerticalAlign"];
     [self setObject:@"0.0" forKey:@"Rotation"];
@@ -360,7 +360,10 @@ BOOL RunFile(istream& ist)
                 actualBox = [attrString boundingRectWithSize: NSMakeSize(stof(args[3]), stof(args[4])) options: NSStringDrawingUsesLineFragmentOrigin];
 
                 if (actualBox.size.width > stof(args[3]) || actualBox.size.height > stof(args[4]))
+				{
+					NSLog(@"oversize detected, actualBox=%@", NSStringFromRect(actualBox));
                     needRedBorder = YES;
+				}
             }
             
             NSGraphicsContext *cocoagc = [NSGraphicsContext graphicsContextWithGraphicsPort:context flipped:NO];
