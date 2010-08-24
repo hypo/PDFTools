@@ -203,6 +203,20 @@ BOOL PEIsCJKCharacter(UniChar c)
 				[transform concat];
 			}
 		}
+		else if ([_align isEqualToString:@"left"]) {
+			if (_rotationAngle != 0.0) {
+				NSAffineTransform *transform = [NSAffineTransform transform];
+				
+				float nx = drawRect.origin.x + drawRect.size.width / 2;
+				float ny = drawRect.origin.y + drawRect.size.height / 2;
+				[transform translateXBy:nx yBy:ny];
+				drawRect.origin.x = 0;
+				drawRect.origin.y = -drawRect.size.height / 2;
+				
+				[transform rotateByDegrees:_rotationAngle];
+				[transform concat];
+			}
+		}
 	}
 	
 	[attrStr drawWithRect:drawRect options:NSStringDrawingUsesLineFragmentOrigin];
@@ -213,5 +227,3 @@ BOOL PEIsCJKCharacter(UniChar c)
 	return [super prepareWithOutputControl:controlData];
 }
 @end
-
-

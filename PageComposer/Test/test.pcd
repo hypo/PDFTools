@@ -1,0 +1,9 @@
+beginpdf 283.465 23.0
+set FontSize 18.0
+set TypeFaceCJK HiraginoSansGB-W3
+set FontSizeCJK 17.0
+set LineSpacing 1.5
+set TypeFace Helvetica
+text_checksize 0 0 283.465 23.0 "Hello, world!"
+endpng 72 2 file:///tmp/preview.png
+
