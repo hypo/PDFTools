@@ -318,12 +318,6 @@ BOOL RunFile(istream& ist)
 			
 			cg.drawImage(image, drawRect);
 			CGContextRestoreGState(context);
-			CGContextSaveGState(context);
-			if (radius > 0)
-				AddBorderRadiusPath(context, drawRect, radius);
-			
-			cg.drawImage(image, drawRect);
-			CGContextRestoreGState(context);
             CFRelease(image);
         }
         else if (CheckArgsAndContext("set", args, 2, line, context)) {
