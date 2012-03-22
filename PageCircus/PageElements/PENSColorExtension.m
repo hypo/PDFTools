@@ -51,7 +51,6 @@ static int HexValue(char c) {
         [NSColor clearColor], @"transparent",
         [NSColor clearColor], @"none",
         [NSColor brownColor], @"brown",
-        [NSColor clearColor], @"clear",
         [NSColor cyanColor], @"cyan",
         [NSColor darkGrayColor], @"darkgray",
         [NSColor grayColor], @"gray",
