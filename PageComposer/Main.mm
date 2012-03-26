@@ -345,15 +345,21 @@ BOOL RunFile(istream& ist)
             
             NSDictionary *textDictionary = [settings textDictionaryWithText: NSU8(args[5])];
             
+            BOOL clockwiseRotation = [[settings objectForKey: @"ContentRotation"] isEqualToString: @"clockwise"];
+            NSRect boundingRect = NSMakeRect(stof(args[1]), stof(args[2]), stof(args[3]), stof(args[4]));
+            if (clockwiseRotation) {
+                boundingRect = NSMakeRect(stof(args[1]), stof(args[2]), stof(args[4]), stof(args[3]));
+            }
+            
             PETextBlock *textBlock = [PETextBlock textBlockWithDictionary:textDictionary boundingRect:
-                NSMakeRect(stof(args[1]), stof(args[2]), stof(args[3]), stof(args[4]))];
+                boundingRect];
 
             NSRect actualBox = NSZeroRect;
             if (CheckArgsAndContext("text_checksize", args, 5, line, context)) {
                 NSAttributedString *attrString = [textBlock attributedString];
-                actualBox = [attrString boundingRectWithSize: NSMakeSize(stof(args[3]), stof(args[4])) options: NSStringDrawingUsesLineFragmentOrigin];
+                actualBox = [attrString boundingRectWithSize: boundingRect.size options: NSStringDrawingUsesLineFragmentOrigin];
 
-                if (actualBox.size.width > stof(args[3]) || actualBox.size.height > stof(args[4]))
+                if (actualBox.size.width > boundingRect.size.width || actualBox.size.height > boundingRect.size.height)
 				{
 					NSLog(@"oversize detected, actualBox=%@", NSStringFromRect(actualBox));
                     needRedBorder = YES;
@@ -362,7 +368,14 @@ BOOL RunFile(istream& ist)
             
             NSGraphicsContext *cocoagc = [NSGraphicsContext graphicsContextWithGraphicsPort:context flipped:NO];
             [NSGraphicsContext saveGraphicsState];
-            [NSGraphicsContext setCurrentContext:cocoagc];        
+            [NSGraphicsContext setCurrentContext:cocoagc];
+            if (clockwiseRotation) {
+                NSAffineTransform *xfrm = [NSAffineTransform transform];
+//                [xfrm translateXBy: -boundingRect.origin.x yBy: -boundingRect.origin.y];
+                [xfrm rotateByDegrees: -90];
+                [xfrm translateXBy: -(boundingRect.origin.x + boundingRect.origin.y + boundingRect.size.width) yBy: (boundingRect.origin.x - boundingRect.origin.y)];
+                [xfrm concat];
+            }
             [textBlock drawWithOutputControl:nil];
             [NSGraphicsContext restoreGraphicsState];
             
