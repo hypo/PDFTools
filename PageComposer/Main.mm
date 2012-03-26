@@ -350,6 +350,7 @@ BOOL RunFile(istream& ist)
             if (clockwiseRotation) {
                 boundingRect = NSMakeRect(stof(args[1]), stof(args[2]), stof(args[4]), stof(args[3]));
             }
+            [settings removeObjectForKey: @"ContentRotation"];
             
             PETextBlock *textBlock = [PETextBlock textBlockWithDictionary:textDictionary boundingRect:
                 boundingRect];
@@ -367,18 +368,18 @@ BOOL RunFile(istream& ist)
             }
             
             NSGraphicsContext *cocoagc = [NSGraphicsContext graphicsContextWithGraphicsPort:context flipped:NO];
+            CGContextSaveGState(context);
             [NSGraphicsContext saveGraphicsState];
             [NSGraphicsContext setCurrentContext:cocoagc];
             if (clockwiseRotation) {
                 NSAffineTransform *xfrm = [NSAffineTransform transform];
-//                [xfrm translateXBy: -boundingRect.origin.x yBy: -boundingRect.origin.y];
                 [xfrm rotateByDegrees: -90];
                 [xfrm translateXBy: -(boundingRect.origin.x + boundingRect.origin.y + boundingRect.size.width) yBy: (boundingRect.origin.x - boundingRect.origin.y)];
                 [xfrm concat];
             }
             [textBlock drawWithOutputControl:nil];
             [NSGraphicsContext restoreGraphicsState];
-            
+            CGContextRestoreGState(context);
             // Reset settings
             [settings setDefaultSettings];
         }
