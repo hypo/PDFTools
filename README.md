@@ -79,7 +79,13 @@ The following are legal string literals:
     endpdf file:///path/to/output.pdf
   
 ----
+### Draw image from a rect
 
+    image [url_to_image] [from_x] [from_y] [from_w] [from_h] [x] [y] [w] [h]
+    # Crop image from rect (from_x, from_y, from_w, from_h) and draw to (x, y, w, h)
+    # Currently only support PNG and JPEG. PDF not yet support crop.
+
+----
 ### Compress and draw the image:
 
     beginpdf 720 720
@@ -87,6 +93,17 @@ The following are legal string literals:
     simpleimage_compress [url_to_image] [compress_ratio] [x] [y] [w] [h]
     # Only allows JPEG image.
     # The compress_ratio is between 0.0 ~ 1.0, where 0.0 results max compression, 1.0 results no compression.
+
+    endpdf file:///path/to/output.pdf
+
+----
+### Compress and draw the image:
+
+    beginpdf 720 720
+
+    image_compress [url_to_image] [compress_ratio] [from_x] [from_y] [from_w] [from_h] [x] [y] [w] [h]
+    # Crop image from rect (from_x, from_y, from_w, from_h) and draw to (x, y, w, h)
+    # Currently only support PNG and JPEG. PDF not yet support crop.
 
     endpdf file:///path/to/output.pdf
 
