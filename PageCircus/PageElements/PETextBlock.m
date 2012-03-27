@@ -1,7 +1,6 @@
 // PETextBlock.m
 
 #import "PETextBlock.h"
-#import "NSExtensions.h"
 #import "PENSColorExtension.h"
 
 UniChar _PECJKChars[] = {0x2013, 0x2014, 0x2025, 0x2026, 0x22ee, 0x22ef, 0x2500, 0x2502, 0x2048, 0x2049};
@@ -219,7 +218,7 @@ BOOL PEIsCJKCharacter(UniChar c)
 		}
 	}
 	
-	[attrStr drawWithRect:drawRect options:NSStringDrawingUsesLineFragmentOrigin];
+	[attrStr drawWithRect:drawRect options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingDisableScreenFontSubstitution];
     [context restoreGraphicsState];
 }
 - (BOOL)prepareWithOutputControl:(NSDictionary*)controlData

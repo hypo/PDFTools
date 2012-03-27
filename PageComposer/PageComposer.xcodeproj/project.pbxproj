@@ -15,6 +15,8 @@
 		856AD7AF0F93AD1A00E10EC7 /* Century Gothic.ttf in CopyFiles */ = {isa = PBXBuildFile; fileRef = 856AD7A30F93AD1500E10EC7 /* Century Gothic.ttf */; };
 		856AD7B00F93AD1A00E10EC7 /* ocrb10n.ttf in CopyFiles */ = {isa = PBXBuildFile; fileRef = 856AD7A40F93AD1500E10EC7 /* ocrb10n.ttf */; };
 		856AD7B10F93AD1A00E10EC7 /* DFHei.ttf in CopyFiles */ = {isa = PBXBuildFile; fileRef = 856AD7A50F93AD1500E10EC7 /* DFHei.ttf */; };
+		85838EAB1520507C004578BF /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85838EAA1520507C004578BF /* ApplicationServices.framework */; };
+		85838EAC152052C9004578BF /* YLCTUtilities.mm in Sources */ = {isa = PBXBuildFile; fileRef = 85838EA81520503A004578BF /* YLCTUtilities.mm */; };
 		DAC117F1104A36980064004E /* ZRCGUtilities.mm in Sources */ = {isa = PBXBuildFile; fileRef = DAC117F0104A36980064004E /* ZRCGUtilities.mm */; };
 		DAC9C1E7110A1A0B00C3EDA5 /* PageElements.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAC9C1C3110A1A0000C3EDA5 /* PageElements.framework */; };
 		DAC9C1E8110A1A1A00C3EDA5 /* PageElements.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DAC9C1C3110A1A0000C3EDA5 /* PageElements.framework */; };
@@ -190,6 +192,9 @@
 		856AD7A30F93AD1500E10EC7 /* Century Gothic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Century Gothic.ttf"; sourceTree = "<group>"; };
 		856AD7A40F93AD1500E10EC7 /* ocrb10n.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ocrb10n.ttf; sourceTree = "<group>"; };
 		856AD7A50F93AD1500E10EC7 /* DFHei.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = DFHei.ttf; sourceTree = "<group>"; };
+		85838EA71520503A004578BF /* YLCTUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLCTUtilities.h; sourceTree = "<group>"; };
+		85838EA81520503A004578BF /* YLCTUtilities.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = YLCTUtilities.mm; sourceTree = "<group>"; };
+		85838EAA1520507C004578BF /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = ../../../../../System/Library/Frameworks/ApplicationServices.framework; sourceTree = "<group>"; };
 		DAC117EF104A36980064004E /* ZRCGUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZRCGUtilities.h; sourceTree = "<group>"; };
 		DAC117F0104A36980064004E /* ZRCGUtilities.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ZRCGUtilities.mm; sourceTree = "<group>"; };
 		DAC9C1A6110A19FF00C3EDA5 /* PageCircus.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PageCircus.xcodeproj; path = ../PageCircus/PageCircus.xcodeproj; sourceTree = SOURCE_ROOT; };
@@ -209,6 +214,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85838EAB1520507C004578BF /* ApplicationServices.framework in Frameworks */,
 				6A4966980DE4793C001E75AA /* Cocoa.framework in Frameworks */,
 				DAC9C1E7110A1A0B00C3EDA5 /* PageElements.framework in Frameworks */,
 				DAC9C1ED110A1A7500C3EDA5 /* NSExtensions.framework in Frameworks */,
@@ -221,6 +227,7 @@
 		6A4966650DE4788E001E75AA = {
 			isa = PBXGroup;
 			children = (
+				85838EAA1520507C004578BF /* ApplicationServices.framework */,
 				6A49669D0DE47941001E75AA /* Source */,
 				6A4966890DE47909001E75AA /* Dependencies */,
 				6A4966960DE4791F001E75AA /* Apple Frameworks */,
@@ -263,6 +270,8 @@
 				6A4966870DE47906001E75AA /* OVWildcard.h */,
 				DAC117EF104A36980064004E /* ZRCGUtilities.h */,
 				DAC117F0104A36980064004E /* ZRCGUtilities.mm */,
+				85838EA71520503A004578BF /* YLCTUtilities.h */,
+				85838EA81520503A004578BF /* YLCTUtilities.mm */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -350,7 +359,11 @@
 			isa = PBXProject;
 			buildConfigurationList = 6A49666A0DE4788E001E75AA /* Build configuration list for PBXProject "PageComposer" */;
 			compatibilityVersion = "Xcode 2.4";
+			developmentRegion = English;
 			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
 			mainGroup = 6A4966650DE4788E001E75AA;
 			productRefGroup = 6A49667D0DE478A8001E75AA /* Products */;
 			projectDirPath = "";
@@ -490,6 +503,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85838EAC152052C9004578BF /* YLCTUtilities.mm in Sources */,
 				6A4966880DE47906001E75AA /* Main.mm in Sources */,
 				DAC117F1104A36980064004E /* ZRCGUtilities.mm in Sources */,
 				DAC9C211110A1D6C00C3EDA5 /* ColorBitmapContext.cpp in Sources */,

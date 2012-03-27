@@ -152,10 +152,48 @@ The following are legal string literals:
     set LineSpacing
     set Color
     set LineHeight
-    set Ligature
+    set Ligature [0|1] # either wants or not
+
+    set ContentRotation [clockwise]
 
     text [x] [y] [w] [h] [string]
     # Draw the string whose baseline begins at (x, y).
-    # Notice: no attribute will be applied. Just plain text.
+    # Those attributes will be reset with next call to text command.
+    endpdf file:///path/to/output.pdf
+
+----
+
+### Check the size for horizontal text:
+    
+    text_checksize [x] [y] [w] [h] [string]
+    # It has the same settings with `text` command. 
+    # However, if the string is oversized, the program will exit with code 1.
+
+----
+
+### Draw a vertical text
+
+    beginpdf 720 720
+    set FontSize
+    set FontSizeCJK
+    set Typeface
+    set TypefaceCJK
+    set TextAlign [left|center|right]
+    set TextVerticalAlign [top|center|bottom]
+    set Rotation
+    set Kerning
+    set KerningCJK
+    set LineSpacing
+    set Color
+    set LineHeight
+    set Ligature [0|1] # either wants or not
+
+    set SymbolSubstitution "，。、；？！"
+    set TypefaceSubstitution "STHeitiTC-Light"
+    set FontSizeSubstitution 14pt
+    # substitution the font of some punctuations for typography reason. 
+
+    vtext [x] [y] [w] [h] [string]
+    # Those attributes will be reset with next call to text command.
     endpdf file:///path/to/output.pdf
 
