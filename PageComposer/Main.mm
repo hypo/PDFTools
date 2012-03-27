@@ -235,15 +235,11 @@ BOOL RunFile(istream& ist)
             delete pdf;
             pdf = NULL;
         }
-        else if (CheckArgsAndContext("simpleimage", args, 5, line, context)) {
+        else if (CheckArgsAndContext("simpleimage", args, 5, line, context) || CheckArgsAndContext("image", args, 9, line, context)) {
             NSLog(@"begin to fetch: %s", args[1].c_str());
-			
-			float radius = 0;
-			if ([settings objectForKey:@"radius"] != nil)
-			{
-				radius = [[settings objectForKey:@"radius"] floatValue];
-				NSLog(@"use radius settings: %f", radius);
-			}
+			BOOL needClip = CheckArgsAndContext("image", args, 9, line, context);
+            
+			float radius = [settings objectForKey:@"radius"] ? [[settings objectForKey:@"radius"] floatValue] : 0;
 			[settings removeObjectForKey:@"radius"];
 			
             NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:NSU8(args[1])]];
@@ -256,15 +252,16 @@ BOOL RunFile(istream& ist)
                 
                 if (image) {
                     ContextGraphics cg(context);
-					CGRect drawRect = CGRectMake(stof(args[2]), stof(args[3]), stof(args[4]), stof(args[5]));
+                    CGImageRef sourceImage = needClip ? CGImageCreateWithImageInRect(image, CGRectMake(stof(args[2]), stof(args[3]), stof(args[4]), stof(args[5]))) : image;
+					CGRect targetRect = needClip ? CGRectMake(stof(args[6]), stof(args[7]), stof(args[8]), stof(args[9])) : CGRectMake(stof(args[2]), stof(args[3]), stof(args[4]), stof(args[5]));
 					
 					CGContextSaveGState(context);
-					if (radius > 0)
-						AddBorderRadiusPath(context, drawRect, radius);
-					
-                    cg.drawImage(image, drawRect);
+
+					if (radius > 0) AddBorderRadiusPath(context, targetRect, radius);
+                    cg.drawImage(sourceImage, targetRect);
 					CGContextRestoreGState(context);
                     CFRelease(image);
+                    if (needClip) CFRelease(sourceImage);
                 } else if (OVWildcard::Match(args[1], "*.pdf*")) {
                     CGDataProviderRef dataProvider = CGDataProviderCreateWithCFData((CFDataRef)data);
                     CGPDFDocumentRef pdfDocument = CGPDFDocumentCreateWithProvider(dataProvider);
@@ -291,14 +288,11 @@ BOOL RunFile(istream& ist)
                 NSLog(@"line %lu: incorrect image URL: %s", line, args[1].c_str());
             }
         } 
-        else if (CheckArgsAndContext("simpleimage_compress", args, 6, line, context)) {
-            // url ratio x y w h
+        else if (CheckArgsAndContext("simpleimage_compress", args, 6, line, context) || CheckArgsAndContext("image_compress", args, 10, line, context)) {
             NSLog(@"begin to fetch: %s", args[1].c_str());
-			
-			float radius;
-			radius = 0;
-			if ([settings objectForKey:@"radius"] != nil)
-				radius = [[settings objectForKey:@"radius"] floatValue];
+			BOOL needClip = CheckArgsAndContext("image_compress", args, 10, line, context);
+
+			float radius = [settings objectForKey:@"radius"] ? [[settings objectForKey:@"radius"] floatValue] : 0;
 			[settings removeObjectForKey:@"radius"];
 			
             NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:NSU8(args[1])]];
@@ -312,15 +306,18 @@ BOOL RunFile(istream& ist)
                 NSLog(@"line %lu: no image created from URL %s", line, args[1].c_str());
                 continue;
             }
-			CGRect drawRect = CGRectMake(stof(args[3]), stof(args[4]), stof(args[5]), stof(args[6]));
+            
+            CGImageRef sourceImage = needClip ? CGImageCreateWithImageInRect(image, CGRectMake(stof(args[3]), stof(args[4]), stof(args[5]), stof(args[6]))) : image;
+            CGRect targetRect = needClip ? CGRectMake(stof(args[7]), stof(args[8]), stof(args[9]), stof(args[10])) : CGRectMake(stof(args[3]), stof(args[4]), stof(args[5]), stof(args[6]));
+            
             ContextGraphics cg(context);
 			CGContextSaveGState(context);
-			if (radius > 0)
-				AddBorderRadiusPath(context, drawRect, radius);
+			if (radius > 0) AddBorderRadiusPath(context, targetRect, radius);
 			
-			cg.drawImage(image, drawRect);
+			cg.drawImage(sourceImage, targetRect);
 			CGContextRestoreGState(context);
             CFRelease(image);
+            if (needClip) CFRelease(sourceImage);
         }
         else if (CheckArgsAndContext("set", args, 2, line, context)) {
             [settings setObject:NSU8(args[2]) forKey:NSU8(args[1])];
