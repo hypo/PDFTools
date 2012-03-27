@@ -7,3 +7,5 @@
 *.perspectivev3
 *~.nib
 build/
+*.xcworkspace
+xcuserdata
