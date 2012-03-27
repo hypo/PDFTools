@@ -4,6 +4,7 @@
 #import "LFSimpleGraphics.h"
 #import <PageElements/PageElements.h>
 #import "ZRCGUtilities.h"
+#import "YLCTUtilities.h"
 
 #include <vector>
 #include <string>
@@ -39,6 +40,7 @@ using namespace std;
     [self setObject:@"0.0" forKey:@"LineSpacing"];
     [self removeObjectForKey: @"LineHeight"];
     [self removeObjectForKey: @"Ligature"];
+    [self removeObjectForKey: @"SymbolSubstitution"];
 }
 
 - (NSDictionary *) textDictionaryWithText: (NSString *)text
@@ -102,7 +104,7 @@ bool CheckArgs(const string& cmd, const vector<string>& args, size_t count, size
         return false;
 
     if (args.size() < count + 1) {
-        NSLog(@"line %d: command '%s' expects %d arguments", line, cmd.c_str(), count);
+        NSLog(@"line %lu: command '%s' expects %lu arguments", line, cmd.c_str(), count);
         return false;
     }
 
@@ -112,7 +114,7 @@ bool CheckArgs(const string& cmd, const vector<string>& args, size_t count, size
 bool CheckArgsAndContext(const string& cmd, const vector<string>& args, size_t count, size_t line, CGContextRef context)
 {
     if (!context) {
-        NSLog(@"line %d: command '%s' requires graphics context", line, cmd.c_str());
+        NSLog(@"line %lu: command '%s' requires graphics context", line, cmd.c_str());
     }
     
     return CheckArgs(cmd, args, count, line);
@@ -161,20 +163,20 @@ BOOL RunFile(istream& ist)
         }
         else if (CheckArgs("beginpdf", args, 2, line)) {
             if (context || pdf) {
-                NSLog(@"line %d: pdf context already begun", line);
+                NSLog(@"line %lu: pdf context already begun", line);
             }
             else {
                 pdf = new SinglePagePDF;
                 CGRect bound = CGRectMake(0., 0., stof(args[1]), stof(args[2]));
                 pdf->open(&bound);
                 context = pdf->context();
-                NSLog(@"line %d: pdf context begin with size %f x %f", line, stof(args[1]), stof(args[2]));
+                NSLog(@"line %lu: pdf context begin with size %f x %f", line, stof(args[1]), stof(args[2]));
                 needRedBorder = NO;
             }
         }
         else if (CheckArgs("endpdf", args, 1, line)) {
             if (!context || !pdf) {
-                NSLog(@"line %d: no pdf context", line);                        
+                NSLog(@"line %lu: no pdf context", line);                        
             }
             else {
                 pdf->close();
@@ -188,7 +190,7 @@ BOOL RunFile(istream& ist)
         } else if (CheckArgs("endpng", args, 3, line)) {
             // endpng dpi scale url
              if (!context || !pdf) {
-                NSLog(@"line %d: no pdf context", line);
+                NSLog(@"line %lu: no pdf context", line);
                 continue;
             }
             CGFloat dpi = stof(args[1]);
@@ -282,11 +284,11 @@ BOOL RunFile(istream& ist)
                     CGDataProviderRelease(dataProvider);
                 }
                 else {
-                    NSLog(@"line %d: no image created from URL %s", line, args[1].c_str());
+                    NSLog(@"line %lu: no image created from URL %s", line, args[1].c_str());
                 }
             }
             else {
-                NSLog(@"line %d: incorrect image URL: %s", line, args[1].c_str());
+                NSLog(@"line %lu: incorrect image URL: %s", line, args[1].c_str());
             }
         } 
         else if (CheckArgsAndContext("simpleimage_compress", args, 6, line, context)) {
@@ -302,12 +304,12 @@ BOOL RunFile(istream& ist)
             NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:NSU8(args[1])]];
 
             if (!data) {
-                NSLog(@"line %d: incorrect image URL: %s", line, args[1].c_str());
+                NSLog(@"line %lu: incorrect image URL: %s", line, args[1].c_str());
                 continue;
             }
             CGImageRef image = NULL;
             if ((image = CreateImageFromJPEGDataWithCompression((CFDataRef)data, stof(args[2]))) == NULL) {
-                NSLog(@"line %d: no image created from URL %s", line, args[1].c_str());
+                NSLog(@"line %lu: no image created from URL %s", line, args[1].c_str());
                 continue;
             }
 			CGRect drawRect = CGRectMake(stof(args[3]), stof(args[4]), stof(args[5]), stof(args[6]));
@@ -382,11 +384,47 @@ BOOL RunFile(istream& ist)
             CGContextRestoreGState(context);
             // Reset settings
             [settings setDefaultSettings];
+        } 
+        else if (CheckArgsAndContext("vtext", args, 5, line, context)) {
+            BOOL vertical = YES;
+            NSAttributedString *attributedText = attributedStringWithOptions(NSU8(args[5]), settings, vertical);
+
+            CGRect targetRect = CGRectMake(stof(args[1]), stof(args[2]), stof(args[3]), stof(args[4]));
+            
+            NSTextStorage *textStorage = [[NSTextStorage alloc] initWithAttributedString: attributedText];
+            NSLayoutManager *layoutManager = [[NSLayoutManager alloc] init];
+            NSTextContainer *textContainer = [[YLVerticalTextContainer alloc] initWithContainerSize: NSMakeSize(targetRect.size.height, targetRect.size.width)];
+            [layoutManager addTextContainer: textContainer];
+            [textContainer release];
+            [textStorage addLayoutManager:layoutManager];
+            [layoutManager release];
+            [textStorage autorelease];
+            
+            CGContextSaveGState(context);
+            CGContextSetTextMatrix(context, CGAffineTransformIdentity);
+            NSGraphicsContext *cocoagc = [NSGraphicsContext graphicsContextWithGraphicsPort:context flipped: YES];
+            [NSGraphicsContext saveGraphicsState];
+            [NSGraphicsContext setCurrentContext:cocoagc];
+            NSAffineTransform *xfrm = [NSAffineTransform transform];
+            [xfrm scaleXBy: 1 yBy: -1];
+            [xfrm translateXBy: CGRectGetMaxX(targetRect) yBy: -CGRectGetMaxY(targetRect)];
+            [xfrm rotateByDegrees: 90];
+//            [xfrm translateXBy: -(boundingRect.origin.x + boundingRect.origin.y + boundingRect.size.width) yBy: (boundingRect.origin.x - boundingRect.origin.y)];
+            [xfrm concat];
+
+            
+            NSRange glyphRange = [layoutManager glyphRangeForTextContainer:textContainer];
+            [layoutManager drawGlyphsForGlyphRange: glyphRange atPoint: NSZeroPoint];
+            
+            [NSGraphicsContext restoreGraphicsState];
+            CGContextRestoreGState(context);
+            // Reset settings
+            [settings setDefaultSettings];
         }
         else if (CheckArgsAndContext("simpletext", args, 3, line, context)) {
             NSGraphicsContext *cocoagc = [NSGraphicsContext graphicsContextWithGraphicsPort:context flipped:NO];
             [NSGraphicsContext saveGraphicsState];
-            [NSGraphicsContext setCurrentContext:cocoagc];        
+            [NSGraphicsContext setCurrentContext:cocoagc];
             
             NSString *text = NSU8(args[3]);
             [text drawAtPoint:NSMakePoint(stof(args[1]), stof(args[2])) withAttributes:nil];
@@ -411,7 +449,7 @@ BOOL RunFile(istream& ist)
             [NSGraphicsContext restoreGraphicsState];                    
         }
         else {
-            NSLog(@"line %d: unknown command '%s'", line, args[0].c_str());
+            NSLog(@"line %lu: unknown command '%s'", line, args[0].c_str());
         }
     }
                 
