@@ -1,0 +1,49 @@
+beginpdf 1200 900
+
+simplecolor 0xAABBCC 150 90 20 600
+
+set FontSize 10pt
+set Typeface Times
+set FontSizeCJK 10pt
+set TypefaceCJK HiraginoSansGB-W3
+set ContentRotation clockwise
+
+text 150 90 20 600 "測試頭歪一邊 Vertical Text 文字"
+
+
+
+
+
+simplecolor 0xDDBBAA 400 200 300 20
+
+set FontSize 10pt
+set Typeface Times
+set FontSizeCJK 10pt
+set TypefaceCJK HiraginoSansGB-W3
+text 400 200 300 20 "橫的不受影響 horizontal"
+
+
+simplecolor 0xAAEEBB 180 60 100 600
+
+set FontSize 14pt
+set Typeface Times
+set FontSizeCJK 14pt
+set TypefaceCJK HiraginoSansGB-W3
+set Kerning 0
+set KerningCJK 0
+set SymbolSubstitution "，。、；？！"
+set TypefaceSubstitution "STHeitiTC-Light"
+set FontSizeSubstitution 14pt
+vtext 180 60 100 600 "測試…直排？標點，符號。 Vertical Text, 混合 mixed. 排版 Hello, world. 好多！好多、中文字；「白日」依山盡，『黃河』入（海流） かしゆかです。あ〜ちゃんです。のっちです。三人合わせで、パフュームです！よろしくお願いします！"
+
+
+simplecolor 0x336600 300 250 100 100
+
+set FontSize 16pt
+set Typeface Times
+set FontSizeCJK 16pt
+set TypefaceCJK HiraginoSansGB-W3
+set Color white
+text 300 250 100 100 "橫的不受影響 horizontal again"
+
+endpdf file:///tmp/output.pdf
