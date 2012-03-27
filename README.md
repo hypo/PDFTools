@@ -12,6 +12,10 @@ or a file:
 
     ./PageComposer file.pcd
 
+You can also provide output file name with `-o` option instead of the path in pcd like this:
+
+    ./PageComposer -o output.pdf file.pcd
+
 ## PCD Format
 
 The PCD format specify a graphic context whose coordinate system places the origin at bottom left.

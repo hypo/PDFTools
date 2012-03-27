@@ -10,6 +10,7 @@
 #include <string>
 #include <fstream>
 #include <iostream>
+#include <unistd.h>
 
 #include "OVStringHelper.h"
 #include "OVWildcard.h"
@@ -130,7 +131,7 @@ NSString* NSU8(const string& str)
     return [NSString stringWithUTF8String:str.c_str()];
 }
 
-BOOL RunFile(istream& ist)
+BOOL RunFile(istream& ist, NSString *overrideOutputPath)
 {
     SinglePagePDF *pdf = 0;
     CGContextRef context = 0;
@@ -180,7 +181,7 @@ BOOL RunFile(istream& ist)
             }
             else {
                 pdf->close();
-                NSURL *url = [NSURL URLWithString:NSU8(args[1])];
+                NSURL *url = overrideOutputPath ? [NSURL fileURLWithPath: overrideOutputPath]: [NSURL URLWithString:NSU8(args[1])];
                 NSData *data = (NSData*)pdf->data();
                 [data writeToURL:url atomically:YES];
                 context = 0;
@@ -195,7 +196,7 @@ BOOL RunFile(istream& ist)
             }
             CGFloat dpi = stof(args[1]);
             CGFloat scale = stof(args[2]);
-            NSURL *url = [NSURL URLWithString: NSU8(args[3])];
+            NSURL *url = overrideOutputPath ? [NSURL fileURLWithPath: overrideOutputPath] : [NSURL URLWithString: NSU8(args[3])];
             pdf->close();
             
             CGDataProviderRef dataProvider = CGDataProviderCreateWithCFData(pdf->data());
@@ -460,16 +461,27 @@ int main(int argc, char* argv[])
 {
     id pool = [NSAutoreleasePool new];
 	BOOL textOversized = NO;
-    if (argc < 2) {
-        //ifstream fin("/tmp/test.pcd");
-        //RunFile(fin);
+    
+    NSString *overrideFilePath = nil;    
+
+    int ch;
+    while ((ch = getopt(argc, argv, "o:")) != -1) {
+        switch (ch) {
+        case 'o':
+            overrideFilePath = [NSString stringWithUTF8String: optarg];
+            break;
+        default:
+            break;
+        }
+    }
+    if (optind >= argc) {
         NSLog(@"using stdin");
-        textOversized = RunFile(cin);
+        textOversized = RunFile(cin, overrideFilePath);
     }
     else {        
         ifstream ifs;
-        ifs.open(argv[1]);
-        textOversized = RunFile(ifs);
+        ifs.open(argv[optind]);
+        textOversized = RunFile(ifs, overrideFilePath);
     }
     
     [pool drain];
