@@ -48,62 +48,35 @@ The following are legal string literals:
 
     simpleimage [url_to_image] [x] [y] [w] [h]
     # The origin is at the left bottom.
-    # Draw the fullimage and strech to fill the rect define by (x, y, w, h)
+    # Draw the image and strech to fill the rect define by (x, y, w, h)
     # image could be jpg/png/pdf.
 
+    ## DPI limitation ##
+    set MaxDPI [dpi]
+    # Limit the max DPI. If the file is too large, it will scale down according to the MaxDPI specified.
+    # Only applied to jpg/png.
+    # Only affect the next draw image command.
+
+    ## Rounded corner ##
     set radius [r]
     # Draw the next simpleimage with [r] point radius rounded corner.
-    # Note that it will effect only the next simpleimage command.
-    simpleimage image_a x_a y_a w_a h_a
-    simpleimage image_b x_b y_b w_b h_b
-
-
-    endpdf file:///path/to/output.pdf
-
-----
-
-### Draw a rounded corner image:
-
-    beginpdf 720 720
-
-    set radius [r]
-    # Draw the next simpleimage with [r] point radius rounded corner.
-    # Note that it will effect only the next simpleimage command.
+    # Only affect the next draw image command.
 
     simpleimage image_a x_a y_a w_a h_a
     simpleimage image_b x_b y_b w_b h_b
+    # Hence, image_a has r points radius rounded corner with MaxDPI limit.
+    # image_b doesn't have rounded corner and no DPI limit.
 
-    set radius [r_2]
-    simpleimage image_c x_c y_c w_c h_c
-
-    # Hence, image_a has r points radius rounded corner.
-    # image_b doesn't have rounded corner.
-    # image_c has r_2 points radius rounded corner.
-
-    endpdf file:///path/to/output.pdf
-  
-----
-### Draw image from a rect
-
+    ## Crop source image ##
     image [url_to_image] [from_x] [from_y] [from_w] [from_h] [x] [y] [w] [h]
     # Crop image from rect (from_x, from_y, from_w, from_h) and draw to (x, y, w, h)
     # Currently only support PNG and JPEG. PDF not yet support crop.
 
-----
-### Compress and draw the image:
 
-    beginpdf 720 720
-
+    ## JPEG compression ##
     simpleimage_compress [url_to_image] [compress_ratio] [x] [y] [w] [h]
     # Only allows JPEG image.
     # The compress_ratio is between 0.0 ~ 1.0, where 0.0 results max compression, 1.0 results no compression.
-
-    endpdf file:///path/to/output.pdf
-
-----
-### Compress and draw the image:
-
-    beginpdf 720 720
 
     image_compress [url_to_image] [compress_ratio] [from_x] [from_y] [from_w] [from_h] [x] [y] [w] [h]
     # Crop image from rect (from_x, from_y, from_w, from_h) and draw to (x, y, w, h)

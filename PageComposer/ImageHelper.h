@@ -18,6 +18,9 @@ namespace LFSimpleGraphics {
 	public:
 		static CGImageRef CreateImageFromJPEGData(CFDataRef data);
 		static CGImageRef CreateImageFromPNGData(CFDataRef data);
+        static CGImageRef CreateImageByScaleTo(CGImageRef sourceImage, size_t width, size_t height);
+        static CGImageRef CreateImageFromJPEGDataWithCompression(CFDataRef data, CGFloat compressionRatio);
+        static CGImageRef CreateImageFromImageWithCompression(CGImageRef sourceImage, CGFloat compressionRatio);
 	};
 };
 

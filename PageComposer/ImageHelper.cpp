@@ -28,3 +28,69 @@ CGImageRef ImageHelper::CreateImageFromPNGData(CFDataRef data)
 		return image;
 	}			
 }
+
+CGImageRef ImageHelper::CreateImageByScaleTo(CGImageRef sourceImage, size_t width, size_t height)
+{
+    CGContextRef ctx = CGBitmapContextCreate(NULL, width, height, CGImageGetBitsPerComponent(sourceImage), CGImageGetBytesPerRow(sourceImage), CGImageGetColorSpace(sourceImage), CGImageGetBitmapInfo(sourceImage));
+    CGContextSetInterpolationQuality(ctx, kCGInterpolationHigh);
+    CGContextDrawImage(ctx, CGRectMake(0, 0, width, height), sourceImage);
+    CGImageRef scaledImage = CGBitmapContextCreateImage(ctx);
+    CGContextRelease(ctx);
+    return scaledImage;
+}
+
+CGImageRef ImageHelper::CreateImageFromJPEGDataWithCompression(CFDataRef data, CGFloat compressionRatio)
+{
+    CGImageSourceRef imageSource = CGImageSourceCreateWithData(data, NULL);
+    if (!imageSource) return NULL;
+        
+    CFMutableDataRef compressedJPEGData = CFDataCreateMutable(kCFAllocatorDefault, 0);
+
+    CFNumberRef ratio = CFNumberCreate(kCFAllocatorDefault, kCFNumberCGFloatType, &compressionRatio);
+    CFDictionaryRef options = CFDictionaryCreate(kCFAllocatorDefault, (const void **)&kCGImageDestinationLossyCompressionQuality, (const void **)&ratio, (CFIndex)1, &kCFTypeDictionaryKeyCallBacks, &kCFTypeDictionaryValueCallBacks);
+    CGImageDestinationRef imageDestination = CGImageDestinationCreateWithData(compressedJPEGData, kUTTypeJPEG, 1, NULL);
+    
+    CGImageDestinationAddImageFromSource(imageDestination, imageSource, 0, options);
+
+    bool success = CGImageDestinationFinalize(imageDestination);
+    
+    CFRelease(ratio);
+    CFRelease(options);
+    CFRelease(imageSource);
+    CFRelease(imageDestination);
+    
+    CGImageRef cgImage = NULL;
+    if (success) {
+        CGDataProviderRef provider = CGDataProviderCreateWithCFData(compressedJPEGData);
+        cgImage = CGImageCreateWithJPEGDataProvider(provider, NULL, true, kCGRenderingIntentDefault);
+        CGDataProviderRelease(provider);
+    }
+    CFRelease(compressedJPEGData);    
+    return cgImage;
+}
+
+CGImageRef ImageHelper::CreateImageFromImageWithCompression(CGImageRef sourceImage, CGFloat compressionRatio)
+{
+    CFMutableDataRef compressedJPEGData = CFDataCreateMutable(kCFAllocatorDefault, 0);
+    
+    CFNumberRef ratio = CFNumberCreate(kCFAllocatorDefault, kCFNumberCGFloatType, &compressionRatio);
+    CFDictionaryRef options = CFDictionaryCreate(kCFAllocatorDefault, (const void **)&kCGImageDestinationLossyCompressionQuality, (const void **)&ratio, (CFIndex)1, &kCFTypeDictionaryKeyCallBacks, &kCFTypeDictionaryValueCallBacks);
+    CGImageDestinationRef imageDestination = CGImageDestinationCreateWithData(compressedJPEGData, kUTTypeJPEG, 1, NULL);
+    
+    CGImageDestinationAddImage(imageDestination, sourceImage, options);
+    
+    bool success = CGImageDestinationFinalize(imageDestination);
+    
+    CFRelease(ratio);
+    CFRelease(options);
+    CFRelease(imageDestination);
+
+    CGImageRef cgImage = NULL;
+    if (success) {
+        CGDataProviderRef provider = CGDataProviderCreateWithCFData(compressedJPEGData);
+        cgImage = CGImageCreateWithJPEGDataProvider(provider, NULL, true, kCGRenderingIntentDefault);
+        CGDataProviderRelease(provider);
+    }
+    CFRelease(compressedJPEGData);    
+    return cgImage;
+}

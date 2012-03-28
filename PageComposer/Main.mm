@@ -73,29 +73,6 @@ using namespace std;
 }
 @end
 
-CGImageRef CreateImageFromJPEGDataWithCompression(CFDataRef data, CGFloat ratio) {
-    NSBitmapImageRep *originImage = [NSBitmapImageRep imageRepWithData: (NSData *)data];
-    if (!originImage)
-        return NULL;
-    
-    NSBitmapImageRep *canvasRep = [[NSBitmapImageRep alloc] initWithBitmapDataPlanes: NULL pixelsWide: [originImage pixelsWide] pixelsHigh: [originImage pixelsHigh] bitsPerSample: 8 samplesPerPixel: 4 hasAlpha: YES isPlanar: NO colorSpaceName: NSCalibratedRGBColorSpace bytesPerRow: 0 bitsPerPixel: 0];
-
-    NSGraphicsContext *context = [NSGraphicsContext currentContext];    
-    [NSGraphicsContext saveGraphicsState]; 
-    [NSGraphicsContext setCurrentContext: [NSGraphicsContext graphicsContextWithBitmapImageRep: canvasRep]];
-    [originImage drawInRect: NSMakeRect(0, 0, [originImage pixelsWide], [originImage pixelsHigh])];
-    [NSGraphicsContext restoreGraphicsState];
-    
-    NSData *jpegImageData = [canvasRep representationUsingType: NSJPEGFileType properties: [NSDictionary dictionaryWithObject:[NSNumber numberWithFloat: ratio] forKey: NSImageCompressionFactor]];
-    [canvasRep release];
-    
-    CGDataProviderRef provider = CGDataProviderCreateWithCFData((CFDataRef) jpegImageData);
-    CGImageRef cgImage = CGImageCreateWithJPEGDataProvider(provider, NULL, true, kCGRenderingIntentDefault);
-    CGDataProviderRelease(provider);
-
-    return cgImage;
-}
-
 bool CheckArgs(const string& cmd, const vector<string>& args, size_t count, size_t line)
 {
     if (!args.size())
@@ -236,14 +213,23 @@ BOOL RunFile(istream& ist, NSString *overrideOutputPath)
             delete pdf;
             pdf = NULL;
         }
-        else if (CheckArgsAndContext("simpleimage", args, 5, line, context) || CheckArgsAndContext("image", args, 9, line, context)) {
+        else if (CheckArgsAndContext("simpleimage", args, 5, line, context) || CheckArgsAndContext("image", args, 9, line, context) ||
+                 CheckArgsAndContext("simpleimage_compress", args, 6, line, context) || CheckArgsAndContext("image_compress", args, 10, line, context)) {
+            
+            NSAutoreleasePool *pool = [NSAutoreleasePool new];
             NSLog(@"begin to fetch: %s", args[1].c_str());
-			BOOL needClip = CheckArgsAndContext("image", args, 9, line, context);
+			BOOL needClip = CheckArgsAndContext("image", args, 9, line, context) || CheckArgsAndContext("image_compress", args, 10, line, context);
+            BOOL needCompress = CheckArgsAndContext("simpleimage_compress", args, 6, line, context) || CheckArgsAndContext("image_compress", args, 10, line, context);
+            CGFloat compressRatio = needCompress ? stof(args[2]) : 1.0;
             
 			float radius = [settings objectForKey:@"radius"] ? [[settings objectForKey:@"radius"] floatValue] : 0;
 			[settings removeObjectForKey:@"radius"];
 			
-            NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:NSU8(args[1])]];
+            float maxDPI = [settings objectForKey:@"MaxDPI"] ? [[settings objectForKey:@"MaxDPI"] floatValue] : 0;
+			[settings removeObjectForKey:@"MaxDPI"];
+			
+            
+            NSData *data = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:NSU8(args[1])]];
             CGImageRef image = 0;
             if (data) {
                 if (OVWildcard::Match(args[1], "*.png*"))
@@ -252,23 +238,40 @@ BOOL RunFile(istream& ist, NSString *overrideOutputPath)
                     image = ImageHelper::CreateImageFromJPEGData((CFDataRef)data);
                 
                 if (image) {
+                    [data release];
                     ContextGraphics cg(context);
-                    CGImageRef sourceImage = needClip ? CGImageCreateWithImageInRect(image, CGRectMake(stof(args[2]), stof(args[3]), stof(args[4]), stof(args[5]))) : image;
-					CGRect targetRect = needClip ? CGRectMake(stof(args[6]), stof(args[7]), stof(args[8]), stof(args[9])) : CGRectMake(stof(args[2]), stof(args[3]), stof(args[4]), stof(args[5]));
+                    int shift = needCompress ? 1 : 0;
+                    CGImageRef sourceImage = needClip ? CGImageCreateWithImageInRect(image, CGRectMake(stof(args[2 + shift]), stof(args[3 + shift]), stof(args[4 + shift]), stof(args[5 + shift]))) : image;
+                    if (needClip) CFRelease(image);
+					CGRect targetRect = needClip ? CGRectMake(stof(args[6 + shift]), stof(args[7 + shift]), stof(args[8 + shift]), stof(args[9 + shift])) : CGRectMake(stof(args[2 + shift]), stof(args[3 + shift]), stof(args[4 + shift]), stof(args[5 + shift]));
+                    if (maxDPI > 0) {
+                        CGFloat suggestWidth = targetRect.size.width * maxDPI / 72.0;
+                        CGFloat suggestHeight = targetRect.size.height * maxDPI / 72.0;
+                        if (suggestWidth < CGImageGetWidth(sourceImage) || suggestHeight < CGImageGetHeight(sourceImage)) {
+                            CGImageRef scaledDownImage = ImageHelper::CreateImageByScaleTo(sourceImage, MIN(suggestWidth, CGImageGetWidth(sourceImage)), MIN(suggestHeight, CGImageGetHeight(sourceImage)));
+                            CFRelease(sourceImage);
+                            sourceImage = scaledDownImage;
+                        }
+                    }
+                    if (needCompress) {
+                        CGImageRef compressedImage = ImageHelper::CreateImageFromImageWithCompression(sourceImage, compressRatio);
+                        CFRelease(sourceImage);
+                        sourceImage = compressedImage;
+                    }
 					
 					CGContextSaveGState(context);
 
 					if (radius > 0) AddBorderRadiusPath(context, targetRect, radius);
                     cg.drawImage(sourceImage, targetRect);
 					CGContextRestoreGState(context);
-                    CFRelease(image);
-                    if (needClip) CFRelease(sourceImage);
+                    CFRelease(sourceImage);
                 } else if (OVWildcard::Match(args[1], "*.pdf*")) {
                     CGDataProviderRef dataProvider = CGDataProviderCreateWithCFData((CFDataRef)data);
                     CGPDFDocumentRef pdfDocument = CGPDFDocumentCreateWithProvider(dataProvider);
                     CGPDFPageRef page = CGPDFDocumentGetPage(pdfDocument, 1);
                     CGRect pdfSize = CGPDFPageGetBoxRect(page, kCGPDFMediaBox);
-
+                    [data release];
+                    
                     CGContextSaveGState(context);
                     
                     CGFloat x = stof(args[2]), y = stof(args[3]), w = stof(args[4]), h = stof(args[5]);
@@ -288,38 +291,8 @@ BOOL RunFile(istream& ist, NSString *overrideOutputPath)
             else {
                 NSLog(@"line %lu: incorrect image URL: %s", line, args[1].c_str());
             }
+            [pool drain];
         } 
-        else if (CheckArgsAndContext("simpleimage_compress", args, 6, line, context) || CheckArgsAndContext("image_compress", args, 10, line, context)) {
-            NSLog(@"begin to fetch: %s", args[1].c_str());
-			BOOL needClip = CheckArgsAndContext("image_compress", args, 10, line, context);
-
-			float radius = [settings objectForKey:@"radius"] ? [[settings objectForKey:@"radius"] floatValue] : 0;
-			[settings removeObjectForKey:@"radius"];
-			
-            NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:NSU8(args[1])]];
-
-            if (!data) {
-                NSLog(@"line %lu: incorrect image URL: %s", line, args[1].c_str());
-                continue;
-            }
-            CGImageRef image = NULL;
-            if ((image = CreateImageFromJPEGDataWithCompression((CFDataRef)data, stof(args[2]))) == NULL) {
-                NSLog(@"line %lu: no image created from URL %s", line, args[1].c_str());
-                continue;
-            }
-            
-            CGImageRef sourceImage = needClip ? CGImageCreateWithImageInRect(image, CGRectMake(stof(args[3]), stof(args[4]), stof(args[5]), stof(args[6]))) : image;
-            CGRect targetRect = needClip ? CGRectMake(stof(args[7]), stof(args[8]), stof(args[9]), stof(args[10])) : CGRectMake(stof(args[3]), stof(args[4]), stof(args[5]), stof(args[6]));
-            
-            ContextGraphics cg(context);
-			CGContextSaveGState(context);
-			if (radius > 0) AddBorderRadiusPath(context, targetRect, radius);
-			
-			cg.drawImage(sourceImage, targetRect);
-			CGContextRestoreGState(context);
-            CFRelease(image);
-            if (needClip) CFRelease(sourceImage);
-        }
         else if (CheckArgsAndContext("set", args, 2, line, context)) {
             [settings setObject:NSU8(args[2]) forKey:NSU8(args[1])];
         }
