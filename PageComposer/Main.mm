@@ -159,8 +159,16 @@ BOOL RunFile(istream& ist, NSString *overrideOutputPath)
             else {
                 pdf->close();
                 NSURL *url = overrideOutputPath ? [NSURL fileURLWithPath: overrideOutputPath]: [NSURL URLWithString:NSU8(args[1])];
+                
+                if ([url isFileURL]) {
+                    NSURL *parentURL = [url URLByDeletingLastPathComponent];
+                    NSFileManager *manager = [[NSFileManager alloc] init];
+                    [manager createDirectoryAtURL: parentURL withIntermediateDirectories: YES attributes: nil error: NULL];
+                    [manager release];
+                }
                 NSData *data = (NSData*)pdf->data();
                 [data writeToURL:url atomically:YES];
+                NSLog(@"line %lu: write to file %@", line, overrideOutputPath);
                 context = 0;
                 delete pdf;
                 pdf = 0;                        
@@ -173,8 +181,15 @@ BOOL RunFile(istream& ist, NSString *overrideOutputPath)
             }
             CGFloat dpi = stof(args[1]);
             CGFloat scale = stof(args[2]);
-            NSURL *url = overrideOutputPath ? [NSURL fileURLWithPath: overrideOutputPath] : [NSURL URLWithString: NSU8(args[3])];
             pdf->close();
+
+            NSURL *url = overrideOutputPath ? [NSURL fileURLWithPath: overrideOutputPath] : [NSURL URLWithString: NSU8(args[3])];
+            if ([url isFileURL]) {
+                NSURL *parentURL = [url URLByDeletingLastPathComponent];
+                NSFileManager *manager = [[NSFileManager alloc] init];
+                [manager createDirectoryAtURL: parentURL withIntermediateDirectories: YES attributes: nil error: NULL];
+                [manager release];
+            }
             
             CGDataProviderRef dataProvider = CGDataProviderCreateWithCFData(pdf->data());
             CGPDFDocumentRef pdfDocument = CGPDFDocumentCreateWithProvider(dataProvider);
