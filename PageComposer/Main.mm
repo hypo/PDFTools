@@ -380,6 +380,7 @@ BOOL RunFile(istream& ist, NSString *overrideOutputPath)
             NSTextStorage *textStorage = [[NSTextStorage alloc] initWithAttributedString: attributedText];
             NSLayoutManager *layoutManager = [[NSLayoutManager alloc] init];
             NSTextContainer *textContainer = [[YLVerticalTextContainer alloc] initWithContainerSize: NSMakeSize(targetRect.size.height, targetRect.size.width)];
+            [layoutManager setUsesScreenFonts: NO];
             [layoutManager addTextContainer: textContainer];
             [textContainer release];
             [textStorage addLayoutManager:layoutManager];
@@ -395,10 +396,8 @@ BOOL RunFile(istream& ist, NSString *overrideOutputPath)
             [xfrm scaleXBy: 1 yBy: -1];
             [xfrm translateXBy: CGRectGetMaxX(targetRect) yBy: -CGRectGetMaxY(targetRect)];
             [xfrm rotateByDegrees: 90];
-//            [xfrm translateXBy: -(boundingRect.origin.x + boundingRect.origin.y + boundingRect.size.width) yBy: (boundingRect.origin.x - boundingRect.origin.y)];
             [xfrm concat];
 
-            
             NSRange glyphRange = [layoutManager glyphRangeForTextContainer:textContainer];
             [layoutManager drawGlyphsForGlyphRange: glyphRange atPoint: NSZeroPoint];
             
