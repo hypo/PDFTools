@@ -380,6 +380,7 @@ BOOL RunFile(istream& ist, NSString *overrideOutputPath)
             NSTextStorage *textStorage = [[NSTextStorage alloc] initWithAttributedString: attributedText];
             NSLayoutManager *layoutManager = [[NSLayoutManager alloc] init];
             NSTextContainer *textContainer = [[YLVerticalTextContainer alloc] initWithContainerSize: NSMakeSize(targetRect.size.height, targetRect.size.width)];
+            [textContainer setLineFragmentPadding: 0.0];
             [layoutManager setUsesScreenFonts: NO];
             [layoutManager addTextContainer: textContainer];
             [textContainer release];
