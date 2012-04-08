@@ -14,13 +14,13 @@ text 150 90 20 600 "測試頭歪一邊 Vertical Text 文字"
 
 
 
-simplecolor 0xDDBBAA 400 200 300 20
+simplecolor 0xDDBBAA 360 100 300 20
 
 set FontSize 10pt
 set Typeface Times
 set FontSizeCJK 10pt
 set TypefaceCJK HiraginoSansGB-W3
-text 400 200 300 20 "橫的不受影響 horizontal"
+text 360 100 300 20 "橫的不受影響 horizontal"
 
 
 simplecolor 0xAAEEBB 180 60 100 600
@@ -38,12 +38,145 @@ vtext 180 60 100 600 "測試…直排？標點，符號。 Vertical Text, 混合
 
 
 simplecolor 0x336600 300 250 100 100
-
 set FontSize 16pt
 set Typeface Times
 set FontSizeCJK 16pt
 set TypefaceCJK HiraginoSansGB-W3
 set Color white
 text 300 250 100 100 "橫的不受影響 horizontal again"
+
+# Text Alignment
+
+simplecolor 0xcccc99 500 200 140 90
+set FontSizeCJK 14pt
+set TypefaceCJK HiraginoSansGB-W3
+set TextAlign left
+set TextVerticalAlign top
+text 500 200 140 90 "左上"
+
+simplecolor 0xcccc99 650 200 140 90
+set FontSizeCJK 14pt
+set TypefaceCJK HiraginoSansGB-W3
+set TextAlign center
+set TextVerticalAlign top
+text 650 200 140 90 "中上"
+
+simplecolor 0xcccc99 800 200 140 90
+set FontSizeCJK 14pt
+set TypefaceCJK HiraginoSansGB-W3
+set TextAlign right
+set TextVerticalAlign top
+text 800 200 140 90 "右上"
+
+simplecolor 0xcccc99 500 300 140 90
+set FontSizeCJK 14pt
+set TypefaceCJK HiraginoSansGB-W3
+set TextAlign left
+set TextVerticalAlign center
+text 500 300 140 90 "左中"
+
+simplecolor 0xcccc99 650 300 140 90
+set FontSizeCJK 14pt
+set TypefaceCJK HiraginoSansGB-W3
+set TextAlign center
+set TextVerticalAlign center
+text 650 300 140 90 "中中"
+
+simplecolor 0xcccc99 800 300 140 90
+set FontSizeCJK 14pt
+set TypefaceCJK HiraginoSansGB-W3
+set TextAlign right
+set TextVerticalAlign center
+text 800 300 140 90 "右中"
+
+simplecolor 0xcccc99 500 400 140 90
+set FontSizeCJK 14pt
+set TypefaceCJK HiraginoSansGB-W3
+set TextAlign left
+set TextVerticalAlign bottom
+
+text 500 400 140 90 "左下"
+
+simplecolor 0xcccc99 650 400 140 90
+set FontSizeCJK 14pt
+set TypefaceCJK HiraginoSansGB-W3
+set TextAlign center
+set TextVerticalAlign bottom
+
+text 650 400 140 90 "中下"
+
+simplecolor 0xcccc99 800 400 140 90
+set FontSizeCJK 14pt
+set TypefaceCJK HiraginoSansGB-W3
+set TextAlign right
+set TextVerticalAlign bottom
+
+text 800 400 140 90 "右下"
+
+# vtext
+
+simplecolor 0xcccc99 500 500 140 90
+set FontSizeCJK 14pt
+set TypefaceCJK HiraginoSansGB-W3
+set TextAlign left
+set TextVerticalAlign top
+vtext 500 500 140 90 "左上"
+
+simplecolor 0xcccc99 650 500 140 90
+set FontSizeCJK 14pt
+set TypefaceCJK HiraginoSansGB-W3
+set TextAlign center
+set TextVerticalAlign top
+vtext 650 500 140 90 "中上"
+
+simplecolor 0xcccc99 800 500 140 90
+set FontSizeCJK 14pt
+set TypefaceCJK HiraginoSansGB-W3
+set TextAlign right
+set TextVerticalAlign top
+vtext 800 500 140 90 "右上"
+
+simplecolor 0xcccc99 500 600 140 90
+set FontSizeCJK 14pt
+set TypefaceCJK HiraginoSansGB-W3
+set TextAlign left
+set TextVerticalAlign center
+vtext 500 600 140 90 "左中"
+
+simplecolor 0xcccc99 650 600 140 90
+set FontSizeCJK 14pt
+set TypefaceCJK HiraginoSansGB-W3
+set TextAlign center
+set TextVerticalAlign center
+vtext 650 600 140 90 "中中"
+
+simplecolor 0xcccc99 800 600 140 90
+set FontSizeCJK 14pt
+set TypefaceCJK HiraginoSansGB-W3
+set TextAlign right
+set TextVerticalAlign center
+vtext 800 600 140 90 "右中"
+
+simplecolor 0xcccc99 500 700 140 90
+set FontSizeCJK 14pt
+set TypefaceCJK HiraginoSansGB-W3
+set TextAlign left
+set TextVerticalAlign bottom
+vtext 500 700 140 90 "左下"
+
+simplecolor 0xcccc99 650 700 140 90
+set FontSizeCJK 14pt
+set TypefaceCJK HiraginoSansGB-W3
+set TextAlign center
+set TextVerticalAlign bottom
+vtext 650 700 140 90 "中下"
+
+simplecolor 0xcccc99 800 700 140 90
+set FontSizeCJK 14pt
+set TypefaceCJK HiraginoSansGB-W3
+set TextAlign right
+set TextVerticalAlign bottom
+vtext 800 700 140 90 "右下"
+
 
 endpdf file:///tmp/output.pdf
