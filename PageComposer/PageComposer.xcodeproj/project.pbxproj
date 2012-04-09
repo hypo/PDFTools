@@ -18,137 +18,11 @@
 		85838EAB1520507C004578BF /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85838EAA1520507C004578BF /* ApplicationServices.framework */; };
 		85838EAC152052C9004578BF /* YLCTUtilities.mm in Sources */ = {isa = PBXBuildFile; fileRef = 85838EA81520503A004578BF /* YLCTUtilities.mm */; };
 		DAC117F1104A36980064004E /* ZRCGUtilities.mm in Sources */ = {isa = PBXBuildFile; fileRef = DAC117F0104A36980064004E /* ZRCGUtilities.mm */; };
-		DAC9C1E7110A1A0B00C3EDA5 /* PageElements.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAC9C1C3110A1A0000C3EDA5 /* PageElements.framework */; };
-		DAC9C1E8110A1A1A00C3EDA5 /* PageElements.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DAC9C1C3110A1A0000C3EDA5 /* PageElements.framework */; };
-		DAC9C1ED110A1A7500C3EDA5 /* NSExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAC9C1C1110A1A0000C3EDA5 /* NSExtensions.framework */; };
-		DAC9C1F2110A1A8300C3EDA5 /* NSExtensions.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DAC9C1C1110A1A0000C3EDA5 /* NSExtensions.framework */; };
 		DAC9C211110A1D6C00C3EDA5 /* ColorBitmapContext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DAC9C20D110A1D6C00C3EDA5 /* ColorBitmapContext.cpp */; };
 		DAC9C212110A1D6C00C3EDA5 /* ContextGraphics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DAC9C20E110A1D6C00C3EDA5 /* ContextGraphics.cpp */; };
 		DAC9C213110A1D6C00C3EDA5 /* ImageHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DAC9C20F110A1D6C00C3EDA5 /* ImageHelper.cpp */; };
 		DAC9C214110A1D6C00C3EDA5 /* SinglePagePDF.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DAC9C210110A1D6C00C3EDA5 /* SinglePagePDF.cpp */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		DAC9C1BC110A1A0000C3EDA5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DAC9C1A6110A19FF00C3EDA5 /* PageCircus.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 6A080F370B24DA4A0078A159;
-			remoteInfo = BookMaker;
-		};
-		DAC9C1BE110A1A0000C3EDA5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DAC9C1A6110A19FF00C3EDA5 /* PageCircus.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 6A0C0D9D0B1F683C00F0A66E;
-			remoteInfo = DrawingTools;
-		};
-		DAC9C1C0110A1A0000C3EDA5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DAC9C1A6110A19FF00C3EDA5 /* PageCircus.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 6A0C07E30B1F417300F0A66E;
-			remoteInfo = NSExtensions;
-		};
-		DAC9C1C2110A1A0000C3EDA5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DAC9C1A6110A19FF00C3EDA5 /* PageCircus.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 6A0C0BFB0B1F64FE00F0A66E;
-			remoteInfo = PageElements;
-		};
-		DAC9C1C4110A1A0000C3EDA5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DAC9C1A6110A19FF00C3EDA5 /* PageCircus.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 6A0C0BD80B1F649F00F0A66E;
-			remoteInfo = PageElementsDrawingTests;
-		};
-		DAC9C1C6110A1A0000C3EDA5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DAC9C1A6110A19FF00C3EDA5 /* PageCircus.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 6A0B49070B214C0B00BFC667;
-			remoteInfo = PhotoBookHelper;
-		};
-		DAC9C1C8110A1A0000C3EDA5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DAC9C1A6110A19FF00C3EDA5 /* PageCircus.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 6A080E470B24D98B0078A159;
-			remoteInfo = BookMakerOutputTest;
-		};
-		DAC9C1CA110A1A0000C3EDA5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DAC9C1A6110A19FF00C3EDA5 /* PageCircus.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 6A0351720B22C3240029C96E;
-			remoteInfo = BookMakerTests;
-		};
-		DAC9C1CC110A1A0000C3EDA5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DAC9C1A6110A19FF00C3EDA5 /* PageCircus.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 6A0C05EE0B1F270700F0A66E;
-			remoteInfo = PageElementsTests;
-		};
-		DAC9C1CE110A1A0000C3EDA5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DAC9C1A6110A19FF00C3EDA5 /* PageCircus.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 6A0A35F30B24EB5400E3888F;
-			remoteInfo = NSExtensionsTests;
-		};
-		DAC9C1D0110A1A0000C3EDA5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DAC9C1A6110A19FF00C3EDA5 /* PageCircus.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 6A3D391A0B27880C00DB2BE7;
-			remoteInfo = NSRunLoopStudy;
-		};
-		DAC9C1D2110A1A0000C3EDA5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DAC9C1A6110A19FF00C3EDA5 /* PageCircus.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 6AB0378C0B36E0200050A519;
-			remoteInfo = PagePreviewer;
-		};
-		DAC9C1D4110A1A0000C3EDA5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DAC9C1A6110A19FF00C3EDA5 /* PageCircus.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 6A00848F0B9110EE00ED7235;
-			remoteInfo = PageFixer;
-		};
-		DAC9C1D6110A1A0000C3EDA5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DAC9C1A6110A19FF00C3EDA5 /* PageCircus.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 6A0778730D84551800306420;
-			remoteInfo = BarcodeOverprinter;
-		};
-		DAC9C1D8110A1A0000C3EDA5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DAC9C1A6110A19FF00C3EDA5 /* PageCircus.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 8523D5900F83E23000A09199;
-			remoteInfo = TextPlayground;
-		};
-		DAC9C1F3110A1A9E00C3EDA5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DAC9C1A6110A19FF00C3EDA5 /* PageCircus.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 6A0C0BFA0B1F64FE00F0A66E;
-			remoteInfo = PageElements;
-		};
-		DAC9C1F5110A1AA100C3EDA5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DAC9C1A6110A19FF00C3EDA5 /* PageCircus.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 6A0C07E20B1F417300F0A66E;
-			remoteInfo = NSExtensions;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		6A4966BF0DE4796B001E75AA /* CopyFiles */ = {
@@ -157,8 +31,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				DAC9C1F2110A1A8300C3EDA5 /* NSExtensions.framework in CopyFiles */,
-				DAC9C1E8110A1A1A00C3EDA5 /* PageElements.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,10 +66,9 @@
 		856AD7A50F93AD1500E10EC7 /* DFHei.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = DFHei.ttf; sourceTree = "<group>"; };
 		85838EA71520503A004578BF /* YLCTUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLCTUtilities.h; sourceTree = "<group>"; };
 		85838EA81520503A004578BF /* YLCTUtilities.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = YLCTUtilities.mm; sourceTree = "<group>"; };
-		85838EAA1520507C004578BF /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = ../../../../../System/Library/Frameworks/ApplicationServices.framework; sourceTree = "<group>"; };
+		85838EAA1520507C004578BF /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = /System/Library/Frameworks/ApplicationServices.framework; sourceTree = "<absolute>"; };
 		DAC117EF104A36980064004E /* ZRCGUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZRCGUtilities.h; sourceTree = "<group>"; };
 		DAC117F0104A36980064004E /* ZRCGUtilities.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ZRCGUtilities.mm; sourceTree = "<group>"; };
-		DAC9C1A6110A19FF00C3EDA5 /* PageCircus.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PageCircus.xcodeproj; path = ../PageCircus/PageCircus.xcodeproj; sourceTree = SOURCE_ROOT; };
 		DAC9C20D110A1D6C00C3EDA5 /* ColorBitmapContext.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ColorBitmapContext.cpp; sourceTree = "<group>"; };
 		DAC9C20E110A1D6C00C3EDA5 /* ContextGraphics.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ContextGraphics.cpp; sourceTree = "<group>"; };
 		DAC9C20F110A1D6C00C3EDA5 /* ImageHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ImageHelper.cpp; sourceTree = "<group>"; };
@@ -216,8 +87,6 @@
 			files = (
 				85838EAB1520507C004578BF /* ApplicationServices.framework in Frameworks */,
 				6A4966980DE4793C001E75AA /* Cocoa.framework in Frameworks */,
-				DAC9C1E7110A1A0B00C3EDA5 /* PageElements.framework in Frameworks */,
-				DAC9C1ED110A1A7500C3EDA5 /* NSExtensions.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,7 +96,6 @@
 		6A4966650DE4788E001E75AA = {
 			isa = PBXGroup;
 			children = (
-				85838EAA1520507C004578BF /* ApplicationServices.framework */,
 				6A49669D0DE47941001E75AA /* Source */,
 				6A4966890DE47909001E75AA /* Dependencies */,
 				6A4966960DE4791F001E75AA /* Apple Frameworks */,
@@ -248,7 +116,6 @@
 		6A4966890DE47909001E75AA /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
-				DAC9C1A6110A19FF00C3EDA5 /* PageCircus.xcodeproj */,
 			);
 			name = Dependencies;
 			sourceTree = "<group>";
@@ -256,6 +123,7 @@
 		6A4966960DE4791F001E75AA /* Apple Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				85838EAA1520507C004578BF /* ApplicationServices.framework */,
 				6A4966970DE4793C001E75AA /* Cocoa.framework */,
 			);
 			name = "Apple Frameworks";
@@ -290,28 +158,6 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
-		DAC9C1A7110A19FF00C3EDA5 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				DAC9C1BD110A1A0000C3EDA5 /* BookMaker.framework */,
-				DAC9C1BF110A1A0000C3EDA5 /* DrawingTools.framework */,
-				DAC9C1C1110A1A0000C3EDA5 /* NSExtensions.framework */,
-				DAC9C1C3110A1A0000C3EDA5 /* PageElements.framework */,
-				DAC9C1C5110A1A0000C3EDA5 /* PageElementsDrawingTests.app */,
-				DAC9C1C7110A1A0000C3EDA5 /* PhotoBookHelper.app */,
-				DAC9C1C9110A1A0000C3EDA5 /* BookMakerOutputTest.app */,
-				DAC9C1CB110A1A0000C3EDA5 /* BookMakerTests.octest */,
-				DAC9C1CD110A1A0000C3EDA5 /* PageElementsTests.octest */,
-				DAC9C1CF110A1A0000C3EDA5 /* NSExtensionsTests.octest */,
-				DAC9C1D1110A1A0000C3EDA5 /* NSRunLoopStudy.app */,
-				DAC9C1D3110A1A0000C3EDA5 /* PagePreviewer.app */,
-				DAC9C1D5110A1A0000C3EDA5 /* PageFixer.app */,
-				DAC9C1D7110A1A0000C3EDA5 /* BarcodeOverprinter.app */,
-				DAC9C1D9110A1A0000C3EDA5 /* TextPlayground.app */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		DAC9C207110A1D6100C3EDA5 /* LFSimpleGraphics */ = {
 			isa = PBXGroup;
 			children = (
@@ -344,8 +190,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				DAC9C1F4110A1A9E00C3EDA5 /* PBXTargetDependency */,
-				DAC9C1F6110A1AA100C3EDA5 /* PBXTargetDependency */,
 			);
 			name = PageComposer;
 			productName = PageComposer;
@@ -367,126 +211,12 @@
 			mainGroup = 6A4966650DE4788E001E75AA;
 			productRefGroup = 6A49667D0DE478A8001E75AA /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = DAC9C1A7110A19FF00C3EDA5 /* Products */;
-					ProjectRef = DAC9C1A6110A19FF00C3EDA5 /* PageCircus.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				6A49667B0DE478A8001E75AA /* PageComposer */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		DAC9C1BD110A1A0000C3EDA5 /* BookMaker.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = BookMaker.framework;
-			remoteRef = DAC9C1BC110A1A0000C3EDA5 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		DAC9C1BF110A1A0000C3EDA5 /* DrawingTools.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = DrawingTools.framework;
-			remoteRef = DAC9C1BE110A1A0000C3EDA5 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		DAC9C1C1110A1A0000C3EDA5 /* NSExtensions.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = NSExtensions.framework;
-			remoteRef = DAC9C1C0110A1A0000C3EDA5 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		DAC9C1C3110A1A0000C3EDA5 /* PageElements.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = PageElements.framework;
-			remoteRef = DAC9C1C2110A1A0000C3EDA5 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		DAC9C1C5110A1A0000C3EDA5 /* PageElementsDrawingTests.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = PageElementsDrawingTests.app;
-			remoteRef = DAC9C1C4110A1A0000C3EDA5 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		DAC9C1C7110A1A0000C3EDA5 /* PhotoBookHelper.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = PhotoBookHelper.app;
-			remoteRef = DAC9C1C6110A1A0000C3EDA5 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		DAC9C1C9110A1A0000C3EDA5 /* BookMakerOutputTest.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = BookMakerOutputTest.app;
-			remoteRef = DAC9C1C8110A1A0000C3EDA5 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		DAC9C1CB110A1A0000C3EDA5 /* BookMakerTests.octest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = BookMakerTests.octest;
-			remoteRef = DAC9C1CA110A1A0000C3EDA5 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		DAC9C1CD110A1A0000C3EDA5 /* PageElementsTests.octest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = PageElementsTests.octest;
-			remoteRef = DAC9C1CC110A1A0000C3EDA5 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		DAC9C1CF110A1A0000C3EDA5 /* NSExtensionsTests.octest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = NSExtensionsTests.octest;
-			remoteRef = DAC9C1CE110A1A0000C3EDA5 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		DAC9C1D1110A1A0000C3EDA5 /* NSRunLoopStudy.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = NSRunLoopStudy.app;
-			remoteRef = DAC9C1D0110A1A0000C3EDA5 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		DAC9C1D3110A1A0000C3EDA5 /* PagePreviewer.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = PagePreviewer.app;
-			remoteRef = DAC9C1D2110A1A0000C3EDA5 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		DAC9C1D5110A1A0000C3EDA5 /* PageFixer.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = PageFixer.app;
-			remoteRef = DAC9C1D4110A1A0000C3EDA5 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		DAC9C1D7110A1A0000C3EDA5 /* BarcodeOverprinter.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = BarcodeOverprinter.app;
-			remoteRef = DAC9C1D6110A1A0000C3EDA5 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		DAC9C1D9110A1A0000C3EDA5 /* TextPlayground.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = TextPlayground.app;
-			remoteRef = DAC9C1D8110A1A0000C3EDA5 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		6A4966780DE478A8001E75AA /* Resources */ = {
@@ -514,19 +244,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		DAC9C1F4110A1A9E00C3EDA5 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = PageElements;
-			targetProxy = DAC9C1F3110A1A9E00C3EDA5 /* PBXContainerItemProxy */;
-		};
-		DAC9C1F6110A1AA100C3EDA5 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = NSExtensions;
-			targetProxy = DAC9C1F5110A1AA100C3EDA5 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		6A4966680DE4788E001E75AA /* Debug */ = {

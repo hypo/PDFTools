@@ -2,7 +2,6 @@
 
 #import <Cocoa/Cocoa.h>
 #import "LFSimpleGraphics.h"
-#import <PageElements/PageElements.h>
 #import "ZRCGUtilities.h"
 #import "YLCTUtilities.h"
 
@@ -314,74 +313,40 @@ BOOL RunFile(istream& ist, NSString *overrideOutputPath)
         else if (CheckArgsAndContext("barcode", args, 5, line, context)) {
             // args: barcode x y w h string
             
-            NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
-            [dict setObject:NSU8(args[5]) forKey:@"text"];
-            NSRect rect = NSMakeRect(stof(args[1]), stof(args[2]), stof(args[3]), stof(args[4]));
-            NSLog(@"rect(x=%f, y=%f, w=%f, h=%f)", rect.origin.x, rect.origin.y, rect.size.width, rect.size.height);
-            PEBarcodeCode39 *barcode = [PEBarcodeCode39 barcodeWithDictionary:dict boundingRect:rect];
-
-            NSGraphicsContext *cocoagc = [NSGraphicsContext graphicsContextWithGraphicsPort:context flipped:NO];
-            [NSGraphicsContext saveGraphicsState];
-            [NSGraphicsContext setCurrentContext:cocoagc];        
-            [barcode drawWithOutputControl:nil];
-            [NSGraphicsContext restoreGraphicsState];
-            
-            [dict release];
+//            NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+//            [dict setObject:NSU8(args[5]) forKey:@"text"];
+//            NSRect rect = NSMakeRect(stof(args[1]), stof(args[2]), stof(args[3]), stof(args[4]));
+//            NSLog(@"rect(x=%f, y=%f, w=%f, h=%f)", rect.origin.x, rect.origin.y, rect.size.width, rect.size.height);
+//            PEBarcodeCode39 *barcode = [PEBarcodeCode39 barcodeWithDictionary:dict boundingRect:rect];
+//
+//            NSGraphicsContext *cocoagc = [NSGraphicsContext graphicsContextWithGraphicsPort:context flipped:NO];
+//            [NSGraphicsContext saveGraphicsState];
+//            [NSGraphicsContext setCurrentContext:cocoagc];        
+//            [barcode drawWithOutputControl:nil];
+//            [NSGraphicsContext restoreGraphicsState];
+//            
+//            [dict release];
         }
-        else if (CheckArgsAndContext("text", args, 5, line, context) || CheckArgsAndContext("text_checksize", args, 5, line, context)) {
-            // args: text origX origY width height string
-            
-            NSDictionary *textDictionary = [settings textDictionaryWithText: NSU8(args[5])];
-            
-            BOOL clockwiseRotation = [[settings objectForKey: @"ContentRotation"] isEqualToString: @"clockwise"];
-            NSRect boundingRect = NSMakeRect(stof(args[1]), stof(args[2]), stof(args[3]), stof(args[4]));
-            if (clockwiseRotation) {
-                boundingRect = NSMakeRect(stof(args[1]), stof(args[2]), stof(args[4]), stof(args[3]));
-            }
-            [settings removeObjectForKey: @"ContentRotation"];
-            
-            PETextBlock *textBlock = [PETextBlock textBlockWithDictionary:textDictionary boundingRect:
-                boundingRect];
-
-            NSRect actualBox = NSZeroRect;
-            if (CheckArgsAndContext("text_checksize", args, 5, line, context)) {
-                NSAttributedString *attrString = [textBlock attributedString];
-                actualBox = [attrString boundingRectWithSize: boundingRect.size options: NSStringDrawingUsesLineFragmentOrigin];
-
-                if (actualBox.size.width > boundingRect.size.width || actualBox.size.height > boundingRect.size.height)
-				{
-					NSLog(@"oversize detected, actualBox=%@", NSStringFromRect(actualBox));
-                    needRedBorder = YES;
-				}
-            }
-            
-            NSGraphicsContext *cocoagc = [NSGraphicsContext graphicsContextWithGraphicsPort:context flipped:NO];
-            CGContextSaveGState(context);
-            [NSGraphicsContext saveGraphicsState];
-            [NSGraphicsContext setCurrentContext:cocoagc];
-            if (clockwiseRotation) {
-                NSAffineTransform *xfrm = [NSAffineTransform transform];
-                [xfrm rotateByDegrees: -90];
-                [xfrm translateXBy: -(boundingRect.origin.x + boundingRect.origin.y + boundingRect.size.width) yBy: (boundingRect.origin.x - boundingRect.origin.y)];
-                [xfrm concat];
-            }
-            [textBlock drawWithOutputControl:nil];
-            [NSGraphicsContext restoreGraphicsState];
-            CGContextRestoreGState(context);
-            // Reset settings
-            [settings setDefaultSettings];
-        } 
-        else if (CheckArgsAndContext("vtext", args, 5, line, context)) {
-            BOOL vertical = YES;
-            NSAttributedString *attributedText = attributedStringWithOptions(NSU8(args[5]), settings, vertical);
-
+        else if (CheckArgsAndContext("text", args, 5, line, context) || CheckArgsAndContext("text_checksize", args, 5, line, context) || CheckArgsAndContext("vtext", args, 5, line, context)) {
+            NSAttributedString *attributedText = attributedStringWithOptions(NSU8(args[5]), settings);
             CGRect targetRect = CGRectMake(stof(args[1]), stof(args[2]), stof(args[3]), stof(args[4]));
             
+            BOOL vertical = CheckArgsAndContext("vtext", args, 5, line, context) || CheckArgsAndContext("vtext_checksize", args, 5, line, context);
+            BOOL checkSize = CheckArgsAndContext("text_checksize", args, 5, line, context) || CheckArgsAndContext("vtext_checksize", args, 5, line, context);
+            
+            BOOL clockwiseRotation = [[settings objectForKey: @"ContentRotation"] isEqualToString: @"clockwise"];
+            [settings removeObjectForKey: @"ContentRotation"];
+
+            NSSize boundingSize = (clockwiseRotation || vertical) ? NSMakeSize(stof(args[4]), stof(args[3])) : NSMakeSize(stof(args[3]), stof(args[4]));
+
             NSTextStorage *textStorage = [[NSTextStorage alloc] initWithAttributedString: attributedText];
             NSLayoutManager *layoutManager = [[NSLayoutManager alloc] init];
-            NSTextContainer *textContainer = [[YLVerticalTextContainer alloc] initWithContainerSize: NSMakeSize(targetRect.size.height, targetRect.size.width)];
-            [textContainer setLineFragmentPadding: 0.0];
-            [layoutManager setUsesScreenFonts: NO];
+            YLTextContainer *textContainer = [[YLTextContainer alloc] initWithContainerSize: boundingSize];
+            textContainer.verticalText = vertical;
+            textContainer.lineFragmentPadding = 0.0;
+
+            layoutManager.usesScreenFonts = NO;
+            layoutManager.usesFontLeading = NO;
             [layoutManager addTextContainer: textContainer];
             [textContainer release];
             [textStorage addLayoutManager:layoutManager];
@@ -395,18 +360,44 @@ BOOL RunFile(istream& ist, NSString *overrideOutputPath)
             [NSGraphicsContext setCurrentContext:cocoagc];
             NSAffineTransform *xfrm = [NSAffineTransform transform];
             [xfrm scaleXBy: 1 yBy: -1];
-            [xfrm translateXBy: CGRectGetMaxX(targetRect) yBy: -CGRectGetMaxY(targetRect)];
-            [xfrm rotateByDegrees: 90];
+            [xfrm translateXBy: CGRectGetMinX(targetRect) yBy: -CGRectGetMaxY(targetRect)];
+            
+            if (clockwiseRotation || vertical) {
+                [xfrm rotateByDegrees: 90];
+                [xfrm translateXBy: 0 yBy: -boundingSize.height];
+            }
+            
             [xfrm concat];
-
+            
             NSRange glyphRange = [layoutManager glyphRangeForTextContainer:textContainer];
-            [layoutManager drawGlyphsForGlyphRange: glyphRange atPoint: NSZeroPoint];
+
+            NSRect actualRect = [layoutManager boundingRectForGlyphRange: glyphRange inTextContainer: textContainer];
+            NSRect box = [attributedText boundingRectWithSize: boundingSize options: NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingDisableScreenFontSubstitution];
+            NSLog(@"leading? %@", layoutManager.usesFontLeading ? @"yes" : @"no");
+            NSString *verticalAlignment = [settings objectForKey: @"TextVerticalAlign"] ?: @"top";
+            CGFloat deltaY = 0;
+            if  ([verticalAlignment isEqualToString: @"center"]) {
+                deltaY = (boundingSize.height - actualRect.size.height) / 2;
+            } else if ([verticalAlignment isEqualToString: @"bottom"]) {
+                deltaY = (boundingSize.height - actualRect.size.height);
+            }
+            [layoutManager drawGlyphsForGlyphRange: glyphRange atPoint: NSMakePoint(0, deltaY)];
+            
+            NSInteger i;
+            [[NSColor blueColor] set];
+            for (i = 0; i < glyphRange.length; i++) {
+                NSRect bbox = [layoutManager boundingRectForGlyphRange: NSMakeRange(i, 1) inTextContainer: textContainer];
+                [NSBezierPath strokeRect: NSMakeRect(bbox.origin.x, bbox.origin.y + deltaY, bbox.size.width, bbox.size.height)];
+            }
+            
+            [[NSColor redColor] set];
+            [NSBezierPath strokeRect: NSMakeRect(actualRect.origin.x, deltaY, actualRect.size.width, actualRect.size.height)];
             
             [NSGraphicsContext restoreGraphicsState];
             CGContextRestoreGState(context);
             // Reset settings
             [settings setDefaultSettings];
-        }
+        } 
         else if (CheckArgsAndContext("simpletext", args, 3, line, context)) {
             NSGraphicsContext *cocoagc = [NSGraphicsContext graphicsContextWithGraphicsPort:context flipped:NO];
             [NSGraphicsContext saveGraphicsState];
@@ -418,21 +409,15 @@ BOOL RunFile(istream& ist, NSString *overrideOutputPath)
             [NSGraphicsContext restoreGraphicsState];        
         }
         else if (CheckArgsAndContext("simplecolor", args, 5, line, context)) {
-            //args: color-name x y w h
             NSGraphicsContext *cocoagc = [NSGraphicsContext graphicsContextWithGraphicsPort:context flipped:NO];
             [NSGraphicsContext saveGraphicsState];
-            [NSGraphicsContext setCurrentContext:cocoagc];        
+            [NSGraphicsContext setCurrentContext:cocoagc];
 
-            NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
-            [dict setObject:NSU8(args[1]) forKey:@"fill-color"];
-            [dict setObject:@"0.0" forKey:@"line-width"];
+            NSColor *color = [NSColor colorByName: NSU8(args[1])];
+            [color set];
+            [NSBezierPath fillRect: NSMakeRect(stof(args[2]), stof(args[3]), stof(args[4]), stof(args[5]))];
             
-            PERectangle *rect = [[PERectangle alloc] initWithDictionary:dict boundingRect: NSMakeRect(stof(args[2]), stof(args[3]), stof(args[4]), stof(args[5]))];
-            [rect drawWithOutputControl: nil];
-            
-            [dict release];
-            [rect release];
-            [NSGraphicsContext restoreGraphicsState];                    
+            [NSGraphicsContext restoreGraphicsState];        
         }
         else {
             NSLog(@"line %lu: unknown command '%s'", line, args[0].c_str());

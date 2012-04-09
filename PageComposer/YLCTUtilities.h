@@ -10,9 +10,16 @@
 #import <Cocoa/Cocoa.h>
 #import <ApplicationServices/ApplicationServices.h>
 
-NSAttributedString *attributedStringWithOptions(NSString *text, NSDictionary *options, BOOL vertical);
+@interface NSColor(PEColorByName)
++ (NSColor*)colorByName:(NSString*)name;
+@end
+
+NSAttributedString *attributedStringWithOptions(NSString *text, NSDictionary *options);
 CTFrameRef createCTFrame(CFAttributedStringRef text, CGRect boundingRect, BOOL vertical);
 
-@interface YLVerticalTextContainer : NSTextContainer
-
+@interface YLTextContainer : NSTextContainer
+{
+    BOOL verticalText;
+}
+@property BOOL verticalText;
 @end
