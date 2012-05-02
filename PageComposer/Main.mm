@@ -327,7 +327,7 @@ BOOL RunFile(istream& ist, NSString *overrideOutputPath)
 //            
 //            [dict release];
         }
-        else if (CheckArgsAndContext("text", args, 5, line, context) || CheckArgsAndContext("text_checksize", args, 5, line, context) || CheckArgsAndContext("vtext", args, 5, line, context)) {
+        else if (CheckArgsAndContext("text", args, 5, line, context) || CheckArgsAndContext("text_checksize", args, 5, line, context) || CheckArgsAndContext("vtext", args, 5, line, context) || CheckArgsAndContext("vtext_checksize", args, 5, line, context)) {
             NSAttributedString *attributedText = attributedStringWithOptions(NSU8(args[5]), settings);
             CGRect targetRect = CGRectMake(stof(args[1]), stof(args[2]), stof(args[3]), stof(args[4]));
             
@@ -372,8 +372,18 @@ BOOL RunFile(istream& ist, NSString *overrideOutputPath)
             NSRange glyphRange = [layoutManager glyphRangeForTextContainer:textContainer];
 
             NSRect actualRect = [layoutManager boundingRectForGlyphRange: glyphRange inTextContainer: textContainer];
-            NSRect box = [attributedText boundingRectWithSize: boundingSize options: NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingDisableScreenFontSubstitution];
-            NSLog(@"leading? %@", layoutManager.usesFontLeading ? @"yes" : @"no");
+            if (vertical && [attributedText length] > 0) {
+                NSAttributedString *measure = [attributedText attributedSubstringFromRange: NSMakeRange(0, 1)];
+                NSRect measureSize = [measure boundingRectWithSize: boundingSize options: NSStringDrawingUsesLineFragmentOrigin |NSStringDrawingDisableScreenFontSubstitution];
+                CGFloat lineHeight = [layoutManager boundingRectForGlyphRange: NSMakeRange(0, 1) inTextContainer: textContainer].size.height;
+                
+                if (isCJK([[measure string] characterAtIndex: 0])) {
+                    actualRect.size.height -= MAX(0, (lineHeight - measureSize.size.width));
+                } else {
+                    actualRect.size.height -= MAX(0, (lineHeight - measureSize.size.height));
+                }
+            }
+
             NSString *verticalAlignment = [settings objectForKey: @"TextVerticalAlign"] ?: @"top";
             CGFloat deltaY = 0;
             if  ([verticalAlignment isEqualToString: @"center"]) {
@@ -382,16 +392,14 @@ BOOL RunFile(istream& ist, NSString *overrideOutputPath)
                 deltaY = (boundingSize.height - actualRect.size.height);
             }
             [layoutManager drawGlyphsForGlyphRange: glyphRange atPoint: NSMakePoint(0, deltaY)];
-            
-            NSInteger i;
-            [[NSColor blueColor] set];
-            for (i = 0; i < glyphRange.length; i++) {
-                NSRect bbox = [layoutManager boundingRectForGlyphRange: NSMakeRange(i, 1) inTextContainer: textContainer];
-                [NSBezierPath strokeRect: NSMakeRect(bbox.origin.x, bbox.origin.y + deltaY, bbox.size.width, bbox.size.height)];
+                        
+            if (checkSize) {
+                if (actualRect.size.width > boundingSize.width || actualRect.size.height > boundingSize.height)
+				{
+					NSLog(@"oversize detected, actualBox=%@", NSStringFromRect(actualRect));
+                    needRedBorder = YES;
+				}
             }
-            
-            [[NSColor redColor] set];
-            [NSBezierPath strokeRect: NSMakeRect(actualRect.origin.x, deltaY, actualRect.size.width, actualRect.size.height)];
             
             [NSGraphicsContext restoreGraphicsState];
             CGContextRestoreGState(context);

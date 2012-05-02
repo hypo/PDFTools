@@ -10,6 +10,8 @@
 #import <Cocoa/Cocoa.h>
 #import <ApplicationServices/ApplicationServices.h>
 
+BOOL isCJK(UniChar c);
+
 @interface NSColor(PEColorByName)
 + (NSColor*)colorByName:(NSString*)name;
 @end
