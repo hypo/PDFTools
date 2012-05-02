@@ -341,7 +341,7 @@ BOOL RunFile(istream& ist, NSString *overrideOutputPath)
 
             NSTextStorage *textStorage = [[NSTextStorage alloc] initWithAttributedString: attributedText];
             NSLayoutManager *layoutManager = [[NSLayoutManager alloc] init];
-            YLTextContainer *textContainer = [[YLTextContainer alloc] initWithContainerSize: boundingSize];
+            YLTextContainer *textContainer = [[YLTextContainer alloc] initWithContainerSize: NSMakeSize(boundingSize.width, CGFLOAT_MAX)];
             textContainer.verticalText = vertical;
             textContainer.lineFragmentPadding = 0.0;
 
