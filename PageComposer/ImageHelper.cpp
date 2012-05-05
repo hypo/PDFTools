@@ -31,7 +31,7 @@ CGImageRef ImageHelper::CreateImageFromPNGData(CFDataRef data)
 
 CGImageRef ImageHelper::CreateImageByScaleTo(CGImageRef sourceImage, size_t width, size_t height)
 {
-    CGContextRef ctx = CGBitmapContextCreate(NULL, width, height, CGImageGetBitsPerComponent(sourceImage), CGImageGetBytesPerRow(sourceImage), CGImageGetColorSpace(sourceImage), CGImageGetBitmapInfo(sourceImage));
+    CGContextRef ctx = CGBitmapContextCreate(NULL, width, height, CGImageGetBitsPerComponent(sourceImage), CGImageGetBytesPerRow(sourceImage), CGImageGetColorSpace(sourceImage), kCGImageAlphaPremultipliedLast);
     CGContextSetInterpolationQuality(ctx, kCGInterpolationHigh);
     CGContextDrawImage(ctx, CGRectMake(0, 0, width, height), sourceImage);
     CGImageRef scaledImage = CGBitmapContextCreateImage(ctx);
