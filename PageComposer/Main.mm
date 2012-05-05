@@ -462,7 +462,9 @@ int main(int argc, char* argv[])
     else {        
         ifstream ifs;
         ifs.open(argv[optind]);
-        textOversized = RunFile(ifs, overrideFilePath);
+        if (ifs.good()) {
+            textOversized = RunFile(ifs, overrideFilePath);
+        }
     }
     
     [pool drain];
