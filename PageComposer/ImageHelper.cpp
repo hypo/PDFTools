@@ -31,11 +31,13 @@ CGImageRef ImageHelper::CreateImageFromPNGData(CFDataRef data)
 
 CGImageRef ImageHelper::CreateImageByScaleTo(CGImageRef sourceImage, size_t width, size_t height)
 {
-    CGContextRef ctx = CGBitmapContextCreate(NULL, width, height, CGImageGetBitsPerComponent(sourceImage), CGImageGetBytesPerRow(sourceImage), CGImageGetColorSpace(sourceImage), kCGImageAlphaPremultipliedLast);
+    CGColorSpaceRef rgb = CGColorSpaceCreateWithName(kCGColorSpaceGenericRGB);
+    CGContextRef ctx = CGBitmapContextCreate(NULL, width, height, 8, width * 4, rgb, kCGImageAlphaPremultipliedLast);
     CGContextSetInterpolationQuality(ctx, kCGInterpolationHigh);
     CGContextDrawImage(ctx, CGRectMake(0, 0, width, height), sourceImage);
     CGImageRef scaledImage = CGBitmapContextCreateImage(ctx);
     CGContextRelease(ctx);
+    CGColorSpaceRelease(rgb);
     return scaledImage;
 }
 
