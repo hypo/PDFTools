@@ -464,6 +464,8 @@ int main(int argc, char* argv[])
         ifs.open(argv[optind]);
         if (ifs.good()) {
             textOversized = RunFile(ifs, overrideFilePath);
+        } else {
+            NSLog(@"Cannot open file: %s", argv[optind]);
         }
     }
     
