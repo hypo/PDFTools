@@ -83,6 +83,14 @@ CGImageRef ImageHelper::CreateImageFromImageWithCompression(CGImageRef sourceIma
     
     bool success = CGImageDestinationFinalize(imageDestination);
     
+    if (!success) {
+        /* convert to RGB. try again. */
+        sourceImage = CreateImageByScaleTo(sourceImage, CGImageGetWidth(sourceImage), CGImageGetHeight(sourceImage)); 
+        CGImageDestinationAddImage(imageDestination, sourceImage, options);
+        success = CGImageDestinationFinalize(imageDestination);
+        CGImageRelease(sourceImage);
+    }
+    
     CFRelease(ratio);
     CFRelease(options);
     CFRelease(imageDestination);
