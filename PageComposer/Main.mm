@@ -255,8 +255,19 @@ BOOL RunFile(istream& ist, NSString *overrideOutputPath)
                     [data release];
                     ContextGraphics cg(context);
                     int shift = needCompress ? 1 : 0;
-                    CGImageRef sourceImage = needClip ? CGImageCreateWithImageInRect(image, CGRectMake(stof(args[2 + shift]), stof(args[3 + shift]), stof(args[4 + shift]), stof(args[5 + shift]))) : image;
-                    if (needClip) CFRelease(image);
+                    
+                    CGImageRef sourceImage = image;
+                    if (needClip) {
+                        CGFloat crop_x, crop_y, crop_w, crop_h;
+#define NORMALIZED_PIXEL(x, l)  ((x)[0] == 'x' || (x)[0] == 'X' || (x)[0] == '*') ? atof(x.c_str() + 1) * l : stof(x)
+                        crop_x = NORMALIZED_PIXEL(args[2 + shift], CGImageGetWidth(image));
+                        crop_y = NORMALIZED_PIXEL(args[3 + shift], CGImageGetHeight(image));
+                        crop_w = NORMALIZED_PIXEL(args[4 + shift], CGImageGetWidth(image));
+                        crop_h = NORMALIZED_PIXEL(args[5 + shift], CGImageGetHeight(image));
+#undef NORMALIZED_PIXEL 
+                        sourceImage = CGImageCreateWithImageInRect(image, CGRectMake(crop_x, crop_y, crop_w, crop_h));
+                        CFRelease(image);
+                    }
 					CGRect targetRect = needClip ? CGRectMake(stof(args[6 + shift]), stof(args[7 + shift]), stof(args[8 + shift]), stof(args[9 + shift])) : CGRectMake(stof(args[2 + shift]), stof(args[3 + shift]), stof(args[4 + shift]), stof(args[5 + shift]));
                     if (maxDPI > 0) {
                         CGFloat suggestWidth = targetRect.size.width * maxDPI / 72.0;
@@ -273,7 +284,7 @@ BOOL RunFile(istream& ist, NSString *overrideOutputPath)
                         sourceImage = compressedImage;
                     }
 					
-					CGContextSaveGState(context);
+                    CGContextSaveGState(context);
 
 					if (radius > 0) AddBorderRadiusPath(context, targetRect, radius);
                     cg.drawImage(sourceImage, targetRect);
