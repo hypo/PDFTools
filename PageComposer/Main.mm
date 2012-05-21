@@ -241,7 +241,6 @@ BOOL RunFile(istream& ist, NSString *overrideOutputPath)
 			
             float maxDPI = [settings objectForKey:@"MaxDPI"] ? [[settings objectForKey:@"MaxDPI"] floatValue] : 0;
 			[settings removeObjectForKey:@"MaxDPI"];
-			
             
             NSData *data = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:NSU8(args[1])]];
             CGImageRef image = 0;
@@ -260,13 +259,14 @@ BOOL RunFile(istream& ist, NSString *overrideOutputPath)
                     if (needClip) {
                         CGFloat crop_x, crop_y, crop_w, crop_h;
 #define NORMALIZED_PIXEL(x, l)  ((x)[0] == 'x' || (x)[0] == 'X' || (x)[0] == '*') ? atof(x.c_str() + 1) * l : stof(x)
-                        crop_x = NORMALIZED_PIXEL(args[2 + shift], CGImageGetWidth(image));
-                        crop_y = NORMALIZED_PIXEL(args[3 + shift], CGImageGetHeight(image));
-                        crop_w = NORMALIZED_PIXEL(args[4 + shift], CGImageGetWidth(image));
-                        crop_h = NORMALIZED_PIXEL(args[5 + shift], CGImageGetHeight(image));
+                        crop_x = NORMALIZED_PIXEL(args[2 + shift], CGImageGetWidth(sourceImage));
+                        crop_y = NORMALIZED_PIXEL(args[3 + shift], CGImageGetHeight(sourceImage));
+                        crop_w = NORMALIZED_PIXEL(args[4 + shift], CGImageGetWidth(sourceImage));
+                        crop_h = NORMALIZED_PIXEL(args[5 + shift], CGImageGetHeight(sourceImage));
 #undef NORMALIZED_PIXEL 
-                        sourceImage = CGImageCreateWithImageInRect(image, CGRectMake(crop_x, crop_y, crop_w, crop_h));
-                        CFRelease(image);
+                        CGImageRef croppedImage = CGImageCreateWithImageInRect(sourceImage, CGRectMake(crop_x, crop_y, crop_w, crop_h));
+                        CFRelease(sourceImage);
+                        sourceImage = croppedImage;
                     }
 					CGRect targetRect = needClip ? CGRectMake(stof(args[6 + shift]), stof(args[7 + shift]), stof(args[8 + shift]), stof(args[9 + shift])) : CGRectMake(stof(args[2 + shift]), stof(args[3 + shift]), stof(args[4 + shift]), stof(args[5 + shift]));
                     if (maxDPI > 0) {

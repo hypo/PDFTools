@@ -70,7 +70,7 @@ The following are legal string literals:
     ## Crop source image ##
     image [url_to_image] [from_x] [from_y] [from_w] [from_h] [x] [y] [w] [h]
     # Crop image from rect (from_x, from_y, from_w, from_h) and draw to (x, y, w, h)
-    # If from_x, from_y, from_w, from_h is of the form "x[0-9]+", for example, x0.01.
+    # If from_x, from_y, from_w, from_h is of the form "[xX*][0-9\.]+", for example, x0.01, *0.5
     # Then the actual cropping rect will be 
     # from_x * image_width, from_y * image_height, from_w * image_width, from_h * image_height
     # Currently only support PNG and JPEG. PDF not yet support crop.
