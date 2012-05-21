@@ -274,7 +274,7 @@ BOOL RunFile(istream& ist, NSString *overrideOutputPath)
                         if (sourceImage) {
                             CFRelease(image);
                         } else {
-                            // Error
+                            NSLog(@"Cannot rotate image %@. Stop.", NSU8(args[1]));
                         }
                     }
                     
