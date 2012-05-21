@@ -57,6 +57,11 @@ The following are legal string literals:
     # Only applied to jpg/png.
     # Only affect the next draw image command.
 
+    ## Content rotation ##
+    set ContentRotation [clockwise|counter-clockwise|half]
+    # Rotate the image first.
+    # Currently only support jpg/png.
+
     ## Rounded corner ##
     set radius [r]
     # Draw the next simpleimage with [r] point radius rounded corner.

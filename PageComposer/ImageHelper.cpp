@@ -71,6 +71,36 @@ CGImageRef ImageHelper::CreateImageFromJPEGDataWithCompression(CFDataRef data, C
     return cgImage;
 }
 
+CGImageRef ImageHelper::CreateImageFromImageWithRotation(CGImageRef sourceImage, CGFloat degree)
+{
+    if (!(degree == 90 || degree == 180 || degree == 270)) 
+        return NULL;
+    
+    size_t width = (degree == 180) ? CGImageGetWidth(sourceImage) : CGImageGetHeight(sourceImage);
+    size_t height = (degree == 180) ? CGImageGetHeight(sourceImage) : CGImageGetWidth(sourceImage); 
+    
+    CGColorSpaceRef rgb = CGColorSpaceCreateWithName(kCGColorSpaceGenericRGB);
+    
+    CGContextRef ctx = CGBitmapContextCreate(NULL, width, height, 8, width * 4, rgb, kCGImageAlphaPremultipliedLast);
+    
+    if (degree == 90) {
+        CGContextRotateCTM(ctx, M_PI_2);
+        CGContextTranslateCTM(ctx, 0, -((CGFloat)CGImageGetHeight(sourceImage)));
+    } else if (degree == 180) {
+        CGContextRotateCTM(ctx, M_PI);
+        CGContextTranslateCTM(ctx, -((CGFloat)CGImageGetWidth(sourceImage)), -((CGFloat)CGImageGetHeight(sourceImage)));
+    } else if (degree == 270) {
+        CGContextRotateCTM(ctx, M_PI_2 * 3);
+        CGContextTranslateCTM(ctx, -((CGFloat)CGImageGetWidth(sourceImage)), 0);
+    }
+    CGContextDrawImage(ctx, CGRectMake(0, 0, (CGFloat)CGImageGetWidth(sourceImage), (CGFloat)CGImageGetHeight(sourceImage)), sourceImage);
+    
+    CGImageRef rotatedImage = CGBitmapContextCreateImage(ctx);
+    CGContextRelease(ctx);
+    CGColorSpaceRelease(rgb);
+    return rotatedImage;
+}
+
 CGImageRef ImageHelper::CreateImageFromImageWithCompression(CGImageRef sourceImage, CGFloat compressionRatio)
 {
     CFMutableDataRef compressedJPEGData = CFDataCreateMutable(kCFAllocatorDefault, 0);

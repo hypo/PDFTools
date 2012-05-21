@@ -234,6 +234,18 @@ BOOL RunFile(istream& ist, NSString *overrideOutputPath)
             NSLog(@"begin to fetch: %s", args[1].c_str());
 			BOOL needClip = CheckArgsAndContext("image", args, 9, line, context) || CheckArgsAndContext("image_compress", args, 10, line, context);
             BOOL needCompress = CheckArgsAndContext("simpleimage_compress", args, 6, line, context) || CheckArgsAndContext("image_compress", args, 10, line, context);
+            
+            CGFloat rotateDegree = 0;
+            if ([[settings objectForKey: @"ContentRotation"] isEqualToString: @"clockwise"])
+                rotateDegree = 270;
+            else if ([[settings objectForKey: @"ContentRotation"] isEqualToString: @"counter-clockwise"])
+                rotateDegree = 90;
+            else if ([[settings objectForKey: @"ContentRotation"] isEqualToString: @"half"])
+                rotateDegree = 180;
+            [settings removeObjectForKey: @"ContentRotation"];
+            
+            BOOL needRotate = rotateDegree != 0;
+            
             CGFloat compressRatio = needCompress ? stof(args[2]) : 1.0;
             
 			float radius = [settings objectForKey:@"radius"] ? [[settings objectForKey:@"radius"] floatValue] : 0;
@@ -256,6 +268,16 @@ BOOL RunFile(istream& ist, NSString *overrideOutputPath)
                     int shift = needCompress ? 1 : 0;
                     
                     CGImageRef sourceImage = image;
+                    
+                    if (needRotate) {                        
+                        sourceImage = ImageHelper::CreateImageFromImageWithRotation(image, rotateDegree);
+                        if (sourceImage) {
+                            CFRelease(image);
+                        } else {
+                            // Error
+                        }
+                    }
+                    
                     if (needClip) {
                         CGFloat crop_x, crop_y, crop_w, crop_h;
 #define NORMALIZED_PIXEL(x, l)  ((x)[0] == 'x' || (x)[0] == 'X' || (x)[0] == '*') ? atof(x.c_str() + 1) * l : stof(x)
