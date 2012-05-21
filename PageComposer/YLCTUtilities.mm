@@ -41,7 +41,7 @@ static int HexValue(char c) {
 		if ([comps count] == 4)
 			[comps addObject:@"1.0"];
 		
-		if ([comps count] == 5)		
+		if ([comps count] == 5)
 			return [NSColor colorWithDeviceCyan:[[comps objectAtIndex:0] floatValue] magenta:[[comps objectAtIndex:1] floatValue] yellow:[[comps objectAtIndex:2] floatValue] black:[[comps objectAtIndex:3] floatValue] alpha:[[comps objectAtIndex:4] floatValue]];
 	}
 	

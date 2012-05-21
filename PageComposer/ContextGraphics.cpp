@@ -31,7 +31,8 @@ ContextGraphics& ContextGraphics::operator=(const ContextGraphics& cg)
     CGContextRef tmp = m_context;
     m_context = cg.m_context;
     CFRetain(m_context);
-    CFRelease(tmp);            
+    CFRelease(tmp);
+    return *this;
 }
 
 void ContextGraphics::saveState()

@@ -16,7 +16,8 @@ CGImageRef ImageHelper::CreateImageFromJPEGData(CFDataRef data)
 		CGImageRef image = CGImageCreateWithJPEGDataProvider(provider, NULL, true, kCGRenderingIntentDefault);
 		CFRelease(provider);
 		return image;
-	}			
+	}
+	return NULL;
 }
 
 CGImageRef ImageHelper::CreateImageFromPNGData(CFDataRef data)
@@ -26,7 +27,8 @@ CGImageRef ImageHelper::CreateImageFromPNGData(CFDataRef data)
 		CGImageRef image = CGImageCreateWithPNGDataProvider(provider, NULL, true, kCGRenderingIntentDefault);
 		CFRelease(provider);
 		return image;
-	}			
+	}
+    return NULL;
 }
 
 CGImageRef ImageHelper::CreateImageByScaleTo(CGImageRef sourceImage, size_t width, size_t height)
