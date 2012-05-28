@@ -256,6 +256,10 @@ BOOL RunFile(istream& ist, NSString *overrideOutputPath)
             
             NSData *data = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:NSU8(args[1])]];
             CGImageRef image = 0;
+            
+            int shift = needCompress ? 1 : 0;
+            CGRect targetRect = needClip ? CGRectMake(stof(args[6 + shift]), stof(args[7 + shift]), stof(args[8 + shift]), stof(args[9 + shift])) : CGRectMake(stof(args[2 + shift]), stof(args[3 + shift]), stof(args[4 + shift]), stof(args[5 + shift]));
+            
             if (data) {
                 if (OVWildcard::Match(args[1], "*.png*"))
                     image = ImageHelper::CreateImageFromPNGData((CFDataRef)data);
@@ -265,7 +269,6 @@ BOOL RunFile(istream& ist, NSString *overrideOutputPath)
                 if (image) {
                     [data release];
                     ContextGraphics cg(context);
-                    int shift = needCompress ? 1 : 0;
                     
                     CGImageRef sourceImage = image;
                     
@@ -290,7 +293,6 @@ BOOL RunFile(istream& ist, NSString *overrideOutputPath)
                         CFRelease(sourceImage);
                         sourceImage = croppedImage;
                     }
-					CGRect targetRect = needClip ? CGRectMake(stof(args[6 + shift]), stof(args[7 + shift]), stof(args[8 + shift]), stof(args[9 + shift])) : CGRectMake(stof(args[2 + shift]), stof(args[3 + shift]), stof(args[4 + shift]), stof(args[5 + shift]));
                     if (maxDPI > 0) {
                         CGFloat suggestWidth = targetRect.size.width * maxDPI / 72.0;
                         CGFloat suggestHeight = targetRect.size.height * maxDPI / 72.0;
@@ -337,6 +339,17 @@ BOOL RunFile(istream& ist, NSString *overrideOutputPath)
             }
             else {
                 NSLog(@"line %lu: incorrect image URL: %s", line, args[1].c_str());
+                NSGraphicsContext *cocoagc = [NSGraphicsContext graphicsContextWithGraphicsPort: context flipped: NO];
+                [NSGraphicsContext saveGraphicsState];
+                [NSGraphicsContext setCurrentContext: cocoagc];
+                
+                [[NSColor redColor] set];
+                [NSBezierPath fillRect: NSRectFromCGRect(targetRect)];
+
+                [@"Fetch Image Error." drawInRect: NSRectFromCGRect(targetRect) withAttributes: nil];
+                
+                [NSGraphicsContext restoreGraphicsState];
+
             }
             [pool drain];
         } 
