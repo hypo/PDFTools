@@ -41,6 +41,11 @@ using namespace std;
     [self removeObjectForKey: @"LineHeight"];
     [self removeObjectForKey: @"Ligature"];
     [self removeObjectForKey: @"SymbolSubstitution"];
+    [self removeObjectForKey: @"TypefaceSubstitution"];
+    [self removeObjectForKey: @"FontSizeSubstitution"];
+    [self removeObjectForKey: @"ContentRotation"];
+    [self removeObjectForKey: @"BaselineOffset"];
+    [self removeObjectForKey: @"BaselineOffsetCJK"];
 }
 
 - (NSDictionary *) textDictionaryWithText: (NSString *)text

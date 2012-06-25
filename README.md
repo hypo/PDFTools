@@ -149,6 +149,7 @@ The following are legal string literals:
     set TextAlign [left|center|right]
     set TextVerticalAlign [top|center|middle|bottom]
     set BaselineOffset 0.5 #pt
+    set BaselineOffsetCJK 0.5 #pt
     set Kerning #pt
     set KerningCJK 1 #pt
     set LineSpacing 1 #pt
@@ -188,6 +189,7 @@ The following are legal string literals:
     set TextAlign [left|center|right]
     set TextVerticalAlign [top|center|middle|bottom]
     set BaselineOffset 0.5 #pt
+    set BaselineOffsetCJK 0.5 #pt
     set Kerning #pt
     set KerningCJK 1 #pt
     set LineSpacing 1 #pt
