@@ -142,21 +142,26 @@ The following are legal string literals:
 ### Draw a string with options:
 
     beginpdf 720 720
-    set FontSize
-    set FontSizeCJK
-    set Typeface
-    set TypefaceCJK
+    set FontSize 10 #pt
+    set FontSizeCJK 10 #pt
+    set Typeface "Font Name"
+    set TypefaceCJK "CJK Font Name"
     set TextAlign [left|center|right]
-    set TextVerticalAlign [top|center|bottom]
-    set Rotation
-    set Kerning
-    set KerningCJK
-    set LineSpacing
-    set Color
-    set LineHeight
+    set TextVerticalAlign [top|center|middle|bottom]
+    set BaselineOffset 0.5 #pt
+    set Kerning #pt
+    set KerningCJK 1 #pt
+    set LineSpacing 1 #pt
+    set Color 0x336699 #color string
+    set LineHeight 12 #pt
     set Ligature [0|1] # either wants or not
 
     set ContentRotation [clockwise]
+
+    set SymbolSubstitution "，。、；？！"
+    set TypefaceSubstitution "STHeitiTC-Light"
+    set FontSizeSubstitution 14pt
+    # substitution the font of some punctuations for typography reason. 
 
     text [x] [y] [w] [h] [string]
     # Draw the string whose baseline begins at (x, y).
@@ -176,18 +181,18 @@ The following are legal string literals:
 ### Draw a vertical text
 
     beginpdf 720 720
-    set FontSize
-    set FontSizeCJK
-    set Typeface
-    set TypefaceCJK
+    set FontSize 10 #pt
+    set FontSizeCJK 10 #pt
+    set Typeface "Font Name"
+    set TypefaceCJK "CJK Font Name"
     set TextAlign [left|center|right]
-    set TextVerticalAlign [top|center|bottom]
-    set Rotation
-    set Kerning
-    set KerningCJK
-    set LineSpacing
-    set Color
-    set LineHeight
+    set TextVerticalAlign [top|center|middle|bottom]
+    set BaselineOffset 0.5 #pt
+    set Kerning #pt
+    set KerningCJK 1 #pt
+    set LineSpacing 1 #pt
+    set Color 0x336699 #color string
+    set LineHeight 12 #pt
     set Ligature [0|1] # either wants or not
 
     set SymbolSubstitution "，。、；？！"

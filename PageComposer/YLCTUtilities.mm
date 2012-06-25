@@ -88,32 +88,35 @@ BOOL isCJK(UniChar c)
 
 NSAttributedString *attributedStringWithOptions(NSString *text, NSDictionary *options)
 {
-    NSString *fontFamilyCJK = [options objectForKey: @"TypefaceCJK"] ?: @"HiraginoSansGB-W3";
-    NSString *fontFamilyLatin = [options objectForKey: @"Typeface"] ?: @"Helvetica";
-    NSString *fontFamilySubstitution = [options objectForKey: @"TypefaceSubstitution"] ?: @"STHeitiTC-Light";
+    NSString *fontFamilyCJK = options[@"TypefaceCJK"] ?: @"HiraginoSansGB-W3";
+    NSString *fontFamilyLatin = options[@"Typeface"] ?: @"Helvetica";
+    NSString *fontFamilySubstitution = options[@"TypefaceSubstitution"] ?: @"STHeitiTC-Light";
     
-    CGFloat fontSizeCJK = [([options objectForKey: @"FontSizeCJK"] ?: [NSNumber numberWithFloat: 12.0]) floatValue];
-    CGFloat fontSizeLatin = [([options objectForKey: @"FontSize"] ?: [NSNumber numberWithFloat: 12.0]) floatValue];
-    CGFloat fontSizeSubstitution = [([options objectForKey: @"FontSizeSubstitution"] ?: [NSNumber numberWithFloat: 12.0]) floatValue];
+    CGFloat fontSizeCJK = [(options[@"FontSizeCJK"] ?: @12.0) floatValue];
+    CGFloat fontSizeLatin = [(options[@"FontSize"] ?: @12.0) floatValue];
+    CGFloat fontSizeSubstitution = [(options[@"FontSizeSubstitution"] ?: @12.0) floatValue];
     
     NSFont *fontCJK = [NSFont fontWithName: fontFamilyCJK size: fontSizeCJK];
     NSFont *fontLatin = [NSFont fontWithName: fontFamilyLatin size: fontSizeLatin];
     NSFont *fontSubstitution = [NSFont fontWithName: fontFamilySubstitution size: fontSizeSubstitution];
 
-    NSString *align = [options objectForKey: @"TextAlign"] ?: @"left"; // [left|center|right]
-    NSString *verticalAlign = [options objectForKey: @"TextVerticalAlign"] ?: @"top"; // [top|center|bottom]
+    CGFloat baselineOffset = [(options[@"BaselineOffset"] ?: @0) floatValue];
+    CGFloat baselineOffsetCJK = [(options[@"BaselineOffsetCJK"] ?: @0) floatValue];
 
-    NSString *colorName = [options objectForKey: @"Color"] ?: @"black";
-    NSString *backgroundColorName = [options objectForKey: @"BackgroundColor"] ?: @"transparent";
+    NSString *align = options[@"TextAlign"] ?: @"left"; // [left|center|right]
+//    NSString *verticalAlign = [options objectForKey: @"TextVerticalAlign"] ?: @"top"; // [top|center|bottom]
+
+    NSString *colorName = options[@"Color"] ?: @"black";
+//    NSString *backgroundColorName = [options objectForKey: @"BackgroundColor"] ?: @"transparent";
     
-    CGFloat kerningLatin = [([options objectForKey: @"Kerning"] ?: [NSNumber numberWithFloat: 0.5]) floatValue];
-    CGFloat kerningCJK = [([options objectForKey: @"KerningCJK"] ?: [NSNumber numberWithFloat: 0.0]) floatValue];
+    CGFloat kerningLatin = [(options[@"Kerning"] ?: @0.5) floatValue];
+    CGFloat kerningCJK = [(options[@"KerningCJK"] ?: @0.0) floatValue];
 
-    CGFloat lineSpacing = [([options objectForKey: @"LineSpacing"] ?: [NSNumber numberWithFloat: 0.0]) floatValue];
-    CGFloat lineHeight = [([options objectForKey: @"LineHeight"] ?: [NSNumber numberWithFloat: -1.0]) floatValue];
-    int ligature = [([options objectForKey: @"Ligature"] ?: [NSNumber numberWithInt: 1]) intValue];
+    CGFloat lineSpacing = [(options[@"LineSpacing"] ?: @0.0) floatValue];
+    CGFloat lineHeight = [(options[@"LineHeight"] ?: @-1.0) floatValue];
+    int ligature = [(options[@"Ligature"] ?: @1) intValue];
 
-    NSString *symbolSubstitution = [options objectForKey: @"SymbolSubstitution"];
+    NSString *symbolSubstitution = options[@"SymbolSubstitution"];
     
     NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString: text];
     
@@ -134,23 +137,24 @@ NSAttributedString *attributedStringWithOptions(NSString *text, NSDictionary *op
 	if (lineSpacing > 0.0)
 		[paragraphStyle setLineSpacing: lineSpacing];
 
-    unsigned int i=0, len=[text length], p=0, q=0;
+    NSUInteger i = 0, len = [text length], p = 0, q = 0;
     BOOL cjkmode = NO;
     
     NSMutableDictionary *psd = [NSMutableDictionary dictionaryWithObjectsAndKeys:
 								fontLatin, NSFontAttributeName,
 								[NSColor colorByName: colorName], NSForegroundColorAttributeName,
 								paragraphStyle, NSParagraphStyleAttributeName,
-								[NSNumber numberWithFloat: kerningLatin], NSKernAttributeName,
+								@(kerningLatin), NSKernAttributeName,
+                                @(baselineOffset), NSBaselineOffsetAttributeName,
+                                @(ligature), NSLigatureAttributeName,
 								nil];
-	// set ligature
-	[psd setObject:[NSNumber numberWithInt: ligature] forKey: NSLigatureAttributeName];
-    
+
     // set Latin font and paragraph style
     [attrString setAttributes: psd range: NSMakeRange(0, len)];
 	
-    [psd setObject: fontCJK forKey: NSFontAttributeName];
-	[psd setObject:[NSNumber numberWithFloat: kerningCJK] forKey: NSKernAttributeName];
+    psd[NSFontAttributeName] = fontCJK;
+    psd[NSKernAttributeName] = @(kerningCJK);
+    psd[NSBaselineOffsetAttributeName] = @(baselineOffsetCJK);
     
     // set CJK characters with CJK font
     for (i = 0; i < len; i++) {
@@ -176,7 +180,7 @@ NSAttributedString *attributedStringWithOptions(NSString *text, NSDictionary *op
 	// cancel the kerning for the last character
 	if ([text length] > 0) {
 		NSMutableDictionary *fixAttr = [[attrString attributesAtIndex:([text length] - 1) effectiveRange:NULL] mutableCopy];
-		[fixAttr setObject: [NSNumber numberWithFloat:0] forKey: NSKernAttributeName];
+        fixAttr[NSKernAttributeName] = @0;
 		[attrString setAttributes: fixAttr range: NSMakeRange([text length] - 1, 1)];
 	}
     

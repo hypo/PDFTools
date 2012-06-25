@@ -419,7 +419,7 @@ BOOL RunFile(istream& ist, NSString *overrideOutputPath)
 
             NSString *verticalAlignment = [settings objectForKey: @"TextVerticalAlign"] ?: @"top";
             CGFloat deltaY = 0;
-            if  ([verticalAlignment isEqualToString: @"center"]) {
+            if  ([verticalAlignment isEqualToString: @"center"] || [verticalAlignment isEqualToString: @"middle"]) {
                 deltaY = (boundingSize.height - actualRect.size.height) / 2;
             } else if ([verticalAlignment isEqualToString: @"bottom"]) {
                 deltaY = (boundingSize.height - actualRect.size.height);
