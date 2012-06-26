@@ -434,6 +434,24 @@ BOOL RunFile(istream& ist, NSString *overrideOutputPath)
                     actualRect.size.height -= MAX(0, (lineHeight - measureSize.size.height));
                 }
             }
+            
+            NSRange lastLineRange = NSMakeRange(0, [attributedText length]);
+            if (glyphRange.length > 0) {
+                [layoutManager lineFragmentRectForGlyphAtIndex: (glyphRange.length - 1) effectiveRange: &lastLineRange];
+                NSUInteger firstCharacterIndexOfLastLine = [layoutManager characterIndexForGlyphAtIndex: lastLineRange.location];
+                lastLineRange.location = firstCharacterIndexOfLastLine;
+                lastLineRange.length = [attributedText length] - firstCharacterIndexOfLastLine;
+            }
+            
+            __block CGFloat minDescender = 0; // It's negative value
+            [[attributedText attributedSubstringFromRange: lastLineRange] enumerateAttributesInRange: NSMakeRange(0, lastLineRange.length) options: 0UL usingBlock:^(NSDictionary *attributes, NSRange range, BOOL *stop) {
+                NSFont *font = attributes[NSFontAttributeName];
+                CGFloat baselineOffset = [attributes[NSBaselineOffsetAttributeName] doubleValue];
+                CGFloat baselineShift = [font descender] - baselineOffset;
+                if (baselineShift < minDescender) minDescender = baselineShift;
+                NSLog(@"%lf", baselineShift);
+            }];
+            NSLog(@"%@ %lf", [attributedText string], minDescender);
 
             NSString *verticalAlignment = [settings objectForKey: @"TextVerticalAlign"] ?: @"top";
             CGFloat deltaY = 0;
@@ -441,6 +459,9 @@ BOOL RunFile(istream& ist, NSString *overrideOutputPath)
                 deltaY = (boundingSize.height - actualRect.size.height) / 2;
             } else if ([verticalAlignment isEqualToString: @"bottom"]) {
                 deltaY = (boundingSize.height - actualRect.size.height);
+            } else if ([verticalAlignment hasPrefix: @"bottom-baseline:"] ) {
+                CGFloat baselinePoint = [[verticalAlignment substringFromIndex: [@"bottom-baseline:" length]] doubleValue];
+                deltaY = boundingSize.height - baselinePoint - actualRect.size.height - minDescender;
             }
             [layoutManager drawGlyphsForGlyphRange: glyphRange atPoint: NSMakePoint(0, deltaY)];
                         

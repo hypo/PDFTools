@@ -1,0 +1,41 @@
+beginpdf 200 200
+
+simplecolor 0xeeff99 0 0 200 10
+simplecolor 0x8899ff 0 10 200 190
+
+# ============================================
+
+set FontSize "22"
+set FontSizeCJK "22"
+set Typeface "Minion-Regular"
+set TypefaceCJK "AdobeFangsongStd-Regular"
+set Ligature "1"
+
+# This is the magic. 
+set TextVerticalAlign "bottom-baseline:10"
+
+# Slighty adjust the baseline of CJK text so that it appears have the same baseline with latin font.
+set BaselineOffsetCJK 0.5
+
+set TextAlign left
+set Color 0x000000
+text 0 0 100 200 "中英1jk hello, world. Test mixed multiline. 中英jyl"
+
+
+# ============================================
+
+set FontSize "22"
+set FontSizeCJK "22"
+set Typeface "Minion-Regular"
+set TypefaceCJK "AdobeFangsongStd-Regular"
+set Ligature "1"
+set TextVerticalAlign "bottom-baseline:10"
+#set BaselineOffsetCJK 0.5
+
+set TextAlign left
+set Color 0x000000
+text 100 0 100 200 "純中英"
+
+
+
+endpdf file:///tmp/baseline.pdf

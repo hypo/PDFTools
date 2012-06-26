@@ -147,7 +147,13 @@ The following are legal string literals:
     set Typeface "Font Name"
     set TypefaceCJK "CJK Font Name"
     set TextAlign [left|center|right]
-    set TextVerticalAlign [top|center|middle|bottom]
+    set TextVerticalAlign [top|center|middle|bottom|bottom-baseline:10]
+    
+    # Use bottom-baseline:x will align the baseline of the last line of text at x point on vertical direction.
+    # ![bottom-baseline](https://github.com/hypo/PDFTools/raw/master/Documents/baseline.png)
+    # You can check the [baseline example](https://github.com/hypo/PDFTools/raw/master/Documents/baseline.pcd).
+    # The behavior of bottom-baseline: alignment on vertical text is undefined.
+
     set BaselineOffset 0.5 #pt
     set BaselineOffsetCJK 0.5 #pt
     set Kerning #pt
