@@ -30,7 +30,7 @@ set Typeface "Minion-Regular"
 set TypefaceCJK "AdobeFangsongStd-Regular"
 set Ligature "1"
 set TextVerticalAlign "bottom-baseline:10"
-#set BaselineOffsetCJK 0.5
+set BaselineOffsetCJK 0.5
 
 set TextAlign left
 set Color 0x000000
