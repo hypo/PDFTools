@@ -149,11 +149,6 @@ The following are legal string literals:
     set TextAlign [left|center|right]
     set TextVerticalAlign [top|center|middle|bottom|bottom-baseline:10]
     
-    # Use bottom-baseline:x will align the baseline of the last line of text at x point on vertical direction.
-    # ![bottom-baseline](https://github.com/hypo/PDFTools/raw/master/Documents/baseline.png)
-    # You can check the [baseline example](https://github.com/hypo/PDFTools/raw/master/Documents/baseline.pcd).
-    # The behavior of bottom-baseline: alignment on vertical text is undefined.
-
     set BaselineOffset 0.5 #pt
     set BaselineOffsetCJK 0.5 #pt
     set Kerning #pt
@@ -174,6 +169,12 @@ The following are legal string literals:
     # Draw the string whose baseline begins at (x, y).
     # Those attributes will be reset with next call to text command.
     endpdf file:///path/to/output.pdf
+
+Use bottom-baseline:x will align the baseline of the last line of text at x point on vertical direction.
+![bottom-baseline](https://github.com/hypo/PDFTools/raw/master/Documents/baseline.png)
+You can check the [baseline example](https://github.com/hypo/PDFTools/raw/master/Documents/baseline.pcd).
+The behavior of bottom-baseline: alignment on vertical text is undefined.
+
 
 ----
 
