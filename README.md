@@ -61,6 +61,7 @@ The following are legal string literals:
     set ContentRotation [clockwise|counter-clockwise|half]
     # Rotate the image first.
     # Currently only support jpg/png.
+![rotate](https://github.com/hypo/PDFTools/raw/master/Documents/rotate_order.png)
 
     ## Rounded corner ##
     set radius [r]
