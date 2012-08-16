@@ -79,6 +79,7 @@ The following are legal string literals:
     # Then the actual cropping rect will be 
     # from_x * image_width, from_y * image_height, from_w * image_width, from_h * image_height
     # Currently only support PNG and JPEG. PDF not yet support crop.
+![coordinate](https://github.com/hypo/PDFTools/raw/master/Documents/coordinate.png)
 
 
     ## JPEG compression ##
