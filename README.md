@@ -42,6 +42,14 @@ The following are legal string literals:
 
 ----
 
+### Produce JPEG file:
+
+    beginpdf [width] [height]
+    endjpg [dpi] [compression] file://[/path/to/output.jpg]
+    # Normally dpi is 72. Compression ranges from 0~1. 1 is lossless.
+
+----
+
 ### Draw a image on PDF:
 
     beginpdf 720 720

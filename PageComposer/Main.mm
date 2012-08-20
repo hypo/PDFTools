@@ -179,7 +179,7 @@ BOOL RunFile(istream& ist, NSString *overrideOutputPath)
             }
         } else if (CheckArgs("endpng", args, 3, line)) {
             // endpng dpi scale url
-             if (!context || !pdf) {
+            if (!context || !pdf) {
                 NSLog(@"line %lu: no pdf context", line);
                 continue;
             }
@@ -231,8 +231,60 @@ BOOL RunFile(istream& ist, NSString *overrideOutputPath)
             context = NULL;
             delete pdf;
             pdf = NULL;
-        }
-        else if (CheckArgsAndContext("simpleimage", args, 5, line, context) || CheckArgsAndContext("image", args, 9, line, context) ||
+        } else if (CheckArgs("endjpg", args, 3, line)) {
+            if (!context || !pdf) {
+                NSLog(@"line %lu: no pdf context", line);
+                continue;
+            }
+            CGFloat dpi = stof(args[1]);
+            CGFloat compressRatio = stof(args[2]);
+            pdf->close();
+            
+            NSURL *url = overrideOutputPath ? [NSURL fileURLWithPath: overrideOutputPath] : [NSURL URLWithString: NSU8(args[3])];
+            if ([url isFileURL]) {
+                NSURL *parentURL = [url URLByDeletingLastPathComponent];
+                NSFileManager *manager = [[NSFileManager alloc] init];
+                [manager createDirectoryAtURL: parentURL withIntermediateDirectories: YES attributes: nil error: NULL];
+                [manager release];
+            }
+            
+            CGDataProviderRef dataProvider = CGDataProviderCreateWithCFData(pdf->data());
+            CGPDFDocumentRef pdfDocument = CGPDFDocumentCreateWithProvider(dataProvider);
+            CGPDFPageRef page = CGPDFDocumentGetPage(pdfDocument, 1);
+            CGRect rect = CGPDFPageGetBoxRect(page, kCGPDFMediaBox);
+            NSUInteger pixelsWide = rect.size.width * (dpi / 72.0), pixelsHigh = rect.size.height * (dpi / 72.0);
+            CGColorSpaceRef rgb = CGColorSpaceCreateWithName(kCGColorSpaceGenericRGB);
+            CGContextRef canvas = CGBitmapContextCreate(NULL, pixelsWide, pixelsHigh, 8, 4 * pixelsWide, rgb, kCGImageAlphaPremultipliedFirst);
+            CGColorSpaceRelease(rgb);
+            
+            CGContextSaveGState(canvas);
+            CGContextTranslateCTM(canvas, 0, 0);
+            CGContextScaleCTM(canvas, dpi / 72.0, dpi / 72.0);
+            CGContextDrawPDFPage(canvas, page);
+            CGContextRestoreGState(canvas);
+            
+            if (needRedBorder) {
+                CGColorRef redColor = CGColorCreateGenericRGB(1.0, 0, 0, 1);
+                CGContextSetStrokeColorWithColor(canvas, redColor);
+                CGContextStrokeRectWithWidth(canvas, CGRectMake(0, 0, pixelsWide, pixelsHigh), 2);
+                CGColorRelease(redColor);
+            }
+            
+            CGImageRef image = CGBitmapContextCreateImage(canvas);
+            CGImageDestinationRef dest = CGImageDestinationCreateWithURL((CFURLRef)url, kUTTypeJPEG, 1, NULL);
+            CGImageDestinationAddImage(dest, image, (CFDictionaryRef)[NSDictionary dictionaryWithObject:@(compressRatio) forKey: (NSString *)kCGImageDestinationLossyCompressionQuality]);
+            CGImageDestinationFinalize(dest);
+            
+            CFRelease(dest);
+            CGImageRelease(image);
+            CGContextRelease(canvas);
+            CGPDFDocumentRelease(pdfDocument);
+            CGDataProviderRelease(dataProvider);
+            
+            context = NULL;
+            delete pdf;
+            pdf = NULL;
+        } else if (CheckArgsAndContext("simpleimage", args, 5, line, context) || CheckArgsAndContext("image", args, 9, line, context) ||
                  CheckArgsAndContext("simpleimage_compress", args, 6, line, context) || CheckArgsAndContext("image_compress", args, 10, line, context)) {
             
             NSAutoreleasePool *pool = [NSAutoreleasePool new];
