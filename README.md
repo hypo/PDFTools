@@ -16,6 +16,11 @@ You can also provide output file name with `-o` option instead of the path in pc
 
     ./PageComposer -o output.pdf file.pcd
 
+## Note
+
+* `LineHeight` 設定了以後會讓英文字、中英混排時高度不同。所以設定單行文字要對齊底線時，建議不要設定 LineHeight 然後透過 BaselineOffset, BaselineOffsetCJK 對齊中英字形基線，然後再透過 TextVerticalAlign:bottom-baseline 來指定底線位置。（文字框高度要多留 bottom-baseline 的高度）
+* PageComposer 並不是 EXIF Orientation awared。也就是說他對於旋轉的資訊都是要透過外部程式判斷好 EXIF 方向再設定 ContentRotation。
+
 ## PCD Format
 
 The PCD format specify a graphic context whose coordinate system places the origin at bottom left.
