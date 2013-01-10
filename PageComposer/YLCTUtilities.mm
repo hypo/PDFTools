@@ -88,35 +88,35 @@ BOOL isCJK(UniChar c)
 
 NSAttributedString *attributedStringWithOptions(NSString *text, NSDictionary *options)
 {
-    NSString *fontFamilyCJK = options[@"TypefaceCJK"] ?: @"HiraginoSansGB-W3";
-    NSString *fontFamilyLatin = options[@"Typeface"] ?: @"Helvetica";
-    NSString *fontFamilySubstitution = options[@"TypefaceSubstitution"] ?: @"STHeitiTC-Light";
+    NSString *fontFamilyCJK = [options objectForKey: @"TypefaceCJK"] ?: @"HiraginoSansGB-W3";
+    NSString *fontFamilyLatin = [options objectForKey: @"Typeface"] ?: @"Helvetica";
+    NSString *fontFamilySubstitution = [options objectForKey: @"TypefaceSubstitution"] ?: @"STHeitiTC-Light";
     
-    CGFloat fontSizeCJK = [(options[@"FontSizeCJK"] ?: @12.0) floatValue];
-    CGFloat fontSizeLatin = [(options[@"FontSize"] ?: @12.0) floatValue];
-    CGFloat fontSizeSubstitution = [(options[@"FontSizeSubstitution"] ?: @12.0) floatValue];
+    CGFloat fontSizeCJK = [([options objectForKey: @"FontSizeCJK"] ?: @12.0) floatValue];
+    CGFloat fontSizeLatin = [([options objectForKey: @"FontSize"] ?: @12.0) floatValue];
+    CGFloat fontSizeSubstitution = [([options objectForKey: @"FontSizeSubstitution"] ?: @12.0) floatValue];
     
     NSFont *fontCJK = [NSFont fontWithName: fontFamilyCJK size: fontSizeCJK];
     NSFont *fontLatin = [NSFont fontWithName: fontFamilyLatin size: fontSizeLatin];
     NSFont *fontSubstitution = [NSFont fontWithName: fontFamilySubstitution size: fontSizeSubstitution];
 
-    CGFloat baselineOffset = [(options[@"BaselineOffset"] ?: @0) floatValue];
-    CGFloat baselineOffsetCJK = [(options[@"BaselineOffsetCJK"] ?: @0) floatValue];
+    CGFloat baselineOffset = [([options objectForKey: @"BaselineOffset"] ?: @0) floatValue];
+    CGFloat baselineOffsetCJK = [([options objectForKey: @"BaselineOffsetCJK"] ?: @0) floatValue];
 
-    NSString *align = options[@"TextAlign"] ?: @"left"; // [left|center|right]
+    NSString *align = [options objectForKey: @"TextAlign"] ?: @"left"; // [left|center|right]
 //    NSString *verticalAlign = [options objectForKey: @"TextVerticalAlign"] ?: @"top"; // [top|center|bottom]
 
-    NSString *colorName = options[@"Color"] ?: @"black";
+    NSString *colorName = [options objectForKey: @"Color"] ?: @"black";
 //    NSString *backgroundColorName = [options objectForKey: @"BackgroundColor"] ?: @"transparent";
     
-    CGFloat kerningLatin = [(options[@"Kerning"] ?: @0.5) floatValue];
-    CGFloat kerningCJK = [(options[@"KerningCJK"] ?: @0.0) floatValue];
+    CGFloat kerningLatin = [([options objectForKey: @"Kerning"] ?: @0.5) floatValue];
+    CGFloat kerningCJK = [([options objectForKey: @"KerningCJK"] ?: @0.0) floatValue];
 
-    CGFloat lineSpacing = [(options[@"LineSpacing"] ?: @0.0) floatValue];
-    CGFloat lineHeight = [(options[@"LineHeight"] ?: @-1.0) floatValue];
-    int ligature = [(options[@"Ligature"] ?: @1) intValue];
+    CGFloat lineSpacing = [([options objectForKey: @"LineSpacing"] ?: @0.0) floatValue];
+    CGFloat lineHeight = [([options objectForKey: @"LineHeight"] ?: @-1.0) floatValue];
+    int ligature = [([options objectForKey: @"Ligature"] ?: @1) intValue];
 
-    NSString *symbolSubstitution = options[@"SymbolSubstitution"];
+    NSString *symbolSubstitution = [options objectForKey: @"SymbolSubstitution"];
     
     NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString: text];
     
@@ -152,9 +152,9 @@ NSAttributedString *attributedStringWithOptions(NSString *text, NSDictionary *op
     // set Latin font and paragraph style
     [attrString setAttributes: psd range: NSMakeRange(0, len)];
 	
-    psd[NSFontAttributeName] = fontCJK;
-    psd[NSKernAttributeName] = @(kerningCJK);
-    psd[NSBaselineOffsetAttributeName] = @(baselineOffsetCJK);
+    [psd setObject: fontCJK forKey: NSFontAttributeName];
+    [psd setObject: @(kerningCJK) forKey: NSKernAttributeName];
+    [psd setObject: @(baselineOffsetCJK) forKey: NSBaselineOffsetAttributeName];
     
     // set CJK characters with CJK font
     for (i = 0; i < len; i++) {
@@ -180,7 +180,7 @@ NSAttributedString *attributedStringWithOptions(NSString *text, NSDictionary *op
 	// cancel the kerning for the last character
 	if ([text length] > 0) {
 		NSMutableDictionary *fixAttr = [[attrString attributesAtIndex:([text length] - 1) effectiveRange:NULL] mutableCopy];
-        fixAttr[NSKernAttributeName] = @0;
+        [fixAttr setObject: @0 forKey: NSKernAttributeName];
 		[attrString setAttributes: fixAttr range: NSMakeRange([text length] - 1, 1)];
 	}
     

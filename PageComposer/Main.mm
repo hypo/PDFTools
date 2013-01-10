@@ -167,7 +167,14 @@ BOOL RunFile(istream& ist, NSString *overrideOutputPath)
                 if ([url isFileURL]) {
                     NSURL *parentURL = [url URLByDeletingLastPathComponent];
                     NSFileManager *manager = [[NSFileManager alloc] init];
-                    [manager createDirectoryAtURL: parentURL withIntermediateDirectories: YES attributes: nil error: NULL];
+                    if ([manager respondsToSelector: @selector(createDirectoryAtURL:withIntermediateDirectories:attributes:error:)]) {
+                        [manager createDirectoryAtURL: parentURL withIntermediateDirectories: YES attributes: nil error: NULL];
+                    } else {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+                        [manager createDirectoryAtPath: [parentURL path] withIntermediateDirectories: YES attributes: nil error: NULL];
+#pragma clang diagnostic pop
+                    }
                     [manager release];
                 }
                 NSData *data = (NSData*)pdf->data();
@@ -191,7 +198,14 @@ BOOL RunFile(istream& ist, NSString *overrideOutputPath)
             if ([url isFileURL]) {
                 NSURL *parentURL = [url URLByDeletingLastPathComponent];
                 NSFileManager *manager = [[NSFileManager alloc] init];
-                [manager createDirectoryAtURL: parentURL withIntermediateDirectories: YES attributes: nil error: NULL];
+                if ([manager respondsToSelector: @selector(createDirectoryAtURL:withIntermediateDirectories:attributes:error:)]) {
+                    [manager createDirectoryAtURL: parentURL withIntermediateDirectories: YES attributes: nil error: NULL];
+                } else {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+                    [manager createDirectoryAtPath: [parentURL path] withIntermediateDirectories: YES attributes: nil error: NULL];
+#pragma clang diagnostic pop
+                }
                 [manager release];
             }
             
@@ -445,8 +459,8 @@ BOOL RunFile(istream& ist, NSString *overrideOutputPath)
             
             __block CGFloat minDescender = 0; // It's negative value
             [[attributedText attributedSubstringFromRange: lastLineRange] enumerateAttributesInRange: NSMakeRange(0, lastLineRange.length) options: 0UL usingBlock:^(NSDictionary *attributes, NSRange range, BOOL *stop) {
-                NSFont *font = attributes[NSFontAttributeName];
-                CGFloat baselineOffset = [attributes[NSBaselineOffsetAttributeName] doubleValue];
+                NSFont *font = [attributes objectForKey: NSFontAttributeName];
+                CGFloat baselineOffset = [[attributes objectForKey: NSBaselineOffsetAttributeName] doubleValue];
                 CGFloat baselineShift = [font descender] - baselineOffset;
                 if (baselineShift < minDescender) minDescender = baselineShift;
                 NSLog(@"%lf", baselineShift);
