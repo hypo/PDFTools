@@ -190,8 +190,6 @@ BOOL RunFile(istream& ist, NSString *overrideOutputPath)
                 NSLog(@"line %lu: no pdf context", line);
                 continue;
             }
-            CGFloat dpi = stof(args[1]);
-            CGFloat scale = stof(args[2]);
             pdf->close();
 
             NSURL *url = overrideOutputPath ? [NSURL fileURLWithPath: overrideOutputPath] : [NSURL URLWithString: NSU8(args[3])];
@@ -208,19 +206,32 @@ BOOL RunFile(istream& ist, NSString *overrideOutputPath)
                 }
                 [manager release];
             }
+
+            
+            NSUInteger pixelsWide = 0, pixelsHigh = 0;
             
             CGDataProviderRef dataProvider = CGDataProviderCreateWithCFData(pdf->data());
             CGPDFDocumentRef pdfDocument = CGPDFDocumentCreateWithProvider(dataProvider);
             CGPDFPageRef page = CGPDFDocumentGetPage(pdfDocument, 1);
             CGRect rect = CGPDFPageGetBoxRect(page, kCGPDFMediaBox);
-            NSUInteger pixelsWide = rect.size.width * (dpi / 72.0) * scale, pixelsHigh = rect.size.height * (dpi / 72.0) * scale;
+
+            if (args[1].rfind("px") != string::npos && args[2].rfind("px") != string::npos) {
+                pixelsWide = stof(args[1].substr(0, args[1].length() - 2));
+                pixelsHigh = stof(args[2].substr(0, args[2].length() - 2));
+            } else {
+                CGFloat dpi = stof(args[1]);
+                CGFloat scale = stof(args[2]);
+                pixelsWide = rect.size.width * (dpi / 72.0) * scale;
+                pixelsHigh = rect.size.height * (dpi / 72.0) * scale;
+            }
+
             CGColorSpaceRef rgb = CGColorSpaceCreateWithName(kCGColorSpaceGenericRGB);
             CGContextRef canvas = CGBitmapContextCreate(NULL, pixelsWide, pixelsHigh, 8, 4 * pixelsWide, rgb, kCGImageAlphaPremultipliedFirst);
             CGColorSpaceRelease(rgb);
             
             CGContextSaveGState(canvas);
             CGContextTranslateCTM(canvas, 0, 0);
-            CGContextScaleCTM(canvas, dpi / 72.0 * scale, dpi / 72.0 * scale);
+            CGContextScaleCTM(canvas, ((CGFloat)pixelsWide) / rect.size.width, ((CGFloat)pixelsHigh) / rect.size.height);
             CGContextDrawPDFPage(canvas, page);
             CGContextRestoreGState(canvas);
 
@@ -245,16 +256,15 @@ BOOL RunFile(istream& ist, NSString *overrideOutputPath)
             context = NULL;
             delete pdf;
             pdf = NULL;
-        } else if (CheckArgs("endjpg", args, 3, line)) {
+        } else if (CheckArgs("endjpg", args, 3, line) || CheckArgs("endjpg", args, 4, line)) {
             if (!context || !pdf) {
                 NSLog(@"line %lu: no pdf context", line);
                 continue;
             }
-            CGFloat dpi = stof(args[1]);
-            CGFloat compressRatio = stof(args[2]);
             pdf->close();
             
-            NSURL *url = overrideOutputPath ? [NSURL fileURLWithPath: overrideOutputPath] : [NSURL URLWithString: NSU8(args[3])];
+            NSString *urlString = CheckArgs("endjpg", args, 4, line) ? NSU8(args[4]) : NSU8(args[3]);
+            NSURL *url = overrideOutputPath ? [NSURL fileURLWithPath: overrideOutputPath] : [NSURL URLWithString: urlString];
             if ([url isFileURL]) {
                 NSURL *parentURL = [url URLByDeletingLastPathComponent];
                 NSFileManager *manager = [[NSFileManager alloc] init];
@@ -262,18 +272,37 @@ BOOL RunFile(istream& ist, NSString *overrideOutputPath)
                 [manager release];
             }
             
+            NSUInteger pixelsWide = 0, pixelsHigh = 0;
+            CGFloat compressRatio = 1.0;
+            
             CGDataProviderRef dataProvider = CGDataProviderCreateWithCFData(pdf->data());
             CGPDFDocumentRef pdfDocument = CGPDFDocumentCreateWithProvider(dataProvider);
             CGPDFPageRef page = CGPDFDocumentGetPage(pdfDocument, 1);
             CGRect rect = CGPDFPageGetBoxRect(page, kCGPDFMediaBox);
-            NSUInteger pixelsWide = rect.size.width * (dpi / 72.0), pixelsHigh = rect.size.height * (dpi / 72.0);
+            
+            if (CheckArgs("endjpg", args, 4, line)) {
+                if (args[1].rfind("px") == string::npos || args[2].rfind("px") == string::npos) {
+                    NSLog(@"line %lu: dimension format incorrect. Should end with 'px'. e.g. 640px 800px", line);
+                } else {
+                    pixelsWide = stof(args[1].substr(0, args[1].length() - 2));
+                    pixelsHigh = stof(args[2].substr(0, args[2].length() - 2));
+                }
+                compressRatio = stof(args[3]);
+            } else {
+                CGFloat dpi = stof(args[1]);
+                compressRatio = stof(args[2]);
+                pixelsWide = rect.size.width * (dpi / 72.0);
+                pixelsHigh = rect.size.height * (dpi / 72.0);
+            }
+            
+            
             CGColorSpaceRef rgb = CGColorSpaceCreateWithName(kCGColorSpaceGenericRGB);
             CGContextRef canvas = CGBitmapContextCreate(NULL, pixelsWide, pixelsHigh, 8, 4 * pixelsWide, rgb, kCGImageAlphaPremultipliedFirst);
             CGColorSpaceRelease(rgb);
             
             CGContextSaveGState(canvas);
             CGContextTranslateCTM(canvas, 0, 0);
-            CGContextScaleCTM(canvas, dpi / 72.0, dpi / 72.0);
+            CGContextScaleCTM(canvas, ((CGFloat)pixelsWide) / rect.size.width, ((CGFloat)pixelsHigh) / rect.size.height);
             CGContextDrawPDFPage(canvas, page);
             CGContextRestoreGState(canvas);
             

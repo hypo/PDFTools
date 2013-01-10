@@ -45,6 +45,9 @@ The following are legal string literals:
     endpng [dpi] [scale] file://[/path/to/output.png] 
     # Normally (dpi, scale) is (72, 1). You could scale up.
 
+    endpng [w]px [h]px file://[/path/to/output.png]
+    # Strech the content to fit the dimension w * h
+
 ----
 
 ### Produce JPEG file:
@@ -53,6 +56,9 @@ The following are legal string literals:
     endjpg [dpi] [compression] file://[/path/to/output.jpg]
     # Normally dpi is 72. Compression ranges from 0~1. 1 is lossless.
 
+    endjpg [w]px [h]px [compression] file://[/path/to/output.jpg]
+    # Strech the content to fit the dimension w * h
+    
 ----
 
 ### Draw a image on PDF:
