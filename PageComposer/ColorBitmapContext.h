@@ -10,6 +10,7 @@
 
 #include <ApplicationServices/ApplicationServices.h>
 #include <CoreFoundation/CoreFoundation.h>
+#include <iostream>
 
 namespace LFSimpleGraphics {
     using namespace std;
