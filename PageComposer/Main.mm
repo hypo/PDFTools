@@ -361,10 +361,7 @@ BOOL RunFile(istream& ist, NSString *overrideOutputPath)
             CGRect targetRect = needClip ? CGRectMake(stof(args[6 + shift]), stof(args[7 + shift]), stof(args[8 + shift]), stof(args[9 + shift])) : CGRectMake(stof(args[2 + shift]), stof(args[3 + shift]), stof(args[4 + shift]), stof(args[5 + shift]));
             
             if (data) {
-                if (OVWildcard::Match(args[1], "*.png*"))
-                    image = ImageHelper::CreateImageFromPNGData((CFDataRef)data);
-                else if (OVWildcard::Match(args[1], "*.jpg*") || OVWildcard::Match(args[1], "*.jpeg*"))
-                    image = ImageHelper::CreateImageFromJPEGData((CFDataRef)data);
+                image = ImageHelper::CreateImageFromJPEGData((CFDataRef)data) ?: ImageHelper::CreateImageFromPNGData((CFDataRef)data);
                 
                 if (image) {
                     [data release];
