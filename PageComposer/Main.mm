@@ -432,6 +432,13 @@ BOOL RunFile(istream& ist, NSString *overrideOutputPath)
                 }
                 else {
                     NSLog(@"line %lu: no image created from URL %s", line, args[1].c_str());
+                    NSGraphicsContext *cocoagc = [NSGraphicsContext graphicsContextWithGraphicsPort: context flipped: NO];
+                    [NSGraphicsContext saveGraphicsState];
+                    [NSGraphicsContext setCurrentContext: cocoagc];
+                    [[NSColor redColor] set];
+                    [NSBezierPath fillRect: NSRectFromCGRect(targetRect)];
+                    [@"Image Format Error." drawInRect: NSRectFromCGRect(targetRect) withAttributes: nil];
+                    [NSGraphicsContext restoreGraphicsState];
                 }
             }
             else {
