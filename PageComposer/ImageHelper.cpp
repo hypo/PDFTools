@@ -9,6 +9,17 @@
 
 using namespace LFSimpleGraphics;
 
+CGImageRef ImageHelper::CreateImageFromData(CFDataRef data)
+{
+    CGImageSourceRef source = CGImageSourceCreateWithData(data, NULL);
+    if (source) {
+        CGImageRef image = CGImageSourceCreateImageAtIndex(source, 0, NULL);
+        CFRelease(source);
+        return image;
+    }
+    return NULL;
+}
+
 CGImageRef ImageHelper::CreateImageFromJPEGData(CFDataRef data)
 {
 	CGDataProviderRef provider = CGDataProviderCreateWithCFData(data);

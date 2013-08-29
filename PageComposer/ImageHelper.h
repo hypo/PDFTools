@@ -16,6 +16,7 @@ namespace LFSimpleGraphics {
 
     class ImageHelper {
 	public:
+        static CGImageRef CreateImageFromData(CFDataRef data);
 		static CGImageRef CreateImageFromJPEGData(CFDataRef data);
 		static CGImageRef CreateImageFromPNGData(CFDataRef data);
         static CGImageRef CreateImageByScaleTo(CGImageRef sourceImage, size_t width, size_t height);
