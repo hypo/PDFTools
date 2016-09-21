@@ -478,6 +478,19 @@ BOOL RunFile(istream& ist, NSString *overrideOutputPath)
 //            [dict release];
         }
         else if (CheckArgsAndContext("text", args, 5, line, context) || CheckArgsAndContext("text_checksize", args, 5, line, context) || CheckArgsAndContext("vtext", args, 5, line, context) || CheckArgsAndContext("vtext_checksize", args, 5, line, context)) {
+            
+            NSAttributedString *backgroundStrokeText = nil;
+            NSAttributedString *foregroundStrokeText = nil;
+            if ([settings objectForKey: @"BackgroundStrokeWidth"]) {
+                [settings setObject: [settings objectForKey: @"BackgroundStrokeWidth"] forKey: @"StrokeWidth"];
+                backgroundStrokeText = attributedStringWithOptions(NSU8(args[5]), settings);
+                [settings removeObjectForKey: @"StrokeWidth"];
+            }
+            if ([settings objectForKey: @"StrokeWidth"]) {
+                foregroundStrokeText = attributedStringWithOptions(NSU8(args[5]), settings);
+                [settings removeObjectForKey: @"StrokeWidth"];
+            }
+            
             NSAttributedString *attributedText = attributedStringWithOptions(NSU8(args[5]), settings);
             CGRect targetRect = CGRectMake(stof(args[1]), stof(args[2]), stof(args[3]), stof(args[4]));
             
@@ -562,8 +575,21 @@ BOOL RunFile(istream& ist, NSString *overrideOutputPath)
                 CGFloat baselinePoint = [[verticalAlignment substringFromIndex: [@"bottom-baseline:" length]] doubleValue];
                 deltaY = boundingSize.height - baselinePoint - actualRect.size.height - minDescender;
             }
+            if (backgroundStrokeText) {
+                NSTextStorage *strokeTextStorage = [[NSTextStorage alloc] initWithAttributedString: backgroundStrokeText];
+                [layoutManager replaceTextStorage: strokeTextStorage];
+                [layoutManager drawGlyphsForGlyphRange: glyphRange atPoint: NSMakePoint(0, deltaY)];
+                [layoutManager replaceTextStorage: textStorage];
+                [strokeTextStorage release];
+            }
             [layoutManager drawGlyphsForGlyphRange: glyphRange atPoint: NSMakePoint(0, deltaY)];
-                        
+            if (foregroundStrokeText) {
+                NSTextStorage *strokeTextStorage = [[NSTextStorage alloc] initWithAttributedString: foregroundStrokeText];
+                [layoutManager replaceTextStorage: strokeTextStorage];
+                [layoutManager drawGlyphsForGlyphRange: glyphRange atPoint: NSMakePoint(0, deltaY)];
+                [strokeTextStorage release];
+            }
+            
             if (checkSize) {
                 if (actualRect.size.width > boundingSize.width || actualRect.size.height > boundingSize.height)
 				{
@@ -614,7 +640,7 @@ int main(int argc, char* argv[])
     id pool = [NSAutoreleasePool new];
 	BOOL textOversized = NO;
     
-    NSString *overrideFilePath = nil;    
+    NSString *overrideFilePath = nil;
 
     int ch;
     while ((ch = getopt(argc, argv, "o:")) != -1) {
