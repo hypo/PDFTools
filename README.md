@@ -234,3 +234,35 @@ The behavior of bottom-baseline: alignment on vertical text is undefined.
     # Those attributes will be reset with next call to text command.
     endpdf file:///path/to/output.pdf
 
+----
+
+### Stroke text
+    beginpdf 720 720
+
+    simplecolor blue 0 0 720 720
+
+    set FontSize 60.0
+    set TypeFaceCJK HiraginoSansGB-W3
+    set FontSizeCJK 60.0
+    set LineSpacing 1.5
+    set TypeFace Helvetica
+    set TextAlign center
+    set TextVerticalAlign middle
+    set StrokeColor yellow
+    set StrokeWidth 3
+    text 0 360 720 360 "Hello繁體測試（前景stroke）"
+
+    set FontSize 60.0
+    set TypeFaceCJK HiraginoSansGB-W3
+    set FontSizeCJK 60.0
+    set LineSpacing 1.5
+    set TypeFace Helvetica
+    set TextAlign center
+    set TextVerticalAlign middle
+    set StrokeColor yellow
+    set BackgroundStrokeWidth 15
+    text 0 0 720 360 "Hello繁體測試（背景stroke）"
+
+    endpdf file:///path/to/output.pdf
+
+![bottom-baseline](https://github.com/hypo/PDFTools/raw/master/Documents/stroke.png)
