@@ -406,8 +406,18 @@ BOOL RunFile(istream& ist, NSString *overrideOutputPath)
                     }
 					
                     CGContextSaveGState(context);
-
+                    CGFloat centerRotationDegree = 0;
+                    if ([settings objectForKey: @"CenterRotation"]) {
+                        centerRotationDegree = [[settings objectForKey: @"CenterRotation"] floatValue];
+                    }
+                    CGPoint center = CGPointMake(CGRectGetMidX(targetRect), CGRectGetMidY(targetRect));
+                    CGContextTranslateCTM(context, center.x, center.y);
+                    CGContextRotateCTM(context, centerRotationDegree * M_PI / 180.0);
+                    CGContextTranslateCTM(context, -CGRectGetWidth(targetRect)/2.0, -CGRectGetHeight(targetRect)/2.0);
+                    targetRect.origin = CGPointZero;
+                    
 					if (radius > 0) AddBorderRadiusPath(context, targetRect, radius);
+                    
                     cg.drawImage(sourceImage, targetRect);
 					CGContextRestoreGState(context);
                     CFRelease(sourceImage);
