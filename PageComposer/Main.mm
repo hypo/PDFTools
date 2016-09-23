@@ -652,7 +652,7 @@ BOOL RunFile(istream& ist, NSString *overrideOutputPath)
             
             NSColor *color = [NSColor colorByName: NSU8(args[1])];
             [color set];
-            [NSBezierPath fillRect: targetRect];
+            [NSBezierPath fillRect: NSMakeRect(targetRect.origin.x, targetRect.origin.y, targetRect.size.width, targetRect.size.height)];
             
             [NSGraphicsContext restoreGraphicsState];
             CGContextRestoreGState(context);
