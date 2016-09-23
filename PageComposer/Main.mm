@@ -630,15 +630,32 @@ BOOL RunFile(istream& ist, NSString *overrideOutputPath)
             [NSGraphicsContext restoreGraphicsState];        
         }
         else if (CheckArgsAndContext("simplecolor", args, 5, line, context)) {
+            CGContextSaveGState(context);
             NSGraphicsContext *cocoagc = [NSGraphicsContext graphicsContextWithGraphicsPort:context flipped:NO];
+            CGRect targetRect = CGRectMake(stof(args[2]), stof(args[3]), stof(args[4]), stof(args[5]));
+            
             [NSGraphicsContext saveGraphicsState];
             [NSGraphicsContext setCurrentContext:cocoagc];
 
+            NSAffineTransform *xfrm = [NSAffineTransform transform];
+            [xfrm translateXBy: CGRectGetMidX(targetRect) yBy: CGRectGetMidY(targetRect)];
+            CGFloat centerRotationDegree = 0;
+            if ([settings objectForKey: @"CenterRotation"]) {
+                centerRotationDegree = [[settings objectForKey: @"CenterRotation"] floatValue];
+                [settings removeObjectForKey: @"CenterRotation"];
+            }
+            [xfrm rotateByDegrees: centerRotationDegree];
+            [xfrm translateXBy: -CGRectGetWidth(targetRect) / 2.0 yBy: -CGRectGetHeight(targetRect) / 2.0];
+            [xfrm concat];
+            
+            targetRect.origin = CGPointZero;
+            
             NSColor *color = [NSColor colorByName: NSU8(args[1])];
             [color set];
-            [NSBezierPath fillRect: NSMakeRect(stof(args[2]), stof(args[3]), stof(args[4]), stof(args[5]))];
+            [NSBezierPath fillRect: targetRect];
             
-            [NSGraphicsContext restoreGraphicsState];        
+            [NSGraphicsContext restoreGraphicsState];
+            CGContextRestoreGState(context);
         }
         else {
             NSLog(@"line %lu: unknown command '%s'", line, args[0].c_str());
