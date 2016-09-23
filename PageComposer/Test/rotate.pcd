@@ -1,0 +1,12 @@
+beginpdf 600 600
+
+simpleimage https://67.media.tumblr.com/3793b2c1fd80436127118786b9d3e483/tumblr_odd4e4efOo1qixdtpo1_540.jpg 163 100 274 400
+
+set CenterRotation 30
+simpleimage https://67.media.tumblr.com/3793b2c1fd80436127118786b9d3e483/tumblr_odd4e4efOo1qixdtpo1_540.jpg 163 100 274 400
+
+set CenterRotation 60
+simpleimage https://67.media.tumblr.com/3793b2c1fd80436127118786b9d3e483/tumblr_odd4e4efOo1qixdtpo1_540.jpg 163 100 274 400
+
+endpdf file:///tmp/preview.pdf
+

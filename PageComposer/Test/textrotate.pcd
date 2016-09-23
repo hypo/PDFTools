@@ -1,0 +1,37 @@
+beginpdf 600 600
+
+set CenterRotation 20
+simpleimage https://66.media.tumblr.com/6b461270e63a0e4c2791b94316fac540/tumblr_odxo58VTmm1qa6qfto1_1280.png 100 100 330 220
+
+set CenterRotation 45
+simplecolor yellow 130 30 20 540
+
+set CenterRotation 45
+set FontSize 14
+set FontSizeCJK 14
+set Typeface "Helvetica"
+set TypefaceCJK "HiraginoSansGB-W3"
+set TextAlign center
+set Ligature 1
+set SymbolSubstitution "，。、；？！"
+set TypefaceSubstitution "STHeitiTC-Light"
+set FontSizeSubstitution 14pt
+vtext 130 30 20 540 白日依山盡，黃河入海流。
+
+set CenterRotation 60
+simplecolor green 200 200 300 20
+
+set CenterRotation 60
+set FontSize 14
+set FontSizeCJK 14
+set Typeface "Helvetica"
+set TypefaceCJK "HiraginoSansGB-W3"
+set TextAlign center
+set Ligature 1
+set SymbolSubstitution "，。、；？！"
+set TypefaceSubstitution "STHeitiTC-Light"
+set FontSizeSubstitution 14pt
+text 200 200 300 20 欲窮千里目，更上一層樓。
+
+endpdf file:///tmp/preview.pdf
+
