@@ -533,7 +533,13 @@ BOOL RunFile(istream& ist, NSString *overrideOutputPath)
             [NSGraphicsContext setCurrentContext:cocoagc];
             NSAffineTransform *xfrm = [NSAffineTransform transform];
             [xfrm scaleXBy: 1 yBy: -1];
-            [xfrm translateXBy: CGRectGetMinX(targetRect) yBy: -CGRectGetMaxY(targetRect)];
+            [xfrm translateXBy: CGRectGetMidX(targetRect) yBy: -CGRectGetMidY(targetRect)];
+            CGFloat centerRotationDegree = 0;
+            if ([settings objectForKey: @"CenterRotation"]) {
+                centerRotationDegree = [[settings objectForKey: @"CenterRotation"] floatValue];
+            }
+            [xfrm rotateByDegrees: -centerRotationDegree];
+            [xfrm translateXBy: -CGRectGetWidth(targetRect) / 2.0 yBy: -CGRectGetHeight(targetRect) / 2.0];
             
             if (clockwiseRotation || vertical) {
                 [xfrm rotateByDegrees: 90];

@@ -1,0 +1,33 @@
+beginpdf 600 600
+
+simplecolor yellow 30 30 20 540
+
+set CenterRotation 45
+set FontSize 14
+set FontSizeCJK 14
+set Typeface "Helvetica"
+set TypefaceCJK "HiraginoSansGB-W3"
+set TextAlign center
+set Ligature 1
+set SymbolSubstitution "，。、；？！"
+set TypefaceSubstitution "STHeitiTC-Light"
+set FontSizeSubstitution 14pt
+vtext 30 30 20 540 白日依山盡，黃河入海流。
+
+
+simplecolor green 200 50 300 20
+
+set CenterRotation 60
+set FontSize 14
+set FontSizeCJK 14
+set Typeface "Helvetica"
+set TypefaceCJK "HiraginoSansGB-W3"
+set TextAlign center
+set Ligature 1
+set SymbolSubstitution "，。、；？！"
+set TypefaceSubstitution "STHeitiTC-Light"
+set FontSizeSubstitution 14pt
+text 200 50 300 20 白日依山盡，黃河入海流。
+
+endpdf file:///tmp/preview.pdf
+
