@@ -103,6 +103,11 @@ bool CheckArgsAndContext(const string& cmd, const vector<string>& args, size_t c
     return CheckArgs(cmd, args, count, line);
 }
 
+float stof(const string& str)
+{
+    return atof(str.c_str());
+}
+
 NSString* NSU8(const string& str)
 {
     return [NSString stringWithUTF8String:str.c_str()];
