@@ -4,6 +4,7 @@
 #import "LFSimpleGraphics.h"
 #import "ZRCGUtilities.h"
 #import "YLCTUtilities.h"
+#import "NSBezierPath+Utility.h"
 
 #include <vector>
 #include <string>
@@ -483,6 +484,8 @@ BOOL RunFile(istream& ist, NSString *overrideOutputPath)
 //            [dict release];
         }
         else if (CheckArgsAndContext("text", args, 5, line, context) || CheckArgsAndContext("text_checksize", args, 5, line, context) || CheckArgsAndContext("vtext", args, 5, line, context) || CheckArgsAndContext("vtext_checksize", args, 5, line, context)) {
+            [NSBezierPath setDefaultLineJoinStyle: NSRoundLineJoinStyle];
+            [NSBezierPath setDefaultLineCapStyle: NSRoundLineCapStyle];
             
             NSAttributedString *backgroundStrokeText = nil;
             NSAttributedString *foregroundStrokeText = nil;
@@ -586,19 +589,44 @@ BOOL RunFile(istream& ist, NSString *overrideOutputPath)
                 CGFloat baselinePoint = [[verticalAlignment substringFromIndex: [@"bottom-baseline:" length]] doubleValue];
                 deltaY = boundingSize.height - baselinePoint - actualRect.size.height - minDescender;
             }
-            if (backgroundStrokeText) {
-                NSTextStorage *strokeTextStorage = [[NSTextStorage alloc] initWithAttributedString: backgroundStrokeText];
-                [layoutManager replaceTextStorage: strokeTextStorage];
+            if ([settings objectForKey: @"TextPath"]) {
+                NSAffineTransform *xfrm = [NSAffineTransform transform];
+                [xfrm scaleXBy: 1 yBy: -1];
+                [xfrm translateXBy: -CGRectGetMinX(targetRect) yBy: -CGRectGetMaxY(targetRect)];
+                [xfrm concat];
+                NSBezierPath *path = [NSBezierPath bezierPathFromString: [settings objectForKey: @"TextPath"]];
+                [[NSColor greenColor] setStroke];
+                [path stroke];
+                NSBezierPath *textPath = [path bezierPathWithTextOnPath: attributedText yOffset: 0];
+                
+                if (backgroundStrokeText) {
+                    [textPath setLineWidth: [[backgroundStrokeText attribute: NSStrokeWidthAttributeName atIndex: 0 longestEffectiveRange: NULL inRange: NSMakeRange(0, backgroundStrokeText.length)] doubleValue]];
+                    [(NSColor *)[backgroundStrokeText attribute: NSStrokeColorAttributeName atIndex: 0 longestEffectiveRange: NULL inRange: NSMakeRange(0, backgroundStrokeText.length)] setStroke];
+                    [textPath stroke];
+                }
+                [(NSColor *)[backgroundStrokeText attribute: NSForegroundColorAttributeName atIndex: 0 longestEffectiveRange: NULL inRange: NSMakeRange(0, backgroundStrokeText.length)] setStroke];
+                [textPath fill];
+                if (foregroundStrokeText) {
+                    [textPath setLineWidth: [[foregroundStrokeText attribute: NSStrokeWidthAttributeName atIndex: 0 longestEffectiveRange: NULL inRange: NSMakeRange(0, foregroundStrokeText.length)] doubleValue]];
+                    [(NSColor *)[foregroundStrokeText attribute: NSStrokeColorAttributeName atIndex: 0 longestEffectiveRange: NULL inRange: NSMakeRange(0, foregroundStrokeText.length)] setStroke];
+                    [textPath stroke];
+                }
+                
+            } else {
+                if (backgroundStrokeText) {
+                    NSTextStorage *strokeTextStorage = [[NSTextStorage alloc] initWithAttributedString: backgroundStrokeText];
+                    [layoutManager replaceTextStorage: strokeTextStorage];
+                    [layoutManager drawGlyphsForGlyphRange: glyphRange atPoint: NSMakePoint(0, deltaY)];
+                    [layoutManager replaceTextStorage: textStorage];
+                    [strokeTextStorage release];
+                }
                 [layoutManager drawGlyphsForGlyphRange: glyphRange atPoint: NSMakePoint(0, deltaY)];
-                [layoutManager replaceTextStorage: textStorage];
-                [strokeTextStorage release];
-            }
-            [layoutManager drawGlyphsForGlyphRange: glyphRange atPoint: NSMakePoint(0, deltaY)];
-            if (foregroundStrokeText) {
-                NSTextStorage *strokeTextStorage = [[NSTextStorage alloc] initWithAttributedString: foregroundStrokeText];
-                [layoutManager replaceTextStorage: strokeTextStorage];
-                [layoutManager drawGlyphsForGlyphRange: glyphRange atPoint: NSMakePoint(0, deltaY)];
-                [strokeTextStorage release];
+                if (foregroundStrokeText) {
+                    NSTextStorage *strokeTextStorage = [[NSTextStorage alloc] initWithAttributedString: foregroundStrokeText];
+                    [layoutManager replaceTextStorage: strokeTextStorage];
+                    [layoutManager drawGlyphsForGlyphRange: glyphRange atPoint: NSMakePoint(0, deltaY)];
+                    [strokeTextStorage release];
+                }
             }
             
             if (checkSize) {

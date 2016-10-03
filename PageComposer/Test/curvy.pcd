@@ -1,0 +1,31 @@
+beginpdf 720 720
+
+#simplecolor blue 0 0 720 720
+
+set FontSize 30.0
+set TypeFaceCJK HiraginoSansGB-W3
+set FontSizeCJK 30.0
+set LineSpacing 1.5
+set TypeFace Helvetica
+set TextAlign center
+set TextVerticalAlign middle
+set StrokeColor yellow
+set StrokeWidth 0.5
+set TextPath "M 30 690 C 30 690 92 450 318 450 C 544 450 412 702 524 654 C 636 606 698 420 698 420"
+#set TextPath "M 40 40 L 100 100 L 300 500"
+text 200 0 720 360 "Hello繁體測試（前景stroke）"
+
+
+set FontSize 60.0
+set TypeFaceCJK HiraginoSansGB-W3
+set FontSizeCJK 60.0
+set LineSpacing 1.5
+set TypeFace Helvetica
+set TextAlign center
+set TextVerticalAlign middle
+set StrokeColor yellow
+set BackgroundStrokeWidth 15
+set TextPath "M 44 68 C 44 68 92 326 372 324 C 652 322 690 78 690 78"
+text 0 0 720 360 "Hello繁體測試（背景stroke）"
+
+endpdf file:///tmp/preview.pdf

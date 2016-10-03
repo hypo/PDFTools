@@ -149,7 +149,7 @@ static float subdivideBezierAtLength (const NSPoint bez[4],
             CGFloat y2 = [tokens[idx++] doubleValue];
             CGFloat x3 = [tokens[idx++] doubleValue];
             CGFloat y3 = [tokens[idx++] doubleValue];
-            [path curveToPoint: NSMakePoint(x1, y1) controlPoint1: NSMakePoint(x2, y2) controlPoint2: NSMakePoint(x3, y3)];
+            [path curveToPoint: NSMakePoint(x3, y3) controlPoint1: NSMakePoint(x1, y1) controlPoint2: NSMakePoint(x2, y2)];
         } else if ([token isEqualToString: @"Z"]) {
             [path closePath];
         } else if ([token isEqualToString: @"L"]) {
@@ -557,6 +557,14 @@ static float subdivideBezierAtLength (const NSPoint bez[4],
     CFIndex glyphOffset = 0;
     CFIndex runIndex = 0;
     
+    CGFloat offset = 0;
+    NSParagraphStyle *ps = [str attribute: NSParagraphStyleAttributeName atIndex: 0 longestEffectiveRange: NULL inRange: NSMakeRange(0, str.length)];
+    if (ps.alignment == NSTextAlignmentCenter) {
+        offset = (self.length - CTLineGetImageBounds(line, NULL).size.width) / 2.0;
+    } else if (ps.alignment == NSTextAlignmentRight) {
+        offset = self.length - CTLineGetImageBounds(line, NULL).size.width;
+    }
+    
     for (; runIndex < runCount; runIndex++) {
         CTRunRef run = (CTRunRef)CFArrayGetValueAtIndex(runArray, runIndex);
         CFIndex runGlyphCount = CTRunGetGlyphCount(run);
@@ -576,7 +584,7 @@ static float subdivideBezierAtLength (const NSPoint bez[4],
             CGPoint position;
             CTRunGetPositions(run, glyphRange, &position);
             
-            temp = [self bezierPathByTrimmingFromLength: position.x + halfWidth];
+            temp = [self bezierPathByTrimmingFromLength: offset + position.x + halfWidth];
             if ([temp length] < halfWidth)
                 continue;
             
