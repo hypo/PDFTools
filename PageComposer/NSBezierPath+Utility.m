@@ -137,7 +137,28 @@ static float subdivideBezierAtLength (const NSPoint bez[4],
 
 + (NSBezierPath *) bezierPathFromString: (NSString *)string
 {
-    
+    NSBezierPath *path = [NSBezierPath bezierPath];
+    NSArray<NSString *> *tokens = [string componentsSeparatedByString: @" "];
+    for (int idx = 0; idx < tokens.count;) {
+        NSString *token = tokens[idx++];
+        CGFloat x1 = [tokens[idx++] doubleValue];
+        CGFloat y1 = [tokens[idx++] doubleValue];
+        
+        if ([token isEqualToString: @"C"]) {
+            CGFloat x2 = [tokens[idx++] doubleValue];
+            CGFloat y2 = [tokens[idx++] doubleValue];
+            CGFloat x3 = [tokens[idx++] doubleValue];
+            CGFloat y3 = [tokens[idx++] doubleValue];
+            [path curveToPoint: NSMakePoint(x1, y1) controlPoint1: NSMakePoint(x2, y2) controlPoint2: NSMakePoint(x3, y3)];
+        } else if ([token isEqualToString: @"Z"]) {
+            [path closePath];
+        } else if ([token isEqualToString: @"L"]) {
+            [path lineToPoint: NSMakePoint(x1, y1)];
+        } else if ([token isEqualToString: @"M"]) {
+            [path moveToPoint: NSMakePoint(x1, y1)];
+        }
+    }
+    return path;
 }
 
 - (NSBezierPath*) paralleloidPathWithOffset: (float)delta
