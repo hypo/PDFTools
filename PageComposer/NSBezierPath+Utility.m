@@ -141,6 +141,7 @@ static float subdivideBezierAtLength (const NSPoint bez[4],
     NSArray<NSString *> *tokens = [string componentsSeparatedByString: @" "];
     for (int idx = 0; idx < tokens.count;) {
         NSString *token = tokens[idx++];
+        if ([token length] == 0) continue;
         CGFloat x1 = [tokens[idx++] doubleValue];
         CGFloat y1 = [tokens[idx++] doubleValue];
         
