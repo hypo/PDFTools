@@ -595,8 +595,6 @@ BOOL RunFile(istream& ist, NSString *overrideOutputPath)
                 [xfrm translateXBy: -CGRectGetMinX(targetRect) yBy: -CGRectGetMaxY(targetRect)];
                 [xfrm concat];
                 NSBezierPath *path = [NSBezierPath bezierPathFromString: [settings objectForKey: @"TextPath"]];
-                [[NSColor greenColor] setStroke];
-                [path stroke];
                 NSBezierPath *textPath = [path bezierPathWithTextOnPath: attributedText yOffset: 0];
                 
                 if (backgroundStrokeText) {
