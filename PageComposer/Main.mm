@@ -633,7 +633,9 @@ BOOL RunFile(istream& ist, NSString *overrideOutputPath)
             }
             
             if (checkSize) {
-                if (actualRect.size.width > boundingSize.width || actualRect.size.height > boundingSize.height)
+                CGFloat w = actualRect.size.width;
+                if (-5 <= actualRect.origin.x && actualRect.origin.x < 0) w += actualRect.origin.x;
+                if (w > boundingSize.width || actualRect.size.height > boundingSize.height)
 				{
 					NSLog(@"oversize detected, actualBox=%@", NSStringFromRect(actualRect));
                     needRedBorder = YES;
