@@ -1,0 +1,20 @@
+beginpdf 215.433096 22.677168
+simplecolor blue 0 0 215.433096 22.677168
+set TypefaceCJK "DFYuanStd-W7"
+set FontSizeCJK "13"
+set Typeface "DFYuanStd-W7"
+set FontSize "13"
+set Kerning "0.7"
+set KerningCJK "5"
+set TextAlign "center"
+set TextVerticalAlign "middle"
+set Ligature "1"
+set padding "0"
+set LineHeight "13"
+set StrokeColor "white"
+set BackgroundStrokeWidth 5
+set TextAlign center
+set Color red
+
+text_checksize 0 0 215.433096 22.677168 "翻球識棒滿abc123格柱木栓"
+endpdf file:///tmp/square_text.pdf
