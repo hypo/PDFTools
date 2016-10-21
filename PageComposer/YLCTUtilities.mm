@@ -118,9 +118,6 @@ NSAttributedString *attributedStringWithOptions(NSString *text, NSDictionary *op
 
     NSString *symbolSubstitution = [options objectForKey: @"SymbolSubstitution"];
     
-    CGFloat strokeWidth = [([options objectForKey: @"StrokeWidth"] ?: @0) floatValue];
-    NSString *strokeColorName = [options objectForKey: @"StrokeColor"];
-    
     NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString: text];
     
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle new] autorelease];
@@ -151,12 +148,6 @@ NSAttributedString *attributedStringWithOptions(NSString *text, NSDictionary *op
                                 @(baselineOffset), NSBaselineOffsetAttributeName,
                                 @(ligature), NSLigatureAttributeName,
 								nil];
-
-    if (strokeWidth > 0 && strokeColorName) {
-        NSColor *strokeColor = [NSColor colorByName: strokeColorName];
-        psd[NSStrokeColorAttributeName] = strokeColor;
-        psd[NSStrokeWidthAttributeName] = @(strokeWidth);
-    }
     
     // set Latin font and paragraph style
     [attrString setAttributes: psd range: NSMakeRange(0, len)];

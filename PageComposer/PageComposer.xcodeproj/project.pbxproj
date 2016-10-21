@@ -18,6 +18,7 @@
 		851913AE15552BFE0060722D /* Main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6A4966850DE47906001E75AA /* Main.mm */; };
 		851913AF15552BFE0060722D /* ZRCGUtilities.mm in Sources */ = {isa = PBXBuildFile; fileRef = DAC117F0104A36980064004E /* ZRCGUtilities.mm */; };
 		851913B015552BFE0060722D /* YLCTUtilities.mm in Sources */ = {isa = PBXBuildFile; fileRef = 85838EA81520503A004578BF /* YLCTUtilities.mm */; };
+		85825E2A1DB9E6F90018B20F /* YLLayoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 85825E291DB9E6F90018B20F /* YLLayoutManager.m */; };
 		85BA8CBB1DA22AEF00F41998 /* NSBezierPath+Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 85BA8CBA1DA22AEF00F41998 /* NSBezierPath+Utility.m */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +47,8 @@
 		851913A115552B740060722D /* PageComposer.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = PageComposer.1; sourceTree = "<group>"; };
 		851913A615552B8C0060722D /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
 		851913A815552B940060722D /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/ApplicationServices.framework; sourceTree = DEVELOPER_DIR; };
+		85825E281DB9E6F90018B20F /* YLLayoutManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLLayoutManager.h; sourceTree = "<group>"; };
+		85825E291DB9E6F90018B20F /* YLLayoutManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLLayoutManager.m; sourceTree = "<group>"; };
 		85838EA71520503A004578BF /* YLCTUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLCTUtilities.h; sourceTree = "<group>"; };
 		85838EA81520503A004578BF /* YLCTUtilities.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = YLCTUtilities.mm; sourceTree = "<group>"; };
 		85838EAA1520507C004578BF /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = /System/Library/Frameworks/ApplicationServices.framework; sourceTree = "<absolute>"; };
@@ -113,6 +116,8 @@
 			isa = PBXGroup;
 			children = (
 				DAC9C207110A1D6100C3EDA5 /* LFSimpleGraphics */,
+				85825E281DB9E6F90018B20F /* YLLayoutManager.h */,
+				85825E291DB9E6F90018B20F /* YLLayoutManager.m */,
 				6A4966850DE47906001E75AA /* Main.mm */,
 				6A4966860DE47906001E75AA /* OVStringHelper.h */,
 				6A4966870DE47906001E75AA /* OVWildcard.h */,
@@ -220,6 +225,7 @@
 				851913AC15552BFE0060722D /* ImageHelper.cpp in Sources */,
 				851913AD15552BFE0060722D /* SinglePagePDF.cpp in Sources */,
 				851913AE15552BFE0060722D /* Main.mm in Sources */,
+				85825E2A1DB9E6F90018B20F /* YLLayoutManager.m in Sources */,
 				851913AF15552BFE0060722D /* ZRCGUtilities.mm in Sources */,
 				851913B015552BFE0060722D /* YLCTUtilities.mm in Sources */,
 				85BA8CBB1DA22AEF00F41998 /* NSBezierPath+Utility.m in Sources */,
