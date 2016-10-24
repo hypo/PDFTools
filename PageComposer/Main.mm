@@ -583,8 +583,10 @@ BOOL RunFile(istream& ist, NSString *overrideOutputPath)
                 CGFloat baselinePoint = [[verticalAlignment substringFromIndex: [@"bottom-baseline:" length]] doubleValue];
                 deltaY = boundingSize.height - baselinePoint - actualRect.size.height - minDescender;
             }
-            
-            NSColor *fillColor = [attributedText attribute: NSForegroundColorAttributeName atIndex: 0 longestEffectiveRange: NULL inRange: NSMakeRange(0, attributedText.length)];
+            NSColor *fillColor = [NSColor blackColor];
+            if (attributedText.length > 0) {
+                NSColor *fillColor = [attributedText attribute: NSForegroundColorAttributeName atIndex: 0 longestEffectiveRange: NULL inRange: NSMakeRange(0, attributedText.length)];
+            }
             NSColor *strokeColor = [NSColor colorByName: [settings objectForKey: @"StrokeColor"]];
             CGFloat bgStrokeWidth = [([settings objectForKey: @"BackgroundStrokeWidth"] ?: @0) doubleValue];
             CGFloat fgStrokeWidth = [([settings objectForKey: @"StrokeWidth"] ?: @0) doubleValue];
