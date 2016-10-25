@@ -585,7 +585,7 @@ BOOL RunFile(istream& ist, NSString *overrideOutputPath)
             }
             NSColor *fillColor = [NSColor blackColor];
             if (attributedText.length > 0) {
-                NSColor *fillColor = [attributedText attribute: NSForegroundColorAttributeName atIndex: 0 longestEffectiveRange: NULL inRange: NSMakeRange(0, attributedText.length)];
+                fillColor = [attributedText attribute: NSForegroundColorAttributeName atIndex: 0 longestEffectiveRange: NULL inRange: NSMakeRange(0, attributedText.length)];
             }
             NSColor *strokeColor = [NSColor colorByName: [settings objectForKey: @"StrokeColor"]];
             CGFloat bgStrokeWidth = [([settings objectForKey: @"BackgroundStrokeWidth"] ?: @0) doubleValue];
