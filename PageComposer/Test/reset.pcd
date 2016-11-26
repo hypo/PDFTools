@@ -1,0 +1,5 @@
+beginpdf 1207.5591960000002 858.897738
+set CenterRotation -2.121096463727242
+image_compress https://farm6.staticflickr.com/5736/30050060406_603c875f87_o.jpg 0.99 *0 *0.03990610328638489 *1 *0.9201877934272302 702.992208 453.54336 402.519732 277.79530800000003
+image https://hess.hypo.cc/Resources/hess/class1-1/p2_preview.png  *0 *0 *1 *1  0 0 1207.5591960000002 858.897738
+endpdf file:///tmp/page.pdf

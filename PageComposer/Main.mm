@@ -46,8 +46,13 @@ using namespace std;
     [self removeObjectForKey: @"TypefaceSubstitution"];
     [self removeObjectForKey: @"FontSizeSubstitution"];
     [self removeObjectForKey: @"ContentRotation"];
+    [self removeObjectForKey: @"CenterRotation"];
     [self removeObjectForKey: @"BaselineOffset"];
     [self removeObjectForKey: @"BaselineOffsetCJK"];
+    [self removeObjectForKey: @"StrokeColor"];
+    [self removeObjectForKey: @"StrokeWidth"];
+    [self removeObjectForKey: @"BackgroundStrokeWidth"];
+    [self removeObjectForKey: @"TextPath"];
 }
 
 - (NSDictionary *) textDictionaryWithText: (NSString *)text
@@ -102,11 +107,6 @@ bool CheckArgsAndContext(const string& cmd, const vector<string>& args, size_t c
     }
     
     return CheckArgs(cmd, args, count, line);
-}
-
-float stof(const string& str)
-{
-    return atof(str.c_str());
 }
 
 NSString* NSU8(const string& str)
@@ -411,6 +411,7 @@ BOOL RunFile(istream& ist, NSString *overrideOutputPath)
                     CGFloat centerRotationDegree = 0;
                     if ([settings objectForKey: @"CenterRotation"]) {
                         centerRotationDegree = [[settings objectForKey: @"CenterRotation"] floatValue];
+                        [settings removeObjectForKey: @"CenterRotation"];
                     }
                     CGPoint center = CGPointMake(CGRectGetMidX(targetRect), CGRectGetMidY(targetRect));
                     CGContextTranslateCTM(context, center.x, center.y);
@@ -529,6 +530,7 @@ BOOL RunFile(istream& ist, NSString *overrideOutputPath)
             CGFloat centerRotationDegree = 0;
             if ([settings objectForKey: @"CenterRotation"]) {
                 centerRotationDegree = [[settings objectForKey: @"CenterRotation"] floatValue];
+                [settings removeObjectForKey: @"CenterRotation"];
             }
             [xfrm rotateByDegrees: -centerRotationDegree];
             [xfrm translateXBy: -CGRectGetWidth(targetRect) / 2.0 yBy: -CGRectGetHeight(targetRect) / 2.0];
