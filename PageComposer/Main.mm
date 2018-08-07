@@ -440,7 +440,8 @@ BOOL RunFile(istream& ist, NSString *overrideOutputPath)
                     CGContextDrawPDFPage(context, page);
                     
                     CGContextRestoreGState(context);
-                    CGPDFDocumentRelease(pdfDocument);
+                    
+                    // CGPDFDocumentRelease(pdfDocument);
                     CGDataProviderRelease(dataProvider);
                 }
                 else {

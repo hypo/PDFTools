@@ -81,8 +81,8 @@ UniChar _PECJKChars[] = {0x2013, 0x2014, 0x2025, 0x2026, 0x22ee, 0x22ef, 0x2500,
 BOOL isCJK(UniChar c)
 {
 	if (c >= 0x2e80) return YES;
-	size_t i;
-	for (i=0;i<sizeof(_PECJKChars);i++) if (c==_PECJKChars[i]) return YES;
+	size_t i, len = sizeof(_PECJKChars) / sizeof(_PECJKChars[0]);
+	for (i = 0; i < len; i++) if (c == _PECJKChars[i]) return YES;
 	return NO;
 }
 
